@@ -20,6 +20,8 @@
 
 [第九章-SpringBoot 与缓存](第九章-SpringBoot与缓存)
 
+[第十章-SpringBoot 与消息](第十章-SpringBoot与消息)
+
 ## 课程视频地址
 
 1-8 章：[SpringBoot 快速掌握(1)：核心技术](https://edu.aliyun.com/course/1912)
