@@ -1,0 +1,327 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>flex-demo</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+
+        .main{
+            display: flex;
+            flex-wrap: wrap;
+            width: 680px;
+            justify-content: space-between;
+
+        }
+
+        .container{
+            display: flex;
+            width: 320px;
+            height: 320px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content:space-between;
+        }
+
+        .box{
+            width: 90px;
+            height: 90px;
+            background-color: #EEEEEE;
+            padding: 5px;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;            
+        }
+
+        .row{
+            display: flex;
+            flex-basis: 100%;
+        }
+
+        .item{
+            width: 24px;
+            height: 24px;
+            background-color: #000000;
+            margin: 3px;
+            border-radius: 50%;
+        }
+            
+
+        /*排列方向*/
+        .flex-direction-column{
+             flex-direction: column;
+        }
+
+        /*水平排列*/
+        .justify-content-center{
+            justify-content: center;
+        }
+
+        .justify-content-flex-end{
+            justify-content: flex-end;
+        }
+
+        .justify-content-space-between{
+            justify-content: space-between;
+        }
+            
+        /*垂直排列*/
+         .align-items-center{
+             align-items: center;
+         }
+
+         .align-items-flex-end{
+             align-items: flex-end;
+         }
+
+         .align-items-space-between{
+             align-items: space-between;
+         }
+        
+        /*多轴对齐*/
+         .align-content-space-between{
+            align-content: space-between;
+         }
+
+         /*项目排列*/
+         .align-self-center{
+            align-self: center;
+         }
+
+         .align-self-flex-end{
+            align-self: flex-end;
+         }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <h2>单项目</h2>
+            <div class="container">
+
+                <div class="box">
+                    <span class="item"></span>
+                </div>
+
+                <div class="box justify-content-center">
+                    <span class="item"></span>          
+                </div>
+
+                <div class="box justify-content-flex-end">
+                    <span class="item"></span>
+                </div>
+
+                <div class="box align-items-center">
+                    <span class="item"></span>
+                </div>
+
+                <div class="box justify-content-center align-items-center">
+                    <span class="item"></span>
+                </div>
+
+                <div class="box justify-content-flex-end align-items-center">
+                    <span class="item"></span>
+                </div>
+
+                <div class="box align-items-flex-end">
+                    <span class="item"></span>
+                </div>
+                
+                <div class="box justify-content-center align-items-flex-end">
+                    <span class="item"></span>
+                </div>
+
+                 <div class="box justify-content-flex-end align-items-flex-end">
+                    <span class="item"></span>
+                </div>     
+            </div>
+        </div>
+
+        <div>
+            <h2>双项目</h2>
+            <div class="container">
+                <div class="box">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+                
+                <div class="box">
+                    <span class="item"></span>
+                    <span class="item align-self-center"></span>
+                </div>
+                
+                <div class="box justify-content-space-between">
+                    <span class="item"></span>
+                    <span class="item align-self-flex-end"></span>
+                </div>
+
+                <div class="box justify-content-space-between">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+
+                <div class="box justify-content-space-between align-items-center">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>  
+                <div class="box justify-content-space-between align-items-flex-end">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>  
+
+                <div class="box justify-content-space-between flex-direction-column">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+                
+                <div class="box justify-content-space-between align-items-center flex-direction-column">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>  
+
+                <div class="box justify-content-space-between align-items-flex-end flex-direction-column">
+                    <span class="item"></span> 
+                    <span class="item"></span>
+                </div> 
+                
+            </div>
+        </div>
+
+        <div>
+            <h2>多项目</h2>
+            <div class="container">
+                <div class="box">
+                    <span class="item"></span>
+                    <span class="item align-self-center"></span>
+                    <span class="item align-self-flex-end"></span>
+                </div>
+                
+                <div class="box justify-content-flex-end align-content-space-between">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+                
+                <div class="box align-content-space-between">
+                   <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+
+                    <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+                </div>
+
+                <div class="box align-content-space-between">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+
+                <div class="box align-content-space-between flex-direction-column">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+
+                <div class="box">
+                   <div class="row">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <span class="item"></span>
+                    </div>
+
+                    <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+                </div>
+
+                 <div class="box">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div>
+            <h2>骰子6点</h2>
+            <div class="container">
+                <div class="box justify-content-center align-items-center">
+                    <span class="item"></span>
+                </div>
+                
+                <div class="box justify-content-space-between">
+                    <span class="item"></span>
+                    <span class="item align-self-flex-end"></span>
+                </div>
+                
+                <div class="box">
+                        <span class="item"></span>
+                        <span class="item align-self-center"></span>
+                        <span class="item align-self-flex-end"></span>
+                </div>
+                
+                <div class="box align-content-space-between">
+                    <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+                    
+                    <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <span class="item"></span>
+                    </div>
+
+                    <div class="row justify-content-space-between">
+                        <span class="item"></span>
+                        <span class="item"></span>
+                    </div>
+                </div>
+
+                <div class="box align-content-space-between flex-direction-column">
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                    <span class="item"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

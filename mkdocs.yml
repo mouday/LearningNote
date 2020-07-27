@@ -1,0 +1,31 @@
+site_name: 学习笔记
+
+nav:
+  - 主页: index.md
+  - Python: "Python/index.md"
+  - Java: "Java/index.md"
+  - PHP: "php/index.md"
+  - ElasticSearch: "ElasticSearch/index.md"
+  - JavaScript: "JavaScript/index.md"
+  - MySQL: "MySQL/index.md"
+  - 人工智能: "人工智能/index.md"
+  - LEK: "LEK/index.md"
+  - 设计模式: "设计模式/index.md"
+  - Linux: "Linux/index.md"
+
+theme:
+  name: "material"
+  language: "zh"
+
+extra:
+  social:
+    - type: "github"
+      link: "https://github.com/mouday"
+
+markdown_extensions:
+  - codehilite
+  - nl2br
+  - tables
+
+copyright: "2019-2020"
+# lang: 'jp'
