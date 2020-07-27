@@ -1,0 +1,928 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>数据挖掘 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                数据挖掘
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    协同过滤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    曼哈顿距离
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    欧几里得距离
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    闵可夫斯基距离
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    计算示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    皮尔逊相关系数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    余弦相似度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    K最邻近算法
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>数据挖掘</h1>
+                
+                <h2 id="_1">协同过滤</h2>
+<p>利用他人的喜好来进行推荐，也就是说，是大家一起产生的推荐。</p>
+<p>工作原理：<br />
+如果要推荐一本书给你，我会在网站上查找一个和你类似的用户，然后将他喜欢的书籍推荐给你</p>
+<h2 id="_2">曼哈顿距离</h2>
+<p>相当于三角形两边之和</p>
+<p>公式</p>
+<p>$$<br />
+d = |x_1 - x_2| + |y_1 - y_2|<br />
+$$</p>
+<h2 id="_3">欧几里得距离</h2>
+<p>两点直线距离，相当于三角形第三边<br />
+利用勾股定理计算</p>
+<p>公式</p>
+<p>$$<br />
+d = \sqrt{(x_1 -x_2)^2 + (y_1 -y_2)^2} <br />
+$$</p>
+<h2 id="_4">闵可夫斯基距离</h2>
+<p>将曼哈顿距离和欧几里得距离归纳成一个公式<br />
+公式</p>
+<p>$$<br />
+d(x, y) = (\sum_{k=1}^n{|x_k - y_k|^r})^{\frac{1}{r}}<br />
+$$</p>
+<p>其中<br />
+r = 1 曼哈顿距离<br />
+r = 2 欧几里得距离<br />
+$r = \infty$ 极大距离<br />
+r值越大,单个维度的差值大小会对整体距离有更大的影响</p>
+<h2 id="_5">计算示例</h2>
+<p>1、二维模型<br />
+数据<br />
+点 | x | y<br />
+- | -| -<br />
+A | 5| 5<br />
+B | 2| 5<br />
+C | 1| 4<br />
+D | 4 | 2  </p>
+<p>曼哈顿距离<br />
+点 | 和D的距离计算 | 和D的距离<br />
+- | - | -<br />
+A | $|5-4| + |5-2| = 1 + 3 $ | 4<br />
+B | $|2-4| + |5-2| = 2 + 3 $ | 5<br />
+C | $|1-4| + |4-2| = 3 + 2 $ | 5</p>
+<p>欧式距离<br />
+点 | 和D的距离计算 | 和D的距离<br />
+- | - | -<br />
+A | $\sqrt{(5-4)^2 + (5-2)^2} = \sqrt{1 + 9} = \sqrt{10}$ | 3.16<br />
+B | $\sqrt{(2-4)^2 + (5-2)^2} = \sqrt{4 + 9} = \sqrt{13}$ | 3.60<br />
+C | $\sqrt{(1-4)^2 + (4-2)^2} = \sqrt{9 + 4} = \sqrt{13}$ | 3.60</p>
+<p>2、N维模型<br />
+我们在计算两个用户的距离时，只采用他们都评价过的项目<br />
+曼哈顿距离和欧几里得距离在数据完整的情况下效果最好</p>
+<table>
+<thead>
+<tr>
+<th>项目\评分</th>
+<th>A</th>
+<th>B</th>
+<th>Difference</th>
+<th>$Difference^2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>3.5</td>
+<td>2</td>
+<td>1.5</td>
+<td>2.25</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2</td>
+<td>3.5</td>
+<td>1.5</td>
+<td>2.25</td>
+</tr>
+<tr>
+<td>c</td>
+<td>-</td>
+<td>4</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>d</td>
+<td>4.5</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>e</td>
+<td>5</td>
+<td>2</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr>
+<td>f</td>
+<td>1.5</td>
+<td>3.5</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>g</td>
+<td>2.5</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>h</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Manhattan Distance (曼哈顿)</td>
+<td></td>
+<td></td>
+<td>9</td>
+<td></td>
+</tr>
+<tr>
+<td>sum of squares</td>
+<td></td>
+<td></td>
+<td></td>
+<td>18.50</td>
+</tr>
+<tr>
+<td>Euclidean Distance (欧几里得)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>4.30</td>
+</tr>
+</tbody>
+</table>
+<p>计算过程<br />
+$Euclidean = \sqrt{(3.5-2)^2 + (2-3.5)^2 + (5 -2)^2 + (1.5-3.5)^2 + (2-3)^2}$<br />
+$= \sqrt{1.5^2 + (-1.5)^2 + 3^2 + (-2)^2 + (-1)^2} $<br />
+$= \sqrt{2.25 + 2.25 + 9 + 4 + 1} $<br />
+$= \sqrt{18.5}$<br />
+$= 4.3$</p>
+<h2 id="python">Python代码实现</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="c1"># 用户数据，格式：[用户: {乐队: 评分}]</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Hailey&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Broken Bells&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;Deadmau5&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;Norah Jones&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;The Strokes&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;Vampire Weekend&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Jordyn&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Broken Bells&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span>
+        <span class="s2">&quot;Deadmau5&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;Norah Jones&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;Phoeni x&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;Slightly Stoopid&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span>
+        <span class="s2">&quot;The Strokes&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;Vampire Weekend&quot;</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">manhattan</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    曼哈顿距离</span>
+<span class="sd">    rating1和rating2参数中存储的数据格式均为</span>
+<span class="sd">    {&#39;The Strokes&#39;: 3.0, &#39;Slightly Stoopid&#39;: 2.5}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 取key 的交集</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">rating1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">rating2</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="n">distance</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">distance</span>
+
+
+<span class="c1"># print(manhattan(users[&quot;Hailey&quot;], users[&quot;Jordyn&quot;]))</span>
+
+
+<span class="k">def</span> <span class="nf">euclidean</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    欧几里得距离</span>
+<span class="sd">    rating1和rating2参数中存储的数据格式均为</span>
+<span class="sd">    {&#39;The Strokes&#39;: 3.0, &#39;Slightly Stoopid&#39;: 2.5}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 取key 的交集</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">rating1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">rating2</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="n">distance</span> <span class="o">+=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+
+
+<span class="c1"># print(euclidean(users[&quot;Hailey&quot;], users[&quot;Jordyn&quot;]))</span>
+
+
+<span class="k">def</span> <span class="nf">minkowski</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    闵可夫斯基距离</span>
+<span class="sd">    r = 1 曼哈顿距离</span>
+<span class="sd">    r = 2 欧几里得距离</span>
+
+<span class="sd">    rating1和rating2参数中存储的数据格式均为</span>
+<span class="sd">    {&#39;The Strokes&#39;: 3.0, &#39;Slightly Stoopid&#39;: 2.5}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 取key 的交集</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">rating1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">rating2</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="n">distance</span> <span class="o">+=</span> <span class="nb">pow</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">]),</span> <span class="n">r</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">r</span><span class="p">)</span>
+
+
+<span class="c1"># print(minkowski(users[&quot;Hailey&quot;], users[&quot;Jordyn&quot;], r=2))</span>
+
+
+<span class="k">def</span> <span class="nf">compute_near_neighbors</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">users</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;计算所有用户至username用户的距离，倒序排列并返回结果列表&quot;&quot;&quot;</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="o">!=</span> <span class="n">username</span><span class="p">:</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="n">manhattan</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">],</span> <span class="n">users</span><span class="p">[</span><span class="n">user</span><span class="p">])</span>
+            <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">distance</span><span class="p">,</span> <span class="n">user</span><span class="p">))</span>
+
+    <span class="c1"># 按距离排序——距离近的排在前面</span>
+    <span class="n">distances</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">distances</span>
+
+
+<span class="c1"># print(compute_near_neighbors(&quot;Hailey&quot;, users))</span>
+
+<span class="k">def</span> <span class="nf">recommend</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">users</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;返回推荐结果列表&quot;&quot;&quot;</span>
+    <span class="c1"># 找到距离最近的用户</span>
+    <span class="n">nearest</span> <span class="o">=</span> <span class="n">compute_near_neighbors</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">users</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">recommendations</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># 找出这位用户评价过、但自己未曾评价的乐队</span>
+    <span class="n">neighborRatings</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">nearest</span><span class="p">]</span>
+    <span class="n">userRatings</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">artist</span> <span class="ow">in</span> <span class="n">neighborRatings</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">artist</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">userRatings</span><span class="p">:</span>
+            <span class="n">recommendations</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">artist</span><span class="p">,</span> <span class="n">neighborRatings</span><span class="p">[</span><span class="n">artist</span><span class="p">]))</span>
+
+    <span class="c1"># 按照评分进行高到低排序</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">recommendations</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="c1"># print(recommend(&quot;Hailey&quot;, users))</span>
+</pre></div>
+
+
+<h2 id="_6">皮尔逊相关系数</h2>
+<p>分数膨胀: 每个用户的打分标准非常不同</p>
+<p>皮尔逊相关系数用于衡量两个变量之间的相关性<br />
+它的值在-1至1之间，1表示完全吻合，-1表示完全相悖。</p>
+<p>皮尔逊相关系数的计算公式<br />
+$$<br />
+r = \frac{<br />
+    \sum_{i=1}^n{<br />
+        (x_i-\overline{x})(y_i-\overline{y})<br />
+        }<br />
+    }<br />
+    {<br />
+        \sqrt{\sum_{i=1}^n(x_i-\overline{x})^2}<br />
+        \sqrt{\sum_{i=1}^n(y_i-\overline{y})^2}<br />
+    }<br />
+$$</p>
+<p>计算皮尔逊相关系数的近似值</p>
+<p>$$<br />
+r = \frac{<br />
+    \sum_{i=1}^nx_iy_i - <br />
+    \frac{\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{n}<br />
+}<br />
+{<br />
+    \sqrt{\sum_{i=1}^nx_i^2 - \frac{(\sum_{i=1}^nx_i)^2}{n}}<br />
+    \sqrt{\sum_{i=1}^ny_i^2 - \frac{(\sum_{i=1}^ny_i)^2}{n}}<br />
+}<br />
+$$</p>
+<p>分解计算示例<br />
+@| a | b | c | d |e<br />
+-|-|-|-|-|-<br />
+A | 4.75 | 4.5 | 5  | 4.25 | 4<br />
+B | 4    | 3   | 5  | 2    | 1</p>
+<p>第一步，计算分子<br />
+$\sum_{i=1}^nx_iy_i$<br />
+$=(4.75 \times 4) + (4.5 \times 3) + (5 \times 5) + (4.25 \times 2) + (4 \times 1)$ <br />
+$= 19 + 13.5 + 25 + 8.5 + 4$<br />
+$=70$</p>
+<p>$\frac{\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{n}$<br />
+$=\frac{(4.75+4.5 +5 +4.25+4) \times ( 4 +3 +5 +2 + 1)}{5}$<br />
+$=\frac{22.50 \times 15}{5}$<br />
+$=\frac{337.5}{5}$<br />
+$=67.50$</p>
+<p>所以，分子为<br />
+$\sum_{i=1}^nx_iy_i - \frac{\sum_{i=1}^nx_i\sum_{i=1}^ny_i}{n}$<br />
+$= 70 - 67.5$<br />
+$=2.5$</p>
+<p>第二步，计算分母<br />
+先计算A<br />
+$\sum_{i=1}^nx_i^2$<br />
+$=4.75^2 + 4.5^2 + 5^2  + 4.25^2 + 4^2$<br />
+$=22.56 + 20.25 + 25 + 18.06 + 16$<br />
+$=101.874$</p>
+<p>$\frac{(\sum_{i=1}^nx_i)^2}{n}$<br />
+$=\frac{(4.75 + 4.5 + 5 + 4.25 + 4)^2}{5}$<br />
+$=\frac{506.250}{5}$<br />
+$=101.250$</p>
+<p>同样的方法计算B<br />
+$\sum_{i=1}^ny_i^2$<br />
+$= 4^2  + 3^2  + 5^2 +  2^2  + 1^2$<br />
+$=16 + 9 + 25 + 4 + 1$<br />
+$=55$</p>
+<p>$\frac{(\sum_{i=1}^ny_i)^2}{n}$<br />
+$=\frac{(4 + 3+ 5+2+ 1)^2}{5}$<br />
+$=\frac{225}/{5}$<br />
+$=45$</p>
+<p>所以，分母为<br />
+$\sqrt{\sum_{i=1}^nx_i^2 - \frac{(\sum_{i=1}^nx_i)^2}{n}}\sqrt{\sum_{i=1}^ny_i^2 - \frac{(\sum_{i=1}^ny_i)^2}{n}}$<br />
+$=\sqrt{101.874 - 101.250}\sqrt{55 - 45}$<br />
+$=\sqrt{0.62}\sqrt{10}$<br />
+$=0.789 \times  3.162$<br />
+$=2.494$</p>
+<p>最后计算r<br />
+$r = \frac{2.5}{2.494}$<br />
+$= 1.002$</p>
+<p>因此，A和B的偏好完全吻合</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">pearson</span><span class="p">(</span><span class="n">rating1</span><span class="p">,</span> <span class="n">rating2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    计算皮尔逊相关系数</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sum_xy</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_x2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sum_y2</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 取key 的交集</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">rating1</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">rating2</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rating1</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">rating2</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">sum_xy</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+        <span class="n">sum_x</span> <span class="o">+=</span> <span class="n">x</span>
+        <span class="n">sum_y</span> <span class="o">+=</span> <span class="n">y</span>
+        <span class="n">sum_x2</span> <span class="o">+=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">sum_y2</span> <span class="o">+=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># 计算分母</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_x2</span> <span class="o">-</span> <span class="nb">pow</span><span class="p">(</span><span class="n">sum_x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_y2</span> <span class="o">-</span> <span class="nb">pow</span><span class="p">(</span><span class="n">sum_y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># 计算分子</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="n">sum_xy</span> <span class="o">-</span> <span class="p">(</span><span class="n">sum_x</span> <span class="o">*</span> <span class="n">sum_y</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+        <span class="k">return</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+
+
+<span class="c1"># 计算上面示例</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+        <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mf">4.75</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mf">4.25</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="s2">&quot;B&quot;</span><span class="p">:</span>
+        <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">pearson</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">users</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]))</span>
+<span class="c1"># 0.9999999999999998</span>
+</pre></div>
+
+
+<h2 id="_7">余弦相似度</h2>
+<p>稀疏性问题<br />
+当非零值很稀少了，也就不能计算两项目之间的距离</p>
+<p>余弦相似度的计算中会略过这些非零值</p>
+<p>公式<br />
+$$<br />
+\cos(x, y) = \frac{x \centerdot y}{| x| \times |y|}<br />
+$$</p>
+<p>其中，“·”号表示数量积。“||x||”表示向量x的模，计算公式是：</p>
+<p>$$<br />
+\sqrt{\sum_{i=1}^nx_i{^2}}<br />
+$$</p>
+<p>余弦相似度的范围从1到-1，1表示完全匹配，-1表示完全相悖</p>
+<p>计算示例<br />
+项目 | a | b | c | d | e<br />
+ -|-|-|-|-|-<br />
+ A |4.75 |4.5|5 |4.25|4<br />
+ B |4|3|5|2|1</p>
+<p>两向量为</p>
+<p>$x = (4.75, 4.5, 5, 4.25, 4)$<br />
+$y = (4, 3, 5, 2, 1)$</p>
+<p>分子求数量积<br />
+$x \centerdot y = (4.75 \times 4) +  (4.5 \times 3) + ( 5 \times 5 ) + (4.25 \times 2)+( 4 \times 1)$<br />
+$= 19 + 13.5 + 25 + 8.50 + 4$<br />
+$= 70$</p>
+<p>分母求模：</p>
+<p>$$| x |= \sqrt{4.75^2+4.5^2+ 5^2+ 4.25^2+ 4^2} = \sqrt{101.875} = 10.09$$<br />
+$$| y |= \sqrt{4^2+3^2+5^2+ 2^2+1^2} = \sqrt{55} = 7.416$$</p>
+<p>余弦值<br />
+$$<br />
+\cos(x, y) = \frac{70}{10.09 \times 7.416} = \frac{70}{74.83} = 0.935<br />
+$$</p>
+<p>如果数据存在“分数膨胀”问题，就使用皮尔逊相关系数。<br />
+如果数据比较“密集”，变量之间基本都存在公有值，且这些距离数据是非常重要的，那就使用欧几里得或曼哈顿距离。<br />
+如果数据是稀疏的，则使用余弦相似度。</p>
+<p>解决稀疏数据问题（效果都不好）<br />
+1、人们给音乐打分是从1到5分，那些没有打分的项目就统一给0分<br />
+2、计算“平均值”——将两人共同评价过的歌曲分数除以歌曲数量</p>
+<p>总之，曼哈顿距离和欧几里得距离在数据完整的情况下会运作得非常好，<br />
+如果数据比较稀疏，则要考虑使用余弦距离。</p>
+<h2 id="k">K最邻近算法</h2>
+<p>在协同过滤中可以使用K最邻近算法来找出K个最相似的用户</p>
+<p>只依靠最相似的 一个 用户来做推荐，如果这个用户有些特殊的偏好，就会直接反映在推荐内容里。<br />
+解决方法之一是找寻多个相似的用户，这里就要用到K最邻近算法了。</p>
+<p>例如：K=3<br />
+Person | 皮尔逊相关系数  | 影响值 |项目评分| 加权评分<br />
+- | -| -|-|-<br />
+A | 0.8 | 40%  | 3.5 | 1.40<br />
+B | 0.7 |  35% |5    |  1.75<br />
+C | 0.5 | 25%  |4.5  |1.125<br />
+汇总 |  | | | 4.275</p>
+<p>计算贡献比重<br />
+$ total = 0.8 + 0.7 + 0.5 = 2.0 $ <br />
+$ influence_A = 0.8 / 2 = 40\% $<br />
+$ influence_B = 0.7 / 2 = 35\% $<br />
+$ influence_C = 0.5 / 2 = 25\% $</p>
+<p>计算加权评分<br />
+$rating = (3.5 \times 40\%) + (5 \times 35\%)+ (4.5 \times 25\%)$<br />
+$=1.40+ 1.75 + 1.125 $<br />
+$=4.275$</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

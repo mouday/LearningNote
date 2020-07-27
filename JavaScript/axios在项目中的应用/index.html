@@ -1,0 +1,630 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Axios在项目中的应用 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Axios在项目中的应用
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、接口配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2http" class="md-nav__link">
+    2、配置全局的Http请求函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、全局挂载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4http" class="md-nav__link">
+    4、视图中调用http
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、修改路由
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-publiccontactlistjson" class="md-nav__link">
+    6、测试数据 public/contactList.json
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Axios在项目中的应用</h1>
+                
+                <p>用到的模块：</p>
+<div class="codehilite"><pre><span></span><span class="n">Vue</span>
+<span class="n">Axios</span>
+<span class="n">vant</span>
+</pre></div>
+
+
+<h2 id="1">1、接口配置</h2>
+<p>server/contactApi.js</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 统一接口管理</span>
+<span class="kr">const</span> <span class="nx">CONTACT_API</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// 获取联系人列表</span>
+    <span class="nx">getContactList</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s2">&quot;get&quot;</span><span class="p">,</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/contactList.json&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">CONTACT_API</span>
+</pre></div>
+
+
+<h2 id="2http">2、配置全局的Http请求函数</h2>
+<p>server/http.js</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s2">&quot;axios&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">contactApi</span> <span class="nx">from</span> <span class="s2">&quot;./contactApi&quot;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Toast</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;vant&quot;</span>
+
+<span class="kd">let</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">baseURL</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">1000</span> <span class="c1">// 毫秒</span>
+<span class="p">})</span>
+
+<span class="c1">// 包装请求方法的容器</span>
+<span class="kr">const</span> <span class="nx">Http</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">contactApi</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">contactApi</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+
+    <span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="c1">// async 作用，避免进入回调地狱</span>
+    <span class="nx">Http</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">async</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+        <span class="k">try</span><span class="p">{</span>
+            <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">instance</span><span class="p">[</span><span class="nx">api</span><span class="p">.</span><span class="nx">method</span><span class="p">](</span><span class="nx">api</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span><span class="nx">params</span><span class="o">:</span> <span class="nx">data</span><span class="p">})</span>
+        <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+            <span class="nx">response</span> <span class="o">=</span> <span class="nx">err</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 请求拦截器</span>
+<span class="nx">instance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">Toast</span><span class="p">.</span><span class="nx">loading</span><span class="p">({</span>
+            <span class="nx">mask</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">duration</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1">// 一直存在</span>
+            <span class="nx">forbidClick</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// 禁止点击</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;加载中...&quot;</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+    <span class="p">},()=&gt;{</span>
+        <span class="nx">Toast</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+        <span class="nx">Toast</span><span class="p">(</span><span class="s2">&quot;请求出错&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1">// 添加响应拦截器</span>
+<span class="nx">instance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">Toast</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">},()=&gt;{</span>
+        <span class="nx">Toast</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
+        <span class="nx">Toast</span><span class="p">(</span><span class="s2">&quot;请求出错&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Http</span>
+</pre></div>
+
+
+<h2 id="3">3、全局挂载</h2>
+<p>main.js</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 把Http挂在到vue实例上，全局可用</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">$Http</span> <span class="o">=</span> <span class="nx">Http</span>
+</pre></div>
+
+
+<h2 id="4http">4、视图中调用http</h2>
+<p>views/VantIndex.vue</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="c">&lt;!-- 联系人列表 --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">van-contact-list</span> <span class="na">:list</span><span class="o">=</span><span class="s">&quot;list&quot;</span> <span class="p">/&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// 引入组件</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ContactList</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;vant&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;vantIndex&quot;</span><span class="p">,</span>
+
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">list</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">};</span>
+  <span class="p">},</span>
+
+  <span class="c1">// 注册组件</span>
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">ContactList</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span><span class="o">:</span> <span class="nx">ContactList</span>
+  <span class="p">},</span>
+
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">async</span> <span class="nx">getContactList</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">$Http</span><span class="p">.</span><span class="nx">getContactList</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span> <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getContactList</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="5">5、修改路由</h2>
+<p>router.js</p>
+<div class="codehilite"><pre><span></span><span class="nx">routes</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+        <span class="nx">component</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="kr">import</span><span class="p">(</span><span class="s1">&#39;./views/VantIndex.vue&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+</pre></div>
+
+
+<h2 id="6-publiccontactlistjson">6、测试数据 public/contactList.json</h2>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;张三&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;tel&quot;</span><span class="p">:</span> <span class="s2">&quot;13000000000&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;李四&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;tel&quot;</span><span class="p">:</span> <span class="s2">&quot;13000000001&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;王五&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;tel&quot;</span><span class="p">:</span> <span class="s2">&quot;13000000002&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>启动服务访问测试</p>
+<div class="codehilite"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">serve</span>
+</pre></div>
+
+
+<p>http://localhost:8080/</p>
+<p>环境配置参考</p>
+<blockquote>
+<ol>
+<li><a href="https://pengshiyu.blog.csdn.net/article/details/97760659">前端开发：axios在vue中的使用</a></li>
+<li><a href="https://pengshiyu.blog.csdn.net/article/details/97761945">前端开发：vant在vue中的使用</a></li>
+</ol>
+</blockquote>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,901 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Egg js - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#eggjs" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Egg js
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eggjs" class="md-nav__link">
+    Egg.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    涉及内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    开发环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    路由
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    GET传参
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    POST请求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    PUT请求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE请求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    模板引擎
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    静态资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    mysql插件安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    前端开发
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Egg js</h1>
+                
+                <h2 id="eggjs">Egg.js</h2>
+<p>基于Node.js和Koa企业级应用开发框架</p>
+<h2 id="_1">特性</h2>
+<p>提供基于Egg的定制上层框架的能力<br />
+高度可扩展的插件机制<br />
+内置多进程管理<br />
+基于Koa开发性能优异<br />
+框架稳定，测试覆盖率搞<br />
+渐进式开发</p>
+<h2 id="_2">涉及内容</h2>
+<p>vant ui<br />
+vue-cli3<br />
+moment.js<br />
+Egg.js<br />
+mysql<br />
+前后端联调</p>
+<h2 id="_3">开发环境</h2>
+<p>Egg.js</p>
+<p>https://eggjs.org/zh-cn/intro/quickstart.html</p>
+<div class="codehilite"><pre><span></span>$ node -v
+v10.16.0
+
+$ mkdir egg-demo <span class="o">&amp;&amp;</span> <span class="nb">cd</span> egg-demo
+$ npm init egg --type<span class="o">=</span>simple
+$ cnpm i
+$ npm run dev
+</pre></div>
+
+
+<p>http://127.0.0.1:7001/</p>
+<h2 id="_4">路由</h2>
+<p>app/router.js</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @param {Egg.Application} app - egg application</span>
+<span class="cm"> */</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">router</span><span class="p">,</span> <span class="nx">controller</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+  <span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">home</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<h2 id="get">GET传参</h2>
+<p>1、方式一<br />
+/product/detail?id=110</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 路由</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/product/detail&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">detail</span><span class="p">);</span>
+
+<span class="c1">// 控制器</span>
+<span class="nx">async</span> <span class="nx">detail</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span> <span class="c1">// { id: &#39;110&#39; }</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="sb">`id=</span><span class="si">${</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>2、方式二<br />
+/product/detail2/110</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 路由</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/product/detail2/:id&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">detail2</span><span class="p">);</span>
+
+<span class="c1">// 控制器</span>
+<span class="nx">async</span> <span class="nx">detail2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">);</span> <span class="c1">// { id: &#39;110&#39; }</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="sb">`id=</span><span class="si">${</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="post">POST请求</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// 配置文件关闭csrf</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">security</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">csrf</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">enable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+
+<span class="c1">// 路由</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/product/create&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">create</span><span class="p">);</span>
+
+
+<span class="c1">// 控制器</span>
+<span class="nx">async</span> <span class="nx">create</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span> <span class="c1">// { name: &#39;Tom&#39; }</span>
+
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">}</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">};</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>POST请求 /product/create</p>
+<p>Content-Type application/x-www-form-urlencoded<br />
+Content-Type application/json</p>
+<p>name: "Tom"</p>
+<p>返回</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tom&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="put">PUT请求</h2>
+<p>/product/update/110</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 路由</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/product/update/:id&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">update</span><span class="p">);</span>
+
+<span class="c1">// 控制器</span>
+<span class="nx">async</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">);</span> <span class="c1">// { id: &#39;110&#39; }</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">};</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="delete">DELETE请求</h2>
+<p>/product/delete/110</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 路由</span>
+<span class="nx">router</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;/product/delete/:id&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="k">delete</span><span class="p">);</span>
+
+<span class="c1">// 控制器</span>
+<span class="nx">async</span> <span class="k">delete</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">);</span> <span class="c1">// { id: &#39;110&#39; }</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="service">Service</h2>
+<p>app/service/product.js</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">Service</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;egg&#39;</span><span class="p">).</span><span class="nx">Service</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">productService</span> <span class="kr">extends</span> <span class="nx">Service</span> <span class="p">{</span>
+  <span class="nx">async</span> <span class="nx">index</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+          <span class="nx">age</span><span class="o">:</span> <span class="mi">18</span>
+      <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">productService</span><span class="p">;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1">// 路由</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/product&#39;</span><span class="p">,</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+
+<span class="c1">// 修改控制器使用service</span>
+<span class="nx">async</span> <span class="nx">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">index</span><span class="p">();</span>
+    <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>访问后返回： /product/</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;age&quot;</span><span class="p">:</span> <span class="mi">18</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_5">模板引擎</h2>
+<p>ejs https://github.com/eggjs/egg-view-ejs</p>
+<div class="codehilite"><pre><span></span>$ npm i egg-view-ejs
+</pre></div>
+
+
+<p>语法参考<br />
+https://ejs.bootcss.com/</p>
+<p>修改配置</p>
+<div class="codehilite"><pre><span></span><span class="c1">// {app_root}/config/plugin.js</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">ejs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">enable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="kr">package</span><span class="o">:</span> <span class="s1">&#39;egg-view-ejs&#39;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// {app_root}/config/config.default.js</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">view</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">mapping</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;.html&#39;</span><span class="o">:</span> <span class="s1">&#39;ejs&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>新建文件<br />
+app/view/index.html</p>
+<div class="codehilite"><pre><span></span><span class="err">&lt;</span>%# 变量 #%&gt;
+<span class="err">&lt;</span>%=res.name%&gt;
+<span class="err">&lt;</span>%=res.age%&gt;
+
+
+<span class="err">&lt;</span>%# for循环 #%&gt;
+<span class="err">&lt;</span>% for(var i=0; i<span class="p">&lt;</span><span class="nt">list.length</span><span class="err">;</span> <span class="na">i</span><span class="err">++){</span> <span class="err">%</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="err">&lt;</span>%=list[i]%&gt;<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>    
+<span class="err">&lt;</span>% } %&gt;
+</pre></div>
+
+
+<p>控制器中渲染</p>
+<div class="codehilite"><pre><span></span><span class="nx">async</span> <span class="nx">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">index</span><span class="p">();</span>
+    <span class="c1">// ctx.body = res;</span>
+    <span class="nx">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">,</span>
+      <span class="nx">list</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_6">静态资源</h2>
+<p>app/public目录树</p>
+<div class="codehilite"><pre><span></span><span class="n">app</span>
+  <span class="err">├──</span> <span class="k">public</span>
+      <span class="err">├──</span> <span class="n">css</span>
+      <span class="err">│</span>   <span class="err">└──</span> <span class="n">main</span><span class="p">.</span><span class="n">css</span>
+      <span class="err">├──</span> <span class="n">img</span>
+      <span class="err">│</span>   <span class="err">└──</span> <span class="n">demo</span><span class="p">.</span><span class="n">png</span>
+      <span class="err">└──</span> <span class="n">js</span>
+          <span class="err">└──</span> <span class="n">main</span><span class="p">.</span><span class="n">js</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- 引入css文件 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/public/css/main.css&quot;</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 引入图片资源 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/public/img/demo.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 引入js文件 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/public/js/main.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="mysql">mysql插件安装</h2>
+<div class="codehilite"><pre><span></span><span class="n">npm</span> <span class="n">i</span> <span class="c1">--save egg-mysql</span>
+</pre></div>
+
+
+<p>修改配置</p>
+<div class="codehilite"><pre><span></span><span class="c1">// config/plugin.js</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">mysql</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">enable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="kr">package</span><span class="o">:</span> <span class="s1">&#39;egg-mysql&#39;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// config/config.default.js</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">mysql</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// 单数据库信息配置</span>
+    <span class="nx">client</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// host</span>
+      <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+      <span class="c1">// 端口号</span>
+      <span class="nx">port</span><span class="o">:</span> <span class="s1">&#39;3306&#39;</span><span class="p">,</span>
+      <span class="c1">// 用户名</span>
+      <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+      <span class="c1">// 密码</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;123456&#39;</span><span class="p">,</span>
+      <span class="c1">// 数据库名</span>
+      <span class="nx">database</span><span class="o">:</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// 是否加载到 app 上，默认开启</span>
+    <span class="nx">app</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="c1">// 是否加载到 agent 上，默认关闭</span>
+    <span class="nx">agent</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">};</span>
+</pre></div>
+
+
+<h2 id="_7">前端开发</h2>
+<p>1、脚手架 @vue/cli <br />
+https://cli.vuejs.org/zh/guide/installation.html</p>
+<div class="codehilite"><pre><span></span>$ cnpm install -g @vue/cli
+
+$ vue -V
+<span class="m">3</span>.12.0
+
+$ vue --help
+
+$ vue create client
+
+$ <span class="nb">cd</span> client
+
+$ npm run serve
+</pre></div>
+
+
+<p>http://localhost:8080/</p>
+<p>2、前端组件库 vant <br />
+https://youzan.github.io/vant/#/zh-CN/quickstart</p>
+<div class="codehilite"><pre><span></span><span class="err">$</span> <span class="n">npm</span> <span class="n">i</span> <span class="n">vant</span> <span class="o">-</span><span class="n">S</span>
+<span class="err">$</span> <span class="n">npm</span> <span class="n">i</span> <span class="n">babel</span><span class="o">-</span><span class="n">plugin</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">D</span>
+</pre></div>
+
+
+<p>在 .babelrc 中添加配置</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;plugins&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;import&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="s2">&quot;libraryName&quot;</span><span class="o">:</span> <span class="s2">&quot;vant&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;libraryDirectory&quot;</span><span class="o">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>App.vue引入vant组件</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">van-button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;primary&quot;</span><span class="p">&gt;</span>按钮组件<span class="p">&lt;/</span><span class="nt">van-button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Button</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vant&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;app&#39;</span><span class="p">,</span>
+
+  <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">Button</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span><span class="o">:</span> <span class="nx">Button</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>3、路由vue-router</p>
+<div class="codehilite"><pre><span></span><span class="n">cnpm</span> <span class="n">i</span> <span class="n">vue</span><span class="o">-</span><span class="n">router</span> <span class="c1">--save</span>
+</pre></div>
+
+
+<p>查询 </p>
+<div class="codehilite"><pre><span></span><span class="nx">async</span> <span class="nx">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">ctx</span><span class="p">,</span> <span class="nx">app</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+
+
+<p>4、处理时间</p>
+<div class="codehilite"><pre><span></span><span class="n">cnpm</span> <span class="n">i</span> <span class="n">moment</span> <span class="c1">--save</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1">// 后端保存之前</span>
+<span class="kr">const</span> <span class="nx">moment</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;moment&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">create_time</span> <span class="o">=</span> <span class="nx">moment</span><span class="p">().</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;YYYY-MM-DD HH:mm:ss&#39;</span><span class="p">);</span>
+<span class="c1">// 2019-10-13 22:29:23</span>
+
+<span class="c1">//前端展示之前</span>
+<span class="kr">import</span> <span class="nx">momemt</span> <span class="nx">from</span> <span class="s1">&#39;moment&#39;</span><span class="p">;</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span><span class="p">=&gt;{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">create_time</span><span class="p">){</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">create_time</span>  <span class="o">=</span> <span class="nx">moment</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">create_time</span><span class="p">).</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;YYYY-MM-DD HH:mm:ss&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>5、客户端跨域请求<br />
+vue.config.js</p>
+<div class="codehilite"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// 处理跨域请求</span>
+    <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">proxy</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;/article&#39;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">target</span><span class="o">:</span> <span class="s2">&quot;http://127.0.0.1:7001/&quot;</span><span class="p">,</span>
+                <span class="nx">ws</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// 允许websockt服务</span>
+                <span class="nx">changeOrigin</span><span class="o">:</span> <span class="kc">true</span> <span class="c1">// 开启虚拟服务器，请求代理服务器</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,777 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Vim基本操作 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Vim基本操作
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>Vim学习笔记</p>
+<p>vim是vi改进版<br />
+windows 体验版 gvim</p>
+<h1 id="_1">基本命令</h1>
+<div class="codehilite"><pre><span></span>$ vim <span class="c1"># normal模式</span>
+
+:q<span class="o">(</span>quit<span class="o">)</span>  <span class="c1"># 退出</span>
+
+<span class="c1"># 进入编辑insert模式（6种）</span>
+i<span class="o">(</span>insert<span class="o">)</span>            <span class="c1"># 光标前插入</span>
+a<span class="o">(</span>append<span class="o">)</span>            <span class="c1"># 光标后插入</span>
+o<span class="o">(</span>open a line below<span class="o">)</span> <span class="c1"># 行下插入</span>
+
+I insert before line <span class="c1"># 行首 </span>
+A append after line  <span class="c1"># 行尾 </span>
+O open a line above  <span class="c1"># 行上插入</span>
+
+ESC 回到normal模式
+:wq  <span class="c1"># 保存退出write quit</span>
+</pre></div>
+
+
+<h1 id="vim4">vim4种模式</h1>
+<p>Normal普通模式（浏览）<br />
+    Esc插入模式回到普通模式<br />
+    普通模式下进行各种命令操作和移动<br />
+    大部分情况下，使用的是浏览</p>
+<p>Insert插入模式（编辑）<br />
+    a/i/o 光标进入插入模式<br />
+    A/I/O 行进入插入模式</p>
+<p>Command命令模式（操作）<br />
+    Normal模式下:进入命令模式<br />
+    :q退出 :w保存 <br />
+    :vs(vertical split)垂直左右分屏 :sp(split) 水平上下分屏<br />
+    :set nu 设置行号<br />
+    :% s/java/python/g  全部替换java-&gt;python<br />
+    :syntax on 语法高亮</p>
+<p>Visual可视模式（选择）<br />
+    Nomal模式下进入Visual模式<br />
+    v选择字符<br />
+    V选择行<br />
+    ctrl+v块状选择</p>
+<h1 id="_2">插入模式小技巧</h1>
+<p>ctrl + h 删除上一个字符<br />
+ctrl + w 删除上一个单词<br />
+ctrl + u 删除当前行</p>
+<p>终端：<br />
+ctrl + a 移动到行首<br />
+ctrl + e 移动到行尾</p>
+<p>切换到Normal模式:<br />
+Esc、ctrl + c、 ctrl + [</p>
+<p>gi  回到刚才插入位置并进入插入状态</p>
+<h1 id="_3">快速移动</h1>
+<p>Normal模式下</p>
+<p>1、字符移动<br />
+h左 j下 k上 l右</p>
+<div class="codehilite"><pre><span></span>     <span class="o">^</span>
+     <span class="n">k</span>
+<span class="o">&lt;</span> <span class="n">h</span>     <span class="n">l</span> <span class="o">&gt;</span>
+     <span class="n">j</span>
+     <span class="n">v</span>
+</pre></div>
+
+
+<p>2、单词移动<br />
+w/W 移动到下一个word/WORD开头<br />
+e/E 下一个word/WORD尾<br />
+b/B 回到上一个word/WORD开头，backword</p>
+<p>word 非空白符分割的单词<br />
+WORD 以空白符分割的单词</p>
+<p>3、行间搜索移动<br />
+f{char} 移动到char字符上<br />
+t{char} 移动到char前一个字符上 until<br />
+第一次没搜到，可以继续搜该行<br />
+分号; 下一个<br />
+逗号, 上一个<br />
+F反向搜索</p>
+<p>4、水平移动<br />
+0 移动到行首第一个字符<br />
+^ 移动到第一个非空白字符<br />
+$ 移动到行尾<br />
+g_ 移动到行尾非空白字符</p>
+<p>5、垂直移动<br />
+括号() 句子间移动<br />
+查看帮助 :help (<br />
+{} 段落之间移动</p>
+<p>6、屏幕移动<br />
+H head 屏幕开头<br />
+M middle  中间<br />
+L lower 结尾<br />
+zz 把屏幕置为中间，当前行放中间</p>
+<p>7、页面移动<br />
+gg 文件开头<br />
+G  文件结尾<br />
+ctrl + o 快速返回</p>
+<p>ctrl + u upword  上翻半页<br />
+ctrl + f forword 下翻半页</p>
+<h1 id="_4">增删改查</h1>
+<p>1、增加<br />
+Normal模式 a/i/o A/I/O</p>
+<p>2、删除<br />
+Normal模式 <br />
+x 删除一个字符<br />
+4x 删除4个字符</p>
+<p>d(delete)<br />
+daw 删除单词和周围空格（delete around word）<br />
+diw 删除单词（dw）<br />
+dd 删除行<br />
+dt{char} 删除直到<br />
+d$ 删除到结尾<br />
+d0 删除到开头<br />
+2dd 删除两行</p>
+<p>u undo   撤销操作<br />
+ctrl + r 恢复撤销</p>
+<p>3、修改<br />
+Normal模式下<br />
+r replace 替换一个字符 <br />
+    eg: 光标下g ra g-&gt;a <br />
+c change <br />
+    cw 删除单词进入插入模式 change word<br />
+    ct{char} 删除到字符，进入插入模式<br />
+s substitute 删除并进入插入模式 eg: 4s 删除4个字符进入插入模式</p>
+<p>R 不断替换多个字符<br />
+S 删除整行进行插入 <br />
+C 删除整行进行插入</p>
+<p>4、查询<br />
+/ 前向搜索<br />
+? 反向搜索<br />
+n/N 下一个或者上一个<br />
+*/# 当前单词的前向和后向匹配</p>
+<p>搜索结果高亮 :set hls (high light search)<br />
+:set incsearch</p>
+<h1 id="_5">搜索替换</h1>
+<p>substitute 支持正则</p>
+<div class="codehilite"><pre><span></span><span class="err">:</span><span class="o">[</span><span class="n">range</span><span class="o">]</span><span class="w"> </span><span class="n">s</span><span class="o">[</span><span class="n">ubstitute</span><span class="o">]/</span><span class="err">{</span><span class="n">pattern</span><span class="err">}</span><span class="o">/</span><span class="err">{</span><span class="n">string</span><span class="err">}</span><span class="o">/</span><span class="n">flags</span><span class="w"></span>
+</pre></div>
+
+
+<p>range 范围 <br />
+    eg: <br />
+        10,20 表示10-20行<br />
+        % 表示全部<br />
+pattern 替换模式<br />
+string  替换后文本<br />
+flags 替换标志位<br />
+    g global 全局替换<br />
+    c confirm 确认<br />
+    n number 查询匹配次数而不替换</p>
+<p>eg:<br />
+:% s/self/this/g  # 替换 self-&gt;this<br />
+:1,6 s/self//n    # 查询  计算有1-6行有多少个self<br />
+:% s/\&lt;name>/Name/g # 精确匹配单词</p>
+<h1 id="_6">多文件操作</h1>
+<p>Buffer  打开一个文件的缓冲区<br />
+Window  可视化分割区域<br />
+Tab     组织窗口为一个工作区</p>
+<p>1、Buffer<br />
+:ls  列举缓冲区<br />
+:b n 跳转到第n个缓冲区<br />
+:bpre :bnext :bfirst :blast<br />
+:b buffer_name  tab补全</p>
+<p>:e filename 打开文件</p>
+<p>2、Window<br />
+一个缓冲区可以分割为多个窗口<br />
+每个窗口也可打开不同缓冲区<br />
+窗口可以无限分割</p>
+<p>（1）窗口分割<br />
+<ctrl + w> + s 水平分割<br />
+<ctrl + w> + v 垂直分割<br />
+:sp [filename]  水平分割（打开文件）<br />
+:vs [filename]  垂直分割（打开文件）</p>
+<p>（2）窗口切换<br />
+<ctrl + w> + w 循环切换<br />
+<ctrl + w> + h 切换到左边<br />
+<ctrl + w> + j 切换到下边<br />
+<ctrl + w> + k 切换到上边<br />
+<ctrl + w> + l 切换到右边</p>
+<p>（3）窗口移动<br />
+<ctrl + w> + H 移动到左边<br />
+<ctrl + w> + J 移动到下边<br />
+<ctrl + w> + K 移动到上边<br />
+<ctrl + w> + L 移动到右边</p>
+<p>(4)重排窗口<br />
+:h window-size<br />
+<ctrl + w> + = 所有窗口等宽等高<br />
+<ctrl + w> + _  最大化活动窗口高度<br />
+<ctrl + w> + |  最大化活动窗口宽度<br />
+n + <ctrl + w> + _ 把活动窗口的高度设为n 行<br />
+n + <ctrl + w> + | 把活动窗口的宽度设为n 行</p>
+<p>3、Tab标签页<br />
+一系列窗口的容器:h tabpage<br />
+:tabnew {filename}     新标签中打开<br />
+:tabe[dit] {filename}  新标签中打开<br />
+<ctrl + w> + T 当前窗口移动到一个新标签页<br />
+:tabc[lose]  关闭当前标签页及其中的所有窗口 <br />
+:tabo[nly]   只保留当前标签页，关闭其他标签页<br />
+:tabn[ext] {N} {N}gt  切换到编号N 的标签页<br />
+:tabn[ext]       gt    切换到下一个标签页<br />
+:tabp[revious]   gT    切换到上一个标签页</p>
+<p>插件：ctrlp nerdtree</p>
+<h1 id="text-object">文本对象text object</h1>
+<p>命令格式：<br />
+[number]<command>[text object]<br />
+number 次数<br />
+command 命令 d(delete), c(change), y(yank), v(visual)<br />
+text object 文本对象 w(单词word)， s(句子sentence)，p(段落paragraph)</p>
+<p>eg:<br />
+iw  插入单词<br />
+viw 选择模式插入单词<br />
+vaw  around word 选中当前单词和单词之后的空格<br />
+vis/vas/vip/vap</p>
+<p>vi(/)/</>/{/}/"/"/'/'<br />
+va(/)/</>/{/}/"/"/'/'</p>
+<p>ciw  删除单词并插入<br />
+ci{  删除{内容  </p>
+<p>插件 vim-go</p>
+<h1 id="_7">复制粘贴</h1>
+<p>Normal模式：<br />
+    y(yank) p (put)<br />
+    dd 删除一行 p粘贴<br />
+Visual模式：选中之后 p粘贴<br />
+文本对象：yiw 复制一个单词 yy复制一行</p>
+<p>vimrc<br />
+:set autoindent 设置自动缩进</p>
+<p>粘贴代码格式错乱解决：<br />
+:set paste    设置<br />
+:set nopaste  取消</p>
+<p>Insert模式<br />
+ctrl + v/ command + v</p>
+<h1 id="vim">Vim寄存器</h1>
+<p>无名寄存器<br />
+    dw-&gt;p 剪切粘贴单词<br />
+    x-&gt;p 剪切粘贴字符</p>
+<p>指定寄存器 ”{register}<br />
+eg:<br />
+    "ayiw 复制单词到寄存器a中<br />
+    "bdd 删除当前行到寄存器b中<br />
+    :reg a  查看a寄存器内容<br />
+    "ap 粘贴寄存器a中的内容<br />
+    ""无名寄存器，默认模式<br />
+    "0 寄存器0 <br />
+    寄存器a-z<br />
+    "+系统剪切板<br />
+    "% 当前文件名<br />
+    :echo has("clipboard") 1则支持<br />
+    :set clipboard=unname 直接使用系统剪切板<br />
+    ".上一次插入的文本<br />
+    ctrl + r +</p>
+<p>:e! 重新加载不保存当前文件</p>
+<h1 id="vimmacro">Vim宏macro批量操作</h1>
+<p>录制操作，回放操作<br />
+q录制 q结束<br />
+q{register} 保存到寄存器<br />
+@{register} 回放操作</p>
+<p>v 模式下选择<br />
+:normal @a 回放宏操作</p>
+<p>eg:<br />
+每行前后加"<br />
+V 全选行 G 全选文本<br />
+:normal I"  A"</p>
+<h1 id="vim_1">Vim代码补全</h1>
+<p><Ctrl + n>             普通关键字<br />
+<Ctrl + x> <Ctrl + n>  当前缓冲区关键字<br />
+<Ctrl + x> <Ctrl + i>  包含文件名关键字<br />
+<Ctrl + x> <Ctrl + ]>  标签文件关键字<br />
+<Ctrl + x> <Ctrl + k>  字段查找<br />
+<Ctrl + x> <Ctrl + l>  整行补全<br />
+<Ctrl + x> <Ctrl + f>  文件名补全<br />
+<Ctrl + x> <Ctrl + o>  全能Omni补全</p>
+<p>常用：<br />
+<Ctrl + n> <Ctrl + p>  补全单词<br />
+<Ctrl + x> <Ctrl + f>  文件名补全<br />
+<Ctrl + x> <Ctrl + o>  补全代码，需开启文件类型检查，安装插件</p>
+<p>syntax on<br />
+:set nu<br />
+:set indent<br />
+:r! echo %   文件名<br />
+:r! echo %:p 文件路径</p>
+<h1 id="_8">更换配色</h1>
+<p>:colorscheme 显示当前主题配色 默认default<br />
+:colorscheme <ctrl + d> 显示所有配色<br />
+:colorscheme 配色名 修改配色</p>
+<p>$ vim duck.go duck.py -O  # 两个窗口打开</p>
+<p>持久化配置 vim ~/.vimrc<br />
+配色方案 hybrid  Monokai<br />
+下载配色方案拷贝到文件夹 mkdir ~/.vim/colors</p>
+<p>vim插件：https://github.com/flazz/vim-colorschemes</p>
+<h1 id="vim_2">vim配置</h1>
+<p>持久化配置<br />
+Linux/Unix  vim ~/.vimrc<br />
+windows vim $MYVIMRC 环境变量</p>
+<p>常用设置<br />
+:set nu             # 设置行号<br />
+colorscheme hybrid  # 设置主题<br />
+vim映射 noremap <leader>w :w<cr> 保存文件<br />
+自定义vimscript函数 和插件配置</p>
+<div class="codehilite"><pre><span></span><span class="s">&quot; 常用设置，这是注释</span>
+<span class="s">&quot; 设置行号</span>
+<span class="n">set</span> <span class="n">number</span>
+
+<span class="s">&quot; 设置主题</span>
+<span class="n">colorscheme</span> <span class="n">hybrid</span>
+
+<span class="s">&quot; 按F2进入粘贴模式</span>
+<span class="n">set</span> <span class="n">pasttoggle</span><span class="o">=&lt;</span><span class="n">F2</span><span class="o">&gt;</span>
+
+<span class="s">&quot; 高亮搜索</span>
+<span class="n">set</span> <span class="n">hlsearch</span>
+
+<span class="s">&quot; 设置折叠方式</span>
+<span class="n">set</span> <span class="n">foldmethod</span><span class="o">=</span><span class="n">indent</span>
+
+<span class="s">&quot; 一些方便的映射</span>
+<span class="n">let</span> <span class="n">mapleader</span><span class="o">=</span><span class="sc">&#39;,&#39;</span>
+<span class="n">let</span> <span class="nl">g</span><span class="p">:</span><span class="n">mapleader</span><span class="o">=</span><span class="sc">&#39;,&#39;</span>
+
+<span class="s">&quot; 使用 jj 进入 normal 模式 `^上一次插入点</span>
+<span class="n">inoremap</span> <span class="n">jj</span> <span class="o">&lt;</span><span class="n">Esc</span><span class="o">&gt;</span><span class="err">`</span><span class="o">^</span>
+
+<span class="s">&quot; 使用 leader+w 直接保存</span>
+<span class="n">inoremap</span> <span class="o">&lt;</span><span class="n">leader</span><span class="o">&gt;</span><span class="n">w</span> <span class="o">&lt;</span><span class="n">Esc</span><span class="o">&gt;:</span><span class="n">w</span><span class="o">&lt;</span><span class="n">cr</span><span class="o">&gt;</span>
+<span class="n">noremap</span> <span class="o">&lt;</span><span class="n">leader</span><span class="o">&gt;</span><span class="nl">W</span> <span class="p">:</span><span class="n">w</span><span class="o">&lt;</span><span class="n">cr</span><span class="o">&gt;</span>
+
+<span class="s">&quot; 切换 buffer</span>
+<span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">silent</span><span class="o">&gt;</span> <span class="p">[</span><span class="nl">b</span> <span class="p">:</span><span class="n">bprevious</span><span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+<span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">silent</span><span class="o">&gt;</span> <span class="p">[</span><span class="nl">n</span> <span class="p">:</span><span class="n">bnext</span><span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+
+<span class="s">&quot; 切换窗口</span>
+<span class="n">noremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">h</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">h</span>
+<span class="n">noremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">j</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">j</span>
+<span class="n">noremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">k</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">k</span>
+<span class="n">noremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">l</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">w</span><span class="o">&gt;</span><span class="n">l</span>
+
+<span class="s">&quot; sudo to write</span>
+<span class="n">cnoremap</span> <span class="n">W</span><span class="o">!!</span> <span class="n">w</span> <span class="o">!</span><span class="n">sudo</span> <span class="n">tee</span> <span class="o">%</span> <span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+
+
+<span class="s">&quot; json格式化</span>
+<span class="n">com</span><span class="o">!</span> <span class="n">FormatJSON</span> <span class="o">%!</span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">json</span><span class="p">.</span><span class="n">tool</span>
+</pre></div>
+
+
+<h1 id="_9">映射</h1>
+<p>设置leader<br />
+let mapleader = ","</p>
+<p>重启vim或source生效<br />
+:source ~/.vimrc</p>
+<h1 id="_10">插件脚本</h1>
+<p>脚本语言 vimscrip</p>
+<p>查看配置选项<br />
+:h option-list</p>
+<p>自定义函数</p>
+<div class="codehilite"><pre><span></span><span class="nv">func</span> <span class="k">SetTitle</span><span class="ss">()</span>
+    <span class="k">if</span> <span class="o">&amp;</span><span class="nv">filetype</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">python</span><span class="s1">&#39;</span>
+        <span class="k">call</span> <span class="nl">setline</span><span class="ss">(</span><span class="mi">1</span>, <span class="s2">&quot;</span><span class="s">\#!/usr/bin/env python</span><span class="s2">&quot;</span><span class="ss">)</span>
+        <span class="k">call</span> <span class="nl">setline</span><span class="ss">(</span><span class="mi">2</span>, <span class="s2">&quot;</span><span class="s">\# -*- coding:utf-8 -*-</span><span class="s2">&quot;</span><span class="ss">)</span>
+        <span class="nv">normal</span> <span class="nv">G</span>
+        <span class="nv">normal</span> <span class="nv">o</span>
+        <span class="nv">normal</span> <span class="nv">o</span>
+        <span class="k">call</span> <span class="nl">setline</span><span class="ss">(</span><span class="mi">5</span>, <span class="s2">&quot;</span><span class="s">if __name__ == &#39;__main__&#39;:</span><span class="s2">&quot;</span><span class="ss">)</span>
+        <span class="k">call</span> <span class="nl">setline</span><span class="ss">(</span><span class="mi">6</span>, <span class="s2">&quot;</span><span class="s">    pass</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="nv">endfunc</span>
+</pre></div>
+
+
+<p>github: vim-go-tutoria<br />
+开源文件：dotfiles</p>
+<h1 id="vim_3">vim映射</h1>
+<p>:map - x # 将-映射为x<br />
+:map <space> viw 空格映射为选中整个单词<br />
+:map <c-d> dd 可以使用ctrl+d执行dd操作<br />
+:unmap -  删除映射</p>
+<p>模式<br />
+nmap normal<br />
+vmap visual<br />
+imap insert     </p>
+<p>v 选中 U/u 转大小写<br />
+:imap <c-d> <Esc>ddi # insert模式下删除一行<br />
+nnoremap n no re map normal模式下，非递归映射（任何时候都应该使用）</p>
+<p>《笨办法学vimscript》</p>
+<p>vim8 Neovim</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

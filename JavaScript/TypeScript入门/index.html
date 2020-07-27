@@ -1,0 +1,763 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>TypeScript入门 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#typescript" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                TypeScript入门
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="typescript">TypeScript入门</h1>
+<h2 id="_1">简介</h2>
+<ol>
+<li>微软开发</li>
+<li>Javascript超集</li>
+<li>遵循ES6</li>
+</ol>
+<p>Google 使用 TypeScript 开发了 Angular2框架</p>
+<p>运行环境<br />
+概念，语法，特性</p>
+<p>ES5、ES6 是TypeScript规范<br />
+TypeScript 是JavaScript 超集</p>
+<p>TypeScript - compiler -&gt; JavaScript</p>
+<p>在线compiler<br />
+http://www.typescriptlang.org/index.html</p>
+<p>安装开发环境</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 确保npm已安装</span>
+npm --version
+<span class="m">6</span>.9.0
+
+<span class="c1"># 安装</span>
+npm install -g typescript
+
+<span class="c1"># 查看版本</span>
+tsc --version
+Version <span class="m">3</span>.7.4
+
+<span class="c1"># 编译</span>
+tsc demo.ts
+</pre></div>
+
+
+<p>demo.ts</p>
+<div class="codehilite"><pre><span></span><span class="nx">exports</span> <span class="kr">class</span> <span class="nx">Demo</span><span class="p">{}</span>
+</pre></div>
+
+
+<p>转换后的代码</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">__esModule</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">Demo</span> <span class="o">=</span> <span class="cm">/** @class */</span> <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">Demo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">Demo</span><span class="p">;</span>
+<span class="p">}());</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">Demo</span> <span class="o">=</span> <span class="nx">Demo</span><span class="p">;</span>
+</pre></div>
+
+
+<p>使用IDE WebStrom 配置保存编译<br />
+1、打开 WebStrom -&gt; Preferences -&gt; Languages &amp; Frameworks -&gt; TypeScript<br />
+2、设置 Node interpreter 和 TypeScript<br />
+3、勾选 Recompile on changes</p>
+<p>字符串特性<br />
+1、多行字符串</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="sb">`</span>
+<span class="sb">first line</span>
+<span class="sb">second line</span>
+<span class="sb">`</span>
+</pre></div>
+
+
+<p>2、字符串模板</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="sb">`hello </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">getName</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span>
+</pre></div>
+
+
+<p>3、自动拆分字符串</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">){</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span>
+
+<span class="kd">var</span> <span class="nx">getAge</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="mi">18</span>
+<span class="p">}</span>
+
+<span class="nx">test</span><span class="sb">`my name is </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb"> i&#39;m </span><span class="si">${</span><span class="nx">age</span><span class="si">}</span><span class="sb">`</span>
+<span class="c1">//相当于 test([&quot;my name is &quot;, &quot; i&#39;m &quot;, &quot;&quot;], name, age)</span>
+</pre></div>
+
+
+<p>4、指定类型</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 指定变量类型</span>
+<span class="kd">var</span> <span class="nx">woname</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">&quot;Tom&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">alias</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="s1">&#39;12&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">age</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">man</span><span class="o">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// 定义类中元素类型</span>
+<span class="kr">class</span> <span class="nx">Person</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Jack&quot;</span><span class="p">;</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+</pre></div>
+
+
+<p>5、函数参数</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 指定函数参数和返回值类型</span>
+<span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">// 设置默认参数, 要声明到最后</span>
+<span class="kd">function</span> <span class="nx">test2</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">// 设置可选参数,要声明明到必选参数之后</span>
+<span class="kd">function</span> <span class="nx">test3</span><span class="p">(</span><span class="nx">age</span><span class="o">?:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="nx">test2</span><span class="p">(</span><span class="s1">&#39;demo&#39;</span><span class="p">)</span>
+<span class="nx">test3</span><span class="p">()</span>
+
+<span class="c1">// 任意数量参数</span>
+<span class="kd">function</span> <span class="nx">test4</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">args</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">arg</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">test4</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1">// 解包数组ts不支持</span>
+<span class="kd">function</span> <span class="nx">test5</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nx">test5</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span>
+</pre></div>
+
+
+<p>6、generator函数</p>
+<div class="codehilite"><pre><span></span><span class="c1">// generator函数，手工控制程序执行 ts不支持</span>
+<span class="c1">// babeljs: https://www.babeljs.cn/repl</span>
+<span class="kd">function</span><span class="o">*</span> <span class="nx">test6</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">yield</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">test6</span><span class="p">().</span><span class="nx">next</span><span class="p">()</span>
+
+<span class="kd">function</span><span class="o">*</span> <span class="nx">getStock</span><span class="p">(</span><span class="nx">num</span><span class="o">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">yield</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&gt;</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">break</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getStock</span><span class="p">().</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>7、析构表达式</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 对象析构表达式, 可以取别名, 获取嵌套表达式内容,可以有多余的值</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">name1</span><span class="o">:</span> <span class="nx">name2</span><span class="p">,</span> <span class="nx">age1</span><span class="o">:</span> <span class="p">{</span> <span class="nx">age2</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name1</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+    <span class="nx">age1</span><span class="o">:</span> <span class="p">{</span> <span class="nx">age2</span><span class="o">:</span> <span class="mi">23</span> <span class="p">},</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name2</span><span class="p">,</span> <span class="nx">age2</span><span class="p">);</span>
+
+<span class="c1">// 数组析构表达式，位置取</span>
+<span class="kd">var</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">others</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">others</span><span class="p">);</span>
+<span class="c1">// 1 2 [ 3, 4 ]</span>
+</pre></div>
+
+
+<p>8、箭头函数</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 箭头函数匿名表达式, 消除this带来的问题</span>
+<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">arg1</span> <span class="o">+</span> <span class="nx">arg2</span> <span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="nx">value</span> <span class="p">=&gt;</span> <span class="nx">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">));</span>
+<span class="c1">// [ 2, 4 ]</span>
+</pre></div>
+
+
+<p>9、循环</p>
+<div class="codehilite"><pre><span></span><span class="c1">// forEach 循环</span>
+<span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">list</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// for-in循环打印下标</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">index</span> <span class="k">in</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// for-of循环打印值</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 打印字符串</span>
+<span class="c1">// for (let s of &#39;munber&#39;) {</span>
+<span class="c1">//     console.log(s);</span>
+<span class="c1">// }</span>
+</pre></div>
+
+
+<p>10、面向对象</p>
+<div class="codehilite"><pre><span></span><span class="c1">// class是TS和核心</span>
+<span class="kr">class</span> <span class="nx">Student</span> <span class="p">{</span>
+    <span class="c1">// 访问控制符，默认</span>
+    <span class="kr">public</span> <span class="nx">name</span><span class="p">;</span>
+
+    <span class="c1">// 外部不能访问，只能在内部访问</span>
+    <span class="kr">private</span> <span class="nx">age</span><span class="p">;</span>
+
+    <span class="c1">// 内部和子类访问，外部不能访问</span>
+    <span class="kr">protected</span> <span class="nx">sex</span><span class="p">;</span>
+
+    <span class="c1">// 构造函数，实例化时候被调用, 可以申明属性</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">school</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;constructor&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="nx">eat</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;eat&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例化</span>
+<span class="kd">let</span> <span class="nx">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Student</span><span class="p">(</span><span class="s1">&#39;school&#39;</span><span class="p">);</span>
+<span class="nx">s1</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Tom&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s1</span><span class="p">.</span><span class="nx">school</span><span class="p">);</span>
+
+<span class="nx">s1</span><span class="p">.</span><span class="nx">eat</span><span class="p">();</span>
+</pre></div>
+
+
+<p>11、类的继承</p>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">LittleStudent</span> <span class="kr">extends</span> <span class="nx">Student</span> <span class="p">{</span>
+    <span class="c1">// 子类自己的数据</span>
+    <span class="nx">code</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">code</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 必须要调用父类构造函数</span>
+        <span class="kr">super</span><span class="p">(</span><span class="s1">&#39;school&#39;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">code</span> <span class="o">=</span> <span class="nx">code</span><span class="p">;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;LittleStudent&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="nx">work</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 调用父类的方法</span>
+        <span class="kr">super</span><span class="p">.</span><span class="nx">eat</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">eat</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">ls1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LittleStudent</span><span class="p">(</span><span class="s1">&#39;LittleStudent&#39;</span><span class="p">);</span>
+<span class="nx">ls1</span><span class="p">.</span><span class="nx">eat</span><span class="p">();</span>
+<span class="nx">ls1</span><span class="p">.</span><span class="nx">work</span><span class="p">();</span>
+</pre></div>
+
+
+<p>12、泛型</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 泛型 只能放某个类型元素</span>
+<span class="kd">let</span> <span class="nx">intList</span><span class="o">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">intList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="c1">// intList.push(&#39;2&#39;); 报错</span>
+</pre></div>
+
+
+<p>13、接口</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 接口 代码约定</span>
+<span class="kr">interface</span> <span class="nx">IHuman</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kr">class</span> <span class="nx">HumanImpl</span> <span class="kr">implements</span> <span class="nx">IHuman</span> <span class="p">{</span>
+    <span class="c1">// 实现接口的内容</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="nx">number</span><span class="p">;</span>
+
+    <span class="nx">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">IHuman</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">HumanImpl</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">12</span> <span class="p">});</span>
+</pre></div>
+
+
+<p>14、模块，重用单元</p>
+<p>a.ts</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 不对外暴露</span>
+<span class="kd">var</span> <span class="nx">var0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">func0</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Clazz0</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">// 对外暴露</span>
+<span class="kr">export</span> <span class="kd">var</span> <span class="nx">var1</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">func1</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Clazz1</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>b.ts</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 导入其他模块对外暴露的内容</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">var1</span><span class="p">,</span> <span class="nx">func1</span><span class="p">,</span> <span class="nx">Clazz1</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./a&#39;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">var1</span><span class="p">);</span>
+
+<span class="nx">func1</span><span class="p">()</span>
+
+<span class="k">new</span> <span class="nx">Clazz1</span><span class="p">()</span>
+</pre></div>
+
+
+<p>15、注解<br />
+说明信息，与业务逻辑无关</p>
+<p>16、类型定义文件</p>
+<p>类型定义文件 <code>*.d.ts</code> 使用已有的工具包，如JQuery<br />
+github 工具 typings</p>
+<p>17、总结<br />
+基本概念和优势<br />
+开发环境<br />
+语法特性</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

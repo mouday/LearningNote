@@ -1,0 +1,1003 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Node基础学习笔记 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#node" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Node基础学习笔记
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#node_1" class="md-nav__link">
+    Node简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    环境搭建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm" class="md-nav__link">
+    npm包管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node_2" class="md-nav__link">
+    Node模块
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    核心Http模块
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getpost" class="md-nav__link">
+    GET请求和POST请求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    案例: 登录注册接口设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    总结回顾
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="node">Node基础学习笔记</h1>
+<h2 id="node_1">Node简介</h2>
+<p>1、Node的作用和应用<br />
+1. 脱离浏览器运行JS<br />
+2. 后端API编写<br />
+3. webpack gulp npm等</p>
+<p>2、中间层：服务器中负责IO读写的中间层服务器<br />
+性能 异步IO<br />
+处理数据<br />
+安全性</p>
+<p>3、学习目标<br />
+登录、注册</p>
+<p>4、前置知识<br />
+HTML CSS JS</p>
+<p>5、Node优势<br />
+便于前端开发入门<br />
+性能高<br />
+利于前端代码整合</p>
+<p>6、缺点<br />
+年轻</p>
+<h2 id="_1">环境搭建</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看版本</span>
+$ node -v
+
+<span class="c1"># 进入交互命令行</span>
+$ node
+</pre></div>
+
+
+<p>1、Hello world<br />
+demo.js</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello world!&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>运行</p>
+<div class="codehilite"><pre><span></span>$ node demo
+hello world!
+
+$ node demo.js
+hello world!
+</pre></div>
+
+
+<h2 id="npm">npm包管理</h2>
+<p>常用命令</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 初始化项目，生成package.json</span>
+$ npm init
+
+<span class="c1"># 安装package.json中所有依赖</span>
+$ npm install
+
+<span class="c1"># 安装 简写 i</span>
+$ npm install jquery
+
+<span class="c1"># 删除 简写 un</span>
+$ npm uninstall jquery
+
+<span class="c1"># 更新</span>
+$ npm update jquery
+
+<span class="c1"># 全局安装cnpm  指定淘宝源</span>
+$ npm install cnpm -g --registry<span class="o">=</span>https://registry.npm.taobao.org
+</pre></div>
+
+
+<h2 id="node_2">Node模块</h2>
+<p>三种模块：<br />
+1. 全局模块<br />
+2. 系统模块<br />
+3. 自定义模块</p>
+<p>1、全局模块<br />
+全局使用，不需要引用</p>
+<div class="codehilite"><pre><span></span><span class="n">process</span><span class="p">.</span><span class="n">env</span>  <span class="err">环境变量</span>
+<span class="n">process</span><span class="p">.</span><span class="n">argv</span> <span class="err">执行参数</span>
+</pre></div>
+
+
+<p>示例：读取环境变量</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">dev</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;开发环境&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;生产环境&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 生产环境</span>
+</pre></div>
+
+
+<p>示例：简易计算器命令行接收参数</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">num1</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="kd">let</span> <span class="nx">num2</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">);</span>
+</pre></div>
+
+
+<p>执行</p>
+<div class="codehilite"><pre><span></span>$ node demo <span class="m">1</span> <span class="m">1</span>
+<span class="m">2</span>
+</pre></div>
+
+
+<p>2、系统模块<br />
+需要require引入，不需要单独下载</p>
+<p>path: 用于处理文件路径和目录路径的实用工具</p>
+<p>示例</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">filename</span> <span class="o">=</span> <span class="s2">&quot;/root/demo/index.jpg&quot;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">dirname</span><span class="p">(</span><span class="nx">filename</span><span class="p">));</span>
+<span class="c1">// /root/demo</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nx">filename</span><span class="p">));</span>
+<span class="c1">// index.jpg</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">extname</span><span class="p">(</span><span class="nx">filename</span><span class="p">));</span>
+<span class="c1">// .jpg</span>
+
+<span class="cm">/* 路径拼接 */</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&quot;index.js&quot;</span><span class="p">));</span>
+<span class="c1">// /Users/demo/Desktop/index.js</span>
+</pre></div>
+
+
+<p>fs 用于文件读写操作</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">)</span>
+
+<span class="cm">/* 异步操作 */</span>
+<span class="c1">// 读取文件</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s2">&quot;./demo.txt&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)=&gt;{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+        <span class="c1">// hello</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+
+<span class="c1">// 写入文件 flag 可选 a是append</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s2">&quot;./demo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">flag</span><span class="o">:</span> <span class="s2">&quot;a&quot;</span><span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)=&gt;{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="k">throw</span> <span class="nx">err</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+
+<span class="cm">/* 同步操作 */</span>
+<span class="c1">// 读取文件</span>
+<span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s2">&quot;./demo.txt&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+<span class="c1">// 写入文件</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="s2">&quot;./demo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>3、自定义模块<br />
+export<br />
+module<br />
+require查找规则：<br />
+1. 如果有路径就去路径中查找<br />
+2. 如果没有路径就去node_modules文件夹中查找<br />
+3. 最后去node安装目录中查找</p>
+<p>demo.js</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 导出 a和 b</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="s2">&quot;world&quot;</span>
+
+<span class="c1">// 不对外导出</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="s2">&quot;private&quot;</span>
+
+<span class="c1">// 批量导出</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+    <span class="nx">b</span><span class="o">:</span> <span class="s1">&#39;world&#39;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>index.js</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 如果require(&quot;demo&quot;) 是去特殊文件夹node_modules 中查找 </span>
+<span class="kr">const</span> <span class="nx">demo</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./demo&quot;</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">demo</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">// hello</span>
+</pre></div>
+
+
+<p>导出一个类</p>
+<div class="codehilite"><pre><span></span><span class="c1">// person.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kr">class</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">showName</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// index.js</span>
+<span class="kr">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;person&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">)</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">showName</span><span class="p">();</span>
+<span class="c1">// Tom</span>
+</pre></div>
+
+
+<h2 id="http">核心Http模块</h2>
+<p>服务器对象</p>
+<div class="codehilite"><pre><span></span><span class="nx">http</span><span class="p">.</span><span class="nx">createSerser</span><span class="p">()</span>
+</pre></div>
+
+
+<p>1、开启服务</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)=&gt;{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+
+
+<p>访问<br />
+http://localhost:8080/</p>
+<p>2、简单的http服务器<br />
+index.js</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">)</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)=&gt;{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)=&gt;{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&quot;404 not found&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+
+
+<p>demo.html</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>demo<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>访问地址：http://localhost:8080/demo.html</p>
+<h2 id="getpost">GET请求和POST请求</h2>
+<p>请求报文</p>
+<div class="codehilite"><pre><span></span><span class="err">头</span> <span class="err">信息</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="n">K</span>
+
+<span class="err">体</span> <span class="err">数据</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="k">G</span>
+</pre></div>
+
+
+<p>GET 主要获取数据，数据放在url里传输</p>
+<div class="codehilite"><pre><span></span><span class="c1">// url?username=Tom&amp;age=23</span>
+<span class="c1">// url模块处理</span>
+<span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</pre></div>
+
+
+<p>POST 数据放在body</p>
+<div class="codehilite"><pre><span></span><span class="c1">// querystring模块处理</span>
+<span class="nx">querystring</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</pre></div>
+
+
+<p>代码实例</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;querystring&quot;</span><span class="p">)</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 解析GET参数</span>
+        <span class="kd">let</span> <span class="p">{</span> <span class="nx">query</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+        <span class="c1">// 返回json</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">query</span><span class="p">))</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">// 接收数据</span>
+        <span class="nx">request</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">buffer</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">buffer</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="c1">// 将接收到的数据返回</span>
+        <span class="nx">request</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span>
+            <span class="c1">// 解析查询参数</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">querystring</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)))</span>
+        <span class="p">})</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;not allow&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+
+
+<p>提交表单代码 demo.html</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;http://localhost:8080/&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="_2">案例: 登录注册接口设计</h2>
+<p>接口API：不同功能层之间的通信规则</p>
+<div class="codehilite"><pre><span></span><span class="err">请求方式</span> <span class="err">返回值</span> <span class="err">接口名</span> <span class="err">参数</span>
+</pre></div>
+
+
+<p>项目结构</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span>
+<span class="err">├──</span> <span class="k">index</span><span class="p">.</span><span class="n">js</span>
+<span class="err">└──</span> <span class="k">template</span>
+    <span class="err">├──</span> <span class="n">jquery</span><span class="p">.</span><span class="k">min</span><span class="p">.</span><span class="n">js</span>
+    <span class="err">├──</span> <span class="k">admin</span><span class="p">.</span><span class="n">html</span>
+    <span class="err">└──</span> <span class="n">login</span><span class="p">.</span><span class="n">html</span>
+</pre></div>
+
+
+<p>index.js</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">querystring</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;querystring&quot;</span><span class="p">)</span>
+
+<span class="c1">// 用户列表</span>
+<span class="kd">let</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;123456&#39;</span>
+<span class="p">}</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 先定义好处理函数</span>
+    <span class="kd">function</span> <span class="nx">handleLogin</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="p">{</span> <span class="nx">username</span><span class="p">,</span> <span class="nx">password</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">post</span>
+        <span class="kd">let</span> <span class="nx">msg</span>
+        <span class="kd">let</span> <span class="nx">code</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">users</span><span class="p">[</span><span class="nx">username</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;用户名不存在&quot;</span>
+            <span class="nx">code</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">users</span><span class="p">[</span><span class="nx">username</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">code</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;密码不正确&quot;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;登录成功&quot;</span>
+        <span class="p">}</span>
+
+        <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+            <span class="nx">code</span><span class="p">,</span> <span class="nx">msg</span>
+        <span class="p">}))</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">handleRegister</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="kd">let</span> <span class="nx">code</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="kd">let</span> <span class="p">{</span> <span class="nx">username</span><span class="p">,</span> <span class="nx">password</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">post</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">users</span><span class="p">[</span><span class="nx">username</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;用户已存在&quot;</span>
+            <span class="nx">code</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">users</span><span class="p">[</span><span class="nx">username</span><span class="p">]</span> <span class="o">=</span> <span class="nx">password</span>
+            <span class="nx">code</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="nx">msg</span> <span class="o">=</span> <span class="s2">&quot;注册成功&quot;</span>
+        <span class="p">}</span>
+
+        <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+            <span class="nx">code</span><span class="p">,</span> <span class="nx">msg</span>
+        <span class="p">}))</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">sendFile</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="sb">`./template/</span><span class="si">${</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s2">&quot;404&quot;</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 路由映射</span>
+    <span class="kr">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;/login&#39;</span><span class="o">:</span> <span class="nx">handleLogin</span><span class="p">,</span>
+        <span class="s1">&#39;/register&#39;</span><span class="o">:</span> <span class="nx">handleRegister</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 获取数据</span>
+    <span class="kd">let</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">get</span><span class="p">,</span> <span class="nx">post</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;GET&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 解析GET参数</span>
+        <span class="kd">let</span> <span class="p">{</span> <span class="nx">pathname</span><span class="p">,</span> <span class="nx">query</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="nx">path</span> <span class="o">=</span> <span class="nx">pathname</span>
+        <span class="nx">get</span> <span class="o">=</span> <span class="nx">query</span>
+        <span class="nx">complete</span><span class="p">()</span>
+
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">// 接收数据</span>
+        <span class="nx">request</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">buffer</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">buffer</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="c1">// 将接收到的数据返回</span>
+        <span class="nx">request</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span>
+            <span class="nx">path</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">url</span>
+            <span class="nx">post</span> <span class="o">=</span> <span class="nx">querystring</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+            <span class="nx">complete</span><span class="p">()</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">complete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">routes</span><span class="p">[</span><span class="nx">path</span><span class="p">])</span> <span class="p">{</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span>
+                <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json; charset=utf-8&#39;</span>
+            <span class="p">})</span>
+            <span class="nx">routes</span><span class="p">[</span><span class="nx">path</span><span class="p">]()</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span>
+                <span class="p">{</span> <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;text/html; charset=UTF-8&#39;</span> <span class="p">})</span>
+            <span class="nx">sendFile</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+
+
+<p>template/login.html</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;注册&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;register&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;登录&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;login&quot;</span><span class="p">&gt;</span>
+
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">getFormData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">username</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#username&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+            <span class="nx">password</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#password&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#login&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="nx">getFormData</span><span class="p">(),</span>
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">)</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">)</span>
+                    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&quot;admin.html&quot;</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+    <span class="p">})</span>
+
+
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#register&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/register&quot;</span><span class="p">,</span> <span class="nx">getFormData</span><span class="p">(),</span>
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">)</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="p">})</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>template/admin.html</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;h1&gt;</span>admin<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+
+
+<h2 id="_3">总结回顾</h2>
+<p>1、Node作用<br />
+webAPI<br />
+中间层<br />
+前端工程化 webpack</p>
+<p>2、优势<br />
+性能高<br />
+便于前端入手</p>
+<p>3、npm 管理优势<br />
+npm i jquery<br />
+npm un jquery<br />
+package.json</p>
+<p>4、三大模块<br />
+全局模块<br />
+系统模块 require<br />
+自定义模块 module.exports</p>
+<p>5、http<br />
+数据通信<br />
+get<br />
+url模块</p>
+<p>post<br />
+request.on('data', buffer=&gt;{</p>
+<p>})</p>
+<p>request.on('end', ()=&gt;{<br />
+    Buffer.concat(arr).toString()<br />
+})</p>
+<p>querystring模块</p>
+<p>6、设计API<br />
+方式 GET, POST<br />
+名称 /login<br />
+参数 username, password<br />
+返回值 {<br />
+    code: 0,<br />
+    msg: ''<br />
+}</p>
+<p>7、深入<br />
+express/koa2<br />
+MongoDB</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

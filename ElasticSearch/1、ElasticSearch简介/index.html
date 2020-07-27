@@ -1,0 +1,1079 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>ElasticSearch - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#elasticsearch" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                ElasticSearch
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、学习路径：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch_1" class="md-nav__link">
+    二、ElasticSearch简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch_2" class="md-nav__link">
+    三、ElasticSearch功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch_3" class="md-nav__link">
+    四、ElasticSearch适用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch_4" class="md-nav__link">
+    五、ElasticSearch特点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch_5" class="md-nav__link">
+    六、ElasticSearch核心概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch_6" class="md-nav__link">
+    七、ElasticSearch安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crud" class="md-nav__link">
+    八、文档CRUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    九、多种搜索方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregations" class="md-nav__link">
+    十、聚合操作 aggregations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="elasticsearch">ElasticSearch</h1>
+<h2 id="_1">一、学习路径：</h2>
+<p>1、核心知识<br />
+2、高手进阶</p>
+<p>3、大型集群运维优化<br />
+4、大型项目架构<br />
+5、ELK深入浅出</p>
+<h2 id="elasticsearch_1">二、ElasticSearch简介</h2>
+<p>分布式，高可用，高性能，可伸缩的搜索和分析系统</p>
+<p>1、应用<br />
+互联网：电商，新闻，招聘...<br />
+IT系统：OA软件，办公自动化软件，会议管理，日程管理，项目管理，员工管理...</p>
+<p>2、数据库做搜索<br />
+效果不佳，速度较慢</p>
+<p>3、全文检索，倒排索引<br />
+Lucene：jar包，提供了建立倒排索引，搜索的功能</p>
+<p>4、ElasticSearch：<br />
+(1)、基于Lucene<br />
+(2)、自动维护多个节点索引建立<br />
+(3)、搜索分布到多个节点执行<br />
+(4)、自动维护数据的冗余副本</p>
+<h2 id="elasticsearch_2">三、ElasticSearch功能</h2>
+<p>1、分布式搜索引擎和数据分析引擎<br />
+​    分布式，搜索，数据分析<br />
+2、全文检索，结构化检索，数据分析<br />
+3、对海量数据进行近实时处理</p>
+<p>ES分布式存储海量数据 - Lucene单机应用<br />
+近实时（秒级） - 离线批处理</p>
+<h2 id="elasticsearch_3">四、ElasticSearch适用场景</h2>
+<p>1、维基百科<br />
+2、新闻网站，用户行为日志（点击，浏览，收藏，评论）<br />
+3、Stack Overflow问题搜索<br />
+4、github代码搜索<br />
+5、电商搜索<br />
+6、日志数据分析<br />
+7、商品价格监控网站<br />
+8、BI系统，商业智能<br />
+9、站内搜索（电商，招聘，门户...）<br />
+10、IT系统（OA，CRM，ERP...）<br />
+11、数据分析（热门）</p>
+<h2 id="elasticsearch_4">五、ElasticSearch特点</h2>
+<p>1、分布式，也可以单机<br />
+2、ES = 全文检索 + 数据分析 + 分布式技术<br />
+3、开箱即用，简单<br />
+4、数据库（事务）ES作为补充</p>
+<h2 id="elasticsearch_5">六、ElasticSearch核心概念</h2>
+<p>Lucene:<br />
+最先进，功能强大的搜索库，api复杂</p>
+<p>ES:<br />
+分布式，<br />
+文档存储，<br />
+搜索引擎，<br />
+分析引擎，<br />
+PB级数据</p>
+<p>核心概念<br />
+1、Near Realtime NRT 近实时（延迟1s）<br />
+2、Cluster 集群，包含多个节点<br />
+3、Node 节点 <br />
+4、Document 文档 es中的最小数据单元 json结构，包含多个field字段<br />
+5、Index 索引<br />
+6、Type 类型 index中的一个逻辑分类<br />
+7、Shard(primary shard) 分片 一个index会被分成多片，存放到台态服务器<br />
+​    (1）横向扩展<br />
+​    (2）并行分布式执行，提升吞吐量和性能<br />
+​    (3) 默认5个，建立时设置，不能修改<br />
+8、Replica(replica shard) 副本<br />
+​    (1)高可用，一个shard宕机，服务可用<br />
+​    (2)提升搜索请求吞吐量<br />
+​    (3)默认1个，随时修改<br />
+​    5个shard 对应 5个副本，最小高可用配置2台服务器</p>
+<p>和mysql对比：<br />
+es        -     mysql<br />
+index     -     database<br />
+type      -     table<br />
+document  -     row</p>
+<h2 id="elasticsearch_6">七、ElasticSearch安装</h2>
+<p>安装<br />
+Java -version &gt;= 1.8</p>
+<p>1、下载解压<br />
+官网：<br />
+https://www.elastic.co/</p>
+<p>注意版本要匹配version 5.2.0</p>
+<p>搜索下载es 和 kibana<br />
+https://www.elastic.co/cn/downloads/past-releases</p>
+<p>或者直接下载<br />
+elasticsearch 5.2.0 32.0 MB: <br />
+https://www.elastic.co/cn/downloads/past-releases/elasticsearch-5-2-0<br />
+https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.tar.gz</p>
+<p>kibana 5.2.0 35.2 MB: <br />
+https://www.elastic.co/cn/downloads/past-releases/kibana-5-2-0</p>
+<p>https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-windows-x86.zip<br />
+https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-darwin-x86_64.tar.gz<br />
+https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz</p>
+<p>2、启动es</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">elasticsearch</span>
+</pre></div>
+
+
+<p>查看启动情况<br />
+http://127.0.0.1:9200/?pretty</p>
+<div class="codehilite"><pre><span></span><span class="o">##</span>  <span class="err">节点名称</span>
+<span class="n">name</span><span class="p">:</span> <span class="ss">&quot;node-1&quot;</span><span class="p">,</span>
+
+<span class="o">##</span>  <span class="err">集群名称</span>
+<span class="n">cluster_name</span><span class="p">:</span> <span class="ss">&quot;elasticsearch&quot;</span><span class="p">,</span>
+</pre></div>
+
+
+<p>修改配置文件<br />
+config/elasticsearch.yml</p>
+<p>3、启动kibana</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">kibana</span>
+</pre></div>
+
+
+<p>访问 <br />
+http://127.0.0.1:5601</p>
+<p>进入Dev Tools<br />
+查看健康状态</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">_cluster</span><span class="o">/</span><span class="n">health</span>
+</pre></div>
+
+
+<h2 id="crud">八、文档CRUD</h2>
+<p>面向文档的搜索分析引擎</p>
+<p>Document文档格式 json格式</p>
+<p>1、简单的集群管理<br />
+cat api</p>
+<p>参数</p>
+<div class="codehilite"><pre><span></span><span class="o">?</span><span class="n">v</span> <span class="err">显示标题</span>
+<span class="o">?</span><span class="n">pretty</span>
+</pre></div>
+
+
+<p>（1）检查集群健康状况</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">_cat</span><span class="o">/</span><span class="n">health</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>status</th>
+<th>primary shard</th>
+<th>replica shard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>green</td>
+<td>active</td>
+<td>active</td>
+</tr>
+<tr>
+<td>yellow</td>
+<td>active</td>
+<td>部分不可用</td>
+</tr>
+<tr>
+<td>red</td>
+<td>部分有数据丢失</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>启动了一个es进程，只有一个node，当前只有一个index，<br />
+默认配置一个index分配5个primary shard和 5 个replica shard <br />
+而且 primary shard 和 replica shard不能在同一台机器上（为了容错）</p>
+<p>kibana自己建立的index是一个primary shard 和 1个replica shard<br />
+当前就一个node，只分配了primary shard 没有第二台机器分配replica shard</p>
+<p>只要再启动一个es，就会变成green</p>
+<p>（2）查看集群中索引</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">_cat</span><span class="o">/</span><span class="n">indices</span>
+</pre></div>
+
+
+<p>（3）创建索引</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /&lt;index_name&gt;</span>
+</pre></div>
+
+
+<p>（4）删除索引</p>
+<div class="codehilite"><pre><span></span><span class="err">DELETE /&lt;index_name&gt;</span>
+</pre></div>
+
+
+<p>2、文档操作(增删改查)<br />
+（1）新增文档</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id</span>
+<span class="err">{</span>
+<span class="err">    &lt;data&gt;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>es会自动建立index和type，不需要提前创建<br />
+而且默认会对document的每个field都建立倒排索引，以便搜索</p>
+<p>eg:</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /web/product/1</span>
+<span class="err">{</span>
+<span class="err">    &quot;name&quot;: &quot;bat baidu&quot;,</span>
+<span class="err">    &quot;price&quot;: 30,</span>
+<span class="err">    &quot;tags&quot;: [&quot;tieba&quot;, &quot;baike&quot;]</span>
+<span class="err">}</span>
+
+<span class="err">PUT /web/product/2</span>
+<span class="err">{</span>
+<span class="err">    &quot;name&quot;: &quot;bat tencent&quot;,</span>
+<span class="err">    &quot;price&quot;: 40,</span>
+<span class="err">    &quot;tags&quot;: [&quot;qq&quot;, &quot;weixin&quot;]</span>
+<span class="err">}</span>
+
+<span class="err">PUT /web/product/3</span>
+<span class="err">{</span>
+<span class="err">    &quot;name&quot;: &quot;bat alibaba&quot;,</span>
+<span class="err">    &quot;price&quot;: 60,</span>
+<span class="err">    &quot;tags&quot;: [&quot;taobao&quot;, &quot;tianmao&quot;]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（2）查找文档</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/1</span>
+</pre></div>
+
+
+<p>（3）替换文档</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /web/product/1</span>
+<span class="err">{</span>
+<span class="err">    &quot;name&quot;: &quot;baidu&quot;,</span>
+<span class="err">    &quot;price&quot;: 35,</span>
+<span class="err">    &quot;tags&quot;: [&quot;tieba&quot;, &quot;baike&quot;]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>替换方式必须带上所有信息才能进行修改，会整个文档替换</p>
+<p>（4）更新文档</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /web/product/1/_update</span>
+<span class="err">{</span>
+<span class="err">  &quot;doc&quot;: {</span>
+<span class="err">    &quot;price&quot;: 306</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>只会更新部分字段，不会全部替换</p>
+<p>（5）删除文档</p>
+<div class="codehilite"><pre><span></span><span class="err">DELETE /web/product/1</span>
+</pre></div>
+
+
+<h2 id="_2">九、多种搜索方式</h2>
+<p>1、query string search<br />
+（1）查询所有</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+</pre></div>
+
+
+<p>返回参数</p>
+<div class="codehilite"><pre><span></span><span class="n">took</span> <span class="err">耗费时间毫秒</span>
+<span class="n">time_out</span> <span class="err">是否超时</span>
+<span class="n">_shard</span> <span class="err">几个</span><span class="n">shard处理了搜索请求</span>
+<span class="n">hits</span><span class="p">.</span><span class="n">total</span> <span class="err">查询结果数量</span>
+<span class="n">hits</span><span class="p">.</span><span class="n">max_score</span> <span class="err">相关度匹配分数，越大越相关</span> <span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">hits</span><span class="p">.</span><span class="n">hits</span> <span class="err">搜索匹配的详细数据</span>
+</pre></div>
+
+
+<p>（2）查询name包含'bat' 按照price降序排列</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search?q=name:bat&amp;sort=price:desc</span>
+</pre></div>
+
+
+<p>几乎很少用query string search,难以构建复杂查询</p>
+<p>2、query DSL<br />
+DSL：Domain Specified Language 特定领域的语言<br />
+http request body请求，用json构建查询</p>
+<p>（1）查询所有</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;:{</span>
+<span class="err">    &quot;match_all&quot;: {}</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（2）排序查询<br />
+查询name包含 'bat' 按照price降序排列</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;: {</span>
+<span class="err">      &quot;name&quot;: &quot;bat&quot;</span>
+<span class="err">    }</span>
+<span class="err">  },</span>
+<span class="err">  &quot;sort&quot;: [</span>
+<span class="err">    {</span>
+<span class="err">      &quot;price&quot;: &quot;desc&quot;</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（3）分页查询<br />
+第1个开始，取1条数据，实际取出第2条数据（form从0开始计数）</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match_all&quot;: {}</span>
+<span class="err">  }, </span>
+<span class="err">  &quot;from&quot;: 1,</span>
+<span class="err">  &quot;size&quot;: 1</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（4）指定字段<br />
+只取部分字段</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match_all&quot;: {}</span>
+<span class="err">  },</span>
+<span class="err">  &quot;_source&quot;: [&quot;name&quot;, &quot;price&quot;]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、query filter 数据过滤<br />
+（1）查询name中包含“bat”，price&gt;25</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">    &quot;query&quot;:{</span>
+<span class="err">        &quot;bool&quot;:{</span>
+<span class="err">            &quot;must&quot;:{</span>
+<span class="err">                &quot;match&quot;:{</span>
+<span class="err">                    &quot;name&quot;:&quot;bat&quot;</span>
+<span class="err">                }</span>
+<span class="err">            },</span>
+<span class="err">            &quot;filter&quot;:{</span>
+<span class="err">                &quot;range&quot;:{</span>
+<span class="err">                    &quot;price&quot;:{</span>
+<span class="err">                        &quot;gt&quot;:35</span>
+<span class="err">                    }</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、full-text search 全文检索<br />
+name字段会被拆解，建立倒排索引</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bat</td>
+<td>1,2,3</td>
+</tr>
+<tr>
+<td>baidu</td>
+<td>1</td>
+</tr>
+<tr>
+<td>tencent</td>
+<td>2</td>
+</tr>
+<tr>
+<td>alibaba</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>搜索时会将搜索串拆解开，去倒排索引一一匹配，只要<code>匹配任意一个</code>就会作为结果返回<br />
+命中越多，分数值越高</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;:{</span>
+<span class="err">    &quot;match&quot;:{</span>
+<span class="err">      &quot;name&quot;: &quot;bat baidu&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>5、phrase search 短语搜索<br />
+输入搜索串必须<code>完全匹配</code>，才能作为结果返回</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;:{</span>
+<span class="err">    &quot;match_phrase&quot;:{</span>
+<span class="err">      &quot;name&quot;: &quot;bat baidu&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>6、highlight search 高亮搜索结果<br />
+将name字段匹配的内容做上高亮标志</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /web/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;:{</span>
+<span class="err">    &quot;match&quot;:{</span>
+<span class="err">      &quot;name&quot;: &quot;bat baidu&quot;</span>
+<span class="err">    }</span>
+<span class="err">  },</span>
+<span class="err">  &quot;highlight&quot;: {</span>
+<span class="err">    &quot;fields&quot;: {</span>
+<span class="err">      &quot;name&quot;:{}</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="aggregations">十、聚合操作 aggregations</h2>
+<p>聚合示例使用的文档数据</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /taobao/product/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;red dog&quot;,</span>
+<span class="err">  &quot;age&quot;: 2,</span>
+<span class="err">  &quot;tags&quot;: [</span>
+<span class="err">    &quot;red&quot;, &quot;dog&quot;</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+
+<span class="err">PUT /taobao/product/2</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;green dog&quot;,</span>
+<span class="err">  &quot;age&quot;: 3,</span>
+<span class="err">  &quot;tags&quot;: [</span>
+<span class="err">    &quot;green&quot;, &quot;dog&quot;</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+
+<span class="err">PUT /taobao/product/3</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;yellow dog&quot;,</span>
+<span class="err">  &quot;age&quot;: 5,</span>
+<span class="err">  &quot;tags&quot;: [</span>
+<span class="err">    &quot;yellow&quot;, &quot;dog&quot;</span>
+<span class="err">    ]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>1、简单聚合<br />
+（1）设置feild的fielddata属性为true</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /taobao/_mapping/product</span>
+<span class="err">{</span>
+<span class="err">  &quot;properties&quot;: {</span>
+<span class="err">    &quot;tags&quot;:{</span>
+<span class="err">      &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">      &quot;fielddata&quot;: true</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（2）通过标签分组计算数量</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /taobao/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;aggs&quot;:{</span>
+<span class="err">    &quot;group_by_tag&quot;:{</span>
+<span class="err">      &quot;terms&quot;:{</span>
+<span class="err">        &quot;field&quot;: &quot;tags&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（3）设置 "size": 0不显示查询结果</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /taobao/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;size&quot;: 0,   </span>
+<span class="err">  &quot;aggs&quot;:{</span>
+<span class="err">    &quot;group_by_tag&quot;:{</span>
+<span class="err">      &quot;terms&quot;:{</span>
+<span class="err">        &quot;field&quot;: &quot;tags&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>2、先搜索再聚合</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /taobao/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;size&quot;: 0,</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;: {</span>
+<span class="err">      &quot;name&quot;: &quot;red&quot;</span>
+<span class="err">    }</span>
+<span class="err">  },</span>
+<span class="err">  &quot;aggs&quot;: {</span>
+<span class="err">    &quot;group_by_tag&quot;: {</span>
+<span class="err">      &quot;terms&quot;: {</span>
+<span class="err">        &quot;field&quot;: &quot;tags&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、先分组，再平均</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /taobao/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;size&quot;: 0,</span>
+<span class="err">  &quot;aggs&quot;: {</span>
+<span class="err">    &quot;group_by_tag&quot;: {</span>
+<span class="err">      &quot;terms&quot;: {</span>
+<span class="err">        &quot;field&quot;: &quot;tags&quot;</span>
+<span class="err">      },</span>
+<span class="err">      &quot;aggs&quot;: {</span>
+<span class="err">        &quot;avg_age&quot;: {</span>
+<span class="err">          &quot;avg&quot;: {&quot;field&quot;: &quot;age&quot;}</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、先分组，再平均，再降序排序</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /taobao/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;size&quot;: 0,</span>
+<span class="err">  &quot;aggs&quot;: {</span>
+<span class="err">    &quot;group_by_tag&quot;: {</span>
+<span class="err">      &quot;terms&quot;: {</span>
+<span class="err">        &quot;field&quot;: &quot;tags&quot;,</span>
+<span class="err">        &quot;order&quot;: {</span>
+<span class="err">          &quot;avg_age&quot;: &quot;desc&quot;</span>
+<span class="err">        }</span>
+<span class="err">      },</span>
+<span class="err">      &quot;aggs&quot;: {</span>
+<span class="err">        &quot;avg_age&quot;: {</span>
+<span class="err">          &quot;avg&quot;: {</span>
+<span class="err">            &quot;field&quot;: &quot;age&quot;</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>5、指定年龄范围分组，再按照组内标签分组，最后计算每组平均价格</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /taobao/product/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;size&quot;: 0,</span>
+<span class="err">  &quot;aggs&quot;: {</span>
+<span class="err">    &quot;group_by_age&quot;: {</span>
+<span class="err">      &quot;range&quot;: {</span>
+<span class="err">        &quot;field&quot;: &quot;age&quot;,</span>
+<span class="err">        &quot;ranges&quot;: [</span>
+<span class="err">          {</span>
+<span class="err">            &quot;from&quot;: 0,</span>
+<span class="err">            &quot;to&quot;: 3</span>
+<span class="err">          },</span>
+<span class="err">          {</span>
+<span class="err">            &quot;from&quot;: 1,</span>
+<span class="err">            &quot;to&quot;: 5</span>
+<span class="err">          }</span>
+<span class="err">        ]</span>
+<span class="err">      },</span>
+<span class="err">      &quot;aggs&quot;: {</span>
+<span class="err">        &quot;group_by_tag&quot;: {</span>
+<span class="err">          &quot;terms&quot;: {</span>
+<span class="err">            &quot;field&quot;: &quot;tags&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;aggs&quot;: {</span>
+<span class="err">            &quot;avg_age&quot;: {</span>
+<span class="err">              &quot;avg&quot;: {</span>
+<span class="err">                &quot;field&quot;: &quot;age&quot;</span>
+<span class="err">              }</span>
+<span class="err">            }</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,561 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Es5+es6 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#es5" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Es5+es6
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#es5" class="md-nav__link">
+    ES5 数组方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#es6" class="md-nav__link">
+    ES6 数组方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    扩展运算符
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Es5+es6</h1>
+                
+                <p>示例使用的数组</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</pre></div>
+
+
+<h2 id="es5">ES5 数组方法</h2>
+<p>不改变原数组<br />
+函数 | 说明 | 示例<br />
+-| - | -<br />
+Array.isArray()  | 判断一个值是否为数组 | <code>Array.isArray(arr); // true</code><br />
+valueOf()  | 返回数组本身 | <code>arr.valueOf(); // [1, 2, 3]</code><br />
+toString() | 返回数组的字符串形 | <code>arr.toString(); // "1,2,3"</code><br />
+join() | 返回数组成员拼接后的字符串，默认逗号分隔| <code>arr.join("-"); // "1-2-3"</code><br />
+concat() | 返回一个多个数组合并后的新数组 | <code>arr.concat([4, 5], 6); // [1, 2, 3, 4, 5, 6]</code><br />
+slice() | 返回切片后的新数组 | <code>arr.slice(start, end);</code><br />
+forEach() | 遍历数组的所有成员 | <code>arr.forEach((element, index, arr)=&gt; {return element;});</code><br />
+map() | 映射新数组 | <code>arr.map((element, index, arr)=&gt; {return element;});</code><br />
+filter() | 返回过滤后的新数组 | <code>arr.filter((element)=&gt; {return true;});</code><br />
+some() | 一个为true就返回true | <code>arr.some((element, index, arr)=&gt; {return true;});</code><br />
+every() | 所有为true才返回true | <code>arr.every((element, index, arr)=&gt; {return true;});</code><br />
+reduce()| 从左到右处理 | <code>arr.reduce((total, element, index, arr)=&gt; {return total + element;});</code><br />
+reduceRight() | 从右到左处理 | <code>arr.reduceRight((total, element, index, arr)=&gt; {return total + element;});</code><br />
+indexOf()| 开头查找元素，没有返回-1 | <code>arr.indexOf(1); // 0</code><br />
+lastIndexOf() | 尾部查找元素，没有返回-1 | <code>arr.lastIndexOf(1); //0</code></p>
+<p>改变原数组<br />
+函数 | 说明 | 示例<br />
+-| - | -<br />
+push() | 数组尾部添加元素，并返回数组长度 | <code>arr.push(1, 2); // 5</code><br />
+pop() | 删除数组的最后一个元素，并返回该元素 | <code>arr.pop(); // 3</code><br />
+unshift() | 数组头部添加元素，并返回数组长度 | <code>arr.unshift('a'); //4</code><br />
+shift() | 删除数组的第一个元素，并返回该元素 | <code>arr.shift(); // 1</code><br />
+reverse() | 返回颠倒顺序后的数组 | <code>arr.reverse(); // [3, 2, 1]</code><br />
+splice() | 删除数组成员，并添加的数组成员，返回被删除的元素 | <code>arr.splice(start, deleteCount, ...itmes)</code><br />
+sort() | 数组排序| <code>arr.sort(); //[1, 2, 3]</code></p>
+<h2 id="es6">ES6 数组方法</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array.from()</td>
+<td>类数组转换成数组</td>
+<td><code>Array.from('123'); // ["1", "2", 3"]</code></td>
+</tr>
+<tr>
+<td>Array.of()</td>
+<td>将一组值，转换为数组</td>
+<td><code>Array.of(1, 2, 3); // [1, 2, 3]</code></td>
+</tr>
+<tr>
+<td>copyWithin()</td>
+<td>返回替换后的数组</td>
+<td><code>arr.copyWithin(target, start, end)</code></td>
+</tr>
+<tr>
+<td>find()</td>
+<td>查找元素，没有返回undefined</td>
+<td><code>arr.find((item)=&gt;item===1)</code></td>
+</tr>
+<tr>
+<td>findIndex()</td>
+<td>查找元素位置，没有返回-1</td>
+<td><code>arr.findIndex((item)=&gt;item===1)</code></td>
+</tr>
+<tr>
+<td>fill()</td>
+<td>填充一个数组</td>
+<td><code>[1, 2, 3].fill(0); // [0, 0, 0]</code></td>
+</tr>
+<tr>
+<td>entries()</td>
+<td>返回键值对</td>
+<td>arr.entries()</td>
+</tr>
+<tr>
+<td>keys()</td>
+<td>返回键</td>
+<td>arr.keys()</td>
+</tr>
+<tr>
+<td>values() 返回值</td>
+<td>arr.values()</td>
+<td></td>
+</tr>
+<tr>
+<td>includes()</td>
+<td>是否包含给定的值</td>
+<td><code>arr.includes(1); // true</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">扩展运算符</h2>
+<p>(1)函数调用</p>
+<div class="codehilite"><pre><span></span><span class="c1">// ES6 的写法</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">77</span><span class="p">])</span>
+
+<span class="c1">// 等同于</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">77</span><span class="p">);</span>
+</pre></div>
+
+
+<p>(2)复制数组</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">a1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="c1">// 写法一</span>
+<span class="kr">const</span> <span class="nx">a2</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">a1</span><span class="p">];</span>
+<span class="c1">// 写法二</span>
+<span class="kr">const</span> <span class="p">[...</span><span class="nx">a2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">a1</span><span class="p">;</span>
+</pre></div>
+
+
+<p>（3）合并数组</p>
+<div class="codehilite"><pre><span></span><span class="c1">// ES5</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nx">concat</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1">// ES6</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+</pre></div>
+
+
+<p>(4)解构赋值</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="nx">first</span> <span class="c1">// 1</span>
+<span class="nx">rest</span>  <span class="c1">// [2, 3, 4, 5]</span>
+</pre></div>
+
+
+<blockquote>
+<p>参考<br />
+<a href="https://www.cnblogs.com/z-dl/p/8242960.html">JS Array对象的方法总结（ES5 与 ES6） 二</a></p>
+</blockquote>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

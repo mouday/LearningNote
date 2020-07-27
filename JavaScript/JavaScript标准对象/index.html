@@ -1,0 +1,613 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>标准对象 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                标准对象
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">标准对象</h1>
+<p>在JavaScript的世界里，一切都是对象。<br />
+typeof操作符获取对象的类型<br />
+number、string、boolean、function和undefined、object</p>
+<div class="codehilite"><pre><span></span><span class="n">typeof</span> <span class="mi">123</span><span class="p">;</span> <span class="o">//</span> <span class="s1">&#39;number&#39;</span>
+<span class="n">typeof</span> <span class="n">NaN</span><span class="p">;</span> <span class="o">//</span> <span class="s1">&#39;number&#39;</span>
+</pre></div>
+
+
+<p>包装对象</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span> <span class="o">//</span> <span class="mi">123</span><span class="p">,</span><span class="err">生成了新的包装类型，</span> <span class="err">不推荐</span>
+
+<span class="o">//</span> <span class="err">不使用</span><span class="k">new</span>
+<span class="n">var</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="mi">123</span><span class="err">，不推荐；</span> <span class="err">相当于</span><span class="n">parseInt</span><span class="p">()</span><span class="err">或</span><span class="n">parseFloat</span><span class="p">()</span> <span class="err">推荐</span>
+</pre></div>
+
+
+<p>规则：</p>
+<div class="codehilite"><pre><span></span><span class="err">不要使用</span><span class="k">new</span> <span class="nb">Number</span><span class="p">()</span><span class="err">、</span><span class="k">new</span> <span class="nb">Boolean</span><span class="p">()</span><span class="err">、</span><span class="k">new</span> <span class="n">String</span><span class="p">()</span><span class="err">创建包装对象；</span>
+
+<span class="err">用</span><span class="n">parseInt</span><span class="p">()</span><span class="err">或</span><span class="n">parseFloat</span><span class="p">()</span><span class="err">来转换任意类型到</span><span class="nb">number</span><span class="err">；</span>
+
+<span class="err">用</span><span class="n">String</span><span class="p">()</span><span class="err">来转换任意类型到</span><span class="n">string</span><span class="err">，或者直接调用某个对象的</span><span class="n">toString</span><span class="p">()</span><span class="err">方法；</span>
+
+<span class="err">通常不必把任意类型转换为</span><span class="n">boolean再判断</span><span class="err">，因为可以直接写</span><span class="k">if</span> <span class="p">(</span><span class="n">myVar</span><span class="p">)</span> <span class="err">{</span><span class="p">...</span><span class="err">}；</span>
+
+<span class="n">typeof操作符可以判断出number</span><span class="err">、</span><span class="nb">boolean</span><span class="err">、</span><span class="n">string</span><span class="err">、</span><span class="n">function和undefined</span><span class="err">；</span>
+
+<span class="err">判断</span><span class="n">Array要使用Array</span><span class="p">.</span><span class="n">isArray</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="err">；</span>
+
+<span class="err">判断</span><span class="n">null请使用myVar</span> <span class="o">===</span> <span class="k">null</span><span class="err">；</span>
+
+<span class="err">判断某个全局变量是否存在用</span><span class="n">typeof</span> <span class="n">window</span><span class="p">.</span><span class="n">myVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="err">；</span>
+
+<span class="err">函数内部判断某个变量是否存在用</span><span class="n">typeof</span> <span class="n">myVar</span> <span class="o">===</span> <span class="s1">&#39;undefined&#39;</span><span class="err">。</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="mi">123</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span> <span class="o">//</span> <span class="n">SyntaxError</span>
+
+<span class="mi">123</span><span class="p">..</span><span class="n">toString</span><span class="p">();</span> <span class="o">//</span> <span class="s1">&#39;123&#39;</span><span class="p">,</span> <span class="err">注意是两个点！</span>
+<span class="p">(</span><span class="mi">123</span><span class="p">).</span><span class="n">toString</span><span class="p">();</span> <span class="o">//</span> <span class="s1">&#39;123&#39;</span>
+</pre></div>
+
+
+<h1 id="date">Date</h1>
+<div class="codehilite"><pre><span></span><span class="o">//</span> 获取时间
+<span class="nv">var</span> <span class="nv">now</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span><span class="c1">;</span>
+<span class="nv">now</span><span class="c1">; // Wed Jun 24 2015 19:49:22 GMT+0800 (CST)</span>
+<span class="nv">now</span>.<span class="nv">getFullYear</span><span class="ss">()</span><span class="c1">; // 2015, 年份</span>
+<span class="nv">now</span>.<span class="nv">getMonth</span><span class="ss">()</span><span class="c1">; // 5, 月份，注意月份范围是0~11，5表示六月</span>
+<span class="nv">now</span>.<span class="k">getDate</span><span class="ss">()</span><span class="c1">; // 24, 表示24号</span>
+<span class="nv">now</span>.<span class="nv">getDay</span><span class="ss">()</span><span class="c1">; // 3, 表示星期三</span>
+<span class="nv">now</span>.<span class="nv">getHours</span><span class="ss">()</span><span class="c1">; // 19, 24小时制</span>
+<span class="nv">now</span>.<span class="nv">getMinutes</span><span class="ss">()</span><span class="c1">; // 49, 分钟</span>
+<span class="nv">now</span>.<span class="nv">getSeconds</span><span class="ss">()</span><span class="c1">; // 22, 秒</span>
+<span class="nv">now</span>.<span class="nv">getMilliseconds</span><span class="ss">()</span><span class="c1">; // 875, 毫秒数</span>
+<span class="nv">now</span>.<span class="k">getTime</span><span class="ss">()</span><span class="c1">; // 1435146562875, 以number形式表示的时间戳</span>
+
+<span class="o">//</span> 创建时间
+<span class="nv">var</span> <span class="nv">d</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">(</span><span class="mi">2015</span>, <span class="mi">5</span>, <span class="mi">19</span>, <span class="mi">20</span>, <span class="mi">15</span>, <span class="mi">30</span>, <span class="mi">123</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">d</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">(</span><span class="mi">1435146562875</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">//</span> 解析时间
+<span class="nv">var</span> <span class="nv">d</span> <span class="o">=</span> <span class="nv">Date</span>.<span class="nv">parse</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">2015-06-24T19:49:22.875+08:00</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">d</span><span class="c1">; // 1435146562875</span>
+</pre></div>
+
+
+<p>JavaScript的Date对象月份值从0开始，牢记0=1月，1=2月，2=3月，……，11=12月。</p>
+<h1 id="regexp">RegExp</h1>
+<div class="codehilite"><pre><span></span><span class="err">\</span><span class="n">d</span>      <span class="err">匹配一个数字</span>
+<span class="err">\</span><span class="n">w</span>      <span class="err">匹配一个字母或数字</span>
+<span class="p">[]</span>      <span class="err">表示范围</span>
+<span class="n">A</span><span class="o">|</span><span class="n">B</span>     <span class="err">可以匹配</span><span class="n">A或B</span>
+<span class="o">^</span>       <span class="err">行的开头</span>
+<span class="err">$</span>       <span class="err">行的结束</span>
+
+<span class="o">*</span>       <span class="err">任意个字符（包括</span><span class="mi">0</span><span class="err">个）</span>
+<span class="o">+</span>       <span class="err">至少一个字符</span>
+<span class="o">?</span>       <span class="mi">0</span><span class="err">个或</span><span class="mi">1</span><span class="err">个字符</span>
+<span class="err">{</span><span class="n">n</span><span class="err">}</span>     <span class="n">n个字符</span>
+<span class="err">{</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="err">}</span>   <span class="n">n</span><span class="o">-</span><span class="n">m个字符</span>
+</pre></div>
+
+
+<p>示例</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">re1</span> <span class="o">=</span> <span class="o">/</span><span class="n">ABC</span><span class="err">\</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">re2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RegExp</span><span class="p">(</span><span class="s1">&#39;ABC\\-001&#39;</span><span class="p">);</span>
+
+<span class="n">re1</span><span class="p">;</span> <span class="o">//</span> <span class="o">/</span><span class="n">ABC</span><span class="err">\</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span>
+<span class="n">re2</span><span class="p">;</span> <span class="o">//</span> <span class="o">/</span><span class="n">ABC</span><span class="err">\</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span>
+
+
+<span class="n">var</span> <span class="n">re</span> <span class="o">=</span> <span class="o">/^</span><span class="err">\</span><span class="n">d</span><span class="err">{</span><span class="mi">3</span><span class="err">}\</span><span class="o">-</span><span class="err">\</span><span class="n">d</span><span class="err">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="err">}$</span><span class="o">/</span><span class="p">;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;010-12345&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="k">true</span>
+</pre></div>
+
+
+<p>切分字符串</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;a b   c&#39;</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+
+<span class="o">//</span> <span class="err">正则表达式试试</span>
+<span class="s1">&#39;a b   c&#39;</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="o">/</span><span class="err">\</span><span class="n">s</span><span class="o">+/</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>分组（Group）</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">re</span> <span class="o">=</span> <span class="o">/^</span><span class="ss">(</span>\<span class="nv">d</span>{<span class="mi">3</span>}<span class="ss">)</span><span class="o">-</span><span class="ss">(</span>\<span class="nv">d</span>{<span class="mi">3</span>,<span class="mi">8</span>}<span class="ss">)</span>$<span class="o">/</span><span class="c1">;</span>
+<span class="nv">re</span>.<span class="k">exec</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">010-12345</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; // [&#39;010-12345&#39;, &#39;010&#39;, &#39;12345&#39;]</span>
+</pre></div>
+
+
+<p>正则匹配默认是贪婪匹配<br />
+非贪婪匹配</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">re</span> <span class="o">=</span> <span class="o">/^</span><span class="ss">(</span>\<span class="nv">d</span><span class="o">+</span>?<span class="ss">)(</span><span class="mi">0</span><span class="o">*</span><span class="ss">)</span>$<span class="o">/</span><span class="c1">;</span>
+<span class="nv">re</span>.<span class="k">exec</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">102300</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; // [&#39;102300&#39;, &#39;1023&#39;, &#39;00&#39;]</span>
+</pre></div>
+
+
+<p>全局搜索</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">r1</span> <span class="o">=</span> <span class="o">/</span><span class="nv">test</span><span class="o">/</span><span class="nv">g</span><span class="c1">;</span>
+<span class="o">//</span> 等价于:
+<span class="nv">var</span> <span class="nv">r2</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">RegExp</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">test</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">g</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+
+<span class="nv">var</span> <span class="nv">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">JavaScript, VBScript, JScript and ECMAScript</span><span class="s1">&#39;</span><span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">re</span><span class="o">=/</span>[<span class="nv">a</span><span class="o">-</span><span class="nv">zA</span><span class="o">-</span><span class="nv">Z</span>]<span class="o">+</span><span class="nv">Script</span><span class="o">/</span><span class="nv">g</span><span class="c1">;</span>
+
+<span class="o">//</span> 使用全局匹配:
+<span class="nv">re</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">s</span><span class="ss">)</span><span class="c1">; // [&#39;JavaScript&#39;]</span>
+<span class="nv">re</span>.<span class="nv">lastIndex</span><span class="c1">; // 10</span>
+
+<span class="nv">re</span>.<span class="k">exec</span><span class="ss">(</span><span class="nv">s</span><span class="ss">)</span><span class="c1">; // [&#39;VBScript&#39;]</span>
+<span class="nv">re</span>.<span class="nv">lastIndex</span><span class="c1">; // 20</span>
+</pre></div>
+
+
+<p>i标志，表示忽略大小写<br />
+m标志，表示执行多行匹配</p>
+<h1 id="json">JSON</h1>
+<p>JavaScript Object Notation</p>
+<div class="codehilite"><pre><span></span><span class="nb">number</span><span class="err">：和</span><span class="n">JavaScript的number完全一致</span><span class="err">；</span>
+<span class="nb">boolean</span><span class="err">：就是</span><span class="n">JavaScript的true或false</span><span class="err">；</span>
+<span class="n">string</span><span class="err">：就是</span><span class="n">JavaScript的string</span><span class="err">；</span>
+<span class="k">null</span><span class="err">：就是</span><span class="n">JavaScript的null</span><span class="err">；</span>
+<span class="nb">array</span><span class="err">：就是</span><span class="n">JavaScript的Array表示方式</span><span class="err">——</span><span class="p">[]</span><span class="err">；</span>
+<span class="k">object</span><span class="err">：就是</span><span class="n">JavaScript的</span><span class="err">{</span> <span class="p">...</span> <span class="err">}表示方式。</span>
+</pre></div>
+
+
+<p>JSON还定死了字符集必须是UTF-8，表示多语言就没有问题了。<br />
+为了统一解析，JSON的字符串规定必须用双引号""，<br />
+Object的键也必须用双引号""</p>
+<p>序列化</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>,
+    <span class="nv">age</span>: <span class="mi">14</span>,
+    <span class="nv">gender</span>: <span class="nv">true</span>,
+    <span class="nv">height</span>: <span class="mi">1</span>.<span class="mi">65</span>,
+    <span class="nv">grade</span>: <span class="nv">null</span>,
+    <span class="s1">&#39;</span><span class="s">middle-school</span><span class="s1">&#39;</span>: <span class="s1">&#39;</span><span class="s">\&quot;W3C\&quot; Middle School</span><span class="s1">&#39;</span>,
+    <span class="nv">skills</span>: [<span class="s1">&#39;</span><span class="s">JavaScript</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Java</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Python</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Lisp</span><span class="s1">&#39;</span>]
+}<span class="c1">;</span>
+
+<span class="nv">var</span> <span class="nv">s</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">xiaoming</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">//</span> 按缩进输出：
+<span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">xiaoming</span>, <span class="nv">null</span>, <span class="s1">&#39;</span><span class="s">  </span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">//</span> 输出指定的属性
+<span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">xiaoming</span>, [<span class="s1">&#39;</span><span class="s">name</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">skills</span><span class="s1">&#39;</span>], <span class="s1">&#39;</span><span class="s">  </span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">//</span> 每个键值对都会被函数先处理
+<span class="nv">function</span> <span class="nv">convert</span><span class="ss">(</span><span class="nv">key</span>, <span class="nv">value</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">typeof</span> <span class="nv">value</span> <span class="o">===</span> <span class="s1">&#39;</span><span class="s">string</span><span class="s1">&#39;</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">value</span>.<span class="nv">toUpperCase</span><span class="ss">()</span><span class="c1">;</span>
+    }
+    <span class="k">return</span> <span class="nv">value</span><span class="c1">;</span>
+}
+
+<span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">xiaoming</span>, <span class="nv">convert</span>, <span class="s1">&#39;</span><span class="s">  </span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="o">//</span> 精确控制如何序列化
+<span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>,
+    <span class="nv">age</span>: <span class="mi">14</span>,
+    <span class="nv">gender</span>: <span class="nv">true</span>,
+    <span class="nv">height</span>: <span class="mi">1</span>.<span class="mi">65</span>,
+    <span class="nv">grade</span>: <span class="nv">null</span>,
+    <span class="s1">&#39;</span><span class="s">middle-school</span><span class="s1">&#39;</span>: <span class="s1">&#39;</span><span class="s">\&quot;W3C\&quot; Middle School</span><span class="s1">&#39;</span>,
+    <span class="nv">skills</span>: [<span class="s1">&#39;</span><span class="s">JavaScript</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Java</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Python</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Lisp</span><span class="s1">&#39;</span>],
+    <span class="nv">toJSON</span>: <span class="nv">function</span> <span class="ss">()</span> {
+        <span class="k">return</span> { <span class="o">//</span> 只输出<span class="nv">name</span>和<span class="nv">age</span>，并且改变了<span class="nv">key</span>：
+            <span class="s1">&#39;</span><span class="s">Name</span><span class="s1">&#39;</span>: <span class="nv">this</span>.<span class="nv">name</span>,
+            <span class="s1">&#39;</span><span class="s">Age</span><span class="s1">&#39;</span>: <span class="nv">this</span>.<span class="nv">age</span>
+        }<span class="c1">;</span>
+    }
+}<span class="c1">;</span>
+
+<span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">xiaoming</span><span class="ss">)</span><span class="c1">; // &#39;{&quot;Name&quot;:&quot;小明&quot;,&quot;Age&quot;:14}&#39;</span>
+</pre></div>
+
+
+<p>反序列化</p>
+<div class="codehilite"><pre><span></span><span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">[1,2,3,true]</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">; // [1, 2, 3, true]</span>
+
+<span class="o">//</span> 转换解析出的属性
+<span class="nv">var</span> <span class="nv">obj</span> <span class="o">=</span> <span class="nv">JSON</span>.<span class="nv">parse</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">{&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:14}</span><span class="s1">&#39;</span>, <span class="nv">function</span> <span class="ss">(</span><span class="nv">key</span>, <span class="nv">value</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">key</span> <span class="o">===</span> <span class="s1">&#39;</span><span class="s">name</span><span class="s1">&#39;</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">value</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">同学</span><span class="s1">&#39;</span><span class="c1">;</span>
+    }
+    <span class="k">return</span> <span class="nv">value</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">JSON</span>.<span class="nv">stringify</span><span class="ss">(</span><span class="nv">obj</span><span class="ss">))</span><span class="c1">; // {name: &#39;小明同学&#39;, age: 14}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

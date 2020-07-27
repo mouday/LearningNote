@@ -1,0 +1,778 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>VueCli3 全栈项目 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                VueCli3 全栈项目
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、新建项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2mongobd" class="md-nav__link">
+    2、MongoBD数据库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、建立模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、注册接口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、使用全球公认头像
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、用户登录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7jwttoken" class="md-nav__link">
+    7、jwt实现token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8jwt" class="md-nav__link">
+    8、验证jwt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9、添加数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10、获取数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11、前端页面
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>VueCli3 全栈项目</h1>
+                
+                <p>主要内容<br />
+接口 Node + express + jwt<br />
+前端 VueCli3.0 + Element-UI<br />
+请求数据 Axios + Mlab + MongoDB</p>
+<p>功能 <br />
+1. 分页<br />
+2. 筛选<br />
+3. 用户注册<br />
+4. 登录<br />
+5. jwt用户验证</p>
+<h2 id="1">1、新建项目</h2>
+<div class="codehilite"><pre><span></span><span class="n">mkdir</span> <span class="n">node</span><span class="o">-</span><span class="n">app</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">node</span><span class="o">-</span><span class="n">app</span>
+<span class="n">npm</span> <span class="n">init</span>
+<span class="n">touch</span> <span class="n">server</span><span class="p">.</span><span class="n">js</span>
+<span class="n">cnpm</span> <span class="n">install</span> <span class="n">express</span> <span class="o">-</span><span class="n">S</span>
+</pre></div>
+
+
+<p>server.js</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express&quot;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;hello world!&quot;</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">5000</span><span class="p">;</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Server runing on http://127.0.0.1:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p>启动服务</p>
+<div class="codehilite"><pre><span></span>node server.js
+
+<span class="c1"># 全局安装</span>
+cnpm install nodemon --save-dev
+
+<span class="c1"># 文件变化自动重启</span>
+nodemon server.js
+</pre></div>
+
+
+<p>package.json</p>
+<div class="codehilite"><pre><span></span><span class="ss">&quot;script&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;start&quot;</span><span class="p">:</span> <span class="ss">&quot;node server.js&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;server&quot;</span><span class="p">:</span> <span class="ss">&quot;nodemon server.js&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">线上运行</span>
+<span class="n">npm</span> <span class="n">run</span> <span class="k">start</span>
+
+<span class="err">本地测试</span>
+<span class="n">npm</span> <span class="n">run</span> <span class="n">server</span>
+</pre></div>
+
+
+<h2 id="2mongobd">2、MongoBD数据库</h2>
+<p>https://mlab.com/<br />
+cnpm install mongoose -S</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongoose&quot;</span><span class="p">);</span>
+
+<span class="c1">// 配置</span>
+<span class="c1">// SANDBOX Cluster-app</span>
+<span class="kd">let</span> <span class="nx">mongoURL</span> <span class="o">=</span> <span class="s2">&quot;mongodb://127.0.0.1:27017/data&quot;</span><span class="p">;</span>
+
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">mongoURL</span><span class="p">).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;mongodb connect&quot;</span><span class="p">);</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2 id="3">3、建立模型</h2>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongoose&quot;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">Schema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">;</span>
+
+<span class="c1">// 配置数据模型</span>
+<span class="kr">const</span> <span class="nx">UserSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Schema</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">avatar</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="p">},</span>
+    <span class="nx">date</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nb">Date</span><span class="p">,</span>
+        <span class="k">default</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">})</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="nx">UserSchema</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="4">4、注册接口</h2>
+<p>cnpm install body-parser --save<br />
+cnpm install bcrypt --save</p>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 用户注册</span>
+<span class="cm"> */</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/register&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+    <span class="c1">// 查询数据库中是否有这个邮箱</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span> <span class="p">})</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="s2">&quot;msg&quot;</span><span class="o">:</span> <span class="s2">&quot;邮箱已被注册&quot;</span> <span class="p">})</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// 密码加密</span>
+        <span class="c1">// https://www.npmjs.com/package/bcrypt</span>
+        <span class="kr">const</span> <span class="nx">salt</span> <span class="o">=</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">genSaltSync</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+        <span class="kr">const</span> <span class="nx">newUser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+            <span class="nx">name</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span>
+            <span class="nx">email</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+            <span class="c1">// avatar,</span>
+            <span class="nx">password</span><span class="o">:</span> <span class="nx">bcrypt</span><span class="p">.</span><span class="nx">hashSync</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span> <span class="nx">salt</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">newUser</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2 id="5">5、使用全球公认头像</h2>
+<p>https://en.gravatar.com/</p>
+<div class="codehilite"><pre><span></span><span class="nx">cnpm</span> <span class="nx">install</span> <span class="nx">gravatar</span>  <span class="o">--</span><span class="nx">save</span>
+</pre></div>
+
+
+<h2 id="6">6、用户登录</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 用户登录</span>
+<span class="cm"> */</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+    <span class="c1">// 查询数据库中是否有这个邮箱</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span> <span class="p">})</span>
+
+    <span class="c1">// 用户校验</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="s2">&quot;msg&quot;</span><span class="o">:</span> <span class="s2">&quot;用户不存在&quot;</span> <span class="p">})</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// 密码校验</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">bcrypt</span><span class="p">.</span><span class="nx">compareSync</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="s2">&quot;msg&quot;</span><span class="o">:</span> <span class="s2">&quot;success&quot;</span> <span class="p">})</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span> <span class="s2">&quot;msg&quot;</span><span class="o">:</span> <span class="s2">&quot;密码错误&quot;</span> <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2 id="7jwttoken">7、jwt实现token</h2>
+<p>cnpm install jsonwebtoken --save</p>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsonwebtoken&#39;</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">secretKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">expiresIn</span><span class="o">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="p">});</span>
+</pre></div>
+
+
+<h2 id="8jwt">8、验证jwt</h2>
+<p>npm i passport passport-jwt --save</p>
+<h2 id="_1"></h2>
+<p>package.json 不显示依赖</p>
+<div class="codehilite"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">S</span> <span class="n">jquery</span>
+<span class="err">或者</span>
+<span class="n">npm</span> <span class="n">install</span> <span class="c1">--save jquery</span>
+</pre></div>
+
+
+<blockquote>
+<p>参考<br />
+<a href="https://segmentfault.com/q/1010000008407026/a-1020000008407253">package.json 不显示依赖</a></p>
+</blockquote>
+<h2 id="9">9、添加数据</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 添加数据</span>
+<span class="cm"> */</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/add&quot;</span><span class="p">,</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">session</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}),</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">type</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">describe</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">describe</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">income</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">income</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">expend</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">expend</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">remark</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">remark</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">cash</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">cash</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="kr">const</span> <span class="nx">profile</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">new</span> <span class="nx">Profile</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">save</span><span class="p">();</span>
+
+    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">profile</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2 id="10">10、获取数据</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 获取列表数据</span>
+<span class="cm"> */</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/list&quot;</span><span class="p">,</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">session</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}),</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Profile</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 获取单条数据</span>
+<span class="cm"> */</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/:id&quot;</span><span class="p">,</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">session</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}),</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">row</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Profile</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="p">})</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2 id="11">11、前端页面</h2>
+<p>创建前端项目</p>
+<div class="codehilite"><pre><span></span>$ vue -V
+<span class="m">3</span>.12.0
+
+$ vue create client
+
+<span class="m">1</span>、Manually
+<span class="m">2</span>、Babel Router Vuex
+<span class="m">3</span>、package.json
+<span class="m">4</span>、preset N
+</pre></div>
+
+
+<p>操作</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="err">全选</span>
+<span class="n">i</span> <span class="err">反选</span>
+<span class="err">空格</span> <span class="err">选中</span>
+<span class="err">回车安装</span>
+</pre></div>
+
+
+<p>前后端连载</p>
+<div class="codehilite"><pre><span></span><span class="n">cnpm</span> <span class="n">install</span> <span class="n">concurrently</span> <span class="c1">--save-dev</span>
+</pre></div>
+
+
+<p>client/package.json</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;npm run serve&quot;</span>    
+<span class="p">}</span>
+</pre></div>
+
+
+<p>package.json</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="err">//</span> <span class="err">安装前端依赖</span>
+    <span class="nt">&quot;client-install&quot;</span><span class="p">:</span> <span class="s2">&quot;npm install --prefix client&quot;</span><span class="p">,</span>    
+    <span class="err">//</span> <span class="err">启动前端项目</span>
+    <span class="nt">&quot;client&quot;</span><span class="p">:</span> <span class="s2">&quot;npm start --prefix client&quot;</span><span class="p">,</span>
+    <span class="err">//</span> <span class="err">启动前后端项目</span>
+    <span class="nt">&quot;dev&quot;</span><span class="p">:</span> <span class="s2">&quot;concurrently \&quot;npm run server\&quot; \&quot;npm run client\&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>reset.css<br />
+https://meyerweb.com/eric/tools/css/reset/</p>
+<p>安装element-ui<br />
+cd client<br />
+cnpm i element-ui -S</p>
+<p>404<br />
+表单<br />
+表单验证</p>
+<p>cd client<br />
+cnpm i axios -S</p>
+<p>Proxy error: Could not proxy request /api2/users/login from localhost:8080 to localhost:3000 (ENOTFO<br />
+https://blog.csdn.net/reagan_/article/details/97498160</p>
+<p>解析jwt<br />
+cnpm i jwt-decode -S</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

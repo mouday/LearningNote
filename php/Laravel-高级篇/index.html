@@ -1,0 +1,1168 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Laravel-高级篇 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#laravel-" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel-高级篇
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-composer" class="md-nav__link">
+    第1章 Composer 快速入门
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-composer_1" class="md-nav__link">
+    1 Composer简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-composer" class="md-nav__link">
+    2 安装Composer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-composer" class="md-nav__link">
+    3 Composer中国全量镜像
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-composer" class="md-nav__link">
+    4 使用Composer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-phplaravel" class="md-nav__link">
+    第2章 PHP框架安装之Laravel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-artisan" class="md-nav__link">
+    第3章 Artisan 控制台
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-laravelauth" class="md-nav__link">
+    第4章 Laravel中的用户认证（Auth）
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1laravelauth" class="md-nav__link">
+    1、Laravel中生成Auth所需文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2laravel" class="md-nav__link">
+    2、Laravel中的数据迁移
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3laravel" class="md-nav__link">
+    3、Laravel中的数据填充
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-laravel" class="md-nav__link">
+    第5章 Laravel框架常用功能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1laravel" class="md-nav__link">
+    1、Laravel中的文件上传
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2laravel_1" class="md-nav__link">
+    2、Laravel中的邮件发送
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3laravel_1" class="md-nav__link">
+    3、Laravel中的缓存使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4laravel" class="md-nav__link">
+    4、Laravel中的错误与日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5laravel" class="md-nav__link">
+    5、Laravel中的队列应用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="laravel-">Laravel-高级篇</h1>
+<h2 id="1-composer">第1章 Composer 快速入门</h2>
+<h3 id="1-composer_1">1 Composer简介</h3>
+<p>包管理器</p>
+<div class="codehilite"><pre><span></span><span class="n">Java</span><span class="o">:</span> <span class="n">Maven</span>
+<span class="n">NodeJS</span><span class="o">:</span> <span class="n">NPM</span>
+<span class="n">Objective</span><span class="o">-</span><span class="n">C</span><span class="o">:</span> <span class="n">CocoaPods</span>
+<span class="n">PHP</span><span class="o">:</span> <span class="n">PEAR</span>
+</pre></div>
+
+
+<p>PEAR缺点<br />
+依赖处理容易出问题<br />
+配置非常复杂<br />
+难用的命令行接口</p>
+<p>Composer<br />
+Composer是PHP的一个依赖（dependency）管理工具，不是包管理器<br />
+涉及packages 和 libraries</p>
+<p>在项目中声明所依赖的外部工具库，Composer会自动安装这些工具库及依赖的库文件</p>
+<p>Composer官网 <br />
+<a href="https://getcomposer.org/">https://getcomposer.org/</a></p>
+<p>Composer中文网 <br />
+<a href="https://www.phpcomposer.com/">https://www.phpcomposer.com/</a></p>
+<h3 id="2-composer">2 安装Composer</h3>
+<p>下载 composer.phar<br />
+<a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a></p>
+<p>局部安装</p>
+<div class="codehilite"><pre><span></span><span class="n">php</span> <span class="n">composer</span><span class="p">.</span><span class="n">phar</span>
+</pre></div>
+
+
+<p>全局安装</p>
+<div class="codehilite"><pre><span></span><span class="n">sudo</span> <span class="n">mv</span> <span class="n">composer</span><span class="p">.</span><span class="n">phar</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">composer</span>
+<span class="n">sudo</span> <span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="mi">755</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">composer</span>
+</pre></div>
+
+
+<h3 id="3-composer">3 Composer中国全量镜像</h3>
+<p>https://pkg.phpcomposer.com/</p>
+<p>使用阿里镜像<br />
+https://mirrors.aliyun.com/composer</p>
+<p>启用镜像服务</p>
+<p>1、单个项目配置</p>
+<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;{}&#39;</span> &gt; composer.json
+composer config repo.packagist composer https://mirrors.aliyun.com/composer
+</pre></div>
+
+
+<p>2、系统全局配置</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看当前镜像地址</span>
+composer config -g repo.packagist.org
+
+<span class="c1"># 配置镜像</span>
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
+
+<span class="c1"># 解除镜像</span>
+composer config -g --unset repos.packagist
+</pre></div>
+
+
+<h3 id="4-composer">4 使用Composer</h3>
+<p>搜索 search<br />
+展示 show<br />
+申明依赖 require<br />
+安装 install<br />
+更新 update</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 初始化</span>
+$ composer init
+
+<span class="o">{</span>
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;demo/demo&quot;</span>,
+    <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;demo&quot;</span>,
+    <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;library&quot;</span>,
+    <span class="s2">&quot;authors&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;pengshiyu&quot;</span>,
+            <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;1940607002@qq.com&quot;</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;require&quot;</span>: <span class="o">{}</span>
+<span class="o">}</span>
+
+<span class="c1"># 搜索</span>
+$ composer search monolog
+
+<span class="c1"># 显示信息</span>
+$ composer show --all monolog/monolog
+
+<span class="c1"># 配置依赖并安装</span>
+<span class="s2">&quot;require&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;monolog/monolog&quot;</span>: <span class="s2">&quot;2.0.1&quot;</span>
+<span class="o">}</span>
+
+$ composer install
+
+<span class="c1"># 通过require安装</span>
+$ composer require symfony/http-foundation
+
+<span class="s2">&quot;require&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;monolog/monolog&quot;</span>: <span class="s2">&quot;1.25.2&quot;</span>,
+        <span class="s2">&quot;symfony/http-foundation&quot;</span>: <span class="s2">&quot;^4.4&quot;</span>
+    <span class="o">}</span>
+
+<span class="c1"># 更新依赖</span>
+<span class="s2">&quot;require&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;symfony/http-foundation&quot;</span>: <span class="s2">&quot;^4.4&quot;</span>
+    <span class="o">}</span>
+$ composer update
+</pre></div>
+
+
+<h2 id="2-phplaravel">第2章 PHP框架安装之Laravel</h2>
+<p>https://laravel.com/docs/5.8</p>
+<p>Composer 安装Laravel的两种方式</p>
+<p>1、通过Composer Create-Project安装</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 安装最新</span>
+composer create-project --prefer-dist laravel/laravel <span class="o">[</span>别名<span class="o">]</span> 
+
+<span class="c1"># 安装指定版本</span>
+composer create-project --prefer-dist laravel/laravel blog <span class="s2">&quot;5.8.*&quot;</span>
+</pre></div>
+
+
+<p>2、Laravel安装器<br />
+安装最新版本</p>
+<div class="codehilite"><pre><span></span>composer global require <span class="s2">&quot;laravel/installer&quot;</span>
+</pre></div>
+
+
+<p>添加环境变量</p>
+<div class="codehilite"><pre><span></span>$ vim ~/.bash_profile
+
+<span class="c1"># composer</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.composer/vendor/bin
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>laravel new blog
+</pre></div>
+
+
+<h2 id="3-artisan">第3章 Artisan 控制台</h2>
+<p>Artisan是Laravel自带命令行工具<br />
+Symfony Console组件驱动</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看命令 </span>
+php artisan 
+
+<span class="c1"># 或者 </span>
+php artisan list
+
+<span class="c1"># 查看帮助</span>
+php artisan <span class="nb">help</span> migrate
+
+<span class="c1"># 创建控制器</span>
+php artisan make:controller StudentController
+
+<span class="c1"># 创建模型</span>
+php artisan make:model Student
+
+<span class="c1"># 创建中间件</span>
+php artisan make:middleware Activity
+</pre></div>
+
+
+<h2 id="4-laravelauth">第4章 Laravel中的用户认证（Auth）</h2>
+<h3 id="1laravelauth">1、Laravel中生成Auth所需文件</h3>
+<div class="codehilite"><pre><span></span>php artisan make:auth
+
+<span class="c1"># 数据库中生成表</span>
+php artisan migrate
+</pre></div>
+
+
+<p>实现了登录注册功能</p>
+<h3 id="2laravel">2、Laravel中的数据迁移</h3>
+<div class="codehilite"><pre><span></span><span class="c1"># 新建数据表迁移文件</span>
+php artisan make:migration create_students_table
+
+<span class="c1"># --table 指定数据表名</span>
+<span class="c1"># --create 迁移文件是否要建立新的数据表</span>
+<span class="c1"># eg:</span>
+php artisan make:migration create_students_table --create<span class="o">=</span>students
+
+<span class="c1"># 生成模型时同时生成迁移文件</span>
+php artisan make:model Student -m
+</pre></div>
+
+
+<p>编辑迁移文件</p>
+<div class="codehilite"><pre><span></span><span class="x">use Illuminate\Support\Facades\Schema;</span>
+<span class="x">use Illuminate\Database\Schema\Blueprint;</span>
+<span class="x">use Illuminate\Database\Migrations\Migration;</span>
+
+<span class="x">class CreateStudentsTable extends Migration</span>
+<span class="x">{</span>
+<span class="x">    /**</span>
+<span class="x">     * Run the migrations.</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function up()</span>
+<span class="x">    {</span>
+<span class="x">        Schema::create(&#39;students&#39;, function (Blueprint $table) {</span>
+<span class="x">            $table-&gt;bigIncrements(&#39;id&#39;);</span>
+<span class="x">            $table-&gt;string(&#39;name&#39;);</span>
+<span class="x">            $table-&gt;integer(&#39;age&#39;)-&gt;unsigned()-&gt;default(0);</span>
+<span class="x">            $table-&gt;integer(&#39;sex&#39;)-&gt;unsigned()-&gt;default(0);</span>
+<span class="x">            $table-&gt;integer(&#39;created_at&#39;)-&gt;default(0);</span>
+<span class="x">            $table-&gt;integer(&#39;updated_at&#39;)-&gt;default(0);</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Reverse the migrations.</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function down()</span>
+<span class="x">    {</span>
+<span class="x">        Schema::dropIfExists(&#39;students&#39;);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>用迁移文件创建表</p>
+<div class="codehilite"><pre><span></span>php artisan migrate
+</pre></div>
+
+
+<p>查看表结构</p>
+<div class="codehilite"><pre><span></span><span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="n">students</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">students</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">name</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">age</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">sex</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">created_at</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">updated_at</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span>
+</pre></div>
+
+
+<h3 id="3laravel">3、Laravel中的数据填充</h3>
+<p>创建填充文件</p>
+<div class="codehilite"><pre><span></span>php artisan make:seeder StudentTableSeeder
+</pre></div>
+
+
+<p>编辑填充文件</p>
+<div class="codehilite"><pre><span></span><span class="x">use Illuminate\Database\Seeder;</span>
+<span class="x">use Illuminate\Support\Facades\DB;</span>
+
+<span class="x">class StudentTableSeeder extends Seeder</span>
+<span class="x">{</span>
+<span class="x">    /**</span>
+<span class="x">     * Run the database seeds.</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function run()</span>
+<span class="x">    {</span>
+<span class="x">        //</span>
+<span class="x">        DB::table(&#39;students&#39;)-&gt;insert([</span>
+<span class="x">            [&#39;name&#39;=&gt; &#39;Tom&#39;, &#39;age&#39;=&gt; 23],</span>
+<span class="x">            [&#39;name&#39;=&gt; &#39;Jack&#39;, &#39;age&#39;=&gt; 24],</span>
+<span class="x">            [&#39;name&#39;=&gt; &#39;Greed&#39;, &#39;age&#39;=&gt; 25],</span>
+<span class="x">        ]);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>执行单个填充文件</p>
+<div class="codehilite"><pre><span></span>php artisan db:seed --class<span class="o">=</span>StudentTableSeeder
+</pre></div>
+
+
+<p>批量执行填充文件</p>
+<div class="codehilite"><pre><span></span><span class="x">use Illuminate\Database\Seeder;</span>
+
+<span class="x">class DatabaseSeeder extends Seeder</span>
+<span class="x">{</span>
+<span class="x">    /**</span>
+<span class="x">     * Seed the application&#39;s database.</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function run()</span>
+<span class="x">    {</span>
+<span class="x">        // $this-&gt;call(UsersTableSeeder::class);</span>
+<span class="x">        $this-&gt;call(StudentTableSeeder::class);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>执行批量填充</p>
+<div class="codehilite"><pre><span></span>php artisan db:seed
+</pre></div>
+
+
+<h2 id="5-laravel">第5章 Laravel框架常用功能</h2>
+<p>文件上传、邮件、缓存、错误&amp;日志、队列</p>
+<h3 id="1laravel">1、Laravel中的文件上传</h3>
+<p>Laravel文件系统基于Frank de Jonge Flysystem扩展包<br />
+配置文件<br />
+config/filesystems.php</p>
+<div class="codehilite"><pre><span></span><span class="x">return [</span>
+<span class="x">    &#39;disks&#39; =&gt; [</span>
+<span class="x">        &#39;uploads&#39; =&gt; [</span>
+<span class="x">            &#39;driver&#39; =&gt; &#39;local&#39;,</span>
+<span class="x">            &#39;root&#39; =&gt; public_path(&#39;uploads&#39;),</span>
+<span class="x">        ],</span>
+<span class="x">    ],</span>
+
+<span class="x">];</span>
+</pre></div>
+
+
+<p>模板文件<br />
+resources/views/upload.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;form action=&quot;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</span>
+<span class="x">    {{csrf_field()}}</span>
+<span class="x">    &lt;input type=&quot;file&quot; name=&quot;file&quot;&gt;</span>
+<span class="x">    &lt;input type=&quot;submit&quot;&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+</pre></div>
+
+
+<p>控制器<br />
+app/Http/Controllers/FileController.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+<span class="x">use Illuminate\Http\Request;</span>
+<span class="x">use Illuminate\Support\Facades\Storage;</span>
+
+<span class="x">class FileController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    //</span>
+<span class="x">    public function upload(Request $request)</span>
+<span class="x">    {</span>
+<span class="x">        if ($request-&gt;isMethod(&#39;POST&#39;)) {</span>
+<span class="x">            $file = $request-&gt;file(&#39;file&#39;);</span>
+<span class="x">            if ($file-&gt;isValid()) {</span>
+<span class="x">                // 原文件名</span>
+<span class="x">                $originalName = $file-&gt;getClientOriginalName();</span>
+
+<span class="x">                // 扩展名</span>
+<span class="x">                $ext = $file-&gt;getClientOriginalExtension();</span>
+
+<span class="x">                // 类型</span>
+<span class="x">                $type = $file-&gt;getMimeType();</span>
+
+<span class="x">                // 临时绝对路径</span>
+<span class="x">                $realPath = $file-&gt;getRealPath();</span>
+<span class="x">                $filename = date(&#39;Y-m-d-H-i-s&#39;) . &#39;-&#39; . uniqid() . &#39;.&#39; . $ext;</span>
+
+<span class="x">                $bool = Storage::disk(&#39;uploads&#39;)-&gt;put($filename, file_get_contents($realPath));</span>
+
+<span class="x">                var_dump($bool);</span>
+<span class="x">            }</span>
+<span class="x">        } else {</span>
+<span class="x">            return view(&#39;upload&#39;);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>生成的文件路径<br />
+public/uploads/2019-12-01-12-51-38-5de3b75a97f0e.png</p>
+<h3 id="2laravel_1">2、Laravel中的邮件发送</h3>
+<p>Laravel 邮件功能基于SwiftMailer 函数库</p>
+<p>配置<br />
+config/mail.php</p>
+<div class="codehilite"><pre><span></span><span class="x">MAIL_DRIVER=smtp</span>
+<span class="x">MAIL_HOST=smtp.163.com</span>
+<span class="x">MAIL_PORT=465</span>
+<span class="x">MAIL_USERNAME=username@163.com</span>
+<span class="x">MAIL_PASSWORD=password</span>
+<span class="x">MAIL_ENCRYPTION=ssl</span>
+<span class="x">MAIL_FROM_ADDRESS=username@163.com</span>
+<span class="x">MAIL_FROM_NAME=username</span>
+</pre></div>
+
+
+<p>163邮箱要求from和username必须一致</p>
+<p>发送</p>
+<p>1、Mail::raw()</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+<span class="x">use Illuminate\Support\Facades\Mail;</span>
+
+<span class="x">class MailController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    public function mail()</span>
+<span class="x">    {</span>
+<span class="x">        Mail::raw(&#39;邮件内容&#39;, function ($message){</span>
+<span class="x">           $message-&gt;subject(&#39;邮件主题&#39;);</span>
+<span class="x">           $message-&gt;to(&#39;123456@qq.com&#39;);</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>2、Mail::send()<br />
+邮件模板<br />
+resources/views/mail.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;h1&gt;{{$name}}&lt;/h1&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+<span class="x">use Illuminate\Support\Facades\Mail;</span>
+
+<span class="x">class MailController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    public function mail()</span>
+<span class="x">    {</span>
+<span class="x">        Mail::send(&#39;mail&#39;, [&#39;name&#39;=&gt; &#39;Laravel&#39;], function ($message){</span>
+<span class="x">           $message-&gt;subject(&#39;邮件主题&#39;);</span>
+<span class="x">           $message-&gt;to(&#39;123456@qq.com&#39;);</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<h3 id="3laravel_1">3、Laravel中的缓存使用</h3>
+<p>Laravel支持常见的后端缓存系统<br />
+File、Memcached、Redis</p>
+<div class="codehilite"><pre><span></span><span class="x">use Illuminate\Support\Facades\Cache;</span>
+
+<span class="x">static bool has(string $key)</span>
+
+<span class="x">static bool put(string $key, $value, \DateTimeInterface|\DateInterval|int $ttl)</span>
+
+<span class="x"># key存在不添加，不存在添加</span>
+<span class="x">static bool add(string $key, $value, \DateTimeInterface|\DateInterval|int $ttl)</span>
+
+<span class="x">static mixed get(string $key, mixed $default = null)</span>
+
+<span class="x">// 取出并删除</span>
+<span class="x">static mixed pull(string $key, mixed $default = null)</span>
+
+<span class="x">static bool forever(string $key, $value)</span>
+<span class="x">static bool forget(string $key)</span>
+</pre></div>
+
+
+<p>配置默认类型为file<br />
+config/cache.php</p>
+<h3 id="4laravel">4、Laravel中的错误与日志</h3>
+<p>1、DEBUG模式<br />
+配置<br />
+config/app.php</p>
+<div class="codehilite"><pre><span></span><span class="x">// 本地开发 </span>
+<span class="x">APP_DEBUG=true</span>
+
+<span class="x">// 线上环境 </span>
+<span class="x">APP_DEBUG=false</span>
+</pre></div>
+
+
+<p>2、HTTP异常</p>
+<p>自定义异常模板<br />
+resources/views/errors/500.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">500</span>
+</pre></div>
+
+
+<p>使用</p>
+<div class="codehilite"><pre><span></span><span class="x">abort(500);</span>
+</pre></div>
+
+
+<p>Laravel默认提供404未找到等异常页面</p>
+<p>3、日志<br />
+Laravel基于Monolog提供日志模式：<br />
+single，<br />
+daily， 每天生成一个日志文件<br />
+syslog，<br />
+errorlog</p>
+<p>七个错误级别<br />
+debug<br />
+info<br />
+notice<br />
+warning<br />
+error<br />
+critical<br />
+alert</p>
+<p>日志路径<br />
+storage/logs</p>
+<p>使用示例</p>
+<div class="codehilite"><pre><span></span><span class="x">use Illuminate\Support\Facades\Log;</span>
+
+<span class="x">LOG::info(&#39;info 级别的日志&#39;);</span>
+</pre></div>
+
+
+<h3 id="5laravel">5、Laravel中的队列应用</h3>
+<p>队列服务允许推迟耗时任务执行，提高web请求速度<br />
+比如发送邮件执行</p>
+<p>主要步骤<br />
+迁移队列需要的数据表<br />
+编写任务类<br />
+推送任务到队列<br />
+运行队里监听器<br />
+处理失败任务</p>
+<p>配置<br />
+config/queue.php</p>
+<div class="codehilite"><pre><span></span><span class="x">QUEUE_CONNECTION=database</span>
+</pre></div>
+
+
+<p>创建队列数据表</p>
+<div class="codehilite"><pre><span></span><span class="n">php</span> <span class="n">artisan</span> <span class="n">queue</span><span class="p">:</span><span class="k">table</span>
+
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">migrate</span>
+
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">make</span><span class="p">:</span><span class="n">job</span> <span class="n">SendEmail</span>
+</pre></div>
+
+
+<p>app/Jobs/SendEmail.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Jobs;</span>
+
+<span class="x">use Illuminate\Bus\Queueable;</span>
+<span class="x">use Illuminate\Queue\SerializesModels;</span>
+<span class="x">use Illuminate\Queue\InteractsWithQueue;</span>
+<span class="x">use Illuminate\Contracts\Queue\ShouldQueue;</span>
+<span class="x">use Illuminate\Foundation\Bus\Dispatchable;</span>
+<span class="x">use Illuminate\Support\Facades\Mail;</span>
+
+<span class="x">class SendEmail implements ShouldQueue</span>
+<span class="x">{</span>
+<span class="x">    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;</span>
+
+<span class="x">    protected $email;</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Create a new job instance.</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function __construct($email)</span>
+<span class="x">    {</span>
+<span class="x">        $this-&gt;email = $email;</span>
+<span class="x">    }</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Execute the job.</span>
+<span class="x">     *</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+<span class="x">    public function handle()</span>
+<span class="x">    {</span>
+<span class="x">        Mail::raw(&#39;邮件内容&#39;, function ($message){</span>
+<span class="x">            $message-&gt;subject(&#39;邮件主题 测试&#39;);</span>
+<span class="x">            $message-&gt;to($this-&gt;email);</span>
+<span class="x">        });</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">dispatch(new SendEmail(&#39;123456@qq.com&#39;));</span>
+</pre></div>
+
+
+<p>执行任务</p>
+<div class="codehilite"><pre><span></span><span class="n">php</span> <span class="n">artisan</span> <span class="n">queue</span><span class="p">:</span><span class="k">listen</span>
+
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">queue</span><span class="p">:</span><span class="k">listen</span> <span class="c1">--tries=3</span>
+</pre></div>
+
+
+<p>迁移失败任务表</p>
+<div class="codehilite"><pre><span></span><span class="n">php</span> <span class="n">artisan</span> <span class="n">queue</span><span class="p">:</span><span class="n">failed</span><span class="o">-</span><span class="k">table</span>
+
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">migrate</span>
+</pre></div>
+
+
+<p>失败任务操作</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看失败队列</span>
+php artisan queue:failed
+
+<span class="c1"># 重试一次，指定id</span>
+php artisan queue:retry <span class="m">1</span>
+
+<span class="c1"># 重试所有</span>
+php artisan queue:retry all
+
+<span class="c1"># 删除失败任务，指定id</span>
+php artisan queue:forget <span class="m">1</span>
+
+<span class="c1"># 清空失败任务</span>
+php artisan queue:flush
+</pre></div>
+
+
+<p>报错：Class 'Predis\Client' not found</p>
+<div class="codehilite"><pre><span></span><span class="n">composer</span> <span class="n">require</span> <span class="n">predis</span><span class="o">/</span><span class="n">predis</span> <span class="o">^</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+</pre></div>
+
+
+<h2 id="_1">总结</h2>
+<p>1、安装和使用composer<br />
+2、composer安装laravel<br />
+3、artisan控制台<br />
+4、auth用户验证<br />
+5、数据迁移，数据填充<br />
+6、文件、邮件、缓存、队列</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

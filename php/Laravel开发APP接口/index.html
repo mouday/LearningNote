@@ -1,0 +1,822 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Laravel开发APP接口 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel开发APP接口
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    环境简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    环境搭建
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jqueryajax" class="md-nav__link">
+    jquery.ajax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xmljson" class="md-nav__link">
+    XML和JSON
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#app" class="md-nav__link">
+    App接口鉴权
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    错误码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    异常处理
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Laravel开发APP接口</h1>
+                
+                <h2 id="_1">环境简介</h2>
+<p>LNMP<br />
+1、Linux<br />
+2、Nginx<br />
+3、MySQL<br />
+4、PHP</p>
+<p>APP接口<br />
+客户端与服务端数据的交换</p>
+<p>HTTP通讯三要素<br />
+1、URL    地址<br />
+2、Method 方式<br />
+3、Params 内容</p>
+<p>客户端传递参数<br />
+1、URl参数 GET<br />
+2、Request Body POST<br />
+（1）form-url<br />
+（2）form-data<br />
+（3）json</p>
+<h2 id="_2">环境搭建</h2>
+<p>环境要求<br />
+PHP &gt;= 7.0.0</p>
+<p>全局安装composer</p>
+<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sS</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">getcomposer</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">installer</span> <span class="o">|</span> <span class="n">php</span>
+<span class="n">mv</span> <span class="n">composer</span><span class="p">.</span><span class="n">phar</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">composer</span>
+</pre></div>
+
+
+<p>配置路径</p>
+<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">bash_profile</span>
+
+<span class="o">#</span> <span class="n">composer</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">PATH</span><span class="p">:</span><span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="p">.</span><span class="n">composer</span><span class="o">/</span><span class="n">vendor</span><span class="o">/</span><span class="n">bin</span>
+</pre></div>
+
+
+<p>安装 Laravel</p>
+<div class="codehilite"><pre><span></span><span class="n">composer</span> <span class="k">global</span> <span class="n">require</span> <span class="ss">&quot;laravel/installer&quot;</span>
+</pre></div>
+
+
+<p>创建新应用</p>
+<div class="codehilite"><pre><span></span><span class="n">laravel</span> <span class="k">new</span> <span class="n">blog</span>
+</pre></div>
+
+
+<p>本地开发服务器</p>
+<div class="codehilite"><pre><span></span><span class="n">php</span> <span class="n">artisan</span> <span class="n">serve</span>
+</pre></div>
+
+
+<p>http://localhost:8000</p>
+<h2 id="jqueryajax">jquery.ajax</h2>
+<p>jQuery.ajax([settings])</p>
+<p>type 类型：String<br />
+默认值: "GET"。请求方式 POST/GET/PUT/DELETE</p>
+<p>url 类型：String<br />
+默认值: 当前页地址。发送请求的地址</p>
+<p>contentType 类型：String<br />
+默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型。</p>
+<p>data 类型：String<br />
+发送到服务器的数据</p>
+<p>dataType 类型：String<br />
+预期服务器返回的数据类型。xml/html/script/json/jsonp/text</p>
+<p>success 类型：Function<br />
+请求成功后的回调函数。</p>
+<p>jsonp 类型：String<br />
+在一个 jsonp 请求中重写回调函数的名字</p>
+<p>jsonpCallback  类型：String<br />
+为 jsonp 请求指定一个回调函数名</p>
+<p>ajax发送各种请求</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>hello<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">23</span>
+        <span class="p">};</span>
+
+        <span class="c1">// 发送GET请求</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/api/get&quot;</span><span class="p">,</span>
+            <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// 发送POST请求 </span>
+        <span class="c1">// Content-Type: application/x-www-form-urlencoded; charset=UTF-8</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/api/post-form&quot;</span><span class="p">,</span>
+            <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// 发送POST请求  不编码</span>
+        <span class="c1">// Content-Type: multipart/form-data; charset=UTF-8</span>
+        <span class="kd">var</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+        <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Tom&quot;</span><span class="p">);</span>
+        <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;23&quot;</span><span class="p">);</span>
+
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/api/post-form-data&quot;</span><span class="p">,</span>
+            <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+            <span class="nx">contentType</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nx">processData</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>  
+            <span class="nx">data</span><span class="o">:</span> <span class="nx">formData</span><span class="p">,</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// 发送json数据</span>
+        <span class="c1">// Content-Type: application/json; charset=UTF-8</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/api/post-json&quot;</span><span class="p">,</span>
+            <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+            <span class="nx">contentType</span><span class="o">:</span> <span class="s1">&#39;application/json; charset=UTF-8&#39;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">// 发送jsonp数据</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/api/get-jsonp&quot;</span><span class="p">,</span>
+            <span class="nx">dataType</span><span class="o">:</span> <span class="s2">&quot;jsonp&quot;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+            <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>PHP后端接收参数</p>
+<p>routes/web.php</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;/&#39;, function () {</span>
+<span class="x">    // return view(&#39;welcome&#39;);</span>
+<span class="x">    return view(&#39;index&#39;);</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>routes/api.php</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;/get&#39;, function () {</span>
+<span class="x">    $name = $_GET[&quot;name&quot;];</span>
+<span class="x">    $age = $_GET[&quot;age&quot;];</span>
+<span class="x">    echo json_encode([$name =&gt; $age]); </span>
+<span class="x">});</span>
+
+<span class="x">Route::post(&#39;/post-form&#39;, function () {</span>
+<span class="x">    $name = $_POST[&quot;name&quot;];</span>
+<span class="x">    $age = $_POST[&quot;age&quot;];</span>
+<span class="x">    echo json_encode([$name =&gt; $age]); </span>
+<span class="x">});</span>
+
+<span class="x">Route::post(&#39;/post-form-data&#39;, function () {</span>
+<span class="x">    $name = $_POST[&quot;name&quot;];</span>
+<span class="x">    $age = $_POST[&quot;age&quot;];</span>
+<span class="x">    echo json_encode([$name =&gt; $age]); </span>
+<span class="x">});</span>
+
+<span class="x">Route::post(&#39;/post-json&#39;, function () {</span>
+<span class="x">    $ret = file_get_contents(&quot;php://input&quot;);</span>
+<span class="x">    $data = json_decode($ret, true);</span>
+
+<span class="x">    $name = $data[&quot;name&quot;];</span>
+<span class="x">    $age = $data[&quot;age&quot;];</span>
+<span class="x">    echo json_encode([$name =&gt; $age]); </span>
+
+<span class="x">});</span>
+
+<span class="x">Route::get(&#39;/get-jsonp&#39;, function () {</span>
+<span class="x">    $callback = $_GET[&quot;callback&quot;];</span>
+
+<span class="x">    $name = $_GET[&quot;name&quot;];</span>
+<span class="x">    $age = $_GET[&quot;age&quot;];</span>
+
+<span class="x">    echo $callback . &quot;(&quot; . json_encode([$name =&gt; $age]) . &quot;)&quot;;</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>Laravel 接收GET或POST参数</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;/getOrPost&#39;, function (Request $request) {</span>
+<span class="x">    $name = $request-&gt;input(&quot;name&quot;);</span>
+<span class="x">    $age = $request-&gt;input(&quot;age&quot;);</span>
+
+<span class="x">    echo json_encode([$name =&gt; $age]); </span>
+<span class="x">});</span>
+</pre></div>
+
+
+<h2 id="xmljson">XML和JSON</h2>
+<p>APP接口输出格式三要素<br />
+code 错误码<br />
+msg 错误码描述<br />
+data 接口数据</p>
+<p>封装app接口数据格式</p>
+<p>app/Http/Response/ResponseJson.php</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Response</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * https://www.php.net/manual/zh/language.oop5.traits.php</span>
+<span class="sd"> * traits 通过组合，代码复用</span>
+<span class="sd"> */</span>
+<span class="k">trait</span> <span class="nx">ResponseJson</span>
+<span class="p">{</span>   
+    <span class="sd">/**</span>
+<span class="sd">     * 接口数据错误时返回</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">jsonData</span><span class="p">(</span><span class="nv">$code</span><span class="p">,</span> <span class="nv">$message</span><span class="p">,</span> <span class="nv">$data</span><span class="o">=</span><span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">jsonResponse</span><span class="p">(</span><span class="nv">$code</span><span class="p">,</span> <span class="nv">$message</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * 接口数据成功时返回</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">jsonSuccessData</span><span class="p">(</span><span class="nv">$data</span><span class="o">=</span><span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">jsonResponse</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * 封装接口数据格式</span>
+<span class="sd">     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">jsonResponse</span><span class="p">(</span><span class="nv">$code</span><span class="p">,</span> <span class="nv">$message</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$content</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;code&quot;</span>    <span class="o">=&gt;</span>  <span class="nv">$code</span><span class="p">,</span>
+            <span class="s2">&quot;message&quot;</span> <span class="o">=&gt;</span>  <span class="nv">$message</span><span class="p">,</span>
+            <span class="s2">&quot;data&quot;</span>    <span class="o">=&gt;</span>  <span class="nv">$data</span>
+        <span class="p">];</span>
+        <span class="k">return</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>app/Http/Controllers/Controller.php</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Routing\Controller</span> <span class="k">as</span> <span class="nx">BaseController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Http\Response\ResponseJson</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Controller</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">ResponseJson</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">jsonSuccessData</span><span class="p">([</span><span class="s2">&quot;name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Tom&quot;</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>routes/api.php</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;/index&#39;, &quot;Controller@index&quot;);</span>
+</pre></div>
+
+
+<p>访问测试<br />
+http://127.0.0.1:8000/api/index</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span>
+    <span class="n">code</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">message</span><span class="p">:</span> <span class="ss">&quot;success&quot;</span><span class="p">,</span>
+    <span class="k">data</span><span class="p">:</span> <span class="err">{</span>
+        <span class="n">name</span><span class="p">:</span> <span class="ss">&quot;Tom&quot;</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="app">App接口鉴权</h2>
+<p>客户端需要带着凭证来调用APP接口</p>
+<p>传统web cookie session鉴权</p>
+<p>Json Web Token JWT<br />
+Header<br />
+Payload<br />
+Signature</p>
+<p>Base64URL 算法：<br />
+Base64 有三个字符+、/和=，在 URL 里面有特殊含义，<br />
+所以要被替换掉：=被省略、+替换成-，/替换成_</p>
+<p>问题：<br />
+Python binascii.Error: Incorrect padding</p>
+<p>解决：<br />
+参数最后加上等于号"="(一个或者两个)</p>
+<p>http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html<br />
+https://jwt.io/</p>
+<p>composer require lcobucci/jwt<br />
+composer dump-autoload</p>
+<h2 id="_3">错误码</h2>
+<p>错误码是用来描述当前接口处理的结果<br />
+错误码是前后端共同的一个约束</p>
+<div class="codehilite"><pre><span></span><span class="x">class ApiErrDesc</span>
+<span class="x">{</span>
+<span class="x">    /**</span>
+<span class="x">    * 通用错误码</span>
+<span class="x">    */</span>
+<span class="x">    const SUCCESS = [0, &quot;Success&quot;];</span>
+<span class="x">    const UNKNOWN_ERR = [1, &quot;位置错误&quot;];</span>
+
+
+<span class="x">    /**</span>
+<span class="x">    * 其他错误码</span>
+<span class="x">    */</span>
+<span class="x">    const URL_ERR = [2, &quot;url错误&quot;];</span>
+<span class="x">}</span>
+
+<span class="x">ApiErrDesc::SUCCESS[0], ApiErrDesc::SUCCESS[1]</span>
+</pre></div>
+
+
+<h2 id="_4">异常处理</h2>
+<p>设置默认的异常处理程序，用于没有用 try/catch 块来捕获的异常<br />
+set_exception_handler</p>
+<p>用户信息接口<br />
+1、数据库用户信息设计<br />
+2、开发用户信息接口<br />
+3、使用redis缓存加速用户信息接口</p>
+<p>用户表<br />
+id、name、sex、email、password、create_time、update_time</p>
+<p>unique email</p>
+<p>密码hash和密码校验</p>
+<div class="codehilite"><pre><span></span>$ php -a
+Interactive shell
+
+php &gt; <span class="nv">$ret</span> <span class="o">=</span> password_hash<span class="o">(</span><span class="s2">&quot;123456&quot;</span>, PASSWORD_DEFAULT<span class="o">)</span><span class="p">;</span>
+php &gt; <span class="nb">echo</span> <span class="nv">$ret</span><span class="p">;</span>
+<span class="nv">$2</span>y<span class="nv">$10$6</span>AOQgUCZ7ukn.MAnilB0uuWxu4vrveWCMdPzFg4UyDVI5G7QR.fki
+php &gt; <span class="nb">echo</span> password_verify<span class="o">(</span><span class="s2">&quot;123456&quot;</span>, <span class="nv">$ret</span><span class="o">)</span><span class="p">;</span>
+<span class="m">1</span>
+</pre></div>
+
+
+<p>redis 缓存信息加快访问速度</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

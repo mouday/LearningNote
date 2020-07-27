@@ -1,0 +1,1253 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>第22 章 ： 泛型 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#22" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                第22 章 ： 泛型
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#96" class="md-nav__link">
+    96 泛型问题引出
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97" class="md-nav__link">
+    97 泛型基本定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#98" class="md-nav__link">
+    98 泛型通配符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#99" class="md-nav__link">
+    99 泛型接口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100" class="md-nav__link">
+    100 泛型方法
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="22">第22 章 ： 泛型</h1>
+<h2 id="96">96 泛型问题引出</h2>
+<p>JDK &gt;= 1.5<br />
+主要为了解决 ClassCastException</p>
+<p>举例：<br />
+要描述一个坐标类，允许存放以下坐标数据类型<br />
+整型    x = 10, y = 20<br />
+浮点型  x = 10.1, y = 20.2<br />
+字符串型 x = 东经 10 度 , y = 北纬 20 度</p>
+<p>可以使用Object，不过会出现转型操作<br />
+整型： 基本数据类型 -&gt; Integer包装类 -&gt; 自动向上转型为Object<br />
+浮点型 ：基本数据类型 -&gt; Double包装类 -&gt; 自动向上转转型为Object<br />
+字符串型 ：String对象 -&gt; 自动向上转转型为Object</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Point</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Object</span> <span class="n">x</span> <span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Object</span> <span class="n">y</span> <span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="n">Object</span> <span class="n">x</span><span class="o">,</span> <span class="n">Object</span> <span class="n">y</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setX</span><span class="o">(</span><span class="n">Object</span> <span class="n">x</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setY</span><span class="o">(</span><span class="n">Object</span> <span class="n">y</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">getX</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">getY</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">&quot;Point(&quot;</span><span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p1</span><span class="o">);</span> <span class="c1">// Point(1, 2)</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">p1</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>  <span class="c1">// 1</span>
+
+        <span class="n">Point</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mf">1.1</span><span class="o">,</span> <span class="mf">2.2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span> <span class="c1">// Point(1.1, 2.2)</span>
+
+        <span class="c1">// Object 不能约束传入的参数</span>
+        <span class="n">Point</span> <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="s">&quot;北纬20度&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p3</span><span class="o">);</span> <span class="c1">// Point(10, 北纬20度)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="97">97 泛型基本定义</h2>
+<p>类中属性或方法的参数与返回值类型由对象实例化的时候动态决定<br />
+需要在类定义的时候明确的定义占位符(泛型标记)</p>
+<p>实例化不设置泛型类型，默认使用Object</p>
+<div class="codehilite"><pre><span></span><span class="n">Point</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+</pre></div>
+
+
+<p>泛型的好处：<br />
+1、编译时检查类型，避免出现安全隐患<br />
+2、避免向下转型操作</p>
+<p>泛型注意点：<br />
+1、只能使用引用类型，基本类型要使用包装类<br />
+2、JDK &gt;=1.7开始可以简写</p>
+<div class="codehilite"><pre><span></span><span class="n">Point</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+</pre></div>
+
+
+<p>使用泛型可以解决大部分的类对象强制转换处理</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Point</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;{</span>
+    <span class="kd">private</span> <span class="n">T</span> <span class="n">x</span> <span class="o">;</span>
+    <span class="kd">private</span> <span class="n">T</span> <span class="n">y</span> <span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(){}</span>
+
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">,</span> <span class="n">T</span> <span class="n">y</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setX</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setY</span><span class="o">(</span><span class="n">T</span> <span class="n">y</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">getX</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">getY</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">&quot;Point(&quot;</span><span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Point</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p1</span><span class="o">);</span> <span class="c1">// Point(1, 2)</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">p1</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>  <span class="c1">// 1</span>
+
+        <span class="n">Point</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;(</span><span class="mf">1.1</span><span class="o">,</span> <span class="mf">2.2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span> <span class="c1">// Point(1.1, 2.2)</span>
+
+        <span class="n">Point</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="s">&quot;东经30度&quot;</span><span class="o">,</span> <span class="s">&quot;北纬20度&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">p3</span><span class="o">);</span> <span class="c1">// Point(10, 北纬20度)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="98">98 泛型通配符</h2>
+<p>目前的泛型进行引用传递</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Message</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;{</span>
+    <span class="kd">private</span> <span class="n">T</span> <span class="n">content</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setContent</span><span class="o">(</span><span class="n">T</span> <span class="n">message</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">content</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">T</span> <span class="nf">getContent</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">content</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Message</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">&lt;&gt;();</span>
+        <span class="n">message</span><span class="o">.</span><span class="na">setContent</span><span class="o">(</span><span class="s">&quot;Hello Java&quot;</span><span class="o">);</span>
+        <span class="n">showMessage</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 只能接收Message&lt;String&gt; 对象</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showMessage</span><span class="o">(</span><span class="n">Message</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">message</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getContent</span><span class="o">());</span>
+        <span class="c1">// Hello Java</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>修改为通配符接收数据</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showMessage</span><span class="o">(</span><span class="n">Message</span><span class="o">&lt;?&gt;</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getContent</span><span class="o">());</span>
+    <span class="c1">// Hello Java</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>设置泛型范围</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 设置泛型上限</span>
+<span class="c1">// ? extends 类</span>
+<span class="c1">// 例如：只允许设置Number 或其子类</span>
+<span class="o">?</span> <span class="kd">extends</span> <span class="n">Number</span> 
+
+<span class="c1">// 设置泛型下限</span>
+<span class="c1">// ? super 类</span>
+<span class="c1">// 例如：只能够使用String 或其父类</span>
+<span class="o">?</span> <span class="kd">super</span> <span class="n">String</span> 
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showMessage</span><span class="o">(</span><span class="n">Message</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&gt;</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getContent</span><span class="o">());</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showMessage</span><span class="o">(</span><span class="n">Message</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getContent</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="99">99 泛型接口</h2>
+<p>1、实现类继续使用泛型</p>
+<div class="codehilite"><pre><span></span><span class="kd">interface</span> <span class="nc">IMessage</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Messageimpl</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">IMessage</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">(</span><span class="n">S</span> <span class="n">t</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Messageimpl</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Messageimpl</span><span class="o">&lt;&gt;();</span>
+        <span class="n">message</span><span class="o">.</span><span class="na">echo</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
+        <span class="c1">// Hello</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>2、实现类不使用泛型</p>
+<div class="codehilite"><pre><span></span><span class="kd">interface</span> <span class="nc">IMessage</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Messageimpl</span> <span class="kd">implements</span> <span class="n">IMessage</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">echo</span><span class="o">(</span><span class="n">String</span> <span class="n">t</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">);</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Messageimpl</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Messageimpl</span><span class="o">();</span>
+        <span class="n">message</span><span class="o">.</span><span class="na">echo</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
+        <span class="c1">// Hello</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="100">100 泛型方法</h2>
+<p>泛型方法：泛型标记写到了方法上<br />
+泛型方法不一定非要出现在泛型类中</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">[]</span> <span class="nf">getArray</span><span class="o">(</span><span class="n">T</span> <span class="o">...</span><span class="na">args</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">args</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Integer</span><span class="o">[]</span> <span class="n">list</span> <span class="o">=</span> <span class="n">getArray</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">list</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+            <span class="c1">// 1 2 3</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1 id="23">第23 章 ： 包的定义及使用</h1>
+<h2 id="101">101 包的定义</h2>
+<p>包 == 目录<br />
+“.”表示分隔子目录</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.name.demo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span><span class="o">{}</span>
+</pre></div>
+
+
+<p>编译后的.class文件需要保存到指定目录中</p>
+<p>打包处理</p>
+<div class="codehilite"><pre><span></span>$ javac -d . Hello.java
+</pre></div>
+
+
+<p>-d 表示要生成的目录，package定义的结构<br />
+. 表示当前所在目录<br />
+程序执行的时候一定要带着包执行程序</p>
+<div class="codehilite"><pre><span></span>$ java  com.name.demo.Hello
+</pre></div>
+
+
+<h2 id="102">102 包的导入</h2>
+<p>直接编译,让java决定编译先后顺序</p>
+<div class="codehilite"><pre><span></span>$ java -d . *.java
+</pre></div>
+
+
+<p>注意：<br />
+1、<code>public class</code>类名必须与文件名保持一致<br />
+2、要被其他包所使用的类要加<code>public</code><br />
+3、一般一个java文件只有一个class类<br />
+4、<code>class</code> 类名称可以与文件名不一致，可以提供多个类，会被编译为多个class文件<br />
+而且只能被本包所访问<br />
+包名必须采用小写字母定义</p>
+<p>导入可以使用通配符 <code>*</code><br />
+不表示全部加载，会根据需要加载<br />
+会出现引用不明确问题</p>
+<p>使用的时候直接写完整路径</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">com.name.demo</span><span class="o">;</span>
+
+<span class="n">com</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">demo</span><span class="o">.</span><span class="na">Hello</span><span class="o">();</span>
+</pre></div>
+
+
+<p>导包示例</p>
+<p>Message.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.name.demo</span> <span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Demo.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">com.name.demo.Message</span> <span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+        <span class="n">message</span><span class="o">.</span><span class="na">printMessage</span><span class="o">(</span><span class="s">&quot;Hello Message&quot;</span><span class="o">)</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>打包执行</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">编译打包文件</span>
+<span class="err">$</span> <span class="n">javac</span> <span class="o">-</span><span class="n">d</span> <span class="p">.</span> <span class="o">*</span><span class="p">.</span><span class="n">java</span>
+
+<span class="o">#</span> <span class="err">执行</span>
+<span class="err">$</span> <span class="n">java</span> <span class="n">Demo</span>
+<span class="n">Hello</span> <span class="n">Message</span>
+</pre></div>
+
+
+<p>文件目录</p>
+<div class="codehilite"><pre><span></span><span class="err">├──</span> <span class="n">Demo</span><span class="p">.</span><span class="k">class</span>
+<span class="err">├──</span> <span class="n">Demo</span><span class="p">.</span><span class="n">java</span>
+<span class="err">├──</span> <span class="n">Message</span><span class="p">.</span><span class="n">java</span>
+<span class="err">└──</span> <span class="n">com</span>
+    <span class="err">└──</span> <span class="n">name</span>
+        <span class="err">└──</span> <span class="n">demo</span>
+            <span class="err">└──</span> <span class="n">Message</span><span class="p">.</span><span class="k">class</span>
+</pre></div>
+
+
+<h2 id="103">103 静态导入</h2>
+<p>JDK &gt;=1.5 </p>
+<div class="codehilite"><pre><span></span><span class="kn">import static</span> <span class="nn">com.name.demo.Demo.*</span> <span class="o">;</span>
+</pre></div>
+
+
+<p>Message.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.name.demo</span> <span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">echoMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Demo.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">import static</span> <span class="nn">com.name.demo.Message.*</span> <span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">echoMessage</span><span class="o">(</span><span class="s">&quot;Hello Message&quot;</span><span class="o">)</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="104-jar">104 生成jar文件</h2>
+<p>jar文件： 管理class文件</p>
+<p>步骤：<br />
+打包编译 javac -d . Message.java<br />
+打包jar jar -cvf name.jar com<br />
+-c create 创建文件<br />
+-v verbose 详细输出<br />
+-f file 要生成的jar文件</p>
+<p>rar打开jar文件</p>
+<p>每个.jar文件都是独立的程序路径，必须通过CLASSPATH配置<br />
+windows: 以分号分隔</p>
+<div class="codehilite"><pre><span></span>$ SET <span class="nv">CLASSPATH</span><span class="o">=</span>.<span class="p">;</span>d:<span class="se">\n</span>ame.jar
+</pre></div>
+
+
+<p>Mac：以冒号分隔</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span><span class="s2">&quot;.:/root/name.jar&quot;</span>
+</pre></div>
+
+
+<p>JDK &lt; 1.9<br />
+所有类的jar文件： rt.jar tools.jar</p>
+<p>JDK &gt;= 1.9 模块化设计</p>
+<h2 id="105">105 系统常用包</h2>
+<p>Java自身提供类库<br />
+第三方提供支持类库</p>
+<p>java.lang String, Number, Object JDK 1.1自动导入<br />
+java.lang.reflect 反射机制<br />
+java.util 工具类，数据结构<br />
+java.io  输入输出<br />
+java.net 网络开发<br />
+java.sql 数据库编程<br />
+java.applet 嵌套网页执行<br />
+java.awt 图形界面GUI开发Windows位置<br />
+java.swing（JDK1.2）轻量级图形开发包</p>
+<h2 id="106">106 访问控制权限</h2>
+<p>面向对象三个特点：封装，继承，多态<br />
+访问控制权限</p>
+<div class="codehilite"><pre><span></span><span class="err">访问范围</span>         <span class="n">private</span>    <span class="k">default</span>   <span class="n">protected</span>    <span class="k">public</span>
+<span class="err">同包同类</span>           <span class="k">true</span>        <span class="k">true</span>      <span class="k">true</span>       <span class="k">true</span>
+<span class="err">同包不同类</span>                      <span class="k">true</span>      <span class="k">true</span>       <span class="k">true</span>
+<span class="err">不同包的子类</span>                              <span class="k">true</span>       <span class="k">true</span> 
+<span class="err">不同包的所有类</span>                                        <span class="k">true</span> 
+</pre></div>
+
+
+<p>参考选择<br />
+属性定义 private<br />
+方法定义 public</p>
+<p>通过子类访问protected 属性</p>
+<p>Message.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.util.a</span> <span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span><span class="o">{</span>
+    <span class="kd">protected</span> <span class="n">String</span> <span class="n">info</span> <span class="o">=</span> <span class="s">&quot;message info&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>TestMessage.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.util.b</span> <span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.util.a.Message</span> <span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestMessage</span> <span class="kd">extends</span> <span class="n">Message</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showInfo</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="kd">super</span><span class="o">.</span><span class="na">info</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Demo.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">com.util.b.TestMessage</span> <span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">TestMessage</span><span class="o">().</span><span class="na">showInfo</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1 id="24-uml">第24 章 ： UML图形</h1>
+<h2 id="107">107 类图</h2>
+<p>UML统一建模语言： 利用图形化的形式来实现程序类关系的描述</p>
+<p>三层结构表示</p>
+<div class="codehilite"><pre><span></span><span class="err">类名称</span>
+<span class="err">属性</span> 
+<span class="err">方法</span>
+</pre></div>
+
+
+<p>抽象类属性斜体abstract</p>
+<p>属性格式：访问权限 属性名称: 属性类型<br />
+public +<br />
+protected #<br />
+private -</p>
+<p>方法格式：访问权限 方法名称(): 返回值</p>
+<p>画图工具<br />
+Rational Role<br />
+PowerDesigner</p>
+<p>子类实现接口 三角和虚线<br />
+子类继承父类 三角和实线</p>
+<h2 id="108">108 时序图</h2>
+<p>描述代码的执行流程</p>
+<h2 id="109">109 用例图</h2>
+<p>描述程序执行分配<br />
+一般出现在项目设计过程</p>
+<h1 id="25">第25 章 ： 单例设计模式</h1>
+<h2 id="110">110 单例设计</h2>
+<p>单例设计模式：只允许提供一个实例对象<br />
+    -饿汉式：系统加载就实例化<br />
+    -懒汉式：第一次使用的时候实例化<br />
+多例设计模式</p>
+<p>单例模式特点：<br />
+构造方法私有化，内部提供static方法获取实例化对象</p>
+<p>饿汉式单例模式</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">singleton</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">Singleton</span><span class="o">();</span>
+
+    <span class="c1">// 构造函数私有化</span>
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(){};</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">singleton</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Singleton</span> <span class="n">singleton</span> <span class="o">=</span> <span class="n">Singleton</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>懒汉式单例模式</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">singleton</span> <span class="o">;</span>
+
+    <span class="c1">// 构造函数私有化</span>
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(){};</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(){</span>
+        <span class="c1">// 第一次使用实例化</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">singleton</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+           <span class="n">singleton</span> <span class="o">=</span> <span class="k">new</span>  <span class="n">Singleton</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">singleton</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="111">111 多例设计</h2>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Color</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Color</span> <span class="n">RED</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="s">&quot;红色&quot;</span><span class="o">);</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Color</span> <span class="n">GREEN</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="s">&quot;绿色&quot;</span><span class="o">);</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Color</span> <span class="n">BLUE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="s">&quot;蓝色&quot;</span><span class="o">);</span>
+
+    <span class="kd">private</span> <span class="nf">Color</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span> <span class="o">;</span>
+    <span class="o">};</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Color</span> <span class="nf">getInstance</span><span class="o">(</span><span class="n">String</span> <span class="n">color</span><span class="o">){</span>
+        <span class="k">switch</span><span class="o">(</span><span class="n">color</span><span class="o">){</span>
+            <span class="k">case</span> <span class="s">&quot;red&quot;</span> <span class="o">:</span> <span class="k">return</span> <span class="n">RED</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">&quot;green&quot;</span> <span class="o">:</span> <span class="k">return</span> <span class="n">GREEN</span><span class="o">;</span>
+            <span class="k">case</span> <span class="s">&quot;blue&quot;</span> <span class="o">:</span> <span class="k">return</span> <span class="n">BLUE</span><span class="o">;</span>
+            <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Color</span> <span class="n">red</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;red&quot;</span><span class="o">)</span> <span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">red</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>单例和多例都会提供一个静态获取实例化的方法</p>
+<h1 id="26">第26 章 ： 枚举</h1>
+<h2 id="112">112 定义枚举类</h2>
+<p>JDK &gt;= 1.5<br />
+枚举主要用于定义有限个数对象的一种结构（多例设计）</p>
+<p>枚举可以在程序编译时判断实例化对象是否存在</p>
+<div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="n">Color</span><span class="o">{</span>
+    <span class="n">RED</span><span class="o">,</span>
+    <span class="n">GREEN</span><span class="o">,</span>
+    <span class="n">BLUE</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Color</span> <span class="n">color</span> <span class="o">:</span> <span class="n">Color</span><span class="o">.</span><span class="na">values</span><span class="o">()){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// RED GREEN BLUE</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>switch中对枚举类判断</p>
+<div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="n">Color</span><span class="o">{</span>
+    <span class="n">RED</span><span class="o">,</span>
+    <span class="n">GREEN</span><span class="o">,</span>
+    <span class="n">BLUE</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Color</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="na">RED</span> <span class="o">;</span>
+
+        <span class="k">switch</span><span class="o">(</span><span class="n">color</span><span class="o">){</span>
+            <span class="k">case</span> <span class="n">RED</span> <span class="o">:</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;红色&quot;</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+
+            <span class="k">case</span> <span class="n">GREEN</span> <span class="o">:</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;绿色&quot;</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+
+            <span class="k">case</span> <span class="n">BLUE</span> <span class="o">:</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;蓝色&quot;</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+
+            <span class="k">default</span> <span class="o">:</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;default&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// 红色</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="113-enum">113 Enum类</h2>
+<p>枚举本质是一个类</p>
+<p>枚举中每一个对象序号都是根据枚举对象的定义顺序来决定的</p>
+<div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="n">Color</span><span class="o">{</span>
+    <span class="n">RED</span><span class="o">,</span>
+    <span class="n">GREEN</span><span class="o">,</span>
+    <span class="n">BLUE</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Color</span> <span class="n">color</span> <span class="o">:</span> <span class="n">Color</span><span class="o">.</span><span class="na">values</span><span class="o">()){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">ordinal</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">color</span><span class="o">.</span><span class="na">name</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="cm">/**</span>
+<span class="cm">        0 - RED</span>
+<span class="cm">        1 - GREEN</span>
+<span class="cm">        2 - BLUE</span>
+<span class="cm">        */</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>enum和Enum区别<br />
+enum 是JDK 1.5之后提供的关键字，定义枚举类<br />
+Enum 是一个抽象类，关键字enum定义的类默认继承此类</p>
+<h2 id="114">114 定义枚举结构</h2>
+<p>枚举类本身属于多例设计模式</p>
+<p>在枚举类中定义其他结构</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 枚举类</span>
+<span class="kd">enum</span> <span class="n">Color</span><span class="o">{</span>
+
+    <span class="c1">// 枚举对象要写在首行</span>
+    <span class="n">RED</span><span class="o">(</span><span class="s">&quot;红色&quot;</span><span class="o">),</span> <span class="n">GREEN</span><span class="o">(</span><span class="s">&quot;绿色&quot;</span><span class="o">),</span> <span class="n">BLUE</span><span class="o">(</span><span class="s">&quot;蓝色&quot;</span><span class="o">)</span> <span class="o">;</span>
+
+
+    <span class="c1">// 定义属性</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span> <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Color</span><span class="o">(</span><span class="n">String</span>  <span class="n">title</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Color</span> <span class="n">color</span> <span class="o">:</span> <span class="n">Color</span><span class="o">.</span><span class="na">values</span><span class="o">()){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">color</span><span class="o">.</span><span class="na">ordinal</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">color</span><span class="o">.</span><span class="na">name</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">color</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="cm">/**</span>
+<span class="cm">       0 - RED - 红色</span>
+<span class="cm">        1 - GREEN - 绿色</span>
+<span class="cm">        2 - BLUE - 蓝色</span>
+<span class="cm">        */</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>枚举类中可以实现接口继承</p>
+<div class="codehilite"><pre><span></span><span class="kd">interface</span> <span class="nc">Imessage</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">enum</span> <span class="n">Color</span> <span class="kd">implements</span> <span class="n">Imessage</span><span class="o">{</span>
+    <span class="n">RED</span><span class="o">(</span><span class="s">&quot;红色&quot;</span><span class="o">),</span> <span class="n">GREEN</span><span class="o">(</span><span class="s">&quot;绿色&quot;</span><span class="o">),</span> <span class="n">BLUE</span><span class="o">(</span><span class="s">&quot;蓝色&quot;</span><span class="o">)</span> <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span> <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Color</span><span class="o">(</span><span class="n">String</span>  <span class="n">title</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Imessage</span> <span class="n">message</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="na">RED</span> <span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="c1">// 红色</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>枚举类可以直接定义抽象方法，<br />
+并且要求每一个枚举对象都要独立覆写此抽象方法</p>
+<div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="n">Color</span><span class="o">{</span>
+    <span class="n">RED</span><span class="o">(</span><span class="s">&quot;红色&quot;</span><span class="o">){</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">},</span> 
+
+    <span class="n">GREEN</span><span class="o">(</span><span class="s">&quot;绿色&quot;</span><span class="o">){</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">},</span> 
+
+    <span class="n">BLUE</span><span class="o">(</span><span class="s">&quot;蓝色&quot;</span><span class="o">){</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span> <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span> <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Color</span><span class="o">(</span><span class="n">String</span>  <span class="n">title</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">;</span>
+
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>        
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">RED</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="c1">// 红色</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>枚举类不建议写太多内容</p>
+<h2 id="115">115 枚举应用案例</h2>
+<div class="codehilite"><pre><span></span><span class="kd">enum</span> <span class="n">Sex</span><span class="o">{</span>
+    <span class="n">MAN</span><span class="o">(</span><span class="s">&quot;男&quot;</span><span class="o">),</span> <span class="n">FEMALE</span><span class="o">(</span><span class="s">&quot;女&quot;</span><span class="o">)</span> <span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">Sex</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Person</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span> <span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span> <span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Sex</span> <span class="n">sex</span> <span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">,</span> <span class="n">Sex</span> <span class="n">sex</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">sex</span> <span class="o">=</span> <span class="n">sex</span> <span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">&quot;Person(&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">sex</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">class</span> <span class="nc">Demo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">&quot;张三&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">,</span> <span class="n">Sex</span><span class="o">.</span><span class="na">MAN</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
+        <span class="c1">// Person(张三 23 男)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

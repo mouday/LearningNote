@@ -1,0 +1,497 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Nginx通过OpenSSL配置Https - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Nginx通过OpenSSL配置Https
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Nginx通过OpenSSL配置Https</h1>
+                
+                <p>Nginx通过OpenSSL配置Https及二级虚拟目录</p>
+<p>1、创建私钥秘钥和证书</p>
+<div class="codehilite"><pre><span></span>mkdir -p /usr/local/nginx/conf/ssl/
+<span class="nb">cd</span> /usr/local/nginx/conf/ssl/
+
+<span class="c1"># 创建服务器私钥</span>
+openssl genrsa -des3 -out server.key <span class="m">1024</span>
+
+<span class="c1"># 创建签名请求的证书（CSR）</span>
+openssl req -new -key server.key -out server.csr
+
+<span class="c1"># 标记证书使用上述私钥和CSR</span>
+openssl x509 -req -days <span class="m">365</span> -in server.csr -signkey server.key -out server.crt
+</pre></div>
+
+
+<p>2、报错处理：密码错误</p>
+<div class="codehilite"><pre><span></span><span class="n">SSL_CTX_use_PrivateKey_file</span><span class="p">(</span><span class="ss">&quot;/etc/nginx/key/server.key&quot;</span><span class="p">)</span> <span class="n">failed</span> 
+<span class="p">(</span><span class="n">SSL</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span><span class="mi">0906406</span><span class="n">D</span><span class="p">:</span><span class="n">PEM</span> <span class="n">routines</span><span class="p">:</span><span class="n">PEM_def_callback</span><span class="p">:</span><span class="n">problems</span> <span class="n">getting</span> <span class="n">password</span> <span class="n">error</span><span class="p">:</span><span class="mi">0906</span><span class="n">A068</span><span class="p">:</span><span class="n">PEM</span> <span class="n">routines</span><span class="p">:</span><span class="n">PEM_do_header</span><span class="p">:</span><span class="n">bad</span> <span class="n">password</span> <span class="k">read</span> <span class="n">error</span><span class="p">:</span><span class="mi">140</span><span class="n">B0009</span><span class="p">:</span><span class="n">SSL</span> <span class="n">routines</span><span class="p">:</span><span class="n">SSL_CTX_use_PrivateKey_file</span><span class="p">:</span><span class="n">PEM</span> <span class="n">lib</span><span class="p">)</span> 
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">输入一次私钥的密码</span>
+<span class="n">openssl</span> <span class="n">rsa</span> <span class="o">-</span><span class="k">in</span> <span class="n">server</span><span class="p">.</span><span class="k">key</span> <span class="o">-</span><span class="k">out</span> <span class="n">unserver</span><span class="p">.</span><span class="k">key</span> 
+
+<span class="n">cp</span> <span class="n">unserver</span><span class="p">.</span><span class="k">key</span> <span class="n">server</span><span class="p">.</span><span class="k">key</span>
+
+<span class="o">#</span> <span class="err">重启</span><span class="n">nginx</span>
+</pre></div>
+
+
+<p>3、配置Nginx</p>
+<div class="codehilite"><pre><span></span><span class="nt">server</span> <span class="p">{</span>
+    <span class="err">listen</span>       <span class="err">443</span> <span class="err">ssl</span><span class="p">;</span>
+    <span class="err">server_name</span>  <span class="err">localhost</span><span class="p">;</span>
+
+    <span class="err">ssl</span> <span class="err">on</span><span class="p">;</span>
+    <span class="err">ssl_certificate</span>      <span class="err">/usr/local/nginx/conf/ssl/server.crt</span><span class="p">;</span>
+    <span class="err">ssl_certificate_key</span>  <span class="err">/usr/local/nginx/conf/ssl/server.key</span><span class="p">;</span>
+    <span class="err">ssl_session_timeout</span>  <span class="err">5m</span><span class="p">;</span>
+    <span class="err">ssl_ciphers</span>  <span class="n">HIGH</span><span class="p">:</span><span class="o">!</span><span class="n">aNULL</span><span class="o">:!</span><span class="n">MD5</span><span class="p">;</span>
+    <span class="err">ssl_prefer_server_ciphers</span>  <span class="err">on</span><span class="p">;</span>
+
+    <span class="err">#</span> <span class="err">这是静态主页</span>
+    <span class="err">location</span> <span class="err">/</span> <span class="err">{</span>
+        <span class="err">root</span>   <span class="err">/www</span><span class="p">;</span>
+        <span class="err">index</span>  <span class="err">index.html</span> <span class="err">index.htm</span><span class="p">;</span>
+
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>会出现隐私设置错误，继续访问就可以</p>
+<blockquote>
+<p>参考：<br />
+<a href="https://jingyan.baidu.com/article/8275fc865886cd46a13cf674.html">nginx配置https</a></p>
+</blockquote>
+<p>4、Nginx配置二级目录</p>
+<div class="codehilite"><pre><span></span><span class="nv">server</span> {
+    <span class="nv">listen</span>       <span class="mi">80</span><span class="c1">;</span>
+    <span class="nv">server_name</span>  <span class="nv">localhost</span><span class="c1">;</span>
+
+    # 这是静态主页
+    <span class="nv">location</span> <span class="o">/</span> {
+        <span class="nv">root</span>   <span class="o">/</span><span class="nv">www</span><span class="c1">;</span>
+        <span class="nv">index</span>  <span class="nv">index</span>.<span class="nv">html</span> <span class="nv">index</span>.<span class="nv">htm</span><span class="c1">;</span>
+
+    }
+
+    # 这是二级虚拟目录
+    # 注意斜杆<span class="o">/</span>: 
+    # 访问 <span class="nv">https</span>:<span class="o">//</span><span class="nv">localhost</span><span class="o">/</span><span class="nv">data</span><span class="o">/</span> 
+    # 代理 <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5003</span><span class="o">/</span>
+    <span class="nv">location</span> <span class="o">/</span><span class="nv">data</span><span class="o">/</span> {
+        <span class="nv">proxy_pass</span> <span class="nv">http</span>:<span class="o">//</span><span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">5003</span><span class="o">/</span><span class="c1">;</span>
+        <span class="nv">proxy_set_header</span> <span class="nv">Host</span> $<span class="nv">host</span><span class="c1">;</span>
+        <span class="nv">proxy_set_header</span> <span class="nv">X</span><span class="o">-</span><span class="nv">Forwarded</span><span class="o">-</span><span class="k">For</span> $<span class="nv">proxy_add_x_forwarded_for</span><span class="c1">;</span>
+    }
+}
+</pre></div>
+
+
+<p>5、报错：nginx:[emerg]unknown directive "ssl"</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 到解压的nginx目录下</span>
+yum -y install openssl openssl-devel
+
+./configure --with-http_ssl_module
+
+<span class="c1"># 切记不能make install 会覆盖</span>
+make  
+
+<span class="c1"># 备份</span>
+cp /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.bak
+
+<span class="c1"># 拷贝新的文件</span>
+cp objs/nginx /usr/local/nginx/sbin/nginx
+
+<span class="c1"># 检查重启</span>
+nginx -t
+
+nginx -s reload
+</pre></div>
+
+
+<blockquote>
+<p>参考：<br />
+<a href="https://www.cnblogs.com/valu/p/10527284.html">nginx:[emerg]unknown directive "ssl"</a></p>
+<p>参考：<br />
+<a href="https://blog.csdn.net/qq_34489091/article/details/89331433">Nginx 反向代理 虚拟二级目录</a></p>
+</blockquote>
+<p>6、js后加?v=版本号 可以起到刷新缓存的作用</p>
+<p>例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="k">static</span><span class="o">/</span><span class="n">main</span><span class="p">.</span><span class="n">js</span><span class="o">?</span><span class="n">v</span><span class="o">=</span><span class="mi">20191227</span>
+</pre></div>
+
+
+<p>每次更新的时候修改版本号，通知浏览器获取新的文件</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

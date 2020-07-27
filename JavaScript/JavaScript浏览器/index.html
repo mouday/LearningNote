@@ -1,0 +1,566 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>JavaScript浏览器 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#dom" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                JavaScript浏览器
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>浏览器<br />
+浏览器对象<br />
+window对象不但充当全局作用域，而且表示浏览器窗口。<br />
+outerWidth和outerHeight属性，可以获取浏览器窗口的整个宽高<br />
+innerWidth和innerHeight属性，可以获取浏览器窗口的内部宽度和高度</p>
+<p>navigator<br />
+navigator对象表示浏览器的信息，最常用的属性包括：</p>
+<p>navigator.appName：浏览器名称；<br />
+navigator.appVersion：浏览器版本；<br />
+navigator.language：浏览器设置的语言；<br />
+navigator.platform：操作系统类型；<br />
+navigator.userAgent：浏览器设定的User-Agent字符串</p>
+<p>screen<br />
+对象表示屏幕的信息，常用的属性有：</p>
+<p>screen.width：屏幕宽度，以像素为单位；<br />
+screen.height：屏幕高度，以像素为单位；<br />
+screen.colorDepth：返回颜色位数，如8、16、24。</p>
+<p>location<br />
+对象表示当前页面的URL信息<br />
+location.href // http://www.example.com:8080/path/index.html?a=1&amp;b=2#TOP<br />
+location.protocol; // 'http'<br />
+location.host; // 'www.example.com'<br />
+location.port; // '8080'<br />
+location.pathname; // '/path/index.html'<br />
+location.search; // '?a=1&amp;b=2'<br />
+location.hash; // 'TOP'</p>
+<p>location.assign()   加载一个新页面<br />
+location.reload()   重新加载当前页面</p>
+<p>document<br />
+对象表示当前页面<br />
+document对象就是整个DOM树的根节点</p>
+<div class="codehilite"><pre><span></span><span class="n">document</span><span class="p">.</span><span class="n">getElementById</span><span class="p">()</span>
+<span class="n">document</span><span class="p">.</span><span class="n">getElementsByTagName</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Cookie<br />
+是由服务器发送的key-value标示符</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="err">读取到当前页面的</span><span class="n">Cookie</span>
+<span class="n">document</span><span class="p">.</span><span class="n">cookie</span><span class="p">;</span> <span class="o">//</span> <span class="s1">&#39;v=123; remember=true; prefer=zh&#39;</span>
+</pre></div>
+
+
+<p>服务器在设置 httpOnly的Cookie将不能被JavaScript读取</p>
+<p>history<br />
+对象保存了浏览器的历史记录</p>
+<div class="codehilite"><pre><span></span><span class="n">history</span><span class="p">.</span><span class="n">back</span><span class="p">()</span>     <span class="o">//</span> <span class="err">后退</span>
+<span class="n">history</span><span class="p">.</span><span class="k">forward</span><span class="p">()</span>  <span class="o">//</span> <span class="err">前进</span>
+</pre></div>
+
+
+<p>任何情况，你都不应该使用history这个对象了</p>
+<p>操作DOM<br />
+document.getElementById()<br />
+document.getElementsByTagName()<br />
+document.getElementsByClassName()</p>
+<p>querySelector()<br />
+querySelectorAll()</p>
+<h1 id="dom">更新DOM</h1>
+<p>innerHTML<br />
+innerText或textContent</p>
+<p>修改css</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">p</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;p-id&#39;</span><span class="p">);</span>
+<span class="o">//</span> <span class="err">设置</span><span class="n">CSS</span><span class="p">:</span>
+<span class="n">p</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;#ff0000&#39;</span><span class="p">;</span>
+<span class="n">p</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">fontSize</span> <span class="o">=</span> <span class="s1">&#39;20px&#39;</span><span class="p">;</span>  <span class="o">//</span> <span class="n">font</span><span class="o">-</span><span class="n">size改写为驼峰式命名</span>
+</pre></div>
+
+
+<h1 id="dom_1">插入DOM</h1>
+<p>document.createElement()<br />
+parentElement.appendChild(newElement)<br />
+node.setAttribute(key, value)<br />
+parentElement.insertBefore(newElement, referenceElement)<br />
+node.children()</p>
+<h1 id="dom_2">删除DOM</h1>
+<p>removeChild<br />
+parent.children</p>
+<h1 id="_1">操作表单</h1>
+<div class="codehilite"><pre><span></span><span class="err">文本框，对应的</span><span class="o">&lt;</span><span class="k">input</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;text&quot;</span><span class="o">&gt;</span><span class="err">，用于输入文本；</span>
+
+<span class="err">口令框，对应的</span><span class="o">&lt;</span><span class="k">input</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;password&quot;</span><span class="o">&gt;</span><span class="err">，用于输入口令；</span>
+
+<span class="err">单选框，对应的</span><span class="o">&lt;</span><span class="k">input</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;radio&quot;</span><span class="o">&gt;</span><span class="err">，用于选择一项；</span>
+
+<span class="err">复选框，对应的</span><span class="o">&lt;</span><span class="k">input</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;checkbox&quot;</span><span class="o">&gt;</span><span class="err">，用于选择多项；</span>
+
+<span class="err">下拉框，对应的</span><span class="o">&lt;</span><span class="k">select</span><span class="o">&gt;</span><span class="err">，用于选择一项；</span>
+
+<span class="err">隐藏文本，对应的</span><span class="o">&lt;</span><span class="k">input</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;hidden&quot;</span><span class="o">&gt;</span><span class="err">，用户不可见，但表单提交时会把隐藏文本发送到服务器。</span>
+</pre></div>
+
+
+<p>获取设置值<br />
+value : text、password、hidden以及select<br />
+checked : 单选框和复选框</p>
+<p>没有name属性的<input>的数据不会被提交</p>
+<p>操作文件</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="k">input</span> <span class="k">type</span><span class="o">=</span><span class="ss">&quot;file&quot;</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>表单的enctype必须指定为multipart/form-data，method必须指定为post</p>
+<p>AJAX<br />
+AJAX不是JavaScript的规范，<br />
+Asynchronous JavaScript and XML，意思就是用JavaScript执行异步网络请求</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">request</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">XMLHttpRequest</span><span class="ss">()</span><span class="c1">; // 新建XMLHttpRequest对象</span>
+
+<span class="nv">request</span>.<span class="nv">onreadystatechange</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> { <span class="o">//</span> 状态发生变化时，函数被回调
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">request</span>.<span class="nv">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="ss">)</span> { <span class="o">//</span> 成功完成
+        <span class="o">//</span> 判断响应结果:
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">request</span>.<span class="nv">status</span> <span class="o">===</span> <span class="mi">200</span><span class="ss">)</span> {
+            <span class="o">//</span> 成功，通过<span class="nv">responseText</span>拿到响应的文本:
+            <span class="k">return</span> <span class="nv">success</span><span class="ss">(</span><span class="nv">request</span>.<span class="nv">responseText</span><span class="ss">)</span><span class="c1">;</span>
+        } <span class="k">else</span> {
+            <span class="o">//</span> 失败，根据响应码判断失败原因:
+            <span class="k">return</span> <span class="nv">fail</span><span class="ss">(</span><span class="nv">request</span>.<span class="nv">status</span><span class="ss">)</span><span class="c1">;</span>
+        }
+    } <span class="k">else</span> {
+        <span class="o">//</span> <span class="nv">HTTP</span>请求还在继续...
+    }
+}
+
+<span class="o">//</span> 发送请求:
+<span class="nv">request</span>.<span class="nv">open</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">GET</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">/api/categories</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">request</span>.<span class="k">send</span><span class="ss">()</span><span class="c1">;</span>
+</pre></div>
+
+
+<p>安全限制<br />
+浏览器的同源策略<br />
+JavaScript在发送AJAX请求时，URL的域名必须和当前页面完全一致。<br />
+浏览器允许跨域引用JavaScript资源</p>
+<div class="codehilite"><pre><span></span> <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;http://example.com/abc.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>CORS全称Cross-Origin Resource Sharing<br />
+跨域访问资源<br />
+Access-Control-Allow-Origin</p>
+<p>Promise对象</p>
+<p>Promise().then().then....catch() 多任务串行执行.<br />
+Promise.all([p1,p2,...]) 多任务并行执行<br />
+Promise.race([p1,p2,...]) 多任务赛跑.</p>
+<p>Canvas</p>
+<h1 id="jquery">jquery</h1>
+<div class="codehilite"><pre><span></span><span class="err">$</span><span class="p">.</span><span class="n">fn</span><span class="p">.</span><span class="n">jquery</span>  <span class="o">//</span> <span class="err">查看版本</span>
+</pre></div>
+
+
+<p>使用JSONP，可以在ajax()中设置jsonp: 'callback'，让jQuery实现JSONP跨域加载数据。</p>
+<p>JSON是一种数据交换格式，<br />
+JSONP是一种依靠开发人员的聪明才智创造出的一种非官方跨域数据交互协议</p>
+<p>ajax的核心是通过XmlHttpRequest获取非本页内容，<br />
+jsonp的核心则是动态添加 script 标签来调用服务器提供的js脚本</p>
+<p>异常处理</p>
+<div class="codehilite"><pre><span></span><span class="n">try</span> <span class="err">{</span>
+    <span class="p">...</span>
+<span class="err">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="err">{</span>
+    <span class="p">...</span>
+<span class="err">}</span> <span class="n">finally</span> <span class="err">{</span>
+    <span class="p">...</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>抛出错误使用throw语句</p>
+<p>JavaScript引擎是一个事件驱动的执行引擎，代码总是以单线程执行<br />
+而回调函数的执行需要等到下一个满足条件的事件出现后，才会被执行。</p>
+<p>underscore库，高阶函数兼容IE6～8</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

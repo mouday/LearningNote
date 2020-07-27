@@ -1,0 +1,850 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>JavaScript快速入门 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                JavaScript快速入门
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>JavaScript<br />
+https://www.liaoxuefeng.com/wiki/1022910821149312</p>
+<h1 id="_1">基本语法</h1>
+<div class="codehilite"><pre><span></span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;hello word!&quot;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;hello word!&quot;</span><span class="p">);</span>  <span class="c1">// 避免弹出烦人的对话框</span>
+
+<span class="c1">// JavaScript严格区分大小写</span>
+
+<span class="c1">// 单行注释</span>
+<span class="cm">/*多行注释*/</span>
+
+<span class="c1">// 赋值语句, 每个语句用;表示语句结束</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// 语句块是一组语句的集合, 可以嵌套</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h1 id="_2">数据类型和变量</h1>
+<p>1、Number<br />
+JavaScript不区分整数和浮点数</p>
+<div class="codehilite"><pre><span></span><span class="mi">123</span><span class="p">;</span> <span class="c1">// 整数123</span>
+<span class="mf">0.456</span><span class="p">;</span> <span class="c1">// 浮点数0.456</span>
+<span class="mf">1.2345e3</span><span class="p">;</span> <span class="c1">// 科学计数法表示1.2345x1000，等同于1234.5</span>
+<span class="o">-</span><span class="mi">99</span><span class="p">;</span> <span class="c1">// 负数</span>
+<span class="kc">NaN</span><span class="p">;</span> <span class="c1">// NaN表示Not a Number</span>
+<span class="kc">Infinity</span><span class="p">;</span> <span class="c1">// Infinity表示无限大</span>
+<span class="c1">// 十六进制用0x前缀和0-9，a-f表示 eg: 0xff00</span>
+</pre></div>
+
+
+<p>支持四则运算，%是求余运算</p>
+<p>2、字符串<br />
+单引号'或双引号"</p>
+<p>3、布尔值<br />
+true、false</p>
+<div class="codehilite"><pre><span></span><span class="o">&amp;&amp;</span> <span class="err">与运算</span>
+<span class="o">||</span> <span class="err">或运算</span>
+<span class="o">!</span>  <span class="err">非运算</span>
+</pre></div>
+
+
+<p>相等运算符</p>
+<div class="codehilite"><pre><span></span><span class="o">==</span>  <span class="c1">// 自动转换数据类型再比较</span>
+<span class="o">===</span> <span class="c1">// 不会自动转换数据类型(推荐)</span>
+</pre></div>
+
+
+<p>唯一能判断NaN的方法是： </p>
+<div class="codehilite"><pre><span></span><span class="n">isNaN</span><span class="p">(</span><span class="n">NaN</span><span class="p">)</span>
+</pre></div>
+
+
+<p>浮点数在运算过程中会产生误差，因为计算机无法精确表示无限循环小数</p>
+<div class="codehilite"><pre><span></span><span class="kc">null</span>       <span class="c1">// 表示一个“空” 大多数情况下使用</span>
+<span class="mi">0</span>          <span class="c1">// 一个数值</span>
+<span class="s1">&#39;&#39;</span>         <span class="c1">// 表示长度为0的字符串</span>
+<span class="kc">undefined</span>  <span class="c1">// 表示“未定义”</span>
+</pre></div>
+
+
+<p>4、数组<br />
+数组是一组按顺序排列的集合，集合的每个值称为元素。<br />
+JavaScript的数组可以包括任意数据类型。例如：</p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">];</span>  <span class="c1">// 推荐</span>
+<span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+
+
+<p>索引的起始值为0</p>
+<p>5、对象</p>
+<p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">person</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span>
+    <span class="n">age</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="s1">&#39;web&#39;</span><span class="p">,</span> <span class="s1">&#39;mobile&#39;</span><span class="p">],</span>
+    <span class="n">city</span><span class="p">:</span> <span class="ss">&quot;Beijing&quot;</span><span class="p">,</span>
+    <span class="n">hasCar</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+    <span class="n">zipcode</span><span class="p">:</span> <span class="k">null</span>
+<span class="err">}</span><span class="p">;</span>
+</pre></div>
+
+
+<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型<br />
+每个键又称为对象的属性</p>
+<p>获取一个对象的属性</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 对象变量.属性名</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// &#39;Bob&#39;</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">zipcode</span><span class="p">;</span> <span class="c1">// null</span>
+</pre></div>
+
+
+<p>变量<br />
+申明一个变量用var语句, 只能申明一次</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">a</span><span class="p">;</span>       <span class="o">//</span> <span class="err">申明了变量</span><span class="n">a</span><span class="err">，此时</span><span class="n">a的值为undefined</span>
+<span class="n">var</span> <span class="err">$</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="o">//</span> <span class="err">申明了变量$</span><span class="n">b</span><span class="err">，同时给$</span><span class="n">b赋值</span><span class="err">，此时$</span><span class="n">b的值为1</span>
+</pre></div>
+
+
+<p>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span> <span class="o">//</span> <span class="n">a的值是整数123</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;ABC&#39;</span><span class="p">;</span> <span class="o">//</span> <span class="n">a变为字符串</span>
+</pre></div>
+
+
+<p>动态语言: 变量本身类型不固定的语言<br />
+静态语言: 在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错，如Java</p>
+<p>strict模式<br />
+如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量</p>
+<p>strict模式: 强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误</p>
+<p>启用strict模式</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<h1 id="_3">字符串</h1>
+<p>JavaScript字符串就是用''或""括起来的字符表示</p>
+<p>转义字符</p>
+<div class="codehilite"><pre><span></span><span class="err">\</span><span class="n">n</span> <span class="err">表示换行</span>
+<span class="err">\</span><span class="n">t</span> <span class="err">表示制表符</span>
+<span class="err">\\</span> <span class="err">表示的字符就是\</span>
+</pre></div>
+
+
+<p>ASCII字符可以以\x##形式的十六进制表示：</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;\x41&#39;</span><span class="p">;</span> <span class="o">//</span> <span class="err">完全等同于</span> <span class="s1">&#39;A&#39;</span>
+</pre></div>
+
+
+<p>还可以用\u####表示一个Unicode字符：</p>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;\u4e2d\u6587&#39;</span><span class="p">;</span> <span class="o">//</span> <span class="err">完全等同于</span> <span class="s1">&#39;中文&#39;</span>
+</pre></div>
+
+
+<p>多行字符串<br />
+最新的ES6标准</p>
+<div class="codehilite"><pre><span></span><span class="o">`</span><span class="err">这是一个</span>
+<span class="err">多行</span>
+<span class="err">字符串</span><span class="o">`</span><span class="p">;</span>
+</pre></div>
+
+
+<p>模板字符串</p>
+<div class="codehilite"><pre><span></span>var name = &#39;小明&#39;;
+var age = 20;
+
+// + 拼接
+var message = &#39;你好, &#39; + name + &#39;, 你今年&#39; + age + &#39;岁了!&#39;;
+
+// 模板字符串 ES6新增
+var message = `你好, <span class="cp">${</span><span class="n">name</span><span class="cp">}</span>, 你今年<span class="cp">${</span><span class="n">age</span><span class="cp">}</span>岁了!`;
+</pre></div>
+
+
+<p>操作字符串</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Hello, world!&#39;</span><span class="p">;</span>
+<span class="n">s</span><span class="p">.</span><span class="k">length</span><span class="p">;</span> <span class="o">//</span> <span class="mi">13</span>
+
+<span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="o">//</span> <span class="s1">&#39;H&#39;</span>
+</pre></div>
+
+
+<p>字符串是不可变的<br />
+调用方法，本身不会改变原有字符串的内容，而是返回一个新字符串</p>
+<div class="codehilite"><pre><span></span><span class="n">toUpperCase</span><span class="p">()</span>  <span class="o">//</span> <span class="err">变为大写</span>
+<span class="n">toLowerCase</span><span class="p">()</span>  <span class="o">//</span> <span class="err">变为小写</span>
+<span class="n">indexOf</span><span class="p">()</span>      <span class="o">//</span> <span class="err">搜索指定字符串出现的位置</span>
+<span class="k">substring</span><span class="p">()</span>    <span class="o">//</span> <span class="err">返回指定索引区间的子串</span>
+</pre></div>
+
+
+<p>eg:</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span><span class="p">;</span>
+<span class="n">s</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">();</span> <span class="o">//</span> <span class="err">返回</span><span class="s1">&#39;HELLO&#39;</span>
+
+<span class="n">var</span> <span class="k">lower</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">toLowerCase</span><span class="p">();</span> <span class="o">//</span> <span class="err">返回</span><span class="s1">&#39;hello&#39;</span><span class="err">并赋值给变量</span><span class="k">lower</span>
+</pre></div>
+
+
+<p>eg:</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello, world&#39;</span><span class="p">;</span>
+<span class="n">s</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">返回</span><span class="mi">7</span>
+<span class="n">s</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">没有找到指定的子串，返回</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="n">s</span><span class="p">.</span><span class="k">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="o">//</span> <span class="err">从索引</span><span class="mi">0</span><span class="err">开始到</span><span class="mi">5</span><span class="err">（不包括</span><span class="mi">5</span><span class="err">），返回</span><span class="s1">&#39;hello&#39;</span>
+<span class="n">s</span><span class="p">.</span><span class="k">substring</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span> <span class="o">//</span> <span class="err">从索引</span><span class="mi">7</span><span class="err">开始到结束，返回</span><span class="s1">&#39;world&#39;</span>
+</pre></div>
+
+
+<h1 id="_4">数组</h1>
+<p>JavaScript的Array可以包含任意数据类型，并通过索引来访问每个元素</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">true</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="k">length</span><span class="p">;</span> <span class="o">//</span> <span class="err">长度</span> <span class="mi">6</span>
+
+<span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span> <span class="o">//</span> <span class="err">修改</span>
+</pre></div>
+
+
+<p>可以修改length, 不建议<br />
+索引超过了范围，arr长度会变化, 建议：索引不要越界</p>
+<p>常用方法</p>
+<div class="codehilite"><pre><span></span><span class="n">indexOf</span><span class="p">()</span>  <span class="o">//</span> <span class="err">搜索一个指定的元素的位置</span>
+<span class="n">slice</span><span class="p">()</span>    <span class="o">//</span> <span class="err">切片</span>
+<span class="n">push</span><span class="p">()</span>     <span class="o">//</span> <span class="err">末尾添加若干元素</span>
+<span class="n">pop</span><span class="p">()</span>      <span class="o">//</span> <span class="err">把</span><span class="n">Array的最后一个元素删除掉</span>
+<span class="n">unshift</span><span class="p">()</span>  <span class="o">//</span> <span class="err">往</span><span class="n">Array的头部添加若干元素</span>
+<span class="n">shift</span><span class="p">()</span>    <span class="o">//</span> <span class="err">把</span><span class="n">Array的第一个元素删掉</span>
+<span class="n">sort</span><span class="p">()</span>     <span class="o">//</span> <span class="err">对当前</span><span class="n">Array进行排序</span>
+<span class="n">reverse</span><span class="p">()</span>  <span class="o">//</span> <span class="err">把整个</span><span class="n">Array的元素反转</span>
+<span class="n">splice</span><span class="p">()</span>   <span class="o">//</span> <span class="err">替换元素</span>
+<span class="n">concat</span><span class="p">()</span>   <span class="o">//</span> <span class="err">拼接数组</span><span class="p">,</span> <span class="err">返回了一个新的</span><span class="nb">Array</span>
+<span class="k">join</span><span class="p">()</span>     <span class="o">//</span> <span class="err">把当前</span><span class="n">Array的每个元素都用指定的字符串连接起来</span><span class="err">，然后返回连接后的字符串</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="o">//</span> <span class="err">元素</span><span class="mi">10</span><span class="err">的索引为</span><span class="mi">0</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="o">//</span> <span class="err">从索引</span><span class="mi">0</span><span class="err">开始，到索引</span><span class="mi">3</span><span class="err">结束，但不包括索引</span><span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="o">//</span> <span class="err">从索引</span><span class="mi">3</span><span class="err">开始到结束</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">]</span>
+
+<span class="o">//</span> <span class="err">注意到</span><span class="n">slice</span><span class="p">()</span><span class="err">的起止参数包括开始索引，不包括结束索引。</span>
+<span class="o">//</span> <span class="err">如果不给</span><span class="n">slice</span><span class="p">()</span><span class="err">传递任何参数，它就会从头到尾截取所有元素。</span>
+<span class="o">//</span> <span class="err">利用这一点，我们可以很容易地复制一个</span><span class="nb">Array</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">返回</span><span class="n">Array新的长度</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="o">//</span> <span class="n">pop</span><span class="p">()</span><span class="err">返回</span><span class="s1">&#39;B&#39;</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="n">arr</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="n">arr</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="o">//</span> <span class="err">连续</span><span class="n">pop</span> <span class="mi">3</span><span class="err">次</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span> <span class="o">//</span> <span class="err">空数组继续</span><span class="n">pop不会报错</span><span class="err">，而是返回</span><span class="n">undefined</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[]</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">unshift</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">返回</span><span class="n">Array新的长度</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">shift</span><span class="p">();</span> <span class="o">//</span> <span class="s1">&#39;A&#39;</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">shift</span><span class="p">();</span> <span class="n">arr</span><span class="p">.</span><span class="n">shift</span><span class="p">();</span> <span class="n">arr</span><span class="p">.</span><span class="n">shift</span><span class="p">();</span> <span class="o">//</span> <span class="err">连续</span><span class="n">shift</span> <span class="mi">3</span><span class="err">次</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[]</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">shift</span><span class="p">();</span> <span class="o">//</span> <span class="err">空数组继续</span><span class="n">shift不会报错</span><span class="err">，而是返回</span><span class="n">undefined</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[]</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">reverse</span><span class="p">();</span> 
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">]</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Yahoo&#39;</span><span class="p">,</span> <span class="s1">&#39;AOL&#39;</span><span class="p">,</span> <span class="s1">&#39;Excite&#39;</span><span class="p">,</span> <span class="s1">&#39;Oracle&#39;</span><span class="p">];</span>
+<span class="o">//</span> <span class="err">从索引</span><span class="mi">2</span><span class="err">开始删除</span><span class="mi">3</span><span class="err">个元素</span><span class="p">,</span><span class="err">然后再添加两个元素</span><span class="p">:</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">返回删除的元素</span> <span class="p">[</span><span class="s1">&#39;Yahoo&#39;</span><span class="p">,</span> <span class="s1">&#39;AOL&#39;</span><span class="p">,</span> <span class="s1">&#39;Excite&#39;</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Oracle&#39;</span><span class="p">]</span>
+<span class="o">//</span> <span class="err">只删除</span><span class="p">,</span><span class="err">不添加</span><span class="p">:</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Oracle&#39;</span><span class="p">]</span>
+<span class="o">//</span> <span class="err">只添加</span><span class="p">,</span><span class="err">不删除</span><span class="p">:</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">splice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">返回</span><span class="p">[],</span><span class="err">因为没有删除任何元素</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;Microsoft&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Oracle&#39;</span><span class="p">]</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+<span class="n">var</span> <span class="n">added</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+<span class="n">added</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+
+<span class="o">//</span> <span class="err">实际上，</span><span class="n">concat</span><span class="p">()</span><span class="err">方法可以接收任意个元素和</span><span class="nb">Array</span><span class="err">，并且自动把</span><span class="n">Array拆开</span><span class="err">，然后全部添加到新的</span><span class="n">Array里</span><span class="err">：</span>
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">concat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="s1">&#39;A-B-C-1-2-3&#39;</span>
+<span class="o">//</span> <span class="err">如果</span><span class="n">Array的元素不是字符串</span><span class="err">，将自动转换为字符串后再连接</span>
+</pre></div>
+
+
+<p>多维数组</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">];</span>
+</pre></div>
+
+
+<h1 id="_5">对象</h1>
+<p>JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">xiaohong</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;小红&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;middle-school&#39;</span><span class="p">:</span> <span class="s1">&#39;No.1 Middle School&#39;</span>   <span class="o">//</span> <span class="err">包含特殊字符</span>
+<span class="err">}</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="err">访问属性</span> <span class="k">object</span><span class="p">.</span><span class="n">prop</span>
+<span class="n">xiaohong</span><span class="p">[</span><span class="s1">&#39;middle-school&#39;</span><span class="p">];</span> <span class="o">//</span> <span class="s1">&#39;No.1 Middle School&#39;</span>
+<span class="n">xiaohong</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="o">//</span> <span class="s1">&#39;小红&#39;</span>
+
+<span class="o">//</span> <span class="err">检查属性</span>
+<span class="s1">&#39;name&#39;</span> <span class="k">in</span> <span class="n">xiaoming</span><span class="p">;</span> <span class="o">//</span> <span class="k">true</span>
+
+<span class="o">//</span> <span class="err">检查自身属性</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>JavaScript规定，访问不存在的属性不报错，而是返回undefined</p>
+<p>可以自由地给一个对象添加或删除属性</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">xiaoming</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;小明&#39;</span>
+<span class="err">}</span><span class="p">;</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="o">//</span> <span class="n">undefined</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span> <span class="o">//</span> <span class="err">新增一个</span><span class="n">age属性</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="o">//</span> <span class="mi">18</span>
+
+<span class="k">delete</span> <span class="n">xiaoming</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="o">//</span> <span class="err">删除</span><span class="n">age属性</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="o">//</span> <span class="n">undefined</span>
+<span class="k">delete</span> <span class="n">xiaoming</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span> <span class="o">//</span> <span class="err">删除</span><span class="n">name属性</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="o">//</span> <span class="n">undefined</span>
+<span class="k">delete</span> <span class="n">xiaoming</span><span class="p">.</span><span class="n">school</span><span class="p">;</span> <span class="o">//</span> <span class="err">删除一个不存在的</span><span class="n">school属性也不会报错</span>
+</pre></div>
+
+
+<p>所有对象最终都会在原型链上指向object</p>
+<h1 id="_6">条件判断</h1>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="ss">()</span> 
+{ ... } 
+<span class="k">else</span> 
+{ ... }
+</pre></div>
+
+
+<p>如果语句块只包含一条语句，那么可以省略{}, 不推荐</p>
+<p>多行条件判断</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="ss">()</span> 
+{ ... } 
+<span class="k">else</span> <span class="k">if</span> <span class="ss">()</span>
+{ ... }
+<span class="k">else</span> 
+{ ... }
+</pre></div>
+
+
+<p>JavaScript把null、undefined、0、NaN和空字符串''视为false，其他值一概视为true</p>
+<h1 id="_7">循环</h1>
+<div class="codehilite"><pre><span></span><span class="k">for</span><span class="ss">(</span>初始条件<span class="c1">; 递增条件; 结束条件){</span>
+
+}
+
+<span class="k">for</span> <span class="ss">(</span><span class="c1">;;) {} // 无限循环 ，break语句退出循环</span>
+</pre></div>
+
+
+<p>遍历数组</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">Apple</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Google</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">Microsoft</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">i</span>, <span class="nv">x</span><span class="c1">;</span>
+
+<span class="k">for</span> <span class="ss">(</span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;arr.length; i++) {</span>
+    <span class="nv">x</span> <span class="o">=</span> <span class="nv">arr</span>[<span class="nv">i</span>]<span class="c1">;</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<p>for循环</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> 对象
+<span class="nv">var</span> <span class="nv">o</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">Jack</span><span class="s1">&#39;</span>,
+    <span class="nv">age</span>: <span class="mi">20</span>,
+    <span class="nv">city</span>: <span class="s1">&#39;</span><span class="s">Beijing</span><span class="s1">&#39;</span>
+}<span class="c1">;</span>
+<span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">key</span> <span class="nv">in</span> <span class="nv">o</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">key</span><span class="ss">)</span><span class="c1">; // &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span>
+}
+
+<span class="o">//</span> 数组
+<span class="nv">var</span> <span class="nv">a</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">A</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">B</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">C</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">a</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">index</span><span class="ss">)</span><span class="c1">; // &#39;0&#39;, &#39;1&#39;, &#39;2&#39;  得到的是String而不是Number</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">a</span>[<span class="nv">index</span>]<span class="ss">)</span><span class="c1">; // &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span>
+}
+</pre></div>
+
+
+<p>for和while循环则可能一次都不执行<br />
+do ... while  至少执行1次</p>
+<h1 id="mapset">Map和Set</h1>
+<p>ES6标准新增<br />
+Map<br />
+JavaScript的对象键必须是字符串<br />
+Map 是一组键值对的结构，具有极快的查找速度</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="k">Map</span><span class="p">([[</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Tracy&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">]]);</span>
+<span class="n">m</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="mi">95</span>
+
+<span class="n">m</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="mi">67</span><span class="p">);</span> <span class="o">//</span> <span class="err">添加新的</span><span class="k">key</span><span class="o">-</span><span class="n">value</span>
+<span class="n">m</span><span class="p">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">是否存在</span><span class="k">key</span> <span class="s1">&#39;Adam&#39;</span><span class="p">:</span> <span class="k">true</span>
+<span class="n">m</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="mi">67</span>
+<span class="n">m</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">删除</span><span class="k">key</span> <span class="s1">&#39;Adam&#39;</span>
+<span class="n">m</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">undefined</span>
+</pre></div>
+
+
+<p>Set<br />
+一组key的集合</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="k">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="o">//</span> <span class="err">含</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+
+<span class="n">s</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>  <span class="o">//</span> <span class="k">Set</span> <span class="err">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="err">}</span>
+<span class="n">s</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> 
+<span class="n">s</span><span class="p">.</span><span class="n">has</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="o">//</span> <span class="k">true</span>
+</pre></div>
+
+
+<h1 id="iterable">iterable</h1>
+<p>遍历Map和Set就无法使用下标</p>
+<p>ES6标准新增<br />
+Array、Map和Set都属于iterable类型</p>
+<p>具有iterable类型的集合可以通过新的for ... of循环来遍历</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">a</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">A</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">B</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">C</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">s</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Set</span><span class="ss">(</span>[<span class="s1">&#39;</span><span class="s">A</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">B</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">C</span><span class="s1">&#39;</span>]<span class="ss">)</span><span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">m</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Map</span><span class="ss">(</span>[[<span class="mi">1</span>, <span class="s1">&#39;</span><span class="s">x</span><span class="s1">&#39;</span>], [<span class="mi">2</span>, <span class="s1">&#39;</span><span class="s">y</span><span class="s1">&#39;</span>], [<span class="mi">3</span>, <span class="s1">&#39;</span><span class="s">z</span><span class="s1">&#39;</span>]]<span class="ss">)</span><span class="c1">;</span>
+
+<span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">x</span> <span class="nv">of</span> <span class="nv">a</span><span class="ss">)</span> { <span class="o">//</span> 遍历<span class="nv">Array</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="c1">;</span>
+}
+<span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">x</span> <span class="nv">of</span> <span class="nv">s</span><span class="ss">)</span> { <span class="o">//</span> 遍历<span class="nv">Set</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="c1">;</span>
+}
+<span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">x</span> <span class="nv">of</span> <span class="nv">m</span><span class="ss">)</span> { <span class="o">//</span> 遍历<span class="nv">Map</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">x</span>[<span class="mi">0</span>] <span class="o">+</span> <span class="s1">&#39;</span><span class="s">=</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">x</span>[<span class="mi">1</span>]<span class="ss">)</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<p>for ... in 遍历对象的属性名称, 一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性<br />
+for ... of 只循环集合本身的元素</p>
+<p>iterable内置的forEach方法(ES5.1标准引入)</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="k">index</span><span class="p">,</span> <span class="nb">array</span><span class="p">)</span> <span class="err">{</span>
+    <span class="o">//</span> <span class="n">element</span><span class="p">:</span> <span class="err">指向当前元素的值</span>
+    <span class="o">//</span> <span class="k">index</span><span class="p">:</span> <span class="err">指向当前索引</span>
+    <span class="o">//</span> <span class="nb">array</span><span class="p">:</span> <span class="err">指向</span><span class="n">Array对象本身</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">element</span> <span class="o">+</span> <span class="s1">&#39;, index = &#39;</span> <span class="o">+</span> <span class="k">index</span><span class="p">);</span>
+<span class="err">}</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Set与Array类似，但Set没有索引: element, sameElement, set<br />
+Map的回调函数参数依次为: value、key和map本身</p>
+<p>JavaScript的函数调用不要求参数必须一致，因此可以忽略它们</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+<span class="n">a</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="err">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+<span class="err">}</span><span class="p">);</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1059 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>6、ElasticSearch结构化搜索 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#term-filter" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                6、ElasticSearch结构化搜索
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#term-filter" class="md-nav__link">
+    一、使用term filter来搜索数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filterbitsetcaching" class="md-nav__link">
+    二、filter执行原理深度剖析（bitset机制与caching机制）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolfilter" class="md-nav__link">
+    三、基于bool组合多个filter条件来搜索数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terms" class="md-nav__link">
+    四、使用terms搜索多个值以及多值搜索结果优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#range-filter" class="md-nav__link">
+    五、基于range filter来进行范围过滤
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>6、ElasticSearch结构化搜索</h1>
+                
+                <h2 id="term-filter">一、使用term filter来搜索数据</h2>
+<p>1、根据用户ID、是否隐藏、帖子ID、发帖日期来搜索帖子</p>
+<p>（1）插入一些测试数据</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /forum/article/_bulk</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 1 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;XHDK-A-1293-#fJ3&quot;, &quot;userID&quot; : 1, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-01-01&quot; }</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 2 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;KDKE-B-9947-#kL5&quot;, &quot;userID&quot; : 1, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-01-02&quot; }</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 3 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;JODL-X-1937-#pV7&quot;, &quot;userID&quot; : 2, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-01-01&quot; }</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 4 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;QQPX-R-3956-#aD8&quot;, &quot;userID&quot; : 2, &quot;hidden&quot;: true, &quot;postDate&quot;: &quot;2017-01-02&quot; }</span>
+</pre></div>
+
+
+<p>整个es是支持json document格式的，所以说扩展性和灵活性非常之好。<br />
+如果后续随着业务需求的增加，要在document中增加更多的field，那么我们可以很方便的随时添加field。<br />
+但是如果是在关系型数据库中，比如mysql，我们建立了一个表，现在要给表中新增一些column，就需要修改表结构</p>
+<p>查看mapping</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/_mapping/article</span>
+
+<span class="err">{</span>
+<span class="err">  &quot;forum&quot;: {</span>
+<span class="err">    &quot;mappings&quot;: {</span>
+<span class="err">      &quot;article&quot;: {</span>
+<span class="err">        &quot;properties&quot;: {</span>
+<span class="err">          &quot;articleID&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">            &quot;fields&quot;: {</span>
+<span class="err">              &quot;keyword&quot;: {</span>
+<span class="err">                &quot;type&quot;: &quot;keyword&quot;,</span>
+<span class="err">                &quot;ignore_above&quot;: 256</span>
+<span class="err">              }</span>
+<span class="err">            }</span>
+<span class="err">          },</span>
+<span class="err">          &quot;hidden&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;boolean&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;postDate&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;date&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;userID&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;long&quot;</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>现在es 5.2版本，type=text，默认会设置两个field<br />
+一个是field本身，比如 articleID，就是分词的<br />
+还有一个就是field.keyword，比如 articleID.keyword，默认不分词，会最多保留256个字符</p>
+<p>（2）根据用户ID搜索帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">    &quot;query&quot; : {</span>
+<span class="err">        &quot;constant_score&quot; : { </span>
+<span class="err">            &quot;filter&quot; : {</span>
+<span class="err">                &quot;term&quot; : { </span>
+<span class="err">                    &quot;userID&quot; : 1</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>term filter/query：对搜索文本不分词，直接拿去倒排索引中匹配</p>
+<p>比如说，<br />
+对搜索文本进行分词，“helle world” --&gt; “hello”和“world”，两个词分别去倒排索引中匹配<br />
+term，“hello world” --&gt; “hello world”，直接去倒排索引中匹配“hello world”</p>
+<p>（3）搜索没有隐藏的帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">    &quot;query&quot; : {</span>
+<span class="err">        &quot;constant_score&quot; : { </span>
+<span class="err">            &quot;filter&quot; : {</span>
+<span class="err">                &quot;term&quot; : { </span>
+<span class="err">                    &quot;hidden&quot; : false</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（4）根据发帖日期搜索帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">    &quot;query&quot; : {</span>
+<span class="err">        &quot;constant_score&quot; : { </span>
+<span class="err">            &quot;filter&quot; : {</span>
+<span class="err">                &quot;term&quot; : { </span>
+<span class="err">                    &quot;postDate&quot; : &quot;2017-01-01&quot;</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（5）根据帖子ID搜索帖子</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">直接查询，查不到结果</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">forum</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">_search</span>
+<span class="err">{</span>
+    <span class="ss">&quot;query&quot;</span> <span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;constant_score&quot;</span> <span class="p">:</span> <span class="err">{</span> 
+            <span class="ss">&quot;filter&quot;</span> <span class="p">:</span> <span class="err">{</span>
+                <span class="ss">&quot;term&quot;</span> <span class="p">:</span> <span class="err">{</span> 
+                    <span class="ss">&quot;articleID&quot;</span> <span class="p">:</span> <span class="ss">&quot;XHDK-A-1293-#fJ3&quot;</span>
+                <span class="err">}</span>
+            <span class="err">}</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+  <span class="ss">&quot;took&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="ss">&quot;timed_out&quot;</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+  <span class="ss">&quot;_shards&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">&quot;successful&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">&quot;failed&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="ss">&quot;hits&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="ss">&quot;max_score&quot;</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
+    <span class="ss">&quot;hits&quot;</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+
+<span class="o">#</span> <span class="err">使用</span><span class="n">keyword查询</span><span class="err">，可以查询到结果</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">forum</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">_search</span>
+<span class="err">{</span>
+    <span class="ss">&quot;query&quot;</span> <span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;constant_score&quot;</span> <span class="p">:</span> <span class="err">{</span> 
+            <span class="ss">&quot;filter&quot;</span> <span class="p">:</span> <span class="err">{</span>
+                <span class="ss">&quot;term&quot;</span> <span class="p">:</span> <span class="err">{</span> 
+                    <span class="ss">&quot;articleID.keyword&quot;</span> <span class="p">:</span> <span class="ss">&quot;XHDK-A-1293-#fJ3&quot;</span>
+                <span class="err">}</span>
+            <span class="err">}</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+  <span class="ss">&quot;took&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="ss">&quot;timed_out&quot;</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+  <span class="ss">&quot;_shards&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">&quot;successful&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">&quot;failed&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="ss">&quot;hits&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">&quot;max_score&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">&quot;hits&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="err">{</span>
+        <span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;forum&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;article&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="ss">&quot;1&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;_score&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;articleID&quot;</span><span class="p">:</span> <span class="ss">&quot;XHDK-A-1293-#fJ3&quot;</span><span class="p">,</span>
+          <span class="ss">&quot;userID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="ss">&quot;hidden&quot;</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+          <span class="ss">&quot;postDate&quot;</span><span class="p">:</span> <span class="ss">&quot;2017-01-01&quot;</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="p">]</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>articleID.keyword，是es最新版本内置建立的field，就是不分词的。<br />
+所以一个articleID过来的时候，会建立两次索引，<br />
+一次是自己本身，是要分词的，分词后放入倒排索引；<br />
+另外一次是基于articleID.keyword，不分词，保留256个字符最多，直接一个字符串放入倒排索引中。</p>
+<p>所以term filter，对text过滤，可以考虑使用内置的field.keyword来进行匹配。<br />
+但是有个问题，默认就保留256个字符。<br />
+所以尽可能还是自己去手动建立索引，指定not_analyzed吧。在最新版本的es中，不需要指定not_analyzed也可以，将type=keyword即可。</p>
+<p>（6）查看分词</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/_analyze</span>
+<span class="err">{</span>
+<span class="err">  &quot;field&quot;: &quot;articleID&quot;,</span>
+<span class="err">  &quot;text&quot;: &quot;XHDK-A-1293-#fJ3&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>默认是analyzed的text类型的field，建立倒排索引的时候，就会对所有的articleID分词，<br />
+分词以后，原本的articleID就没有了，只有分词后的各个word存在于倒排索引中。<br />
+term，是不对搜索文本分词的，XHDK-A-1293-#fJ3 --&gt; XHDK-A-1293-#fJ3；<br />
+但是articleID建立索引的时候进行了分词，XHDK-A-1293-#fJ3 --&gt; xhdk，a，1293，fj3</p>
+<p>（7）重建索引</p>
+<p>设置 articleID.type: "keyword"</p>
+<div class="codehilite"><pre><span></span><span class="err">DELETE /forum</span>
+
+<span class="err">PUT /forum</span>
+<span class="err">{</span>
+<span class="err">  &quot;mappings&quot;: {</span>
+<span class="err">    &quot;article&quot;: {</span>
+<span class="err">      &quot;properties&quot;: {</span>
+<span class="err">        &quot;articleID&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;keyword&quot;</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+
+<span class="err">POST /forum/article/_bulk</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 1 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;XHDK-A-1293-#fJ3&quot;, &quot;userID&quot; : 1, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-01-01&quot; }</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 2 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;KDKE-B-9947-#kL5&quot;, &quot;userID&quot; : 1, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-01-02&quot; }</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 3 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;JODL-X-1937-#pV7&quot;, &quot;userID&quot; : 2, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-01-01&quot; }</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 4 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;QQPX-R-3956-#aD8&quot;, &quot;userID&quot; : 2, &quot;hidden&quot;: true, &quot;postDate&quot;: &quot;2017-01-02&quot; }</span>
+</pre></div>
+
+
+<p>（8）重新根据帖子ID和发帖日期进行搜索<br />
+可以搜索到结果</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">    &quot;query&quot; : {</span>
+<span class="err">        &quot;constant_score&quot; : { </span>
+<span class="err">            &quot;filter&quot; : {</span>
+<span class="err">                &quot;term&quot; : { </span>
+<span class="err">                    &quot;articleID&quot; : &quot;XHDK-A-1293-#fJ3&quot;</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>2、梳理学到的知识点</p>
+<p>（1）term filter：根据exact value进行搜索，数字、boolean、date天然支持<br />
+（2）text需要建索引时指定为 not_analyzed，才能用term query<br />
+（3）相当于SQL中的单个where条件</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span>
+<span class="k">from</span> <span class="n">forum</span><span class="p">.</span><span class="n">article</span>
+<span class="k">where</span> <span class="n">articleID</span><span class="o">=</span><span class="s1">&#39;XHDK-A-1293-#fJ3&#39;</span>
+</pre></div>
+
+
+<h2 id="filterbitsetcaching">二、filter执行原理深度剖析（bitset机制与caching机制）</h2>
+<p>（1）在倒排索引中查找搜索串，获取document list</p>
+<p>date来举例</p>
+<div class="codehilite"><pre><span></span><span class="n">word</span>        <span class="n">doc1</span>        <span class="n">doc2</span>        <span class="n">doc3</span>
+
+<span class="mi">2017</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>  <span class="o">*</span>            <span class="o">*</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span>               <span class="o">*</span>            <span class="o">*</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span>  <span class="o">*</span>            <span class="o">*</span>            <span class="o">*</span>
+</pre></div>
+
+
+<p>filter：2017-02-02</p>
+<p>到倒排索引中一找，发现2017-02-02对应的document list是doc2,doc3</p>
+<p>（2）为每个在倒排索引中搜索到的结果，构建一个bitset，[0, 0, 0, 1, 0, 1]</p>
+<p>非常重要</p>
+<p>使用找到的doc list，构建一个bitset，就是一个二进制的数组，数组每个元素都是0或1，用来标识一个doc对一个filter条件是否匹配，如果匹配就是1，不匹配就是0</p>
+<p>[0, 1, 1]</p>
+<p>doc1：不匹配这个filter的<br />
+doc2和do3：是匹配这个filter的</p>
+<p>尽可能用简单的数据结构去实现复杂的功能，可以节省内存空间，提升性能</p>
+<p>（3）遍历每个过滤条件对应的bitset，优先从最稀疏的开始搜索，查找满足所有条件的document</p>
+<p>后面会讲解，一次性其实可以在一个search请求中，发出多个filter条件，每个filter条件都会对应一个bitset<br />
+遍历每个filter条件对应的bitset，先从最稀疏的开始遍历</p>
+<p>[0, 0, 0, 1, 0, 0]：比较稀疏<br />
+[0, 1, 0, 1, 0, 1]</p>
+<p>先遍历比较稀疏的bitset，就可以先过滤掉尽可能多的数据</p>
+<p>遍历所有的bitset，找到匹配所有filter条件的doc</p>
+<p>请求：filter，postDate=2017-01-01，userID=1</p>
+<div class="codehilite"><pre><span></span><span class="n">postDate</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">userID</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+
+<p>遍历完两个bitset之后，找到的匹配所有条件的doc，就是doc4</p>
+<p>就可以将document作为结果返回给client了</p>
+<p>（4）caching bitset，跟踪query，在最近256个query中超过一定次数的过滤条件，缓存其bitset。<br />
+对于小segment（&lt;1000，或&lt;3%），不缓存bitset。</p>
+<p>比如postDate=2017-01-01，[0, 0, 1, 1, 0, 0]，可以缓存在内存中，<br />
+这样下次如果再有这个条件过来的时候，就不用重新扫描倒排索引，反复生成bitset，可以大幅度提升性能。</p>
+<p>在最近的256个filter中，有某个filter超过了一定的次数，次数不固定，就会自动缓存这个filter对应的bitset</p>
+<p>segment（上半季），filter针对小segment获取到的结果，可以不缓存，<br />
+segment记录数&lt;1000，或者segment大小 &lt; index总大小的3%</p>
+<p>segment数据量很小，此时哪怕是扫描也很快；<br />
+segment会在后台自动合并，小segment很快就会跟其他小segment合并成大segment，<br />
+此时就缓存也没有什么意义，segment很快就消失了</p>
+<p>针对一个小segment的bitset，[0, 0, 1, 0]</p>
+<p>filter比query的好处就在于会caching，但是之前不知道caching的是什么东西，实际上并不是一个filter返回的完整的doc list数据结果。而是filter bitset缓存起来。下次不用扫描倒排索引了。</p>
+<p>（5）filter大部分情况下来说，在query之前执行，先尽量过滤掉尽可能多的数据</p>
+<p>query：是会计算doc对搜索条件的relevance score，还会根据这个score去排序<br />
+filter：只是简单过滤出想要的数据，不计算relevance score，也不排序</p>
+<p>（6）如果document有新增或修改，那么cached bitset会被自动更新</p>
+<p>postDate=2017-01-01，[0, 0, 1, 0]<br />
+document，id=5，postDate=2017-01-01，会自动更新到postDate=2017-01-01这个filter的bitset中，<br />
+全自动，缓存会自动更新。postDate=2017-01-01的bitset，[0, 0, 1, 0, 1]<br />
+document，id=1，postDate=2016-12-30，修改为postDate-2017-01-01，此时也会自动更新bitset，<br />
+[1, 0, 1, 0, 1]</p>
+<p>（7）以后只要是有相同的filter条件的，会直接来使用这个过滤条件对应的cached bitset</p>
+<h2 id="boolfilter">三、基于bool组合多个filter条件来搜索数据</h2>
+<p>1、搜索发帖日期为2017-01-01，或者帖子ID为XHDK-A-1293-#fJ3的帖子，<br />
+同时要求帖子的发帖日期绝对不为2017-01-02</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span>
+<span class="k">from</span> <span class="n">forum</span><span class="p">.</span><span class="n">article</span>
+<span class="k">where</span> <span class="p">(</span><span class="n">post_date</span><span class="o">=</span><span class="s1">&#39;2017-01-01&#39;</span> <span class="k">or</span> <span class="n">article_id</span><span class="o">=</span><span class="s1">&#39;XHDK-A-1293-#fJ3&#39;</span><span class="p">)</span>
+<span class="k">and</span> <span class="n">post_date</span><span class="o">!=</span><span class="s1">&#39;2017-01-02&#39;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;bool&quot;: {</span>
+<span class="err">          &quot;should&quot;: [</span>
+<span class="err">            {&quot;term&quot;: { &quot;postDate&quot;: &quot;2017-01-01&quot; }},</span>
+<span class="err">            {&quot;term&quot;: {&quot;articleID&quot;: &quot;XHDK-A-1293-#fJ3&quot;}}</span>
+<span class="err">          ],</span>
+<span class="err">          &quot;must_not&quot;: {</span>
+<span class="err">            &quot;term&quot;: {&quot;postDate&quot;: &quot;2017-01-02&quot;}</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>filter：<br />
+must，，必须匹配<br />
+should，可以匹配其中任意一个即可<br />
+must_not, 必须不匹配</p>
+<p>2、搜索帖子ID为XHDK-A-1293-#fJ3，或者是帖子ID为JODL-X-1937-#pV7而且发帖日期为2017-01-01的帖子</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span>
+<span class="k">from</span> <span class="n">forum</span><span class="p">.</span><span class="n">article</span>
+<span class="k">where</span> <span class="n">article_id</span><span class="o">=</span><span class="s1">&#39;XHDK-A-1293-#fJ3&#39;</span>
+<span class="k">or</span> <span class="p">(</span><span class="n">article_id</span><span class="o">=</span><span class="s1">&#39;JODL-X-1937-#pV7&#39;</span> <span class="k">and</span> <span class="n">post_date</span><span class="o">=</span><span class="s1">&#39;2017-01-01&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search </span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;bool&quot;: {</span>
+<span class="err">          &quot;should&quot;: [</span>
+<span class="err">            {&quot;term&quot;: {&quot;articleID&quot;: &quot;XHDK-A-1293-#fJ3&quot;}},</span>
+<span class="err">            {</span>
+<span class="err">              &quot;bool&quot;: {</span>
+<span class="err">                &quot;must&quot;: [</span>
+<span class="err">                  {&quot;term&quot;:{&quot;articleID&quot;: &quot;JODL-X-1937-#pV7&quot;}},</span>
+<span class="err">                  {&quot;term&quot;: {&quot;postDate&quot;: &quot;2017-01-01&quot;}}</span>
+<span class="err">                ]</span>
+<span class="err">              }</span>
+<span class="err">            }</span>
+<span class="err">          ]</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、梳理学到的知识点</p>
+<p>（1）bool：must，must_not，should，组合多个过滤条件<br />
+（2）bool可以嵌套<br />
+（3）相当于SQL中的多个and条件：当你把搜索语法学好了以后，基本可以实现部分常用的sql语法对应的功能</p>
+<h2 id="terms">四、使用terms搜索多个值以及多值搜索结果优化</h2>
+<p>term: {"field": "value"}<br />
+terms: {"field": ["value1", "value2"]}</p>
+<p>sql中的in</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tbl</span> <span class="k">where</span> <span class="n">col</span> <span class="k">in</span> <span class="p">(</span><span class="ss">&quot;value1&quot;</span><span class="p">,</span> <span class="ss">&quot;value2&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>1、为帖子数据增加tag字段</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /forum/article/_bulk</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;1&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag&quot; : [&quot;java&quot;, &quot;hadoop&quot;]} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;2&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag&quot; : [&quot;java&quot;]} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;3&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag&quot; : [&quot;hadoop&quot;]} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;4&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag&quot; : [&quot;java&quot;, &quot;elasticsearch&quot;]} }</span>
+</pre></div>
+
+
+<p>2、搜索articleID为KDKE-B-9947-#kL5或QQPX-R-3956-#aD8的帖子，搜索tag中包含java的帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search </span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;terms&quot;: {</span>
+<span class="err">          &quot;articleID&quot;: [</span>
+<span class="err">            &quot;KDKE-B-9947-#kL5&quot;,</span>
+<span class="err">            &quot;QQPX-R-3956-#aD8&quot;</span>
+<span class="err">          ]</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">    &quot;query&quot; : {</span>
+<span class="err">        &quot;constant_score&quot; : {</span>
+<span class="err">            &quot;filter&quot; : {</span>
+<span class="err">                &quot;terms&quot; : { </span>
+<span class="err">                    &quot;tag&quot; : [&quot;java&quot;]</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+
+
+<span class="err">  &quot;took&quot;: 2,</span>
+<span class="err">  &quot;timed_out&quot;: false,</span>
+<span class="err">  &quot;_shards&quot;: {</span>
+<span class="err">    &quot;total&quot;: 5,</span>
+<span class="err">    &quot;successful&quot;: 5,</span>
+<span class="err">    &quot;failed&quot;: 0</span>
+<span class="err">  },</span>
+<span class="err">  &quot;hits&quot;: {</span>
+<span class="err">    &quot;total&quot;: 3,</span>
+<span class="err">    &quot;max_score&quot;: 1,</span>
+<span class="err">    &quot;hits&quot;: [</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;forum&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;2&quot;,</span>
+<span class="err">        &quot;_score&quot;: 1,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;articleID&quot;: &quot;KDKE-B-9947-#kL5&quot;,</span>
+<span class="err">          &quot;userID&quot;: 1,</span>
+<span class="err">          &quot;hidden&quot;: false,</span>
+<span class="err">          &quot;postDate&quot;: &quot;2017-01-02&quot;,</span>
+<span class="err">          &quot;tag&quot;: [</span>
+<span class="err">            &quot;java&quot;</span>
+<span class="err">          ]</span>
+<span class="err">        }</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;forum&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;4&quot;,</span>
+<span class="err">        &quot;_score&quot;: 1,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;articleID&quot;: &quot;QQPX-R-3956-#aD8&quot;,</span>
+<span class="err">          &quot;userID&quot;: 2,</span>
+<span class="err">          &quot;hidden&quot;: true,</span>
+<span class="err">          &quot;postDate&quot;: &quot;2017-01-02&quot;,</span>
+<span class="err">          &quot;tag&quot;: [</span>
+<span class="err">            &quot;java&quot;,</span>
+<span class="err">            &quot;elasticsearch&quot;</span>
+<span class="err">          ]</span>
+<span class="err">        }</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;forum&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;1&quot;,</span>
+<span class="err">        &quot;_score&quot;: 1,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;articleID&quot;: &quot;XHDK-A-1293-#fJ3&quot;,</span>
+<span class="err">          &quot;userID&quot;: 1,</span>
+<span class="err">          &quot;hidden&quot;: false,</span>
+<span class="err">          &quot;postDate&quot;: &quot;2017-01-01&quot;,</span>
+<span class="err">          &quot;tag&quot;: [</span>
+<span class="err">            &quot;java&quot;,</span>
+<span class="err">            &quot;hadoop&quot;</span>
+<span class="err">          ]</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    ]</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、优化搜索结果，仅仅搜索tag只包含java的帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /forum/article/_bulk</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;1&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag_cnt&quot; : 2} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;2&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag_cnt&quot; : 1} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;3&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag_cnt&quot; : 1} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;4&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;tag_cnt&quot; : 2} }</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;bool&quot;: {</span>
+<span class="err">          &quot;must&quot;: [</span>
+<span class="err">            {&quot;term&quot;: {&quot;tag_cnt&quot;: 1}},</span>
+<span class="err">            {&quot;terms&quot;: {&quot;tag&quot;: [&quot;java&quot;]}}</span>
+<span class="err">          ]</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>["java", "hadoop", "elasticsearch"]</p>
+<p>4、学到的知识点梳理</p>
+<p>（1）terms多值搜索<br />
+（2）优化terms多值搜索的结果<br />
+（3）相当于SQL中的in语句</p>
+<h2 id="range-filter">五、基于range filter来进行范围过滤</h2>
+<p>1、为帖子数据增加浏览量的字段</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /forum/article/_bulk</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;1&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;view_cnt&quot; : 30} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;2&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;view_cnt&quot; : 50} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;3&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;view_cnt&quot; : 100} }</span>
+<span class="err">{ &quot;update&quot;: { &quot;_id&quot;: &quot;4&quot;} }</span>
+<span class="err">{ &quot;doc&quot; : {&quot;view_cnt&quot; : 80} }</span>
+</pre></div>
+
+
+<p>2、搜索浏览量在30~60之间的帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;range&quot;: {</span>
+<span class="err">          &quot;view_cnt&quot;: {</span>
+<span class="err">            &quot;gt&quot;: 30,</span>
+<span class="err">            &quot;lt&quot;: 60</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>gt、gte、lt、lte</p>
+<p>3、搜索发帖日期在最近1个月的帖子</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /forum/article/_bulk</span>
+<span class="err">{ &quot;index&quot;: { &quot;_id&quot;: 5 }}</span>
+<span class="err">{ &quot;articleID&quot; : &quot;DHJK-B-1395-#Ky5&quot;, &quot;userID&quot; : 3, &quot;hidden&quot;: false, &quot;postDate&quot;: &quot;2017-03-01&quot;, &quot;tag&quot;: [&quot;elasticsearch&quot;], &quot;tag_cnt&quot;: 1, &quot;view_cnt&quot;: 10 }</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search </span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;range&quot;: {</span>
+<span class="err">          &quot;postDate&quot;: {</span>
+<span class="err">            &quot;gt&quot;: &quot;2017-03-10||-30d&quot;</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">GET /forum/article/_search </span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;constant_score&quot;: {</span>
+<span class="err">      &quot;filter&quot;: {</span>
+<span class="err">        &quot;range&quot;: {</span>
+<span class="err">          &quot;postDate&quot;: {</span>
+<span class="err">            &quot;gt&quot;: &quot;now-30d&quot;</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、梳理一下学到的知识点</p>
+<p>（1）range，sql中的between，或者是&gt;=1，&lt;=1<br />
+（2）range做范围过滤</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

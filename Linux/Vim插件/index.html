@@ -1,0 +1,517 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Vim插件 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#vim" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Vim插件
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="vim">Vim插件</h1>
+<p>vimscript语言编写功能扩展<br />
+插件管理器<br />
+vim-plug vundle pathogen dein.vim volt</p>
+<p>推荐 vim-plug<br />
+https://github.com/junegunn/vim-plug</p>
+<p>安装开屏插件<br />
+vim-startify<br />
+https://github.com/mhinz/vim-startify</p>
+<p>修改~/.vimrc</p>
+<div class="codehilite"><pre><span></span><span class="k">call</span> <span class="nl">plug</span>#<span class="nv">begin</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">~/.vim/plugged</span><span class="s1">&#39;</span><span class="ss">)</span>
+<span class="nv">Plug</span> <span class="s1">&#39;</span><span class="s">mhinz/vim-startify</span><span class="s1">&#39;</span>
+<span class="k">call</span> <span class="nl">plug</span>#<span class="k">end</span><span class="ss">()</span>
+</pre></div>
+
+
+<p>保存:w<br />
+重启vim或者 source ~/.vimrc<br />
+执行:PlugInstall<br />
+重新打开vim就可以看到效果<br />
+:qa  # 退出所有窗口</p>
+<h1 id="vim_1">搜索vim插件</h1>
+<p>nerdtree<br />
+python-mode</p>
+<p>http://www.vimawesome.com</p>
+<h1 id="_1">美化插件</h1>
+<p>启动界面 vim-startify:<br />
+https://github.com/mhinz/vim-startify</p>
+<p>状态栏美化  vim-airline<br />
+https://github.com/vim-airline/vim-airline</p>
+<p>增加代码缩进 indentline<br />
+https://github.com/Yggdroot/indentLine</p>
+<p>配色<br />
+vim-hybrid<br />
+https://github.com/w0ng/vim-hybrid<br />
+solarized<br />
+https://github.com/altercation/solarized<br />
+gruvbox<br />
+https://github.com/morhetz/gruvbox</p>
+<p>:set background=dark<br />
+:colorscheme hybird</p>
+<h1 id="_2">文件目录和搜索插件</h1>
+<p>nerdtree<br />
+https://github.com/scrooloose/nerdtree</p>
+<p>autocmd vimenter * NERDTree</p>
+<p>推荐：<br />
+nnoremap <C-n> :NERDTreeToggle<CR></p>
+<p>切换<br />
+ctrl + w p</p>
+<p>文件搜索<br />
+ctrip<br />
+https://github.com/kien/ctrlp.vim<br />
+ctrl + p</p>
+<h1 id="_3">文件移动</h1>
+<p>eazymotion<br />
+https://github.com/easymotion/vim-easymotion</p>
+<p>nmap ss <Plug>(easymotion-s2)</p>
+<h1 id="_4">成对编辑</h1>
+<p>vim-surround<br />
+https://github.com/tpope/vim-surround<br />
+ds delete surround<br />
+cs change surround<br />
+ys you surround</p>
+<h1 id="_5">模糊搜索和替换</h1>
+<p>fzf.vim<br />
+https://github.com/junegunn/fzf.vim<br />
+搜索字符串 ag<br />
+搜索文件   files</p>
+<p>far.vim<br />
+https://github.com/brooth/far.vim</p>
+<h1 id="vim-go">vim-go</h1>
+<p>golang插件<br />
+https://github.com/fatih/vim-go</p>
+<p>ctrl + o</p>
+<h1 id="python-mode">Python-mode</h1>
+<p>https://github.com/python-mode/python-mode</p>
+<p>补全<br />
+跳转<br />
+重构<br />
+格式化</p>
+<h1 id="_6">浏览代码</h1>
+<p>vim tagbar     代码大纲<br />
+https://github.com/majutsushi/tagbar</p>
+<p>vim-interestingwords 单词高亮<br />
+https://github.com/lfv89/vim-interestingwords</p>
+<h1 id="_7">代码补全</h1>
+<p>deoplete.nvim<br />
+https://github.com/Shougo/deoplete.nvim</p>
+<p>coc.vim<br />
+https://github.com/msanders/cocoa.vim</p>
+<h1 id="_8">代码格式化与静态检查</h1>
+<p>golint、pylint、eslint</p>
+<p>neoformat<br />
+https://github.com/sbdchd/neoformat</p>
+<p>ale<br />
+https://github.com/w0rp/ale</p>
+<h1 id="_9">快速注释</h1>
+<p>vim-commentary<br />
+https://github.com/tpope/vim-commentary</p>
+<h1 id="vimgit">vim+git</h1>
+<p>fugitive<br />
+https://github.com/tpope/vim-fugitive</p>
+<p>变更查看<br />
+vim-gitgutter<br />
+https://github.com/airblade/vim-gitgutter</p>
+<p>gv.vim<br />
+https://github.com/junegunn/gv.vim</p>
+<h1 id="_10">查找插件</h1>
+<p>vimawesome</p>
+<h1 id="tmux">Tmux</h1>
+<p>终端复用，分屏</p>
+<p>ctrl + b + :</p>
+<h1 id="vim_2">vim嵌入开发工商局</h1>
+<p>neovim 异步支持</p>
+<h1 id="_11">开源配置</h1>
+<p>Spacevim<br />
+PegasusWang</p>
+<p>TODO：<br />
+practical vim<br />
+笨方法学习vim<br />
+vim插件</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1289 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>2、ElasticSearch原理 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#elasticsearch" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                2、ElasticSearch原理
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    ElasticSearch原理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、基础分布式架构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shard-replica" class="md-nav__link">
+    二、 shard &amp; replica机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodeindex" class="md-nav__link">
+    三、 单台node环境下创建index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2nodeindex" class="md-nav__link">
+    四、 2台node环境下创建index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    五、横向扩容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch_1" class="md-nav__link">
+    六、Elasticsearch容错机制
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    分布式文档系统
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document" class="md-nav__link">
+    一、document的核心元数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-id" class="md-nav__link">
+    二、document id生成两种方式解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    三、source元数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document_1" class="md-nav__link">
+    四、document操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch_2" class="md-nav__link">
+    五、Elasticsearch并发冲突问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    六、update实现原理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    七、批量查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    七、批量操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    八、阶段总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document_2" class="md-nav__link">
+    九、document数据路由原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document_3" class="md-nav__link">
+    十、document增删改内部原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    十一、分布式文档系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document_4" class="md-nav__link">
+    十二、document查询内部原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bulk-api-json" class="md-nav__link">
+    十三、bulk api json格式与底层性能
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>2、ElasticSearch原理</h1>
+                
+                <h2 id="elasticsearch">ElasticSearch原理</h2>
+<h3 id="_1">一、基础分布式架构</h3>
+<p>1、ElasticSearch对复杂分布式机制的透明隐藏特性<br />
+分布式为了应对大量数据<br />
+（1）隐藏了分片机制<br />
+（2）cluster discovery 集群发现机制<br />
+（3）shard负载均衡<br />
+（4）shard副本<br />
+（5）请求路由<br />
+（6）集群扩容<br />
+（7）shard重分配</p>
+<p>2、ElasticSearch的垂直扩容与水平扩容<br />
+（1）垂直扩容 替换服务器<br />
+（2）水平扩容 增加服务器（常用）</p>
+<p>3、增减节点时数据rebalance<br />
+保持负载均衡</p>
+<p>4、mastar节点<br />
+（1）管理es集群的元数据，索引创建和删除，维护索引元数据<br />
+（2）默认情况下，自动选举出mastar</p>
+<p>5、节点平等的分布式架构<br />
+（1）节点对等，每个节点都能接收所有请求<br />
+（2）自动路由请求<br />
+（3）响应效率</p>
+<h3 id="shard-replica">二、 shard &amp; replica机制</h3>
+<p>1、一个index包含一个或多个shard<br />
+2、每个shard是最小的工作单元，承载部分数据，<br />
+  Lucene实例，完整的创建索引和处理请求的能力<br />
+3、增减节点时，shard会自动在nodes中负载均衡<br />
+4、primary shard和replica shard，每个document肯定只存在于某一个primary shard<br />
+  以及对应的replica shard中，不可能存在于多个primary shard中<br />
+5、replica shard 是primary shard 的副本，负责容错，以及承担读请求负载<br />
+6、primary shard数量在创建索引的时候就固定了，replica shard的数量可以随时更改<br />
+7、primary shard默认数量5，replica shard默认是1，默认有10个shard<br />
+  5 primary shard 5 replica shard<br />
+8、primary shard 不能和自己的replica shard放在同一个节点上，否则节点宕机，primary shard 和replica shard 都丢失，起不到容错作用，但是，可以和其他primary shard的replica shard 放在同一个节点上</p>
+<h3 id="nodeindex">三、 单台node环境下创建index</h3>
+<p>1、单台node，创建index，有3个primary shard 3 个replica shard</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /tianmao</span>
+<span class="err">{</span>
+<span class="err">  &quot;settings&quot;: {</span>
+<span class="err">    &quot;number_of_shards&quot;: 3,</span>
+<span class="err">    &quot;number_of_replicas&quot;: 1</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+
+<span class="err">GET /tianmao</span>
+</pre></div>
+
+
+<p>2、集群status是yellow<br />
+3、这时候，只会将3个primary shard分配到仅有的一个node上，另外3个replica shard无法分配<br />
+4、集群可以正常工作，当是一旦出现节点宕机，数据全部丢失，而且集群不可用，无法承接任何请求</p>
+<h3 id="2nodeindex">四、 2台node环境下创建index</h3>
+<p>1、有3个primary shard 3 个replica shard<br />
+2、primary shard 同步 replica shard<br />
+3、primary shard replica shard 都可以处理读请求</p>
+<h3 id="_2">五、横向扩容</h3>
+<p>1、primary &amp; replica自动负载均衡 <br />
+  6 个shard = 3 primary + 3 replica<br />
+2、每个node有更少的shard，IO/CPU/Memory资源给每个shard分配的更多，每个shard性能更好<br />
+3、扩容的极限，6个shard（3 primary + 3 replica），最多扩容到6台机器，<br />
+  每个shard可以占用的单台服务器的所有资源，性能最好<br />
+4、超出扩容极限，动态修改replica数量，9个shard（3 primary + 6 replica），<br />
+  扩容到9台机器，比3台机器拥有3倍的读吞吐量，最多容纳2台机器宕机<br />
+5、3台机器下，9个shard（3 primary + 6 replica）资源更少，但是容错性更好，<br />
+  6个shard 容忍1台宕机<br />
+6、服务器宕机，保证数据不丢失</p>
+<h3 id="elasticsearch_1">六、Elasticsearch容错机制</h3>
+<p>9 shard 3 node</p>
+<table>
+<thead>
+<tr>
+<th>Node1</th>
+<th>Node2</th>
+<th>Node3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>R1</td>
+<td>R2</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>R2</td>
+<td>R0</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>R0</td>
+<td>R1</td>
+</tr>
+</tbody>
+</table>
+<p>1、master宕机，自动master选举<br />
+2、replica容错，提升为primary，status=yellow<br />
+3、重启node，数据恢复，使用原有shard，同步发生修改的部分 status=green</p>
+<h2 id="_3">分布式文档系统</h2>
+<h3 id="document">一、document的核心元数据</h3>
+<p>1、index元数据<br />
+（1）代表document 存放在那个index<br />
+（2）类似的数据放在一个索引，field字段大致相同<br />
+（3）index中包含很多类似的document<br />
+（4）索引名称必须是小写，不能用下划线开头，不能包含逗号</p>
+<p>2、type元数据<br />
+（1）代表document属于index中的类别type<br />
+（2）一个索引通常划分为多个type，逻辑上对index中对些许不同的数据进行分类<br />
+（3）type名可以是大写，小写，但是不能用下划线开头，不能包含逗号</p>
+<p>3、id元数据<br />
+（1）代表document的唯一标识，与index和type一起，唯一定位一个document<br />
+（2）可以手动指定，也可以不指定，由es自动生成</p>
+<h3 id="document-id">二、document id生成两种方式解析</h3>
+<p>1、手动指定</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id</span>
+<span class="err">{</span>
+<span class="err">  &quot;key&quot;: &quot;value&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>从其他数据库导入可以使用原有id</p>
+<p>2、自动生成</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /index/type</span>
+<span class="err">{</span>
+<span class="err">  &quot;key&quot;: &quot;value&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>自动生成的id 长度为20个字符，url安全，base64编码<br />
+GUID，分布式系统并行生成是不会冲突</p>
+<h3 id="source">三、source元数据</h3>
+<p>1、source元数据，默认情况下会原封不动返回</p>
+<p>2、自定义返回字段</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /shop/goods/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;iphone&quot;,</span>
+<span class="err">  &quot;price&quot;: 6000</span>
+<span class="err">}</span>
+
+<span class="err"># 返回全部字段</span>
+<span class="err">GET /shop/goods/1</span>
+
+<span class="err"># 返回部分字段，多个字段逗号隔开</span>
+<span class="err">GET /shop/goods/1?_source=name</span>
+</pre></div>
+
+
+<h3 id="document_1">四、document操作</h3>
+<p>1、document全量替换<br />
+（1）语法格式与创建文档一样，如果不存在则创建，否则全量替换<br />
+（2）document是不可变的，如果要修改document内容，其中一种方式就是全量替换，<br />
+  直接对document重建索引，替换所有内容<br />
+（3）es会将旧的document标记为deleted，新增我们的document，<br />
+当我们创建越来越多的document时，es会自动删除标记为deleted的document</p>
+<p>2、document强制创建<br />
+（1）创建文档语法与全量替换一样,只想新建文档，不想替换文档时使用<br />
+（2）创建语法</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id?op_type=create</span>
+
+<span class="err">or</span>
+
+<span class="err">PUT /index/type/id/_create</span>
+</pre></div>
+
+
+<p>3、document删除<br />
+（1）语法</p>
+<div class="codehilite"><pre><span></span><span class="err">DELETE /index/type/id</span>
+</pre></div>
+
+
+<p>（2）不会物理删除，只会将其标记为deleted，当数据越来越多的时候，后台自动删除（lazy delete机制）</p>
+<h3 id="elasticsearch_2">五、Elasticsearch并发冲突问题</h3>
+<p>1、并发冲突会导致数据不准确</p>
+<p>2、悲观锁并发控制方案<br />
+（1）常见于mysql<br />
+（2）只有一个线程能读数据，写回去之后再释放所锁，期间其他线程不能读取数据<br />
+（3）行级锁，表级锁，读锁，写锁<br />
+（4）优点：方便，直接加锁<br />
+（5）缺点：并发能力低</p>
+<p>3、乐观锁并发控制方案（es方案）<br />
+（1）乐观锁不加锁，每个线程都可以操作<br />
+（2）写入之前比对version，如果不同，重新读取数据操作后再写入<br />
+（3）优点：并发能力高<br />
+（4）缺点：操作麻烦，每次都要比对版本号</p>
+<p>4、es基于version进行乐观锁并发控制<br />
+（1）version版本号元数据<br />
+（2）第一次创建document，版本号是1，修改或删除都自加1<br />
+（3）document删除之后，不会物理删除，再次写入会在原先版本号之上自增1<br />
+（4）primary和replica之间同步是多线程异步，基于version版本号并发控制<br />
+（5）高版本先到，低版本后到，后到达的低版本会被丢弃，新数据不会被旧的数据覆盖</p>
+<p>5、es基于version进行乐观锁并发控制示例</p>
+<p>两个线程对同一条商品信息进行更新操作过程</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="mi">1</span><span class="err">、查询数据</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;_version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span><span class="p">,</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">2</span><span class="err">、先进行更新</span> <span class="err">成功</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="ss">&quot;xiaomi&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">3</span><span class="err">、后更新</span> <span class="err">失败</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="ss">&quot;huawei&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">4</span><span class="err">、查询最新版本号</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;_version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;xiaomi&quot;</span><span class="p">,</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">5</span><span class="err">、用最新的版本号再次更新</span> <span class="err">成功</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">2</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="ss">&quot;huawei&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>6、基于external version进行乐观锁并发控制</p>
+<p>es提供的version 一致 时进行修改，不一样报错</p>
+<div class="codehilite"><pre><span></span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">1</span> 
+</pre></div>
+
+
+<p>当external提供的版本号比es中的版本号 大 时才进行修改</p>
+<div class="codehilite"><pre><span></span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">version_type</span><span class="o">=</span><span class="k">external</span>
+</pre></div>
+
+
+<p>例如：</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="mi">1</span><span class="err">、添加一条数据</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">2</span><span class="err">、查看数据版本号，此时</span><span class="n">verison</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+
+<span class="o">#</span> <span class="mi">3</span><span class="err">、用外部版本号为</span><span class="mi">2</span><span class="err">的数据去更新</span> <span class="err">成功</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">2</span><span class="o">&amp;</span><span class="n">version_type</span><span class="o">=</span><span class="k">external</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;xiaomi&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">4</span><span class="err">、再次用外部版本号为</span><span class="mi">2</span><span class="err">的数据去更新</span> <span class="err">失败</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">2</span><span class="o">&amp;</span><span class="n">version_type</span><span class="o">=</span><span class="k">external</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;huawei&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">5</span><span class="err">、查看版本号，此时版本号</span><span class="k">version</span><span class="o">=</span><span class="mi">2</span><span class="err">，使用外部版本号</span><span class="n">verison</span><span class="o">=</span><span class="mi">4</span><span class="err">的数据去更新</span> <span class="err">成功</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="n">version_type</span><span class="o">=</span><span class="k">external</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;huawei&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">并且最后的版本号显示为</span><span class="k">version</span><span class="o">=</span><span class="mi">4</span>
+</pre></div>
+
+
+<h3 id="update">六、update实现原理</h3>
+<p>1、update 全量更新<br />
+创建 &amp; 替换文档一样的语法</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id</span>
+</pre></div>
+
+
+<p>一般应用程序执行流程<br />
+（1）应用程序发起GET请求，获取document，展示到前台<br />
+（2）用户前台修改的数据，发送到后台<br />
+（3）后台代码将用户修改的数据在内存中执行，然后封装好修改后的数据<br />
+（4）后台发起PUT请求，到es中，进行全量更新<br />
+（5）es将旧的document标记为deleted，然后重新创建一个新的document</p>
+<p>2、partial update 局部更新</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id/_update</span>
+<span class="err">{</span>
+<span class="err">  data</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、es内部执行流程<br />
+（1）先获取document<br />
+（2）将新的字段值更新到document中<br />
+（3）将旧的document标记为deleted<br />
+（4）将修改的document创建出来</p>
+<p>4、局部更新优点<br />
+（1）所有查询、修改操作发生在es的shard内部，避免网络开销，提升效率<br />
+（2）减少并发冲突</p>
+<p>5、局部更新数据示例</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">写入数据</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">局部更新</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">_update</span>
+<span class="err">{</span>
+  <span class="ss">&quot;doc&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">36</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">查看数据</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>6、基于groovy脚本进行partial update<br />
+(1)内置脚本</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">准备数据</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">脚本更新数据</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">_update</span>
+<span class="err">{</span>
+  <span class="ss">&quot;script&quot;</span><span class="p">:</span> <span class="ss">&quot;ctx._source.price+=1&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">查看更新结果</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">11</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（2）外部脚本</p>
+<p>es安装目录下新建脚本文件<br />
+elasticsearch-5.2.0/config/scripts/add-shop-goods-price.groovy</p>
+<div class="codehilite"><pre><span></span><span class="n">ctx</span><span class="p">.</span><span class="n">_source</span><span class="p">.</span><span class="n">price</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>执行更新</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /shop/goods/1/_update</span>
+<span class="err">{</span>
+<span class="err">  &quot;script&quot;: {</span>
+<span class="err">    &quot;lang&quot;: &quot;groovy&quot;, </span>
+<span class="err">    &quot;file&quot;:&quot;add-shop-goods-price&quot;</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+
+<span class="err"># 查看更新结果</span>
+<span class="err">GET /shop/goods/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;_source&quot;: {</span>
+<span class="err">    &quot;name&quot;: &quot;iphone&quot;,</span>
+<span class="err">    &quot;price&quot;: 12</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（3）通过外部脚本删除文档<br />
+新建脚本文件<br />
+elasticsearch-5.2.0/config/scripts/delete-document.groovy</p>
+<div class="codehilite"><pre><span></span><span class="n">ctx</span><span class="p">.</span><span class="n">op</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">.</span><span class="n">_source</span><span class="p">.</span><span class="n">price</span> <span class="o">==</span> <span class="n">price</span> <span class="o">?</span> <span class="s1">&#39;delete&#39;</span> <span class="p">:</span> <span class="s1">&#39;none&#39;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">POST /shop/goods/1/_update</span>
+<span class="err">{</span>
+<span class="err">  &quot;script&quot;: {</span>
+<span class="err">    &quot;lang&quot;: &quot;groovy&quot;,</span>
+<span class="err">    &quot;file&quot;: &quot;delete-document&quot;,</span>
+<span class="err">    &quot;params&quot;: {</span>
+<span class="err">      &quot;price&quot;: 12</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+
+<span class="err"># 查看删除结果</span>
+<span class="err">GET /shop/goods/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;_index&quot;: &quot;shop&quot;,</span>
+<span class="err">  &quot;_type&quot;: &quot;goods&quot;,</span>
+<span class="err">  &quot;_id&quot;: &quot;1&quot;,</span>
+<span class="err">  &quot;found&quot;: false</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（4）upsert 操作<br />
+如果document存在则执行更新操作，不存在则执行upsert操作</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="mi">1</span><span class="err">、新建数据</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">2</span><span class="err">、查看数据</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;_version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;iphone&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">3</span><span class="err">、更新数据</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">_update</span>
+<span class="err">{</span>
+  <span class="ss">&quot;doc&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;huawei&quot;</span>
+  <span class="err">}</span><span class="p">,</span> 
+  <span class="ss">&quot;upsert&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;xiaomi&quot;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">4</span><span class="err">、查看更新的数据</span><span class="k">version</span><span class="o">=</span><span class="mi">2</span><span class="err">，</span><span class="n">name</span><span class="o">=</span><span class="n">huawei</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;_version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;huawei&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">5</span><span class="err">、删除数据</span>
+<span class="k">DELETE</span>  <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+
+<span class="o">#</span> <span class="mi">6</span><span class="err">、再次更新数据</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">_update</span>
+<span class="err">{</span>
+ <span class="ss">&quot;doc&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;huawei&quot;</span>
+    <span class="err">}</span><span class="p">,</span> 
+  <span class="ss">&quot;upsert&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;xiaomi&quot;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="mi">7</span><span class="err">、查看数据，</span><span class="n">vesion</span><span class="o">=</span><span class="mi">4</span><span class="err">，</span><span class="n">name</span><span class="o">=</span><span class="n">xiaomi</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">shop</span><span class="o">/</span><span class="n">goods</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;_version&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;xiaomi&quot;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>7、partial update内置乐观锁并发控制<br />
+可以设置重试次数</p>
+<div class="codehilite"><pre><span></span><span class="n">POST</span>  <span class="n">taobao</span><span class="o">/</span><span class="n">product</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">_update</span><span class="o">?</span><span class="k">version</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">retry_on_conflict</span><span class="o">=</span><span class="mi">5</span>
+<span class="err">{</span>
+  <span class="ss">&quot;doc&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;red cat&quot;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="_4">七、批量查询</h2>
+<p>1、批量查询的好处<br />
+如果一条一条的查询，查询100条就要发送100次网络请求，开销较大<br />
+如果批量查询，查询100条数据，只用发送1次网络请求，减少网络开销</p>
+<p>2、单条查询</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">tianmao</span><span class="o">/</span><span class="n">product</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>3、mget 语法</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span>  <span class="o">/</span><span class="n">_mget</span>
+<span class="err">{</span>
+  <span class="ss">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">{</span>
+    <span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="err">{</span>
+    <span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;tianmao&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="err">}</span>
+  <span class="p">]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、查询同一个index下不同type数据</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span>  <span class="n">taobao</span><span class="o">/</span><span class="n">_mget</span>
+<span class="err">{</span>
+  <span class="ss">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">{</span>
+    <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="err">{</span>
+    <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="err">}</span>
+  <span class="p">]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>5、查询同一个index下，同type数据</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span>  <span class="n">taobao</span><span class="o">/</span><span class="n">product</span><span class="o">/</span><span class="n">_mget</span>
+<span class="err">{</span>
+  <span class="ss">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>6、mget很重要<br />
+如果一次查询多条数据，那么久使用mget，减少网络开销</p>
+<h2 id="_5">七、批量操作</h2>
+<p>1、bulk语法</p>
+<p>每次操作有两个json串，放在bulk里</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /_bulk</span>
+<span class="err">{&quot;action&quot;: {&quot;metadata&quot;}}</span>
+<span class="err">{&quot;data&quot;}</span>
+</pre></div>
+
+
+<p>例如<br />
+创建一个文档</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span><span class="ss">&quot;index&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span> <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span> <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="ss">&quot;1&quot;</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Dog&quot;</span><span class="p">,</span> <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="err">}</span>
+</pre></div>
+
+
+<p>2、可以执行bulk操作的类型<br />
+（1）delete 删除文档<br />
+（2）create 强制创建 <code>PUT /index/type/id/_create</code><br />
+（3）index 普通PUT，创建文档，也可是全量替换文档<br />
+（4）update 执行的partial update操作</p>
+<p>注意：<br />
+单个json串不能换行，json串之间必须换行<br />
+任意一个操作失败，不会影响其他操作，会在结果中显示</p>
+<p>示例</p>
+<div class="codehilite"><pre><span></span><span class="n">POST</span> <span class="n">_bulk</span>
+<span class="err">{</span><span class="ss">&quot;create&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span> <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span> <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Pig&quot;</span><span class="p">,</span> <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="err">}</span>
+<span class="err">{</span><span class="ss">&quot;delete&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span> <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span> <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;index&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span> <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span> <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Pig&quot;</span><span class="p">,</span> <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="err">}</span>
+<span class="err">{</span><span class="ss">&quot;update&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span> <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span> <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;doc&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">54</span><span class="err">}}</span>
+</pre></div>
+
+
+<p>3、指定index</p>
+<div class="codehilite"><pre><span></span><span class="n">POST</span> <span class="n">taobao</span><span class="o">/</span><span class="n">_bulk</span>
+<span class="err">{</span><span class="ss">&quot;create&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span> <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Pig&quot;</span><span class="p">,</span> <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="err">}</span>
+</pre></div>
+
+
+<p>4、指定index 和type</p>
+<div class="codehilite"><pre><span></span><span class="n">POST</span> <span class="n">taobao</span><span class="o">/</span><span class="n">product</span><span class="o">/</span><span class="n">_bulk</span>
+<span class="err">{</span><span class="ss">&quot;create&quot;</span><span class="p">:</span> <span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="err">}}</span>
+<span class="err">{</span><span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Pig&quot;</span><span class="p">,</span> <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="err">}</span>
+</pre></div>
+
+
+<p>5、bulk性能<br />
+bulk request会加载到内存中，如果太大反而会降低性能，因此需要反复尝试一个最佳的bulk size<br />
+一般从1000~5000条数据开始，尝试增加<br />
+如果看大小，最好在5~15MB之间</p>
+<h2 id="_6">八、阶段总结</h2>
+<p>1、阶段性总结<br />
+1-8 快速入门，基本原理，基本操作<br />
+9-13 ES分布式的基本原理，<br />
+14-27 document讲解</p>
+<p>ElasticSearch 最核心功能<br />
+分布式文档的数据存储系统</p>
+<p>分布式 distributed document store<br />
+文档数据 可以存储json格式的文档，核心数据结构<br />
+存储系统 对数据进行存储，查询，创建，更新，删除</p>
+<p>一个NoSQL存储系统 操作document </p>
+<p>可以开发的应用程序<br />
+（1）数据量较大，快速进行扩容，承载大量数据<br />
+（2）数据结构灵活操作，不用去处理传统数据库中的表<br />
+（3）对数据操作较为简单，基本的增删改查<br />
+（4）NoSQL数据库，也适用以上场景</p>
+<h2 id="document_2">九、document数据路由原理</h2>
+<p>1、document路由，数据路由<br />
+一个index会被分成多片，每片都在一个shard中，<br />
+一个document，只能存在一个shard中<br />
+客户端创建document的时候，es就会决定document存放在哪个shard上</p>
+<p>2、路由算法</p>
+<div class="codehilite"><pre><span></span><span class="n">shard</span> <span class="o">=</span> <span class="n">hash</span><span class="p">(</span><span class="n">routing</span><span class="p">)</span> <span class="o">%</span> <span class="n">number_of_primary_shards</span>
+</pre></div>
+
+
+<p>举例：<br />
+一个index 有3个primary shard P0, P1, P2<br />
+（1）增删改查document时候，会有一个routing number 默认 routing = id<br />
+（2）传入hash函数产生routing的hash值 hash(routing) = 21<br />
+（3）hash值 对index 的primary shard数量取余 21 % 3 =0<br />
+（4）就决定了这个document 放在 P0之上</p>
+<p>决定document 在哪个shard上，最重要的值是routing，默认是id，也可以手动指定<br />
+相同的routing值，每次求hash再求余，结果也一样<br />
+结果一定在 0 ~ number_of_primary_shards - 1之间</p>
+<p>默认的routing是id，也可以手动指定<br />
+以便后续进行应用级别的负载均衡，以及提升批量读取的性能也很有帮助</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id?routing=&lt;user_id&gt;</span>
+</pre></div>
+
+
+<p>基于document路由算法，primary shard建立之后就不能修改，但是replica shard可以修改</p>
+<h2 id="document_3">十、document增删改内部原理</h2>
+<p>1、客户端选择一个node发送请求过去，这个node就是coordinating node(协调节点)<br />
+2、coordinating node 对document进行路由，将请求转发给对应的node（有primary shard）<br />
+3、实际的node上primary shard处理请求，然后将数据同步到replica shard<br />
+4、coordinating node 如果发现primary node 和所属 replica node都搞定之后，就放回响应结果给客户端</p>
+<p>例如<br />
+3个节点，3个primary shard replica=1， replica shard=3<br />
+总共6个shard</p>
+<p>client 要创建一个document<br />
+docuemnt可以发送任意一个node</p>
+<p>增删改操作只能由primary shard操作，会自动同步到replica sahrd</p>
+<h2 id="_7">十一、分布式文档系统</h2>
+<p>1、consistency</p>
+<p>发送增删改操作的时候，可以带上一个consistency参数，指明我们想要的写一致性</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id?consistency=quorum</span>
+</pre></div>
+
+
+<p>one(primary shard): 写操作，只要primary shard是active就可以执行<br />
+all(all shard): 写操作，必须所有priamry shard和replica shard都是active才执行<br />
+quorum(default): 默认值，要求所有的shard，大部分shar都是活跃的才可以执行写操作</p>
+<p>2、quorum机制<br />
+写之前必须确保大多数shard都可用，当number_of_replica &gt; 1时才生效</p>
+<p>计算公式</p>
+<div class="codehilite"><pre><span></span><span class="n">quorum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="k">primary</span> <span class="o">+</span> <span class="n">number_of_replica</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>举例：<br />
+primary_shard=3， number_of_replica=1, 总shard=6<br />
+quorum = int((3 + 1)/2) + 1 = 3</p>
+<p>所以6个shard，至少3个shard处于active，才可以执行写操作</p>
+<p>3、如果节点数量少于quorum数量，可能导致quorum不齐全，导致无法执行写操作<br />
+primary 和replica 必须在不同节点上，如果两个机器，有可能出现3个shard分配不齐全，<br />
+此时可能回出现写操作无法执行</p>
+<p>例如：<br />
+node=2， primay=1 replica=3<br />
+quorum = int((primay + replica)/2) + 1 =  3<br />
+node1 -&gt; primary<br />
+node2 -&gt; replica1<br />
+所以active=2 &lt; quorum=3, 不满足quorum机制</p>
+<p>提供了一个特殊场景，就是number_of_replica&gt;1才生效<br />
+如果不做处理，单节点就无法工作</p>
+<p>4、quorum不齐全时，wait，默认1分钟，timeout<br />
+写操作可以设置timeout参数,单位 毫秒</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index/type/id?timeout=30 </span>
+</pre></div>
+
+
+<h2 id="document_4">十二、document查询内部原理</h2>
+<p>1、客户端发送请求到任意一个node</p>
+<p>2、coordinating node接收到document读请求后，进行路由，转发给对应的node，<br />
+随机轮询算法在primary shard 和 replica shard中随机选一个shard，使得负载均衡</p>
+<p>3、接收请求的node返回document给coordination node</p>
+<p>4、coordinating node返回document给客户端</p>
+<p>5、特殊情况，document如果还在建立索引过程中，可能只有primary shard有数据，replica shard没数据，<br />
+可能导致无法读取到document，但是document完成索引建立之后，primary shard和replica shard就都有数据了</p>
+<p>对于读请求，不一定将请求转发到primary shard也可以转发到replica shard<br />
+replica shard也可以处理所有的读请求</p>
+<p>使用round-robin 随机轮询算法<br />
+比如说：<br />
+coordinating node接收到一个document的4次查询，就会使用算法<br />
+将2次查询请求转发给P1，将2次查询请求转发给R1<br />
+尽量让primary shard 和所有的replica shard均匀服务读请求，使得负载均衡</p>
+<h2 id="bulk-api-json">十三、bulk api json格式与底层性能</h2>
+<p>bulk api Json格式</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span><span class="ss">&quot;action&quot;</span><span class="p">:</span> <span class="ss">&quot;meta&quot;</span><span class="err">}</span>
+<span class="err">{</span><span class="ss">&quot;data&quot;</span><span class="err">}</span>
+</pre></div>
+
+
+<p>1、bulk中的每个操作都可能要转发到不同node的shard去执行</p>
+<p>2、如果采用比较良好的json数组格式<br />
+（1）将json数组解析为JSONArray对象  文本-&gt;JsonArray对象<br />
+（2）对每个请求中的document进行路由<br />
+（3）为路由到同一个shard上的多个请求，创建一个请求数组<br />
+（4）将序列化后的数据发送到对应的节点上去</p>
+<p>3、耗费更多内存，更多的jvm开销<br />
+bulk size 最佳大小，如果单次传输数据过多，内存占用过多，性能下降，垃圾回收耗费时间</p>
+<p>4、现在的方式<br />
+（1）直接按照换行符切割json<br />
+（2）对每两个一组的json，读取mete，进行document路由<br />
+（3）直接将对应的json发送到node上去</p>
+<p>5、最大的优势在于，不需要将json数组解析为一个JSONArray对象，<br />
+形成一份大数据拷贝，避免了内存空间的浪费</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

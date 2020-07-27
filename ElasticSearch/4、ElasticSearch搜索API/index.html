@@ -1,0 +1,1157 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>4、ElasticSearch搜索API - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#search-api" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                4、ElasticSearch搜索API
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#search-api" class="md-nav__link">
+    一、search api的基础语法介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-dsl" class="md-nav__link">
+    二、Query DSL搜索语法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filterquery" class="md-nav__link">
+    三、filter与query深入对比解密：相关度，性能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    四、常用的各种query搜索语法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    五、多搜索条件组合查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    六、定位不合法的搜索以及其原因
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    七、定制搜索结果的排序规则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field" class="md-nav__link">
+    八、将一个field索引两次来解决字符串排序问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tfidf" class="md-nav__link">
+    九、相关度评分TF&amp;IDF算法独
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doc-value" class="md-nav__link">
+    十、内核级知识点之doc value
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-phase" class="md-nav__link">
+    十一、内核解密之query phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch-phase" class="md-nav__link">
+    十二、内核解密之fetch phase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    十三、搜索相关参数梳理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scroll" class="md-nav__link">
+    十四、基于scroll技术滚动搜索大量数据
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>4、ElasticSearch搜索API</h1>
+                
+                <h2 id="search-api">一、search api的基础语法介绍</h2>
+<p>1、search api</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">_search</span>
+<span class="k">GET</span> <span class="n">index1</span><span class="p">,</span><span class="n">index2</span><span class="o">/</span><span class="n">type1</span><span class="p">,</span><span class="n">type2</span><span class="o">/</span><span class="n">_search</span><span class="o">?</span><span class="n">q</span><span class="o">=</span><span class="n">value</span><span class="o">&amp;</span><span class="k">from</span><span class="o">=</span><span class="mi">0</span><span class="o">&amp;</span><span class="k">size</span><span class="o">=</span><span class="mi">10</span>
+</pre></div>
+
+
+<p>2、GET中携带reques body<br />
+http协议中，一般不允许GET请求写到request body，为了更好描述数据查询操作，还是可以使用</p>
+<p>如果遇到不支持的场景，可以使用POST</p>
+<h2 id="query-dsl">二、Query DSL搜索语法</h2>
+<p>1、小实例</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;:{</span>
+<span class="err">    &quot;match_all&quot;: {}</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>2、Query DSL基本语法</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span>
+  <span class="n">query_name</span><span class="p">:</span> <span class="err">{</span>
+    <span class="n">argument</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+    <span class="n">argument</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+    <span class="p">...</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+  <span class="n">query_name</span><span class="p">:</span> <span class="err">{</span>
+    <span class="n">field_name</span><span class="p">:</span> <span class="err">{</span>
+      <span class="n">argument</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+      <span class="n">argument</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>示例</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;:{</span>
+<span class="err">      &quot;field&quot;: &quot;value&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、组合多个搜索条件</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;bool&quot;: {</span>
+<span class="err">      &quot;must&quot;: {&quot;match&quot;: {&quot;name&quot;: &quot;Tom&quot;}},</span>
+<span class="err">      &quot;should&quot;: [</span>
+<span class="err">        &quot;match&quot;: {&quot;age&quot;: 23},</span>
+<span class="err">        {</span>
+<span class="err">          &quot;bool&quot;: {</span>
+<span class="err">            &quot;must&quot;: {&quot;match&quot;: {&quot;address&quot;: &quot;beijing&quot;}},</span>
+<span class="err">            &quot;must_not&quot;: {&quot;match&quot;: {&quot;rude&quot;: true}}</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      ],</span>
+<span class="err">      &quot;minimum_should_match&quot;: 1</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>示例</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">准备</span><span class="mi">3</span><span class="err">条数据</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;elasticsearch title&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a elasticsearch content&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;author&quot;</span><span class="p">:</span> <span class="ss">&quot;Peng Shiyu&quot;</span>
+<span class="err">}</span>
+
+<span class="n">PUT</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="mi">2</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;hadoop title&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a hadoop content&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;author&quot;</span><span class="p">:</span> <span class="ss">&quot;Peng Shiyu&quot;</span>
+<span class="err">}</span>
+
+<span class="n">PUT</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="mi">3</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;hbase title&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a hbase content&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;author&quot;</span><span class="p">:</span> <span class="ss">&quot;mouday&quot;</span>
+<span class="err">}</span>
+
+<span class="k">GET</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">_search</span>
+
+<span class="o">#</span> <span class="err">搜索条件，</span><span class="n">author包含peng</span><span class="err">，</span><span class="n">title可以包含elasticsearch</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">_search</span>
+<span class="err">{</span>
+  <span class="ss">&quot;query&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;bool&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;must&quot;</span><span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;match&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;author&quot;</span><span class="p">:</span> <span class="ss">&quot;peng&quot;</span>
+        <span class="err">}</span>
+      <span class="err">}</span><span class="p">,</span>
+      <span class="ss">&quot;should&quot;</span><span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;match&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;elasticsearch&quot;</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="filterquery">三、filter与query深入对比解密：相关度，性能</h2>
+<p>1、filter示例</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/article/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;bool&quot;: {</span>
+<span class="err">      &quot;must&quot;: {</span>
+<span class="err">        &quot;match&quot;: {</span>
+<span class="err">          &quot;author&quot;: &quot;peng&quot;</span>
+<span class="err">        }</span>
+<span class="err">      },</span>
+<span class="err">    &quot;filter&quot;: {</span>
+<span class="err">      &quot;match&quot;: {</span>
+<span class="err">        &quot;title&quot;: &quot;hadoop&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>2、filter 和 query比对<br />
+filter 仅仅按照搜索条件过滤出需要的数据，不计算相关度<br />
+query 会计算每个document相对搜索条件的相关度，并按照相关度排序</p>
+<p>3、filter和 query性能<br />
+filter 可以使用内置自动cache<br />
+query 要计算相关度分数，无法使用cache</p>
+<h2 id="query">四、常用的各种query搜索语法</h2>
+<p>1、match_all</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match_all&quot;: {}</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>2、match</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;: {</span>
+<span class="err">      &quot;field&quot;: &quot;value&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、multi match</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;multi_match&quot;: {</span>
+<span class="err">      &quot;query&quot;: &quot;text&quot;,</span>
+<span class="err">      &quot;fields&quot;: [&quot;title&quot;, &quot;content&quot;]</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、range query</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;range&quot;: {</span>
+<span class="err">      &quot;age&quot;: {</span>
+<span class="err">        &quot;gte&quot;: 20,</span>
+<span class="err">        &quot;lt&quot;: 30</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>5、term query 整串查询，不分词</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;term&quot;: {</span>
+<span class="err">      &quot;field&quot;: &quot;value&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>6、terms query</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;terms&quot;: {</span>
+<span class="err">      &quot;field&quot;: [&quot;value1&quot;, &quot;value2&quot;]</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>7、exist query 查询字段不能为空（2.x版本）</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;exists&quot;: {</span>
+<span class="err">      &quot;field&quot;: &quot;value1&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="_1">五、多搜索条件组合查询</h2>
+<p>bool<br />
+  -query<br />
+    -should<br />
+    -must<br />
+    -must_not<br />
+  -filter</p>
+<p>只过滤，不排序示例</p>
+<div class="codehilite"><pre><span></span><span class="ss">&quot;query&quot;</span><span class="p">:</span> <span class="err">{</span>
+  <span class="ss">&quot;constant_score&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;filter&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;range&quot;</span><span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;age&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;gte&quot;</span><span class="p">:</span> <span class="mi">30</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>组合分数计算：<br />
+先计算每个document针对他的相关度分数，然后bool综合所有分数，合并为一个分数<br />
+filter 不计算分数</p>
+<h2 id="_2">六、定位不合法的搜索以及其原因</h2>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_validate/query?explain</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;: {</span>
+<span class="err">      &quot;feild&quot;: &quot;value&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>一般用在特别复杂的搜索语句检查，验证搜索语句是否合法</p>
+<h2 id="_3">七、定制搜索结果的排序规则</h2>
+<p>定制排序规则</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/taobao/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;dog&quot;,</span>
+<span class="err">  &quot;price&quot;: 20</span>
+<span class="err">}</span>
+
+<span class="err">PUT /alibaba/taobao/2</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;cat&quot;,</span>
+<span class="err">  &quot;price&quot;: 25</span>
+<span class="err">}</span>
+
+<span class="err">PUT /alibaba/taobao/3</span>
+<span class="err">{</span>
+<span class="err">  &quot;name&quot;: &quot;pig&quot;,</span>
+<span class="err">  &quot;price&quot;: 23</span>
+<span class="err">}</span>
+
+<span class="err"># 按照价格大到小排序</span>
+<span class="err">GET /alibaba/taobao/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;sort&quot;: {</span>
+<span class="err">    &quot;price&quot;: {</span>
+<span class="err">      &quot;order&quot;: &quot;desc&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="field">八、将一个field索引两次来解决字符串排序问题</h2>
+<p>如果对一个string field进行排序，结果往往不准确，<br />
+因为分词后是多个单词，再排序就不是我们想要的结果了</p>
+<p>通常的解决方案是：<br />
+将一个string field建立两次索引，一个分词，用于搜索；一个不分词，用来排序</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /website</span>
+<span class="err">{</span>
+<span class="err">  &quot;mappings&quot;: {</span>
+<span class="err">    &quot;article&quot;: {</span>
+<span class="err">      &quot;properties&quot;: {</span>
+<span class="err">        &quot;title&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">          &quot;fields&quot;: {</span>
+<span class="err">            &quot;raw&quot;: {</span>
+<span class="err">              &quot;type&quot;: &quot;string&quot;,</span>
+<span class="err">              &quot;index&quot;: &quot;not_analyzed&quot;</span>
+<span class="err">            }</span>
+<span class="err">          },</span>
+<span class="err">          &quot;fielddata&quot;: true</span>
+<span class="err">        },</span>
+<span class="err">        &quot;content&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;text&quot;</span>
+<span class="err">        },</span>
+<span class="err">        &quot;post_date&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;date&quot;</span>
+<span class="err">        },</span>
+<span class="err">        &quot;author_id&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;long&quot;</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+
+<span class="err"># 查看mapping</span>
+<span class="err">GET /website/_mapping/article</span>
+<span class="err">{</span>
+<span class="err">  &quot;website&quot;: {</span>
+<span class="err">    &quot;mappings&quot;: {</span>
+<span class="err">      &quot;article&quot;: {</span>
+<span class="err">        &quot;properties&quot;: {</span>
+<span class="err">          &quot;author_id&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;long&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;content&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;text&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;post_date&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;date&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;title&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">            &quot;fields&quot;: {</span>
+<span class="err">              &quot;raw&quot;: {</span>
+<span class="err">                &quot;type&quot;: &quot;keyword&quot;</span>
+<span class="err">              }</span>
+<span class="err">            },</span>
+<span class="err">            &quot;fielddata&quot;: true</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>填充数据</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /website/article/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;title&quot;: &quot;title 1&quot;,</span>
+<span class="err">  &quot;content&quot;: &quot;content 1&quot;,</span>
+<span class="err">  &quot;post_date&quot;: &quot;2019-04-30&quot;,</span>
+<span class="err">  &quot;author_id&quot;: 1001</span>
+<span class="err">}</span>
+
+<span class="err">PUT /website/article/2</span>
+<span class="err">{</span>
+<span class="err">  &quot;title&quot;: &quot;title 2&quot;,</span>
+<span class="err">  &quot;content&quot;: &quot;content 2&quot;,</span>
+<span class="err">  &quot;post_date&quot;: &quot;2019-05-30&quot;,</span>
+<span class="err">  &quot;author_id&quot;: 1002</span>
+<span class="err">}</span>
+
+<span class="err">PUT /website/article/3</span>
+<span class="err">{</span>
+<span class="err">  &quot;title&quot;: &quot;title 3&quot;,</span>
+<span class="err">  &quot;content&quot;: &quot;content 3&quot;,</span>
+<span class="err">  &quot;post_date&quot;: &quot;2019-04-28&quot;,</span>
+<span class="err">  &quot;author_id&quot;: 1001</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>分词后的排序结果</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/article/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;sort&quot;: [</span>
+<span class="err">    {</span>
+<span class="err">      &quot;title&quot;: {</span>
+<span class="err">        &quot;order&quot;: &quot;desc&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+
+
+<span class="err">{</span>
+<span class="err">  &quot;took&quot;: 26,</span>
+<span class="err">  &quot;timed_out&quot;: false,</span>
+<span class="err">  &quot;_shards&quot;: {</span>
+<span class="err">    &quot;total&quot;: 5,</span>
+<span class="err">    &quot;successful&quot;: 5,</span>
+<span class="err">    &quot;failed&quot;: 0</span>
+<span class="err">  },</span>
+<span class="err">  &quot;hits&quot;: {</span>
+<span class="err">    &quot;total&quot;: 3,</span>
+<span class="err">    &quot;max_score&quot;: null,</span>
+<span class="err">    &quot;hits&quot;: [</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;website&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;2&quot;,</span>
+<span class="err">        &quot;_score&quot;: null,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;title&quot;: &quot;title 2&quot;,</span>
+<span class="err">          &quot;content&quot;: &quot;content 2&quot;,</span>
+<span class="err">          &quot;post_date&quot;: &quot;2019-05-30&quot;,</span>
+<span class="err">          &quot;author_id&quot;: 1002</span>
+<span class="err">        },</span>
+<span class="err">        &quot;sort&quot;: [</span>
+<span class="err">          &quot;title&quot;</span>
+<span class="err">        ]</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;website&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;1&quot;,</span>
+<span class="err">        &quot;_score&quot;: null,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;title&quot;: &quot;title 1&quot;,</span>
+<span class="err">          &quot;content&quot;: &quot;content 1&quot;,</span>
+<span class="err">          &quot;post_date&quot;: &quot;2019-04-30&quot;,</span>
+<span class="err">          &quot;author_id&quot;: 1001</span>
+<span class="err">        },</span>
+<span class="err">        &quot;sort&quot;: [</span>
+<span class="err">          &quot;title&quot;</span>
+<span class="err">        ]</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;website&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;3&quot;,</span>
+<span class="err">        &quot;_score&quot;: null,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;title&quot;: &quot;title 3&quot;,</span>
+<span class="err">          &quot;content&quot;: &quot;content 3&quot;,</span>
+<span class="err">          &quot;post_date&quot;: &quot;2019-04-28&quot;,</span>
+<span class="err">          &quot;author_id&quot;: 1001</span>
+<span class="err">        },</span>
+<span class="err">        &quot;sort&quot;: [</span>
+<span class="err">          &quot;title&quot;</span>
+<span class="err">        ]</span>
+<span class="err">      }</span>
+<span class="err">    ]</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>使用排序属性排序结果</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/article/_search</span>
+<span class="err">{</span>
+<span class="err">  &quot;sort&quot;: [</span>
+<span class="err">    {</span>
+<span class="err">      &quot;title.raw&quot;: {</span>
+<span class="err">        &quot;order&quot;: &quot;desc&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+<span class="err">  &quot;took&quot;: 3,</span>
+<span class="err">  &quot;timed_out&quot;: false,</span>
+<span class="err">  &quot;_shards&quot;: {</span>
+<span class="err">    &quot;total&quot;: 5,</span>
+<span class="err">    &quot;successful&quot;: 5,</span>
+<span class="err">    &quot;failed&quot;: 0</span>
+<span class="err">  },</span>
+<span class="err">  &quot;hits&quot;: {</span>
+<span class="err">    &quot;total&quot;: 3,</span>
+<span class="err">    &quot;max_score&quot;: null,</span>
+<span class="err">    &quot;hits&quot;: [</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;website&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;3&quot;,</span>
+<span class="err">        &quot;_score&quot;: null,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;title&quot;: &quot;title 3&quot;,</span>
+<span class="err">          &quot;content&quot;: &quot;content 3&quot;,</span>
+<span class="err">          &quot;post_date&quot;: &quot;2019-04-28&quot;,</span>
+<span class="err">          &quot;author_id&quot;: 1001</span>
+<span class="err">        },</span>
+<span class="err">        &quot;sort&quot;: [</span>
+<span class="err">          &quot;title 3&quot;</span>
+<span class="err">        ]</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;website&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;2&quot;,</span>
+<span class="err">        &quot;_score&quot;: null,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;title&quot;: &quot;title 2&quot;,</span>
+<span class="err">          &quot;content&quot;: &quot;content 2&quot;,</span>
+<span class="err">          &quot;post_date&quot;: &quot;2019-05-30&quot;,</span>
+<span class="err">          &quot;author_id&quot;: 1002</span>
+<span class="err">        },</span>
+<span class="err">        &quot;sort&quot;: [</span>
+<span class="err">          &quot;title 2&quot;</span>
+<span class="err">        ]</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        &quot;_index&quot;: &quot;website&quot;,</span>
+<span class="err">        &quot;_type&quot;: &quot;article&quot;,</span>
+<span class="err">        &quot;_id&quot;: &quot;1&quot;,</span>
+<span class="err">        &quot;_score&quot;: null,</span>
+<span class="err">        &quot;_source&quot;: {</span>
+<span class="err">          &quot;title&quot;: &quot;title 1&quot;,</span>
+<span class="err">          &quot;content&quot;: &quot;content 1&quot;,</span>
+<span class="err">          &quot;post_date&quot;: &quot;2019-04-30&quot;,</span>
+<span class="err">          &quot;author_id&quot;: 1001</span>
+<span class="err">        },</span>
+<span class="err">        &quot;sort&quot;: [</span>
+<span class="err">          &quot;title 1&quot;</span>
+<span class="err">        ]</span>
+<span class="err">      }</span>
+<span class="err">    ]</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="tfidf">九、相关度评分TF&amp;IDF算法独</h2>
+<p>1、relevance score算法<br />
+计算索引文本与搜索文本的关联匹配度</p>
+<p>ElasticSearch使用TF/IDF算法<br />
+term frequency/ inverse document frequency算法 <br />
+TF:  搜索文本中的各个词条在field文本中出现次数，出现次数越多，就越相关<br />
+IDF: 搜索文本中各个词条在整个索引的所有文档中出现的次数，出现次数越多，就越不相关<br />
+field length norm : field长度越长，相关度越弱</p>
+<p>举例：<br />
+doc1: hello, you and world is very good<br />
+doc2: hello, how are you</p>
+<p>2、score计算</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/article/_search?explain</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;: {</span>
+<span class="err">      &quot;title&quot;: &quot;title&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、分析一个document是如何被匹配上的</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/article/1/_explain</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match&quot;: {</span>
+<span class="err">      &quot;title&quot;: &quot;title&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="doc-value">十、内核级知识点之doc value</h2>
+<p>搜索的时候，主要依靠倒排索引；<br />
+排序的时候，需要依靠正排索引，看到每个document的每个field<br />
+然后进行排序，所谓的正排索引，其实就是doc values</p>
+<p>在建立索引的时候，一方面会建立倒排索引，以供搜索使用<br />
+一方面会建立正排索引，也就是doc values，以供排序、聚合、过滤等操作使用<br />
+doc values是被保存在磁盘上的，此时，如果内存足够，os会自动将其缓存到内存中，性能还是会很高<br />
+如果内存不足够，os会将其写入磁盘上</p>
+<h2 id="query-phase">十一、内核解密之query phase</h2>
+<p>1、query phase<br />
+（1）搜索请求发送到某一个coordinate node，构建一个priority queue，长度以paging操作from和size为准，默认为0<br />
+（2）coordinate node将请求转发到所有的shard，每个shard本地搜索，并构建一个本地的priority queue<br />
+（3）各个shard将自己的priority queue（doc id）返回给coordinate node，并构建一个全局的priority queue</p>
+<p>2、replica shard提升搜索吞吐量<br />
+一次请求要打到所有的shard的一个replica/primary上，如果每个shard都有多个replica，<br />
+那么同时并发过来的搜索请求可以同时打到其他的replica上去</p>
+<h2 id="fetch-phase">十二、内核解密之fetch phase</h2>
+<p>1、工作流程<br />
+（1）coordinate node构建完priority queue之后，就发送mget请求去所有的shard上获取对应的document<br />
+（2）各个shard将document返回给coordinate node<br />
+（3）coodinate node将合并后的document结果返回给client客户端</p>
+<p>2、如果不加from 和size，默认from=0 size=10, 按照socre排序</p>
+<h2 id="_4">十三、搜索相关参数梳理</h2>
+<p>1、preference<br />
+决定了哪些shard会被用来执行搜索操作</p>
+<div class="codehilite"><pre><span></span><span class="n">_primary</span><span class="p">,</span> <span class="n">_primary_first</span><span class="p">,</span> <span class="n">_local</span><span class="p">,</span> 
+<span class="n">_only_node</span><span class="p">:</span><span class="n">xyz</span><span class="p">,</span> <span class="n">_prefer_node</span><span class="p">:</span><span class="n">xyz</span><span class="p">,</span>
+<span class="n">_shard</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+</pre></div>
+
+
+<p>2、bouncing results问题<br />
+两个document 排序，field值相同，不同的shard商，可能排序不同;<br />
+每次请求轮询打到不同的shard上，每次页面上看到的搜索结果的排序都不一样<br />
+这就是bouncing result，也就是跳跃的结果</p>
+<p>解决方案<br />
+将preference设置为一个随机的字符串，比如说user_id，<br />
+让每个user每次搜索的时候都是用同一个shard上执行，就不会看到bouncing result</p>
+<p>timeout 将查到的数据直接返回，避免查询耗时过长<br />
+routing document文档路由，routing=user_id, 这就可以让同一个user对应的数据到一个shard上去<br />
+search_type<br />
+dfs_query_then_fetch 可以提升revelance sort精准度</p>
+<h2 id="scroll">十四、基于scroll技术滚动搜索大量数据</h2>
+<p>使用scroll滚动搜索<br />
+先搜索一批数据，然后下次在搜索一批，以此类推，知道搜索出全部的数据来<br />
+scroll搜索会在第一次搜索的时候，保存一个当前的视图快照，之后会基于该就的视图快照提供数据搜索，如果这个期间数据变更，是不会让用户看到的<br />
+采用基于_doc 进行排序的方式，性能较高哦<br />
+每次发送scroll请求，还需要指定一个scroll参数，指定一个时间窗口，每次搜索请求只要在这个时间窗口内完成就可以</p>
+<p>size 会发送给每个shard， 因此每次最多会返回size * primary shard条数据<br />
+scroll 看起来挺像分页的，但是其实使用场景不一样，分页主要是用来一页一页搜索，给用户的，<br />
+scroll主要是用来一批一批检索数据，让系统进行处理的</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">第一次请求</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="n">_search</span><span class="o">?</span><span class="k">scroll</span><span class="o">=</span><span class="mi">1</span><span class="n">m</span>
+<span class="err">{</span>
+  <span class="ss">&quot;query&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;match_all&quot;</span><span class="p">:</span> <span class="err">{}</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="ss">&quot;sort&quot;</span><span class="p">:</span> <span class="p">[</span><span class="ss">&quot;_doc&quot;</span><span class="p">],</span>
+  <span class="ss">&quot;size&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">第二次请求</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">_search</span><span class="o">/</span><span class="k">scroll</span>
+<span class="err">{</span>
+  <span class="ss">&quot;scroll&quot;</span><span class="p">:</span> <span class="ss">&quot;1m&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;scroll_id&quot;</span><span class="p">:</span> <span class="ss">&quot;DnF1ZXJ5VGhlbkZldGNoBQAAAAAAADp0FkVUUFF3UUUyUmxhV1JTdWtPRkdpd2cAAAAAAAA6dRZFVFBRd1FFMlJsYVdSU3VrT0ZHaXdnAAAAAAAAOnYWRVRQUXdRRTJSbGFXUlN1a09GR2l3ZwAAAAAAADp3FkVUUFF3UUUyUmxhV1JTdWtPRkdpd2cAAAAAAAA6eBZFVFBRd1FFMlJsYVdSU3VrT0ZHaXdn&quot;</span>
+<span class="err">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

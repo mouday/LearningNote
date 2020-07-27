@@ -1,0 +1,1511 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>语言基础 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                语言基础
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    default 关键字
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java 内存模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binarytree" class="md-nav__link">
+    二叉树 BinaryTree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classloader" class="md-nav__link">
+    ClassLoader 加载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hashmap" class="md-nav__link">
+    HashMap 源代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash 冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arraylist" class="md-nav__link">
+    ArrayList 原理分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    Set 集合
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    断点调试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this 关键字
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java_1" class="md-nav__link">
+    Java 系列小问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm" class="md-nav__link">
+    JVM 核心优化策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm_1" class="md-nav__link">
+    JVM 内存组成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map-resize" class="md-nav__link">
+    Map-Resize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    Runtime 相关说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String 转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadlocal" class="md-nav__link">
+    ThreadLocal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadpool" class="md-nav__link">
+    ThreadPool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threadlocal_1" class="md-nav__link">
+    ThreadLocal 引用传递
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yml" class="md-nav__link">
+    YML 格式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    抽象类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    抽象类基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    多线程应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    动态与静态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    对象引用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    多对多关系
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">语言基础</h1>
+<h2 id="default">default 关键字</h2>
+<p>一般用于 switch</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+
+<span class="k">switch</span> <span class="o">(</span><span class="n">flag</span><span class="o">){</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;1&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;2&quot;</span><span class="o">);</span>
+        <span class="k">break</span><span class="o">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;default&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>JDK 1.8 之后 可以在接口中定义默认方法</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">interface</span> <span class="nc">Message</span> <span class="o">{</span>
+    <span class="c1">// 抽象方法</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">();</span>
+
+    <span class="c1">// 默认方法 JDK&gt;=1.8</span>
+    <span class="k">default</span> <span class="kt">void</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Message&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MessageImpl</span> <span class="kd">implements</span> <span class="n">Message</span><span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;message&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DefaultDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageImpl</span><span class="o">();</span>
+        <span class="n">message</span><span class="o">.</span><span class="na">getMessage</span><span class="o">();</span>
+        <span class="n">message</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="java">Java 内存模型</h2>
+<p>内存划分<br />
+GC</p>
+<p>Runtime<br />
+单例设计模式<br />
+内存信息取得，系统垃圾收集处理</p>
+<p>数据单位：字节 /1024 -&gt; KB /1024 -&gt; M</p>
+<div class="codehilite"><pre><span></span><span class="n">Runtime</span> <span class="n">runtime</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;maxMemory &quot;</span> <span class="o">+</span> <span class="n">runtime</span><span class="o">.</span><span class="na">maxMemory</span><span class="o">()/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;totalMemory &quot;</span> <span class="o">+</span> <span class="n">runtime</span><span class="o">.</span><span class="na">totalMemory</span><span class="o">()/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;freeMemory &quot;</span> <span class="o">+</span> <span class="n">runtime</span><span class="o">.</span><span class="na">freeMemory</span><span class="o">()/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">);</span>
+<span class="cm">/**</span>
+<span class="cm">    * maxMemory 1820</span>
+<span class="cm">    * totalMemory 123</span>
+<span class="cm">    * freeMemory 121</span>
+<span class="cm">    */</span>
+</pre></div>
+
+
+<p>内存空间划分</p>
+<ol>
+<li>伊甸园区：新生对象，如果被占满，会执行 gc</li>
+<li>旧生代区：如果发现其一直会被使用，就会进入旧生代，空间不足继续 gc</li>
+<li>永久区：数据不会被清除</li>
+</ol>
+<p>默认大小内存的 1/4</p>
+<p>调整内存大小<br />
+-Xms2048M 出始分配内存大小，默认物理内存 1/64 但小于 1G<br />
+-Xmx2048M 最大分配内存，默认物理内存 1/4 但小于 1G<br />
+-Xmn1024M 设置年轻代（伊甸园区）堆内存大小</p>
+<h2 id="binarytree">二叉树 BinaryTree</h2>
+<p>数据存储：左节点、右节点<br />
+树的遍历：前序、中序、后序</p>
+<p>考虑大小关系，数据应该以 Comparable 为主</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">BinaryTree</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="n">Comparable</span> <span class="n">data</span><span class="o">;</span>
+
+        <span class="kd">private</span> <span class="n">Node</span> <span class="n">left</span><span class="o">;</span>
+        <span class="kd">private</span> <span class="n">Node</span> <span class="n">right</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="n">Comparable</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNode</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">data</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">toArrayNode</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">left</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">this</span><span class="o">.</span><span class="na">left</span><span class="o">.</span><span class="na">toArrayNode</span><span class="o">();</span>
+            <span class="o">}</span>
+
+            <span class="n">BinaryTree</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">list</span><span class="o">[</span><span class="n">BinaryTree</span><span class="o">.</span><span class="na">this</span><span class="o">.</span><span class="na">foot</span><span class="o">++]</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">this</span><span class="o">.</span><span class="na">right</span><span class="o">.</span><span class="na">toArrayNode</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 根节点</span>
+    <span class="kd">private</span> <span class="n">Node</span> <span class="n">root</span><span class="o">;</span>
+
+    <span class="c1">// 统计个数</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Comparable</span><span class="o">[]</span> <span class="n">list</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">foot</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Comparable</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+        <span class="c1">// 没有根节点</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">root</span> <span class="o">=</span> <span class="n">node</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// 交给Node处理，需要比较大小</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">count</span><span class="o">++;</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Comparable</span><span class="o">[]</span> <span class="nf">toArray</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+
+        <span class="k">this</span><span class="o">.</span><span class="na">foot</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Comparable</span><span class="o">[</span><span class="k">this</span><span class="o">.</span><span class="na">count</span><span class="o">];</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">root</span><span class="o">.</span><span class="na">toArrayNode</span><span class="o">();</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">list</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTreeDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">BinaryTree</span> <span class="n">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BinaryTree</span><span class="o">();</span>
+        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;E&quot;</span><span class="o">);</span>
+        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;D&quot;</span><span class="o">);</span>
+        <span class="n">tree</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">tree</span><span class="o">.</span><span class="na">toArray</span><span class="o">()));</span>
+        <span class="c1">// [A, B, C, D, E]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="classloader">ClassLoader 加载</h2>
+<p>Java 中的类加载器不止一个，自定义加载器是最后执行的</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClassLoaderDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
+        <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">cls</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&quot;demo.User&quot;</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cls</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">());</span>
+        <span class="c1">// 3. sun.misc.Launcher$AppClassLoader@135fbaa4</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cls</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getParent</span><span class="o">());</span>
+        <span class="c1">// 2. sun.misc.Launcher$ExtClassLoader@2503dbd3</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cls</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getParent</span><span class="o">().</span><span class="na">getParent</span><span class="o">());</span>
+        <span class="c1">// 1. null Bootstrap</span>
+
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>所有的 Java 程序类加载器一共分为两套类加载器：双亲加载</p>
+<p>如果是用户自定义的类，会使用其他类加载器：</p>
+<p>AppClassLoader、ExtClassLoader、用户自定义类加载器</p>
+<p>默认情况下通过 CLASSPATH 加载</p>
+<p>自定义类加载器可以通过远程或文件加载</p>
+<h2 id="hashmap">HashMap 源代码</h2>
+<p>HashMap 数据增加到一定数量后，就会有链表变为红黑树</p>
+<p>阈值：</p>
+<div class="codehilite"><pre><span></span><span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">TREEIFY_THRESHOLD</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+</pre></div>
+
+
+<p>如果 达到 16 * 0.75 个数时，容量会扩充一倍 变为 32</p>
+<p>扩充</p>
+<div class="codehilite"><pre><span></span><span class="kd">static</span> <span class="kd">final</span> <span class="kt">float</span> <span class="n">DEFAULT_LOAD_FACTOR</span> <span class="o">=</span> <span class="mf">0.75f</span><span class="o">;</span>
+</pre></div>
+
+
+<p>HashMap 方法都是异步处理，非线程安全</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HashMapDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span> <span class="s">&quot;y=&quot;</span> <span class="o">+</span> <span class="n">j</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
+        <span class="cm">/**</span>
+<span class="cm">         * 可能输出值：</span>
+<span class="cm">         * {Thread-0=y=8, Thread-1=y=8, Thread-2=y=8}</span>
+<span class="cm">         * {Thread-0=y=8, Thread-1=y=8}</span>
+<span class="cm">         * java.util.ConcurrentModificationException</span>
+<span class="cm">         * {}</span>
+<span class="cm">         */</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="hash">Hash 冲突</h2>
+<p>HashMap 中 Hash 冲突严重时会影响性能</p>
+<ol>
+<li>开放定址法：为一个哈希冲突求的一个地址序列</li>
+<li>链地址法：将所有哈希冲突的内容保存到一个链表里（HashMap 实现原理）</li>
+<li>再哈希法：重新做一个 Hash 计算</li>
+</ol>
+<p>Node 内部类, Map.Entry 内部接口</p>
+<h2 id="arraylist">ArrayList 原理分析</h2>
+<p>ArrayList 线性复杂度是 1<br />
+类似数组，可以直接通过索引取值</p>
+<p>在数量固定的情况下，ArrayList（数组动态操作） 避免开辟额外的空间<br />
+不确定数量使用 LinkedList(链表实现)</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+        <span class="c1">// [A, B]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="set">Set 集合</h2>
+<p>Set 集合不允许元素重复</p>
+<p>子类<br />
+HashSet 无序存放，由 HashMap 实现<br />
+TreeSet 由 TreeMap 实现,使用 Comparable 接口排序<br />
+LinkedHashSet 顺序保存</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="nf">HashSet</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_2">断点调试</h2>
+<ol>
+<li>step over 单步跳过</li>
+<li>step into 单步进入</li>
+<li>step out 单步跳出</li>
+</ol>
+<h2 id="this">this 关键字</h2>
+<p>访问本类属性加 this<br />
+访问本类方法加 this<br />
+调用本类其他构造方法 this()<br />
+方法内的 this，表示当前实例对象</p>
+<h2 id="java_1">Java 系列小问题</h2>
+<p>1、字符串是匿名对象</p>
+<p>没有明确指向就是匿名对象</p>
+<div class="codehilite"><pre><span></span><span class="s">&quot;Hello&quot;</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+</pre></div>
+
+
+<p>有明确指向就不是匿名对象</p>
+<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="o">;</span>
+</pre></div>
+
+
+<p>2、直接赋值的方式实例化一个字符串对象，引用地址保存在哪里？</p>
+<p>只要是引用对象，就保存在堆内存里面，我们能进行控制的内存只有堆内存</p>
+<p>3、对象池（常量池）和栈是什么关系？<br />
+对象池（常量池）保存到堆内存</p>
+<p>4、不同操作系统的虚拟机</p>
+<p>JVM 有三种实现标准<br />
+我们使用的是 HotSpot 实现标准</p>
+<h2 id="jvm">JVM 核心优化策略</h2>
+<p>1、取消伸缩区 total=max;</p>
+<p>（1）CMS 问题，频繁 CMS 会导致性能下降</p>
+<p>（2）伊甸园区，存活区，老年代</p>
+<p>（3）JDK1.8 之后取消了永久代，使用元空间代替</p>
+<p>2、如果内存过大要使用 G1 收集器来进行收集</p>
+<p>3、Tomcat 使用 JVM, 需要设置 JAVA_OPTS 指令 可将全部内存供 Tomcat 使用</p>
+<p>（1）默认最大使用内存为全部内存的 1/4</p>
+<p>（2）默认 total 内存为全部内存的 1/64</p>
+<h2 id="jvm_1">JVM 内存组成</h2>
+<ol>
+<li>栈内存 只保存堆内存的引用地址，可以保存基本类型</li>
+<li>堆内存 分为若干子内存空间：伊甸园区，存活区，老年代</li>
+<li>方法区（JDK1.8 之前：永久代，之后：元空间 ）</li>
+</ol>
+<p>原则：</p>
+<p>1、减少无用的内存空间，会引发频发 GC</p>
+<p>2、初始化空间大小等于整个堆内存的分配大小，避免伸缩区</p>
+<h2 id="map-resize">Map-Resize</h2>
+<p>HashMap 需要扩容时，如何得到扩容因子</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 移位运算，相当于*2</span>
+<span class="n">newCap</span> <span class="o">=</span> <span class="n">oldCap</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+</pre></div>
+
+
+<h2 id="runtime">Runtime 相关说明</h2>
+<p>Runtime 是单例</p>
+<p>区别：RuntimeException 和 非 RuntimeException</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RuntimeDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 单例设计模式</span>
+        <span class="n">Runtime</span> <span class="n">runtime</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">();</span>
+        <span class="c1">// 最大内存, 默认是整个电脑的1/4</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;maxMemory &quot;</span> <span class="o">+</span> <span class="n">runtime</span><span class="o">.</span><span class="na">maxMemory</span><span class="o">()/(</span><span class="kt">double</span><span class="o">)</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">);</span>
+        <span class="c1">// 初始化内存空间, 默认是电脑的1/64</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;totalMemory &quot;</span> <span class="o">+</span> <span class="n">runtime</span><span class="o">.</span><span class="na">totalMemory</span><span class="o">()/(</span><span class="kt">double</span><span class="o">)</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;freeMemory &quot;</span> <span class="o">+</span> <span class="n">runtime</span><span class="o">.</span><span class="na">freeMemory</span><span class="o">()/(</span><span class="kt">double</span><span class="o">)</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">);</span>
+        <span class="cm">/**</span>
+<span class="cm">         * maxMemory 1820.5</span>
+<span class="cm">         * totalMemory 123.0</span>
+<span class="cm">         * freeMemory 121.0499267578125</span>
+<span class="cm">         */</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>参数设置<br />
+-Xmx1g -Xmn1g</p>
+<p>RuntimeException 不需要强制处理<br />
+Exception 需要强制处理<br />
+RuntimeException 是 Exception 子类</p>
+<h2 id="string">String 转换</h2>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringTest</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Object str = &quot;Hello&quot;;</span>
+        <span class="n">Object</span> <span class="n">str</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+        <span class="c1">// 向下转型</span>
+        <span class="n">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">str</span><span class="o">;</span>
+
+        <span class="c1">// toString方法获得 如果是null, 会抛出异常NullPointerException</span>
+        <span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str1</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str2</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="threadlocal">ThreadLocal</h2>
+<p>采用反射进行对象实例化，要求类中要提供有无参构造方法</p>
+<p>简单 Java 类，本质在于进行数据的包装</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">MessageDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MessageDemo</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadLocalDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">MessageDemo</span> <span class="n">messageDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+            <span class="n">messageDemo</span><span class="o">.</span><span class="na">showMessage</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程A&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">MessageDemo</span> <span class="n">messageDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+            <span class="n">messageDemo</span><span class="o">.</span><span class="na">showMessage</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程B&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">MessageDemo</span> <span class="n">messageDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+            <span class="n">messageDemo</span><span class="o">.</span><span class="na">showMessage</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程C&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>输出</p>
+<div class="codehilite"><pre><span></span><span class="err">线程</span><span class="n">B</span> <span class="k">C</span>
+<span class="err">线程</span><span class="k">C</span> <span class="k">C</span>
+<span class="err">线程</span><span class="n">A</span> <span class="k">C</span>
+</pre></div>
+
+
+<p>static 是全局数据，多个线程访问会出现数据不同步</p>
+<p>ThreadLocal 保存了数据和当前线程对象</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">MessageDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">local</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="nf">MessageDemo</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">local</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">local</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadLocalDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">MessageDemo</span> <span class="n">messageDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+            <span class="n">messageDemo</span><span class="o">.</span><span class="na">showMessage</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程A&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">MessageDemo</span> <span class="n">messageDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+            <span class="n">messageDemo</span><span class="o">.</span><span class="na">showMessage</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程B&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">MessageDemo</span> <span class="n">messageDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+            <span class="n">messageDemo</span><span class="o">.</span><span class="na">showMessage</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程C&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>输出</p>
+<div class="codehilite"><pre><span></span><span class="err">线程</span><span class="n">A</span> <span class="n">A</span>
+<span class="err">线程</span><span class="k">C</span> <span class="k">C</span>
+<span class="err">线程</span><span class="n">B</span> <span class="n">B</span>
+</pre></div>
+
+
+<h2 id="threadpool">ThreadPool</h2>
+<p>线程池有四种：<br />
+无限增长<br />
+定长执行<br />
+定时操作<br />
+单线程池</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadPoolDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 所有线程都会被这个类所管理</span>
+        <span class="n">ExecutorService</span> <span class="n">service</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kd">final</span> <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+            <span class="n">service</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">temp</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="threadlocal_1">ThreadLocal 引用传递</h2>
+<p>ThreadLocal 不仅保存的是一个引用对象，而且还保存有一个当前对象</p>
+<p>不会与其他线程进行混淆</p>
+<p>1、不使用 ThreadLocal</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Message</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">message</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MessageDemo</span><span class="o">{</span>
+    <span class="kd">public</span>  <span class="kt">void</span> <span class="nf">print</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="n">DataCache</span><span class="o">.</span><span class="na">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">DataCache</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Message</span> <span class="n">message</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadLocalDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+            <span class="n">message</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+            <span class="n">DataCache</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+            <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">().</span><span class="na">print</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程A&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+            <span class="n">message</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+            <span class="n">DataCache</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+            <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">().</span><span class="na">print</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程B&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+            <span class="n">message</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+            <span class="n">DataCache</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+            <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">().</span><span class="na">print</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程C&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>执行结果</p>
+<div class="codehilite"><pre><span></span><span class="err">线程</span><span class="n">BA</span>
+<span class="err">线程</span><span class="n">AA</span>
+<span class="err">线程</span><span class="n">CA</span>
+</pre></div>
+
+
+<p>2、使用 ThreadLocal</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Message</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">message</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">MessageDemo</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="n">DataCache</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">DataCache</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">threadLocal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="n">Message</span> <span class="n">message</span><span class="o">){</span>
+        <span class="n">threadLocal</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Message</span> <span class="nf">get</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">threadLocal</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadLocalDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+            <span class="n">message</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+            <span class="n">DataCache</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+            <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">().</span><span class="na">print</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程A&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+            <span class="n">message</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+            <span class="n">DataCache</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+            <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">().</span><span class="na">print</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程B&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="n">Message</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Message</span><span class="o">();</span>
+            <span class="n">message</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+            <span class="n">DataCache</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+            <span class="k">new</span> <span class="n">MessageDemo</span><span class="o">().</span><span class="na">print</span><span class="o">();</span>
+        <span class="o">},</span> <span class="s">&quot;线程C&quot;</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>执行结果</p>
+<div class="codehilite"><pre><span></span><span class="err">线程</span><span class="n">BB</span>
+<span class="err">线程</span><span class="n">AA</span>
+<span class="err">线程</span><span class="n">CC</span>
+</pre></div>
+
+
+<h2 id="yml">YML 格式</h2>
+<div class="codehilite"><pre><span></span><span class="n">person</span><span class="o">:</span>
+    <span class="n">name</span><span class="o">:</span> <span class="n">Tom</span>
+    <span class="n">age</span><span class="o">:</span> <span class="mi">23</span>
+</pre></div>
+
+
+<h2 id="_3">抽象类</h2>
+<p>抽象类的实例化</p>
+<p>核心认识：</p>
+<ol>
+<li>抽象类比普通类多了抽象方法</li>
+<li>抽象类不能使用关键词 new 实例化对象</li>
+</ol>
+<p>普通类的继承对子类没有强制性约束</p>
+<p>如果某些方法必须要求子类来实现，需要使用抽象类</p>
+<p>所有关键词 new 调用构造方法实例化对象的部分都可以将其理解为“匿名对象”</p>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="o">();</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">PersonAbstract</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">PersonAbstract</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;PersonAbstract&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">extends</span> <span class="n">PersonAbstract</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// super(); // 可以省略</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Person&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;say hello&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AbstractDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">sayHello</span><span class="o">();</span>
+        <span class="cm">/**</span>
+<span class="cm">         * PersonAbstract</span>
+<span class="cm">         * Person</span>
+<span class="cm">         * say hello</span>
+<span class="cm">         */</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_4">抽象类基础</h2>
+<p>理论上抽象类的所有抽象方法必须被覆写</p>
+<p>对于非抽象方法是不需要强制覆写的</p>
+<p>GenericServlet<br />
+HttpServlet</p>
+<p>模板设计模式</p>
+<h2 id="_5">多线程应用</h2>
+<p>Tomcat 每一个连接的用户用一个线程来处理</p>
+<h2 id="_6">动态与静态</h2>
+<p>EL 表达式工作在服务器端</p>
+<p>JSON 在服务器端生成，在客户端操作</p>
+<h2 id="_7">对象引用</h2>
+<p>内存关系内容：</p>
+<ol>
+<li>内存分配</li>
+<li>垃圾回收</li>
+</ol>
+<p>JDK&gt;=1.2 四种引用关系</p>
+<ol>
+<li>强引用：对象一直被引用</li>
+<li>软引用：对象将长时间保存，一直到内存不足才被回收，常用于缓存，如 MyBatis</li>
+<li>弱引用：一旦有垃圾收集操作之后就会被回收</li>
+<li>虚引用：返回永远都是 null，就是不引用</li>
+</ol>
+<p>1、强引用示例 Strong Reference</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReferenceDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+        <span class="n">Object</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">obj</span><span class="o">;</span> <span class="c1">// 默认为强引用</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// 原始的对象断开，引用关系依然存在</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span> <span class="c1">// 垃圾回收</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+        <span class="c1">// java.lang.Object@2503dbd3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>2、软引用示例 Soft Reference</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.ref.SoftReference</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReferenceDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+
+        <span class="c1">// 软引用</span>
+        <span class="n">SoftReference</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SoftReference</span><span class="o">&lt;&gt;(</span><span class="n">obj</span><span class="o">);</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// 原始的对象断开</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span> <span class="c1">// 垃圾回收</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ref</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+        <span class="c1">// java.lang.Object@2503dbd3</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>3、弱引用示例 Weak Reference</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.ref.WeakReference</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReferenceDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+
+        <span class="c1">// 使用弱引用</span>
+        <span class="n">WeakReference</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeakReference</span><span class="o">&lt;&gt;(</span><span class="n">obj</span><span class="o">);</span>
+
+        <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ref</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+        <span class="c1">// null</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>4、虚引用示例 Phantom Reference</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.lang.ref.PhantomReference</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.ref.ReferenceQueue</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReferenceDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
+
+        <span class="c1">// 使用虚引用</span>
+        <span class="n">ReferenceQueue</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReferenceQueue</span><span class="o">&lt;&gt;();</span>
+        <span class="n">PhantomReference</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PhantomReference</span><span class="o">&lt;&gt;(</span><span class="n">obj</span><span class="o">,</span> <span class="n">queue</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ref</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+        <span class="c1">// null</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_8">多对多关系</h2>
+<p>数据表和简单 Java 类的映射转换</p>
+<p>合成设计面模式的应用，相当于组合</p>
+<p>数组的理解及应用</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">demo</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Book</span><span class="o">[]</span> <span class="n">books</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Book</span><span class="o">[]</span> <span class="nf">getBooks</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">books</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBooks</span><span class="o">(</span><span class="n">Book</span><span class="o">[]</span> <span class="n">books</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">books</span> <span class="o">=</span> <span class="n">books</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;User{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, age=&quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Book</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">price</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">User</span><span class="o">[]</span> <span class="n">users</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Book</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">,</span> <span class="kt">double</span> <span class="n">price</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">price</span> <span class="o">=</span> <span class="n">price</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">User</span><span class="o">[]</span> <span class="nf">getUsers</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">users</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsers</span><span class="o">(</span><span class="n">User</span><span class="o">[]</span> <span class="n">users</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">users</span> <span class="o">=</span> <span class="n">users</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Book{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;title=&#39;&quot;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, price=&quot;</span> <span class="o">+</span> <span class="n">price</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MoreToMoreDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 实体类</span>
+        <span class="n">Book</span> <span class="n">book1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Book</span><span class="o">(</span><span class="s">&quot;《三国演义》&quot;</span><span class="o">,</span> <span class="mf">69.8</span><span class="o">);</span>
+        <span class="n">Book</span> <span class="n">book2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Book</span><span class="o">(</span><span class="s">&quot;《红楼梦》&quot;</span><span class="o">,</span> <span class="mf">76.9</span><span class="o">);</span>
+        <span class="n">Book</span> <span class="n">book3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Book</span><span class="o">(</span><span class="s">&quot;《西游记》&quot;</span><span class="o">,</span> <span class="mf">88.6</span><span class="o">);</span>
+
+        <span class="n">User</span> <span class="n">user1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&quot;赵小四&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">);</span>
+        <span class="n">User</span> <span class="n">user2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&quot;王小六&quot;</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
+        <span class="n">User</span> <span class="n">user3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&quot;刘小七&quot;</span><span class="o">,</span> <span class="mi">27</span><span class="o">);</span>
+
+        <span class="c1">// 数据关系</span>
+        <span class="n">book1</span><span class="o">.</span><span class="na">setUsers</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">[]{</span><span class="n">user1</span><span class="o">,</span> <span class="n">user2</span><span class="o">});</span>
+        <span class="n">book2</span><span class="o">.</span><span class="na">setUsers</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">[]{</span><span class="n">user1</span><span class="o">,</span> <span class="n">user3</span><span class="o">});</span>
+        <span class="n">book3</span><span class="o">.</span><span class="na">setUsers</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">[]{</span><span class="n">user2</span><span class="o">,</span> <span class="n">user3</span><span class="o">});</span>
+
+        <span class="n">user1</span><span class="o">.</span><span class="na">setBooks</span><span class="o">(</span><span class="k">new</span> <span class="n">Book</span><span class="o">[]{</span><span class="n">book1</span><span class="o">,</span> <span class="n">book2</span><span class="o">});</span>
+        <span class="n">user2</span><span class="o">.</span><span class="na">setBooks</span><span class="o">(</span><span class="k">new</span> <span class="n">Book</span><span class="o">[]{</span><span class="n">book1</span><span class="o">,</span> <span class="n">book3</span><span class="o">});</span>
+        <span class="n">user3</span><span class="o">.</span><span class="na">setBooks</span><span class="o">(</span><span class="k">new</span> <span class="n">Book</span><span class="o">[]{</span><span class="n">book2</span><span class="o">,</span> <span class="n">book3</span><span class="o">});</span>
+
+        <span class="c1">// 数据展示</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">User</span> <span class="n">user</span> <span class="o">:</span> <span class="n">book1</span><span class="o">.</span><span class="na">getUsers</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="n">Book</span> <span class="n">book</span> <span class="o">:</span> <span class="n">user1</span><span class="o">.</span><span class="na">getBooks</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">book</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="cm">/**</span>
+<span class="cm">         * User{name=&#39;赵小四&#39;, age=23}</span>
+<span class="cm">         * User{name=&#39;王小六&#39;, age=26}</span>
+<span class="cm">         *</span>
+<span class="cm">         * Book{title=&#39;《三国演义》&#39;, price=69.8}</span>
+<span class="cm">         * Book{title=&#39;《红楼梦》&#39;, price=76.9}</span>
+<span class="cm">         */</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

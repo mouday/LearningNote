@@ -1,0 +1,441 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Tampermonkey - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Tampermonkey
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Tampermonkey</h1>
+                
+                <p>Tampermonkey</p>
+<p>下载安装<br />
+https://www.tampermonkey.net/</p>
+<p>实用脚本<br />
+https://greasyfork.org/zh-CN/scripts</p>
+<p>接口文档<br />
+https://www.tampermonkey.net/documentation.php</p>
+<p>下面简单介绍下 UserScript Header 的一些参数定义。 </p>
+<p>•@name：脚本的名称，就是在控制面板显示的脚本名称。<br />
+•@namespace：脚本的命名空间。<br />
+•@version：脚本的版本，主要是做版本更新时用。<br />
+•@author：作者。<br />
+•@description：脚本描述。<br />
+•@homepage, @homepageURL, @website，@source：作者主页，用于在Tampermonkey选项页面上从脚本名称点击跳转。请注意，如果 @namespace 标记以 http://开头，此处也要一样。<br />
+•@icon, @iconURL and @defaulticon：低分辨率图标。<br />
+•@icon64 and @icon64URL：64x64 高分辨率图标。<br />
+•@updateURL：检查更新的网址，需要定义 @version。<br />
+•@downloadURL：更新下载脚本的网址，如果定义成 none 就不会检查更新。<br />
+•@supportURL：报告问题的网址。<br />
+•@include：生效页面，可以配置多个，但注意这里并不支持 URL Hash。例如：</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> @<span class="k">include</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">tampermonkey</span>.<span class="nv">net</span><span class="cm">/*</span>
+<span class="cm">// @include http://*</span>
+<span class="cm">// @include https://*</span>
+<span class="cm">// @include *</span>
+</pre></div>
+
+
+<p>•@match：约等于 @include 标签，可以配置多个。<br />
+•@exclude：不生效页面，可配置多个，优先级高于 @include 和 @match。<br />
+•@require：附加脚本网址，相当于引入外部的脚本，这些脚本会在自定义脚本执行之前执行，比如引入一些必须的库，如 jQuery 等，这里可以支持配置多个 @require 参数。例如：</p>
+<p>// @require https://code.jquery.com/jquery-2.1.4.min.js<br />
+// @require https://code.jquery.com/jquery-2.1.3.min.js#sha256=23456...<br />
+// @require https://code.jquery.com/jquery-2.1.2.min.js#md5=34567...,sha256=6789...</p>
+<p>•@resource：预加载资源，可通过 GM_getResourceURL 和 GM_getResourceText 读取。<br />
+•@connect：允许被 GM_xmlhttpRequest 访问的域名，每行一个。<br />
+•@run-at：脚本注入的时刻，如页面刚加载时，某个事件发生后等等。例如：<br />
+•document-start：尽可能地早执行此脚本。<br />
+•document-body：DOM 的 body 出现时执行。<br />
+•document-end：DOMContentLoaded 事件发生时或发生后后执行。<br />
+•document-idle：DOMContentLoaded 事件发生后执行，即 DOM 加载完成之后执行，这是默认的选项。<br />
+•context-menu：如果在浏览器上下文菜单（仅限桌面 Chrome 浏览器）中点击该脚本，则会注入该脚本。注意：如果使用此值，则将忽略所有 @include 和 @exclude 语句。<br />
+•@grant：用于添加 GM 函数到白名单，相当于授权某些 GM 函数的使用权限。例如：</p>
+<p>// @grant GM_setValue<br />
+// @grant GM_getValue<br />
+// @grant GM_setClipboard<br />
+// @grant unsafeWindow<br />
+// @grant window.close<br />
+// @grant window.focus<br />
+如果没有定义过 @grant 选项，Tampermonkey 会猜测所需要的函数使用情况。</p>
+<p>•@noframes：此标记使脚本在主页面上运行，但不会在 iframe 上运行。<br />
+•@nocompat：由于部分代码可能是专门为专门的浏览器所写，通过此标记，Tampermonkey 会知道脚本可以运行的浏览器。例如：</p>
+<p>// @nocompat Chrome<br />
+这样就指定了脚本只在 Chrome 浏览器中运行。</p>
+<p>除此之外，Tampermonkey 还定义了一些 API，使得我们可以方便地完成某个操作，如：</p>
+<p>•GM_log：将日志输出到控制台。<br />
+•GM_setValue：将参数内容保存到 Storage 中。<br />
+•GM_addValueChangeListener：为某个变量添加监听，当这个变量的值改变时，就会触发回调。<br />
+•GM_xmlhttpRequest：发起 Ajax 请求。<br />
+•GM_download：下载某个文件到磁盘。<br />
+•GM_setClipboard：将某个内容保存到粘贴板。</p>
+<p>参考：<br />
+https://mp.weixin.qq.com/s/r3MUVEPos2Rm5uKno8HysQ</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

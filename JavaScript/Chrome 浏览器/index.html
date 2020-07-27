@@ -1,0 +1,1363 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Chrome 浏览器 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Chrome 浏览器
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Chrome 浏览器</h1>
+                
+                <p>JavaScript<br />
+教程<br />
+https://wangdoc.com/javascript/index.html</p>
+<h2 id="_1"></h2>
+<p>Chrome<br />
+浏览器<br />
+控制台：<br />
+Option<br />
++<br />
+Command<br />
++<br />
+J<br />
+开发者工具：<br />
+Option<br />
++<br />
+Command<br />
++<br />
+I<br />
+执行代码：Enter<br />
+代码换行：Shift<br />
++<br />
+Enter</p>
+<h2 id="_2"></h2>
+<p>发展历程<br />
+XMLHttpRequest<br />
+允许<br />
+JavaScript<br />
+发出<br />
+HTTP<br />
+请求<br />
+JSON取代XML<br />
+Dojo<br />
+框架为不同浏览器提供了同一接口<br />
+Ajax<br />
+方法（Asynchronous<br />
+JavaScript<br />
+and<br />
+XML）<br />
+jQuery<br />
+操作网页<br />
+DOM<br />
+V8<br />
+编译器</p>
+<p>Node.js<br />
+服务器端编程<br />
+CoffeeScript<br />
+语法要比<br />
+JavaScript<br />
+简洁<br />
+PhoneGap<br />
+用于跨平台的应用程序开发<br />
+Chrome<br />
+OS<br />
+以浏览器为基础发展成的操作系统<br />
+NPM、BackboneJS<br />
+和<br />
+RequireJS<br />
+进入模块化开发的时代<br />
+Google<br />
+Dart语言<br />
+单页面应用程序框架（single-page<br />
+app<br />
+framework）AngularJS、Ember<br />
+微软TypeScript<br />
+asm.js</p>
+<p>WinJS<br />
+JavaScript<br />
+的<br />
+Windows<br />
+库</p>
+<p>Facebook</p>
+<p>React<br />
+Native<br />
+Angular<br />
+可以用来开发手机<br />
+App<br />
+Google<br />
+Polymer<br />
+ECMAScript<br />
+6<br />
+WebAssembly<br />
+中间码格式</p>
+<p>ECMAScript<br />
+和<br />
+JavaScript<br />
+的关系<br />
+前者是后者的规格，后者是前者的一种实现</p>
+<h2 id="_3"></h2>
+<p>变量<br />
+语句和表达式的区别<br />
+语句主要为了进行某种操作，一般情况下不需要返回值；<br />
+表达式则是为了得到返回值</p>
+<p>变量是对“值”的具名引用</p>
+<p>变量提升（hoisting）<br />
+JavaScript<br />
+引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。<br />
+这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">//</span>
+<span class="kc">undefined</span>
+<span class="kd">var</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="mi">1</span><span class="p">;</span>
+</pre></div>
+
+
+<p>对于var命令来说，JavaScript<br />
+的区块不构成单独的作用域（scope）</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+
+
+
+
+<span class="kd">var</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">//</span>
+<span class="mi">1</span>
+</pre></div>
+
+
+<p>赋值表达式（=）<br />
+严格相等运算符（===）<br />
+相等运算符（==）</p>
+<h2 id="_4"></h2>
+<p>基本数据类型<br />
+6种<br />
+数值（number）<br />
+字符串（string）<br />
+布尔值（boolean）<br />
+对象（object）:<br />
+狭义的对象（object）、数组（array）、函数（function）<br />
+未定义（undefined）<br />
+空值（null）</p>
+<p>查看值类型<br />
+typeof<br />
+instanceof<br />
+Object.prototype.toString</p>
+<h2 id="_5"></h2>
+<p>布尔值<br />
+布尔值false:<br />
+undefined<br />
+null<br />
+false<br />
+0<br />
+NaN</p>
+<p>""或''（空字符串）</p>
+<p>布尔值true：<br />
+空数组（[]）和空对象（{}）</p>
+<h2 id="_6"></h2>
+<p>数值<br />
+JavaScript<br />
+内部，所有数字都是以64位浮点数形式储存，即使整数也是如此<br />
+JavaScript<br />
+对15位的十进制数都可以精确处理。<br />
+NaN<br />
+“非数字”（Not<br />
+a<br />
+Number）唯一不等于自身的值<br />
+Infinity<br />
+“无穷”</p>
+<p>类型转换，进制转换<br />
+parseInt()</p>
+<p>parseFloat()<br />
+isNaN()<br />
+isFinite()</p>
+<h2 id="_7"></h2>
+<p>字符串<br />
+约定<br />
+JavaScript<br />
+语言的字符串只使用单引号<br />
+字符串可以被视为字符数组</p>
+<p>base64<br />
+atob()<br />
+//ASCII<br />
+to<br />
+Base64<br />
+btoa()<br />
+//Base64<br />
+to<br />
+ASCII<br />
+不适合非<br />
+ASCII<br />
+码的字符</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span>
+<span class="nx">b64Encode</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="k">return</span>
+<span class="nx">btoa</span><span class="p">(</span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">function</span>
+<span class="nx">b64Decode</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="k">return</span>
+<span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_8"></h2>
+<p>对象<br />
+判断一下，某个属性是否为对象自身的属性</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">person</span>
+<span class="o">=</span>
+<span class="p">{</span>
+
+
+
+
+<span class="nx">name</span><span class="o">:</span>
+<span class="s1">&#39;老张&#39;</span>
+<span class="p">};</span>
+
+<span class="k">for</span>
+<span class="p">(</span><span class="kd">var</span>
+<span class="nx">key</span>
+<span class="k">in</span>
+<span class="nx">person</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+
+
+<span class="k">if</span>
+<span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span>
+<span class="p">{</span>
+
+
+
+
+
+
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+
+
+
+
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_9"></h2>
+<p>函数<br />
+函数的表达式需要在语句的结尾加上分号，表示语句结束。<br />
+而函数的声明在结尾的大括号后面不用加分号</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">add</span>
+<span class="o">=</span>
+<span class="k">new</span>
+<span class="nb">Function</span><span class="p">(</span>
+
+
+<span class="s1">&#39;x&#39;</span><span class="p">,</span>
+
+
+<span class="s1">&#39;y&#39;</span><span class="p">,</span>
+
+
+<span class="s1">&#39;return</span>
+<span class="s1">x</span>
+<span class="s1">+</span>
+<span class="s1">y&#39;</span>
+<span class="p">);</span>
+
+<span class="c1">//</span>
+<span class="nx">等同于</span>
+<span class="kd">function</span>
+<span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span>
+<span class="nx">y</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="k">return</span>
+<span class="nx">x</span>
+<span class="o">+</span>
+<span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>第一等公民</p>
+<p>JavaScript<br />
+语言将函数看作一种值，与其它值（数值、字符串、布尔值等等）地位相同</p>
+<p>多行字符串</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">multiline</span>
+<span class="o">=</span>
+<span class="kd">function</span>
+<span class="p">(</span><span class="nx">fn</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="kd">var</span>
+<span class="nx">arr</span>
+<span class="o">=</span>
+<span class="nx">fn</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
+
+
+<span class="k">return</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">length</span>
+<span class="o">-</span>
+<span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">function</span>
+<span class="nx">f</span><span class="p">()</span>
+<span class="p">{</span><span class="cm">/*</span>
+
+
+<span class="cm">这是一个</span>
+
+
+<span class="cm">多行注释</span>
+<span class="cm">*/</span><span class="p">}</span>
+
+<span class="nx">multiline</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+<span class="c1">//</span>
+<span class="s2">&quot;</span>
+<span class="s2">这是一个</span>
+<span class="s2">//</span>
+
+
+<span class="s2">多行注释&quot;</span>
+</pre></div>
+
+
+<p>作用域（scope）<br />
+全局作用域<br />
+函数作用域</p>
+<p>函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。</p>
+<p>传递方式</p>
+<p>传值传递（passes<br />
+by<br />
+value）<br />
+传址传递（pass<br />
+by<br />
+reference）</p>
+<p>arguments对象包含了函数运行时的所有参数</p>
+<p>转为数组</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">args</span>
+<span class="o">=</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+
+<span class="c1">//</span>
+<span class="nx">或者</span>
+<span class="kd">var</span>
+<span class="nx">args</span>
+<span class="o">=</span>
+<span class="p">[];</span>
+<span class="k">for</span>
+<span class="p">(</span><span class="kd">var</span>
+<span class="nx">i</span>
+<span class="o">=</span>
+<span class="mi">0</span><span class="p">;</span>
+<span class="nx">i</span>
+<span class="o">&lt;</span>
+<span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>闭包（closure）<br />
+"链式作用域"结构（chain<br />
+scope）<br />
+子对象会一级一级地向上寻找所有父对象的变量</p>
+<p>闭包简单理解成“定义在一个函数内部的函数”<br />
+闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+<p>立即调用的函数表达式”（Immediately-Invoked<br />
+Function<br />
+Expression），简称<br />
+IIFE</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="cm">/*</span>
+<span class="cm">code</span>
+<span class="cm">*/</span>
+<span class="p">}());</span>
+<span class="c1">//</span>
+<span class="nx">或者</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="cm">/*</span>
+<span class="cm">code</span>
+<span class="cm">*/</span>
+<span class="p">})();</span>
+</pre></div>
+
+
+<p>匿名函数<br />
+一是不必为函数命名，避免了污染全局变量；<br />
+二是<br />
+IIFE<br />
+内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。</p>
+<h2 id="_10"></h2>
+<p>数组<br />
+本质上，数组属于一种特殊的对象<br />
+数组的数字键不需要连续，length属性的值总是比最大的那个整数键大1</p>
+<p>不推荐使用for...in遍历数组<br />
+for...in不仅会遍历数组所有的数字键，还会遍历非数字键</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span>
+<span class="mi">2</span><span class="p">,</span>
+<span class="mi">3</span><span class="p">];</span>
+
+<span class="c1">//</span>
+<span class="nx">for循环</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span>
+<span class="nx">i</span>
+<span class="o">=</span>
+<span class="mi">0</span><span class="p">;</span>
+<span class="nx">i</span>
+<span class="o">&lt;</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>空位就是数组没有这个元素，所以不会被遍历到，<br />
+而undefined则表示数组有这个元素，值是undefined，所以遍历不会跳过</p>
+<div class="codehilite"><pre><span></span><span class="c1">//</span>
+<span class="kd">var</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="p">[,</span>
+<span class="p">,</span>
+<span class="p">,];</span>
+
+<span class="kd">var</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="p">[</span><span class="kc">undefined</span><span class="p">,</span>
+<span class="kc">undefined</span><span class="p">,</span>
+<span class="kc">undefined</span><span class="p">];</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span>
+<span class="p">(</span><span class="nx">x</span><span class="p">,</span>
+<span class="nx">i</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span>
+<span class="o">+</span>
+<span class="s1">&#39;.</span>
+<span class="s1">&#39;</span>
+<span class="o">+</span>
+<span class="nx">x</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">//</span>
+<span class="mf">0.</span>
+<span class="kc">undefined</span>
+<span class="c1">//</span>
+<span class="mf">1.</span>
+<span class="kc">undefined</span>
+<span class="c1">//</span>
+<span class="mf">2.</span>
+<span class="kc">undefined</span>
+
+<span class="k">for</span>
+<span class="p">(</span><span class="kd">var</span>
+<span class="nx">i</span>
+<span class="k">in</span>
+<span class="nx">a</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//</span>
+<span class="mi">0</span>
+<span class="c1">//</span>
+<span class="mi">1</span>
+<span class="c1">//</span>
+<span class="mi">2</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="c1">//</span>
+<span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;2&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>类似数组的对象（array-like<br />
+object）<br />
+将“类似数组的对象”变成真正的数组。</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">arr</span>
+<span class="o">=</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arrayLike</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="_11"></h2>
+<p>运算符<br />
+相加“重载”（overload）：一个运算子是字符串，另一个运算子是非字符串，这时非字符串会转成字符串，再连接在一起<br />
+除了加法运算符，其他算术运算符（比如减法、除法和乘法）都不会发生重载。<br />
+它们的规则是：所有运算子一律转为数值，再进行相应的数学运算</p>
+<p>对象的相加<br />
+首先，自动调用对象的valueOf方法</p>
+<p>如果运算子是一个Date对象的实例，那么会优先执行toString方法</p>
+<p>运算之后，变量的值发生变化，这种效应叫做运算的副作用（side<br />
+effect）</p>
+<p>严格相等运算符比较的是地址</p>
+<p>只通过第一个表达式的值，控制是否运行第二个表达式的机制，就称为“短路”（short-cut）</p>
+<p>void(0)<br />
+主要用途是浏览器的书签工具（Bookmarklet），以及在超级链接中插入代码防止网页跳转。</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span>
+<span class="na">href</span><span class="o">=</span><span class="s">&quot;javascript:</span>
+<span class="s">void(0);&quot;</span><span class="p">&gt;</span>文字<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>建议总是使用圆括号，保证运算顺序清晰可读</p>
+<h2 id="_12"></h2>
+<p>类型转换<br />
+parseInt逐个解析字符，<br />
+而Number函数整体转换字符串的类型<br />
+String<br />
+Boolean</p>
+<p>由于自动转换具有不确定性，而且不易除错，<br />
+建议在预期为布尔值、数值、字符串的地方，全部使用Boolean、Number和String函数进行显式转换</p>
+<h2 id="_13"></h2>
+<p>自定义错误</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span>
+<span class="nx">UserError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="k">this</span><span class="p">.</span><span class="nx">message</span>
+<span class="o">=</span>
+<span class="nx">message</span>
+<span class="o">||</span>
+<span class="s1">&#39;默认信息&#39;</span><span class="p">;</span>
+
+
+<span class="k">this</span><span class="p">.</span><span class="nx">name</span>
+<span class="o">=</span>
+<span class="s1">&#39;UserError&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">UserError</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="o">=</span>
+<span class="k">new</span>
+<span class="nb">Error</span><span class="p">();</span>
+<span class="nx">UserError</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span>
+<span class="o">=</span>
+<span class="nx">UserError</span><span class="p">;</span>
+
+<span class="k">new</span>
+<span class="nx">UserError</span><span class="p">(</span><span class="s1">&#39;这是自定义的错误！&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>throw语句的作用是手动中断程序执行，抛出一个错误</p>
+<p>分号的自动添加”（Automatic<br />
+Semicolon<br />
+Insertion，简称<br />
+ASI）</p>
+<h2 id="_14"></h2>
+<p>Object<br />
+对象<br />
+实例方法就是定义在Object原型对象Object.prototype上的方法</p>
+<p>获取属性<br />
+Object.keys()，<br />
+Object.getOwnPropertyNames()</p>
+<p>判断这个值的类型<br />
+Object.prototype.toString.call(value)</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">type</span>
+<span class="o">=</span>
+<span class="kd">function</span>
+<span class="p">(</span><span class="nx">o</span><span class="p">){</span>
+
+
+<span class="kd">var</span>
+<span class="nx">s</span>
+<span class="o">=</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
+
+
+<span class="k">return</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="err">/\[object</span>
+<span class="p">(.</span><span class="o">*?</span><span class="p">)</span><span class="err">\</span><span class="p">]</span><span class="o">/</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="p">[</span><span class="s1">&#39;Null&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Undefined&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Object&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Array&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;String&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Number&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Boolean&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Function&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;RegExp&#39;</span>
+<span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span>
+<span class="p">(</span><span class="nx">t</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="nx">type</span><span class="p">[</span><span class="s1">&#39;is&#39;</span>
+<span class="o">+</span>
+<span class="nx">t</span><span class="p">]</span>
+<span class="o">=</span>
+<span class="kd">function</span>
+<span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+
+
+<span class="k">return</span>
+<span class="nx">type</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+<span class="o">===</span>
+<span class="nx">t</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+
+
+<span class="p">};</span>
+<span class="p">});</span>
+
+<span class="nx">type</span><span class="p">.</span><span class="nx">isObject</span><span class="p">({})</span>
+<span class="c1">//</span>
+<span class="kc">true</span>
+<span class="nx">type</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span>
+<span class="c1">//</span>
+<span class="kc">true</span>
+<span class="nx">type</span><span class="p">.</span><span class="nx">isRegExp</span><span class="p">(</span><span class="sr">/abc/</span><span class="p">)</span>
+<span class="c1">//</span>
+<span class="kc">true</span>
+</pre></div>
+
+
+<p>Object.getOwnPropertyDescriptor()方法可以获取属性描述对象<br />
+Object.keys只返回对象自身的可遍历属性的全部属性名<br />
+Object.getOwnPropertyNames会将它们都返回<br />
+Object.defineProperty()方法允许通过属性描述对象，定义或修改一个属性，然后返回修改后的对象</p>
+<p>Object.prototype.valueOf()<br />
+Object.prototype.toString()</p>
+<p>包装对象<br />
+原始类型：数值、字符串、布尔值<br />
+包装对象：Number、String、Boolean</p>
+<p>Math数学功能</p>
+<p>随机整数</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span>
+<span class="nx">getRandomInt</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span>
+<span class="nx">max</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+<span class="k">return</span>
+<span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span>
+<span class="o">*</span>
+<span class="p">(</span><span class="nx">max</span>
+<span class="o">-</span>
+<span class="nx">min</span>
+<span class="o">+</span>
+<span class="mi">1</span><span class="p">))</span>
+<span class="o">+</span>
+<span class="nx">min</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">getRandomInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
+<span class="mi">6</span><span class="p">)</span>
+<span class="c1">//</span>
+<span class="mi">5</span>
+</pre></div>
+
+
+<p>RegExp<br />
+RegExp.prototype.test()<br />
+RegExp.prototype.exec()</p>
+<p>JSON<br />
+JSON.stringify()<br />
+JSON.parse()</p>
+<p>this<br />
+指代函数当前的运行环境</p>
+<p>'use<br />
+strict'声明采用严格模式，<br />
+这时内部的this一旦指向顶层对象，就会报错。</p>
+<p>call方法可以改变this的指向<br />
+Function.prototype.call()<br />
+接受多个参数<br />
+Function.prototype.apply()<br />
+接收一个数组</p>
+<p>将函数体内的this绑定到某个对象，然后返回一个新函数<br />
+Function.prototype.bind()</p>
+<p>继承</p>
+<div class="codehilite"><pre><span></span><span class="c1">//</span>
+<span class="nx">父类</span>
+<span class="kd">function</span>
+<span class="nx">Shape</span><span class="p">()</span>
+<span class="p">{</span>
+
+
+
+
+<span class="k">this</span><span class="p">.</span><span class="nx">x</span>
+<span class="o">=</span>
+<span class="mi">0</span><span class="p">;</span>
+
+
+
+
+<span class="k">this</span><span class="p">.</span><span class="nx">y</span>
+<span class="o">=</span>
+<span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//</span>
+<span class="nx">父类方法</span>
+<span class="nx">Shape</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">move</span>
+<span class="o">=</span>
+<span class="kd">function</span>
+<span class="p">(</span><span class="nx">x</span><span class="p">,</span>
+<span class="nx">y</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+
+
+<span class="k">this</span><span class="p">.</span><span class="nx">x</span>
+<span class="o">+=</span>
+<span class="nx">x</span><span class="p">;</span>
+
+
+
+
+<span class="k">this</span><span class="p">.</span><span class="nx">y</span>
+<span class="o">+=</span>
+<span class="nx">y</span><span class="p">;</span>
+
+
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Shape</span>
+<span class="s1">moved.&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+
+<span class="c1">//</span>
+<span class="nx">子类</span>
+<span class="c1">//</span>
+<span class="nx">第一步</span><span class="err">，</span><span class="nx">子类继承父类的实例</span>
+<span class="kd">function</span>
+<span class="nx">Rectangle</span><span class="p">()</span>
+<span class="p">{</span>
+
+
+
+
+<span class="nx">Shape</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="c1">//</span>
+<span class="nx">调用父类构造函数</span>
+<span class="p">}</span>
+
+<span class="c1">//</span>
+<span class="nx">第二步</span><span class="err">，</span><span class="nx">子类继承父类的原型</span>
+<span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="o">=</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Shape</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span>
+<span class="o">=</span>
+<span class="nx">Rectangle</span><span class="p">;</span>
+
+<span class="kd">var</span>
+<span class="nx">rect</span>
+<span class="o">=</span>
+<span class="k">new</span>
+<span class="nx">Rectangle</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rect</span>
+<span class="k">instanceof</span>
+<span class="nx">Rectangle</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rect</span>
+<span class="k">instanceof</span>
+<span class="nx">Shape</span><span class="p">);</span>
+
+<span class="c1">//</span>
+<span class="kc">true</span>
+<span class="c1">//</span>
+<span class="kc">true</span>
+</pre></div>
+
+
+<p>Object.getPrototypeOf()<br />
+获取原型对象<br />
+Object.setPrototypeOf()<br />
+Object.create()<br />
+Object.getOwnPropertyNames<br />
+不包含继承的属性键名<br />
+Object.prototype.hasOwnProperty()<br />
+判断某个属性定义在对象自身</p>
+<p>取消当前所有的setTimeout定时器</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">gid</span>
+<span class="o">=</span>
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">clearAllTimeouts</span><span class="p">,</span>
+<span class="mi">0</span><span class="p">);</span>
+
+<span class="kd">function</span>
+<span class="nx">clearAllTimeouts</span><span class="p">()</span>
+<span class="p">{</span>
+
+
+
+
+<span class="kd">var</span>
+<span class="nx">id</span>
+<span class="o">=</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span>
+<span class="p">{},</span>
+<span class="mi">0</span><span class="p">);</span>
+
+
+
+
+<span class="k">while</span>
+<span class="p">(</span><span class="nx">id</span>
+<span class="o">&gt;</span>
+<span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+
+
+
+
+<span class="k">if</span>
+<span class="p">(</span><span class="nx">id</span>
+<span class="o">!==</span>
+<span class="nx">gid</span><span class="p">)</span>
+<span class="p">{</span>
+
+
+
+
+
+
+
+
+<span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+
+
+
+
+
+<span class="p">}</span>
+
+
+
+
+
+
+<span class="nx">id</span><span class="o">--</span><span class="p">;</span>
+
+
+
+
+<span class="p">}</span>
+
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>debounce（防抖动）</p>
+<div class="codehilite"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;textarea&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span>
+<span class="nx">debounce</span><span class="p">(</span><span class="nx">ajaxAction</span><span class="p">,</span>
+<span class="mi">2500</span><span class="p">));</span>
+
+<span class="kd">function</span>
+<span class="nx">debounce</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span>
+<span class="nx">delay</span><span class="p">){</span>
+
+
+<span class="kd">var</span>
+<span class="nx">timer</span>
+<span class="o">=</span>
+<span class="kc">null</span><span class="p">;</span>
+<span class="c1">//</span>
+<span class="nx">声明计时器</span>
+
+
+<span class="k">return</span>
+<span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+
+
+
+
+<span class="kd">var</span>
+<span class="nx">context</span>
+<span class="o">=</span>
+<span class="k">this</span><span class="p">;</span>
+
+
+
+
+<span class="kd">var</span>
+<span class="nx">args</span>
+<span class="o">=</span>
+<span class="nx">arguments</span><span class="p">;</span>
+
+
+
+
+<span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+
+
+
+
+<span class="nx">timer</span>
+<span class="o">=</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span>
+<span class="p">()</span>
+<span class="p">{</span>
+
+
+
+
+
+
+<span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span>
+<span class="nx">args</span><span class="p">);</span>
+
+
+
+
+<span class="p">},</span>
+<span class="nx">delay</span><span class="p">);</span>
+
+
+<span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>“文档对象模型”（Document<br />
+Object<br />
+Model）</p>
+<p>使用数组方法，可以将其转为真正的数组</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span>
+<span class="nx">children</span>
+<span class="o">=</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">;</span>
+<span class="kd">var</span>
+<span class="nx">nodeArr</span>
+<span class="o">=</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">children</span><span class="p">);</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

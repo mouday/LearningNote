@@ -1,0 +1,1119 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>ORM - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#orm" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                ORM
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#orm" class="md-nav__link">
+    ORM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    字段类型和参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    元数据Meta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模型类开发实例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelapi" class="md-nav__link">
+    ModelAPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querysetapi" class="md-nav__link">
+    返回新的QuerySet的API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querysetapi_1" class="md-nav__link">
+    不返回QuerySet的API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fq" class="md-nav__link">
+    F对象和Q对象
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>ORM</h1>
+                
+                <h2 id="orm">ORM</h2>
+<p>Object-Relational Mapping</p>
+<p>对应关系</p>
+<div class="codehilite"><pre><span></span><span class="n">ORM</span>   <span class="n">DB</span>
+<span class="err">类</span>    <span class="err">数据表</span>
+<span class="err">对象</span>  <span class="err">数据行</span>
+<span class="err">属性</span>  <span class="err">字段</span>
+</pre></div>
+
+
+<p>ORM提高开发效率，降低了执行效率</p>
+<p>Flask - Sqlalchemy</p>
+<p>$ python manage.py migrate</p>
+<h2 id="_1">字段类型和参数</h2>
+<p>1、字段类型</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">自增长</span> <span class="err">默认</span><span class="nb">int</span>
+
+<span class="n">Auto</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="n">BigAuto</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">BigAutoField</span><span class="p">()</span>
+
+<span class="o">#</span> <span class="err">二进制</span>
+<span class="nb">Binary</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">BinaryField</span><span class="p">()</span>
+
+<span class="o">#</span> <span class="err">布尔</span>
+<span class="nb">Boolean</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">BooleanField</span><span class="p">()</span>
+<span class="n">NullBoolean</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">NullBooleanField</span><span class="p">()</span>
+
+<span class="o">#</span> <span class="err">整型</span>
+<span class="n">PositiveSmallInteger</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">PositiveSmallIntegerField</span><span class="p">()</span>  <span class="o">#</span> <span class="mi">5</span><span class="err">字节</span>
+<span class="n">SmallInteger</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">SmallIntegerField</span><span class="p">()</span>  <span class="o">#</span> <span class="mi">6</span><span class="err">字节</span>
+<span class="n">PositiveInteger</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">PositiveIntegerField</span><span class="p">()</span>  <span class="o">#</span> <span class="mi">10</span><span class="err">字节</span>
+<span class="nb">Integer</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">IntegerField</span><span class="p">()</span>  <span class="o">#</span> <span class="mi">11</span><span class="err">字节</span>
+<span class="n">BigInteger</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">BigIntegerField</span><span class="p">()</span>  <span class="o">#</span> <span class="mi">20</span><span class="err">字节</span>
+
+<span class="o">#</span> <span class="err">字符串</span>
+<span class="nb">Char</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">()</span>  <span class="o">#</span> <span class="nb">varchar</span>
+<span class="nb">Text</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">TextField</span><span class="p">()</span>  <span class="o">#</span> <span class="n">longtext</span>
+
+<span class="o">#</span> <span class="err">时间日期</span>
+<span class="nb">Date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateField</span><span class="p">()</span>
+<span class="n">DateTime</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+<span class="n">Duration</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DurationField</span><span class="p">()</span>  <span class="o">#</span> <span class="nb">int</span> <span class="n">python</span> <span class="n">timedelta实现</span>
+
+<span class="o">#</span> <span class="err">浮点型</span>
+<span class="nb">Float</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">FloatField</span><span class="p">()</span>
+<span class="nb">Decimal</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DecimalField</span><span class="p">()</span>
+
+<span class="o">#</span> <span class="err">其他</span>
+<span class="n">Email</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">EmailField</span><span class="p">()</span>  <span class="o">#</span> <span class="err">邮箱</span>
+<span class="n">Image</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ImageField</span><span class="p">()</span>
+<span class="n">File</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">FileField</span><span class="p">()</span>
+<span class="n">FilePath</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">FilePathField</span><span class="p">()</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">URLField</span><span class="p">()</span>
+<span class="n">UUID</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">UUIDField</span><span class="p">()</span>
+<span class="n">GenericIPAddress</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">GenericIPAddressField</span><span class="p">()</span>
+</pre></div>
+
+
+<p>2、关系型字段<br />
+一对一 OneToOneField<br />
+多对一 ForeignKey<br />
+多对对 ManyToManyField 默认或自定义中间表</p>
+<p>3、字段类型参数<br />
+默认表名<br />
+应用_模型类名小写<br />
+eg: app_student</p>
+<p>（1）所有字段都有的参数</p>
+<p>db_column="name"  指定数据库字段名<br />
+verbose_name="别名"<br />
+help_text="表单说明"</p>
+<p>primary_key=True  设置主键<br />
+unique=True       唯一键<br />
+null=True         数据库允许为空，默认都是不能为null的<br />
+blank=True    前端提交表单允许为空<br />
+db_index=True 建立索引<br />
+editable=False 不允许编辑字段</p>
+<p>（2）个别字段的参数<br />
+CharField<br />
+    max_length=100 最大长度</p>
+<p>DateField、DateTime<br />
+    unique_for_date=True 日期必须唯一<br />
+    unique_for_month=True 月份唯一<br />
+    auto_now=True       自动更新记录时间<br />
+    auto_now_add=True   自动增加记录时间</p>
+<p>DecimalField<br />
+    max_digits=4   总位数<br />
+    decimal_places=2 小数点数<br />
+    eg: 11.22 16.34</p>
+<p>（3）关系型字段参数<br />
+OneToOneField<br />
+    related_name="one"  父表查字表数据</p>
+<p>ForeignKey<br />
+    on_delete=""  外键所关联的对象被删除时进行的操作<br />
+        CASCADE： 级联删除。将定义有外键的模型对象同时删除， 默认操作<br />
+        PROTECT： 阻止删除。会报完整性错误。<br />
+        DO_NOTHING：什么也不做<br />
+        SET_NULL：外键设置为 null，前提是 null=True, blank=True。<br />
+        SET_DEFAULT：设置为外键的默认值，前提是设置了default参数。<br />
+        SET()：会调用外面的值，可以是一个函数。一般情况下使用 CASCADE 就可以了。<br />
+eg:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span>
+    <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">DO_NOTHING</span><span class="p">)</span>
+    <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">SET_NULL</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">SET_DEFAULT</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">SET</span><span class="p">)</span>
+</pre></div>
+
+
+<p>4、自关联</p>
+<p>示例：地址 省-市-县 级联</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">AddressInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;地址&quot;</span><span class="p">)</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;自关联&quot;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">SET_NULL</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span>
+</pre></div>
+
+
+<h2 id="meta">元数据Meta</h2>
+<p>修改应用名称<br />
+apps.py</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">OrmdemoConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;ormdemo&#39;</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;应用名称&quot;</span>
+</pre></div>
+
+
+<p>修改model元数据</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">AddressInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;地址&quot;</span><span class="p">)</span>
+    <span class="n">note</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;说明&quot;</span><span class="p">)</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;self&quot;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;自关联&quot;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">SET_NULL</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s2">&quot;address&quot;</span>  <span class="c1"># 自定义表名</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pid_id&quot;</span><span class="p">]</span>  <span class="c1"># 指定排序字段</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;地址&quot;</span>  <span class="c1"># 单数</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">verbose_name</span>  <span class="c1"># 复数</span>
+        <span class="n">abstract</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c1"># 设置为基类</span>
+        <span class="n">permissions</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;定义好的权限&quot;</span><span class="p">,</span> <span class="s2">&quot;权限说明&quot;</span><span class="p">),)</span>
+        <span class="n">managed</span> <span class="o">=</span> <span class="bp">False</span>  <span class="c1"># 按照Django默认方式管理数据表</span>
+        <span class="n">unique_together</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;address&quot;</span><span class="p">,</span> <span class="s2">&quot;note&quot;</span><span class="p">)</span>  <span class="c1"># 联合唯一键，单元组或多元组</span>
+        <span class="n">app_label</span> <span class="o">=</span> <span class="s2">&quot;ormdemo&quot;</span>  <span class="c1"># 定义模型类属于哪个应用</span>
+        <span class="n">db_tablespace</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># 定义数据库表空间</span>
+</pre></div>
+
+
+<h2 id="_2">模型类开发实例</h2>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">讲师 - 助教 一对一</span>
+<span class="sd">讲师 - 课程表 一对多</span>
+<span class="sd">课程表 - 学生 多对多</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Teacher</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;讲师信息表&quot;&quot;&quot;</span>
+    <span class="n">nickname</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;昵称&quot;</span><span class="p">)</span>
+    <span class="n">introduction</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;这位同学很懒，木有签名的说~&quot;</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;简介&quot;</span><span class="p">)</span>
+    <span class="n">fans</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;粉丝数&quot;</span><span class="p">)</span>
+
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;讲师信息表&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">verbose_name</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nickname</span>
+
+
+<span class="k">class</span> <span class="nc">Course</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;课程信息表&quot;&quot;&quot;</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;课程名&quot;</span><span class="p">)</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;其他&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;实战课&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;免费课&quot;</span><span class="p">)),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;课程类型&quot;</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveSmallIntegerField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;价格&quot;</span><span class="p">)</span>
+    <span class="n">volume</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BigIntegerField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;销量&quot;</span><span class="p">)</span>
+    <span class="n">online</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;上线时间&quot;</span><span class="p">)</span>
+    <span class="c1"># 删除级联</span>
+    <span class="n">teacher</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Teacher</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;讲师&quot;</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;课程信息表&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">verbose_name</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;{self.get_type_display()}-{self.title}&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;学生信息表&quot;&quot;&quot;</span>
+    <span class="n">nickname</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;学生姓名&quot;</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveSmallIntegerField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;年龄&quot;</span><span class="p">)</span>
+    <span class="n">gender</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;保密&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;男&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;女&quot;</span><span class="p">)),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;性别&quot;</span><span class="p">)</span>
+    <span class="n">study_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;学习时长(h)&quot;</span><span class="p">)</span>
+    <span class="n">course</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Course</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;课程&quot;</span><span class="p">)</span>
+
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;学生信息表&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">verbose_name</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nickname</span>
+
+
+<span class="k">class</span> <span class="nc">TeacherAssistant</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;助教信息表&quot;&quot;&quot;</span>
+    <span class="n">nickname</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;昵称&quot;</span><span class="p">)</span>
+    <span class="n">hobby</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;爱好&quot;</span><span class="p">)</span>
+    <span class="c1"># 删除置空</span>
+    <span class="n">teacher</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">Teacher</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">SET_NULL</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;讲师&quot;</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;创建时间&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="s2">&quot;助教信息表&quot;</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">verbose_name</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nickname</span>
+</pre></div>
+
+
+<p>生成数据表</p>
+<div class="codehilite"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">makemigrations</span>   <span class="o">#</span> <span class="err">生成迁移文件</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>          <span class="o">#</span> <span class="err">执行迁移文件</span>
+</pre></div>
+
+
+<p>删除某个模型类的完整操作:<br />
+（1）在已创建的app下, 首先删除models.py中需要删除的模型类<br />
+（2）删除该模型类在迁移脚本migrations中的对应文件<br />
+（3）删除该项目在django_migrations中的对应记录<br />
+（4）删除数据库中对应的数据表</p>
+<p>导入数据<br />
+（1）django shell</p>
+<p>$ python manage.py shell</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">app.models</span> <span class="kn">import</span> <span class="n">Mode</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+
+
+<p>（2）脚本导入 </p>
+<div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="kn">import</span> <span class="nn">django</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># 导入项目配置</span>
+<span class="n">project_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">project_path</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DJANGO_SETTINGS_MODULE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mysite.settings&#39;</span>
+<span class="n">django</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">ormdemo.models</span> <span class="kn">import</span> <span class="n">Teacher</span><span class="p">,</span> <span class="n">Course</span><span class="p">,</span> <span class="n">Student</span><span class="p">,</span> <span class="n">TeacherAssistant</span>
+
+
+<span class="k">def</span> <span class="nf">import_data</span><span class="p">():</span>
+    <span class="c1"># 讲师数据 create</span>
+    <span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="n">introduction</span><span class="o">=</span><span class="s2">&quot;Python工程师&quot;</span><span class="p">,</span> <span class="n">fans</span><span class="o">=</span><span class="mi">666</span><span class="p">)</span>
+
+    <span class="c1"># 课程数据 bulk_create</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">Course</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;Python系列教程{i}&quot;</span><span class="p">,</span>
+               <span class="n">teacher</span><span class="o">=</span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;Jack&quot;</span><span class="p">),</span>
+               <span class="nb">type</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+               <span class="n">price</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+               <span class="n">volume</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">),</span>
+               <span class="n">online</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+               <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">bulk_create</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+    <span class="c1"># 学生数据 update_or_create</span>
+    <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">update_or_create</span><span class="p">(</span>
+        <span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">,</span>
+        <span class="n">defaults</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">58</span><span class="p">),</span>
+            <span class="s2">&quot;gender&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+            <span class="s2">&quot;study_time&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 正向添加</span>
+    <span class="c1"># 销量大于等于1000的课程</span>
+    <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">course</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">*</span><span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">volume__gte</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+
+    <span class="c1"># 反向添加</span>
+    <span class="c1"># 学习时间大于等于500小时的同学</span>
+    <span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Python系列教程1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">student_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">*</span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="n">study_time__gte</span><span class="o">=</span><span class="mi">500</span>
+    <span class="p">))</span>
+
+    <span class="c1"># 助教数据 get_or_create()</span>
+    <span class="n">TeacherAssistant</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+        <span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;助教1&quot;</span><span class="p">,</span>
+        <span class="n">defaults</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;hobby&quot;</span><span class="p">:</span> <span class="s2">&quot;慕课网学习&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;teacher&quot;</span><span class="p">:</span> <span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;Jack&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">import_data</span><span class="p">()</span>
+</pre></div>
+
+
+<p>（3）fixtures <br />
+Django serialization -&gt; model保存<br />
+python manage.py dumpdata &gt; data.json  # 导出数据<br />
+python manage.py loaddata data.json    # 导入数据</p>
+<p>（4）mysqldump<br />
+MySQL数据库导入导出数据</p>
+<p>(5)PyCharm<br />
+PyCharm自带的导入导出工具</p>
+<h2 id="modelapi">ModelAPI</h2>
+<p>1、查询，检索，过滤</p>
+<div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># 返回多个结果</span>
+<span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="err">返回一条结果</span>
+<span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fans__gte</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># 返回多个结果</span>
+</pre></div>
+
+
+<p>2、数据匹配大小写敏感</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 双下划线开头`__`</span>
+<span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fans__in</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">])</span>
+
+<span class="c1"># i开头表示大小写敏感</span>
+<span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname__icontains</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>3、结果切片、排序、链式查询</p>
+<div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-age&quot;</span><span class="p">)</span>  <span class="c1"># 负号表示降序</span>
+<span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fans__gte</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">)</span>  <span class="c1"># 查询集可以继续使用排序</span>
+</pre></div>
+
+
+<p>4、查看执行的原生SQL</p>
+<div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-nickname&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_teacher`.`nickname`, </span>
+<span class="sd">FROM `ormdemo_teacher` </span>
+<span class="sd">ORDER BY `ormdemo_teacher`.`nickname` DESC</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<h2 id="querysetapi">返回新的QuerySet的API</h2>
+<p>读操作大部分都返回</p>
+<p>1、第一类<br />
+all 全部<br />
+filter 过滤<br />
+order_by 排序<br />
+exclude  排除<br />
+reverse  逆序 需要在元数据中设置ordering<br />
+distinct 去重</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span>
+<span class="c1"># SELECT `ormdemo_student`.`nickname` </span>
+<span class="c1"># FROM `ormdemo_student` </span>
+<span class="c1"># WHERE NOT (`ormdemo_student`.`nickname` = A同学)</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">ELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE NOT (`ormdemo_student`.`nickname` = A同学)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>2、第二类<br />
+extra   别名<br />
+defer   排除一些字段<br />
+only    选择一些字段</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nickname&quot;</span><span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT (nickname) AS `name`, `ormdemo_student`.`nickname`, `ormdemo_student`.`age`</span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">only</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`, `ormdemo_student`.`age` FROM `ormdemo_student`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>3、第三类<br />
+values  获取字典形式<br />
+values_list 获取元组形式</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">)</span>
+<span class="c1"># &lt;QuerySet [{&#39;nickname&#39;: &#39;A同学&#39;, &#39;age&#39;: 54}, {&#39;nickname&#39;: &#39;B同学&#39;, &#39;age&#39;: 36}]&gt;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">)</span>
+<span class="c1"># &lt;QuerySet [(&#39;A同学&#39;, 54), (&#39;B同学&#39;, 36)]&gt;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values_list</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">,</span> <span class="n">flat</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># 单个字段返回列表</span>
+<span class="c1"># &lt;QuerySet [&#39;A同学&#39;, &#39;B同学&#39;]&gt;</span>
+</pre></div>
+
+
+<p>4、第四类<br />
+dates、datatimes根据时间日期获取查询集</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">dates</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT DISTINCT CAST(DATE_FORMAT(`ormdemo_student`.`created_at`, &#39;%Y-%m-01&#39;) AS DATE) AS `datefield` </span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`created_at` IS NOT NULL </span>
+<span class="sd">ORDER BY `datefield` ASC</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>5、第五类<br />
+union 并集<br />
+intersection 交集 需要数据库支持<br />
+difference 差集 需要数据库支持</p>
+<div class="codehilite"><pre><span></span><span class="n">ret1</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;同学A&quot;</span><span class="p">)</span>
+<span class="n">ret2</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;同学B&quot;</span><span class="p">)</span>
+<span class="n">ret1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">ret2</span><span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">(SELECT `ormdemo_student`.`nickname</span>
+<span class="s2">FROM `ormdemo_student` </span>
+<span class="s2">WHERE `ormdemo_student`.`nickname` = &#39;同学A&#39;) </span>
+<span class="s2">UNION </span>
+<span class="s2">(SELECT `ormdemo_student`.`nickname`</span>
+<span class="s2">FROM `ormdemo_student` </span>
+<span class="s2">WHERE `ormdemo_student`.`nickname` = &#39;同学B&#39;)  </span>
+<span class="s2">LIMIT 2</span>
+</pre></div>
+
+
+<p>6、第六类<br />
+select_related   一对一，多对一查询优化<br />
+prefetch_related  一对多，多对多查询优化</p>
+<div class="codehilite"><pre><span></span><span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s2">&quot;teacher&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> SELECT `ormdemo_course`.`title`,  `ormdemo_teacher`.`nickname`</span>
+<span class="sd"> FROM `ormdemo_course` </span>
+<span class="sd"> LEFT OUTER JOIN `ormdemo_teacher`</span>
+<span class="sd"> ON (`ormdemo_course`.`teacher_id` = `ormdemo_teacher`.`nickname`)  </span>
+<span class="sd"> LIMIT 21;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">prefetch_related</span><span class="p">(</span><span class="s2">&quot;course&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student`  LIMIT 21;</span>
+
+<span class="sd">SELECT (`ormdemo_student_course`.`student_id`) AS `_prefetch_related_val_student_id`, `ormdemo_course`.`title`</span>
+<span class="sd">FROM `ormdemo_course` </span>
+<span class="sd">INNER JOIN `ormdemo_student_course` </span>
+<span class="sd">ON (`ormdemo_course`.`title` = `ormdemo_student_course`.`course_id`) </span>
+<span class="sd">WHERE `ormdemo_student_course`.`student_id` IN (&#39;A同学&#39;, &#39;B同学&#39;, &#39;C同学&#39;, &#39;D同学&#39;);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>反向查询</p>
+<div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;Jack&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">course_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_teacher`.`nickname`</span>
+<span class="sd">FROM `ormdemo_teacher` </span>
+<span class="sd">WHERE `ormdemo_teacher`.`nickname` = &#39;Jack&#39;</span>
+
+<span class="sd">SELECT `ormdemo_course`.`title`</span>
+<span class="sd">FROM `ormdemo_course` </span>
+<span class="sd">WHERE `ormdemo_course`.`teacher_id` = &#39;Jack&#39;  </span>
+<span class="sd">LIMIT 21;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>7、第七类<br />
+annotate 聚合计数，求和，平均数，执行原生SQL（分组后的数据进行统计）</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Count</span><span class="p">,</span> <span class="n">Avg</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="n">Sum</span>
+
+<span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;teacher&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">vol</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_course`.`teacher_id`, SUM(`ormdemo_course`.`volume`) AS `vol` </span>
+<span class="sd">FROM `ormdemo_course` </span>
+<span class="sd">GROUP BY `ormdemo_course`.`teacher_id` </span>
+<span class="sd">ORDER BY NULL  LIMIT 21;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;teacher&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">pri</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_course`.`teacher_id`, AVG(`ormdemo_course`.`price`) AS `pri` </span>
+<span class="sd">FROM `ormdemo_course` </span>
+<span class="sd">GROUP BY `ormdemo_course`.`teacher_id` </span>
+<span class="sd">ORDER BY NULL  LIMIT 21;</span>
+<span class="sd"># order by null用途是强制对查询结果禁用排序</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<h2 id="querysetapi_1">不返回QuerySet的API</h2>
+<p>写操作都不返回结果集<br />
+1、获取对象<br />
+get, get_or_create, first, last, in_bulk<br />
+latest最近记录, earliest 最早记录 需要设置元数据get_latest_by</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span>  <span class="c1"># 返回多个会报错</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">ORDER BY `ormdemo_student`.`nickname` ASC  </span>
+<span class="sd">LIMIT 1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">ORDER BY `ormdemo_student`.`nickname` DESC  </span>
+<span class="sd">LIMIT 1;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">in_bulk</span><span class="p">([</span><span class="s2">&quot;A同学&quot;</span><span class="p">])</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` IN (&#39;A同学&#39;);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname</span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">ORDER BY `ormdemo_student`.`created_at` DESC  </span>
+<span class="sd">LIMIT 1;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">earliest</span><span class="p">()</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT `ormdemo_student`.`nickname</span>
+<span class="s2">FROM `ormdemo_student` </span>
+<span class="s2">ORDER BY `ormdemo_student`.`created_at` ASC  </span>
+<span class="s2">LIMIT 1;</span>
+</pre></div>
+
+
+<p>2、创建对象<br />
+create, bulk_create, update_or_create</p>
+<p>3、更新对象<br />
+update, update_or_create</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">UPDATE `ormdemo_student` </span>
+<span class="sd">SET `age` = 13 </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;; </span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>4、删除对象<br />
+delete 使用filter过滤</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname </span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;;</span>
+
+
+<span class="sd">DELETE FROM `ormdemo_student_course` </span>
+<span class="sd">WHERE `ormdemo_student_course`.`student_id` IN (&#39;A同学&#39;);</span>
+
+<span class="sd">DELETE FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` IN (&#39;A同学&#39;);</span>
+
+<span class="sd">(13, {&#39;ormdemo.Student_course&#39;: 12, &#39;ormdemo.Student&#39;: 1})</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>5、其他操作<br />
+exists, count, aggregate(整个数据表统计)</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;B同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT (1) AS `a` </span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;B同学&#39;  </span>
+<span class="sd">LIMIT 1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;B同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT COUNT(*) AS `__count` </span>
+<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;B同学&#39;; </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Max</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Min</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;volum&quot;</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT </span>
+<span class="sd">MAX(`ormdemo_course`.`price`) AS `price__max`, </span>
+<span class="sd">MIN(`ormdemo_course`.`price`) AS `price__min`, </span>
+<span class="sd">AVG(`ormdemo_course`.`price`) AS `price__avg`, </span>
+<span class="sd">SUM(`ormdemo_course`.`volume`) AS `volume__sum` </span>
+<span class="sd">FROM `ormdemo_course`;</span>
+
+<span class="sd">{&#39;price__max&#39;: 295, &#39;price__min&#39;: 210, &#39;price__avg&#39;: 250.75, &#39;volume__sum&#39;: 60559}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>自定义聚合查询（略）<br />
+group_contact</p>
+<h2 id="fq">F对象和Q对象</h2>
+<p>F对象 操作字段数据<br />
+Q对象 结合AND OR NOT | ~ &amp; 实现复杂查询</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">F</span><span class="p">,</span> <span class="n">Q</span>
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">UPDATE `ormdemo_student` SET `age` = (`ormdemo_student`.`age` + 3);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">age__gte</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">age__lte</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `ormdemo_student`.`nickname`</span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">WHERE (`ormdemo_student`.`age` &gt;= 1 AND `ormdemo_student`.`age` &lt;= 10) </span>
+<span class="sd">LIMIT 21;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

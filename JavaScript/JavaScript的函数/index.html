@@ -1,0 +1,1041 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>JavaScript的函数 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#javascript" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                JavaScript的函数
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="javascript">JavaScript的函数</h1>
+<p>函数不但是“头等公民”，而且可以像变量一样使用，具有非常强大的抽象能力<br />
+借助抽象，我们才能不关心底层的具体计算过程，而直接在更高的层次上思考问题。</p>
+<p>定义函数</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">abs</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">x</span><span class="c1">;</span>
+    } <span class="k">else</span> {
+        <span class="k">return</span> <span class="o">-</span><span class="nv">x</span><span class="c1">;</span>
+    }
+}
+
+<span class="o">//</span> 匿名函数
+<span class="nv">var</span> <span class="nv">abs</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">x</span><span class="c1">;</span>
+    } <span class="k">else</span> {
+        <span class="k">return</span> <span class="o">-</span><span class="nv">x</span><span class="c1">;</span>
+    }
+}<span class="c1">;  // 末尾加一个;，表示赋值语句结束</span>
+</pre></div>
+
+
+<p>如果没有return语句，返回结果为undefined</p>
+<p>JavaScript的函数也是一个对象，而函数名可以视为指向该函数的变量</p>
+<p>JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题，虽然函数内部并不需要这些参数</p>
+<div class="codehilite"><pre><span></span><span class="k">abs</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;blablabla&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="err">返回</span><span class="mi">10</span>
+<span class="k">abs</span><span class="p">();</span> <span class="o">//</span> <span class="err">返回</span><span class="n">NaN</span>
+</pre></div>
+
+
+<p>参数进行检查</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">abs</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">typeof</span> <span class="nv">x</span> <span class="o">!==</span> <span class="s1">&#39;</span><span class="s">number</span><span class="s1">&#39;</span><span class="ss">)</span> {
+        <span class="nv">throw</span> <span class="s1">&#39;</span><span class="s">Not a number</span><span class="s1">&#39;</span><span class="c1">;</span>
+    }
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">x</span><span class="c1">;</span>
+    } <span class="k">else</span> {
+        <span class="k">return</span> <span class="o">-</span><span class="nv">x</span><span class="c1">;</span>
+    }
+}
+</pre></div>
+
+
+<p>arguments：获得调用者传入的所有参数，类似Array但它不是一个Array</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">foo</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">x = </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">x</span><span class="ss">)</span><span class="c1">; // 10</span>
+    <span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;arguments.length; i++) {</span>
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">arg </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">i</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s"> = </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">arguments</span>[<span class="nv">i</span>]<span class="ss">)</span><span class="c1">; // 10, 20, 30</span>
+    }
+}
+
+<span class="nv">foo</span><span class="ss">(</span><span class="mi">10</span>, <span class="mi">20</span>, <span class="mi">30</span><span class="ss">)</span><span class="c1">;</span>
+</pre></div>
+
+
+<p>ES6标准引入了rest参数</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">...</span><span class="n">rest</span><span class="p">)</span> <span class="err">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;a = &#39;</span> <span class="o">+</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;b = &#39;</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">rest</span><span class="p">);</span>
+<span class="err">}</span>
+
+<span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="o">//</span> <span class="err">结果</span><span class="p">:</span>
+<span class="o">//</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">//</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">//</span> <span class="nb">Array</span> <span class="p">[</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
+</pre></div>
+
+
+<p>小心你的return语句</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">foo</span><span class="ss">()</span> {
+    <span class="k">return</span>
+        { <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">foo</span><span class="s1">&#39;</span> }<span class="c1">;</span>
+}
+
+<span class="nv">foo</span><span class="ss">()</span><span class="c1">; // undefined</span>
+
+<span class="o">//</span> 上面的代码实际上变成了
+<span class="nv">function</span> <span class="nv">foo</span><span class="ss">()</span> {
+    <span class="k">return</span><span class="c1">; // 自动添加了分号，相当于return undefined;</span>
+        { <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">foo</span><span class="s1">&#39;</span> }<span class="c1">; // 这行语句已经没法执行到了</span>
+}
+
+<span class="o">//</span> 所以正确的多行写法是
+<span class="nv">function</span> <span class="nv">foo</span><span class="ss">()</span> {
+    <span class="k">return</span> { <span class="o">//</span> 这里不会自动加分号，因为{表示语句尚未结束
+        <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">foo</span><span class="s1">&#39;</span>
+    }<span class="c1">;</span>
+}
+</pre></div>
+
+
+<h1 id="_1">变量作用域与解构赋值</h1>
+<p>在JavaScript中，用var申明的变量实际上是有作用域的</p>
+<p>在函数体内部申明的变量，作用域为整个函数体</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">foo</span><span class="p">()</span> <span class="err">{</span>
+    <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="err">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="o">//</span> <span class="n">ReferenceError</span><span class="o">!</span> <span class="err">无法在函数体外引用变量</span><span class="n">x</span>
+</pre></div>
+
+
+<p>由于JavaScript的函数可以嵌套，内部函数可以访问外部函数定义的变量，反过来则不行</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">foo</span><span class="p">()</span> <span class="err">{</span>
+    <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">function</span> <span class="n">bar</span><span class="p">()</span> <span class="err">{</span>
+        <span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span> <span class="n">bar可以访问foo的变量x</span><span class="o">!</span>
+    <span class="err">}</span>
+    <span class="n">var</span> <span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span> <span class="n">ReferenceError</span><span class="o">!</span> <span class="n">foo不可以访问bar的变量y</span><span class="o">!</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>JavaScript的函数在查找变量时从自身函数定义开始，从“内”向“外”查找。<br />
+如果内部函数定义了与外部函数重名的变量，则内部函数的变量将“屏蔽”外部函数的变量。</p>
+<p>变量提升<br />
+JavaScript的函数定义有个特点，它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">foo</span><span class="p">()</span> <span class="err">{</span>
+    <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, &#39;</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+<span class="err">}</span>
+
+<span class="n">foo</span><span class="p">();</span>
+
+<span class="o">//</span> <span class="err">相当于</span>
+<span class="k">function</span> <span class="n">foo</span><span class="p">()</span> <span class="err">{</span>
+    <span class="n">var</span> <span class="n">y</span><span class="p">;</span> <span class="o">//</span> <span class="err">提升变量</span><span class="n">y的申明</span><span class="err">，此时</span><span class="n">y为undefined</span>
+    <span class="n">var</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello, &#39;</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span><span class="p">;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>“在函数内部首先申明所有变量”这一规则。<br />
+最常见的做法是用一个var申明函数内部用到的所有变量</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">foo</span><span class="ss">()</span> {
+    <span class="nv">var</span>
+        <span class="nv">x</span> <span class="o">=</span> <span class="mi">1</span>, <span class="o">//</span> <span class="nv">x</span>初始化为<span class="mi">1</span>
+        <span class="nv">y</span> <span class="o">=</span> <span class="nv">x</span> <span class="o">+</span> <span class="mi">1</span>, <span class="o">//</span> <span class="nv">y</span>初始化为<span class="mi">2</span>
+        <span class="nv">z</span>, <span class="nv">i</span><span class="c1">; // z和i为undefined</span>
+    <span class="o">//</span> 其他语句:
+    <span class="k">for</span> <span class="ss">(</span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;100; i++) {</span>
+        ...
+    }
+}
+</pre></div>
+
+
+<p>全局作用域<br />
+不在任何函数内定义的变量就具有全局作用域。<br />
+实际上，JavaScript默认有一个全局对象window，全局作用域的变量实际上被绑定到window的一个属性</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">course</span> <span class="o">=</span> <span class="s1">&#39;Learn JavaScript&#39;</span><span class="p">;</span>
+<span class="n">alert</span><span class="p">(</span><span class="n">course</span><span class="p">);</span> <span class="o">//</span> <span class="s1">&#39;Learn JavaScript&#39;</span>
+<span class="n">alert</span><span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">course</span><span class="p">);</span> <span class="o">//</span> <span class="s1">&#39;Learn JavaScript&#39;</span>
+</pre></div>
+
+
+<p>名字空间<br />
+减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中。例如：</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> 唯一的全局变量<span class="nv">MYAPP</span>:
+<span class="nv">var</span> <span class="nv">MYAPP</span> <span class="o">=</span> {}<span class="c1">;</span>
+
+<span class="o">//</span> 其他变量:
+<span class="nv">MYAPP</span>.<span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">myapp</span><span class="s1">&#39;</span><span class="c1">;</span>
+<span class="nv">MYAPP</span>.<span class="nv">version</span> <span class="o">=</span> <span class="mi">1</span>.<span class="mi">0</span><span class="c1">;</span>
+
+<span class="o">//</span> 其他函数:
+<span class="nv">MYAPP</span>.<span class="nv">foo</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="s">foo</span><span class="s1">&#39;</span><span class="c1">;</span>
+}<span class="c1">;</span>
+</pre></div>
+
+
+<p>局部作用域</p>
+<p>JavaScript的变量作用域实际上是函数内部，<br />
+我们在for循环等语句块中是无法定义具有局部作用域的变量的：</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">foo</span><span class="ss">()</span> {
+    <span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;100; i++) {</span>
+        <span class="o">//</span>
+    }
+    <span class="nv">i</span> <span class="o">+=</span> <span class="mi">100</span><span class="c1">; // 仍然可以引用变量i</span>
+}
+</pre></div>
+
+
+<p>块级作用域</p>
+<p>ES6引入了新的关键字let，用let替代var可以申明一个块级作用域的变量</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">foo</span><span class="ss">()</span> {
+    <span class="nv">var</span> <span class="nv">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">;</span>
+    <span class="k">for</span> <span class="ss">(</span><span class="nv">let</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;100; i++) {</span>
+        <span class="nv">sum</span> <span class="o">+=</span> <span class="nv">i</span><span class="c1">;</span>
+    }
+    <span class="o">//</span> <span class="nv">SyntaxError</span>:
+    <span class="nv">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<p>常量</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="err">大写的变量表示</span>
+<span class="n">var</span> <span class="n">PI</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">ES6标准引入了新的关键字const来定义常量</span><span class="err">，</span><span class="n">const与let都具有块级作用域</span>
+<span class="n">const</span> <span class="n">PI</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">;</span>
+</pre></div>
+
+
+<p>解构赋值<br />
+从ES6开始，JavaScript引入了解构赋值，可以同时对一组变量进行赋值。</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="nt">把一个数组的元素分别赋值给几个变量</span><span class="err">：</span>
+<span class="nt">var</span> <span class="nt">array</span> <span class="o">=</span> <span class="cp">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;ES6&#39;</span><span class="cp">]</span><span class="o">;</span>
+
+<span class="nt">var</span> <span class="nt">x</span> <span class="o">=</span> <span class="nt">array</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="o">;</span>
+<span class="nt">var</span> <span class="nt">y</span> <span class="o">=</span> <span class="nt">array</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="o">;</span>
+<span class="nt">var</span> <span class="nt">z</span> <span class="o">=</span> <span class="nt">array</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="o">;</span>
+
+<span class="o">//</span> <span class="nt">ES6中</span><span class="err">，</span><span class="nt">可以使用解构赋值</span><span class="err">，</span><span class="nt">直接对多个变量同时赋值</span>
+<span class="nt">var</span> <span class="cp">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="cp">]</span> <span class="o">=</span> <span class="cp">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;ES6&#39;</span><span class="cp">]</span><span class="o">;</span>
+
+<span class="o">//</span> <span class="nt">忽略前两个元素</span><span class="err">，</span><span class="nt">只对z赋值第三个元素</span>
+<span class="nt">let</span> <span class="cp">[</span><span class="p">,</span> <span class="p">,</span> <span class="nx">z</span><span class="cp">]</span> <span class="o">=</span> <span class="cp">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;ES6&#39;</span><span class="cp">]</span><span class="o">;</span> 
+
+<span class="o">//</span> <span class="nt">对象解构赋值</span>
+<span class="nt">var</span> <span class="nt">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;小明&#39;</span><span class="p">,</span>
+    <span class="n">age</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="n">gender</span><span class="o">:</span> <span class="s1">&#39;male&#39;</span><span class="p">,</span>
+    <span class="n">passport</span><span class="o">:</span> <span class="s1">&#39;G-12345678&#39;</span><span class="p">,</span>
+    <span class="n">school</span><span class="o">:</span> <span class="s1">&#39;No.4 middle school&#39;</span>
+<span class="p">}</span><span class="o">;</span>
+<span class="nt">var</span> <span class="p">{</span><span class="err">name,</span> <span class="err">age,</span> <span class="err">passport</span><span class="p">}</span> <span class="o">=</span> <span class="nt">person</span><span class="o">;</span>
+
+<span class="o">//</span> <span class="nt">把passport属性赋值给变量id</span><span class="o">:</span>
+<span class="nt">let</span> <span class="p">{</span><span class="err">name,</span> <span class="n">passport</span><span class="p">:</span><span class="n">id</span><span class="p">}</span> <span class="o">=</span> <span class="nt">person</span><span class="o">;</span>
+
+<span class="o">//</span> <span class="nt">如果person对象没有single属性</span><span class="err">，</span><span class="nt">默认赋值为true</span><span class="o">:</span>
+<span class="nt">var</span> <span class="p">{</span><span class="err">name,</span> <span class="err">single=true</span><span class="p">}</span> <span class="o">=</span> <span class="nt">person</span><span class="o">;</span>
+
+<span class="o">//</span> <span class="nt">先声明变量再赋值</span>
+<span class="nt">var</span> <span class="nt">x</span><span class="o">,</span> <span class="nt">y</span><span class="o">;</span>
+
+<span class="o">//</span> <span class="nt">JavaScript引擎把</span><span class="p">{</span><span class="err">开头的语句当作了块处理，于是=不再合法，用小括号括起来</span>
+<span class="err">({x,</span> <span class="err">y</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;小明&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">:</span> <span class="mi">200</span><span class="p">}</span><span class="o">);</span>
+</pre></div>
+
+
+<p>使用场景</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> 交换两个变量<span class="nv">x</span>和<span class="nv">y</span>的值
+<span class="nv">var</span> <span class="nv">x</span><span class="o">=</span><span class="mi">1</span>, <span class="nv">y</span><span class="o">=</span><span class="mi">2</span><span class="c1">;</span>
+[<span class="nv">x</span>, <span class="nv">y</span>] <span class="o">=</span> [<span class="nv">y</span>, <span class="nv">x</span>]<span class="c1">;</span>
+
+<span class="o">//</span> 快速获取当前页面的域名和路径
+<span class="nv">var</span> {<span class="nv">hostname</span>:<span class="nv">domain</span>, <span class="nv">pathname</span>:<span class="nv">path</span>} <span class="o">=</span> <span class="nv">location</span><span class="c1">;</span>
+
+<span class="o">//</span> 函数接收一个对象作为参数
+<span class="nv">function</span> <span class="nv">buildDate</span><span class="ss">(</span>{<span class="nv">year</span>, <span class="nv">month</span>, <span class="nv">day</span>, <span class="nv">hour</span><span class="o">=</span><span class="mi">0</span>, <span class="nv">minute</span><span class="o">=</span><span class="mi">0</span>, <span class="nv">second</span><span class="o">=</span><span class="mi">0</span>}<span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">(</span><span class="nv">year</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">-</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">month</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">-</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">day</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">hour</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">:</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">minute</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">:</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">second</span><span class="ss">)</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<h1 id="_2">方法</h1>
+<p>对象的方法: 在对象中绑定函数</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>,
+    <span class="nv">birth</span>: <span class="mi">1990</span>,
+
+    <span class="nv">age</span>: <span class="nv">function</span> <span class="ss">()</span> {
+        <span class="nv">var</span> <span class="nv">y</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="k">return</span> <span class="nv">y</span> <span class="o">-</span> <span class="nv">this</span>.<span class="nv">birth</span><span class="c1">;</span>
+    }
+}<span class="c1">;</span>
+
+<span class="nv">xiaoming</span>.<span class="nv">age</span><span class="c1">; // function xiaoming.age()</span>
+<span class="nv">xiaoming</span>.<span class="nv">age</span><span class="ss">()</span><span class="c1">; // 今年调用是25,明年调用就变成26了</span>
+
+<span class="o">//</span> 拆开写
+<span class="nv">function</span> <span class="nv">getAge</span><span class="ss">()</span> {
+    <span class="nv">var</span> <span class="nv">y</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="k">return</span> <span class="nv">y</span> <span class="o">-</span> <span class="nv">this</span>.<span class="nv">birth</span><span class="c1">;</span>
+}
+
+<span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>,
+    <span class="nv">birth</span>: <span class="mi">1990</span>,
+    <span class="nv">age</span>: <span class="nv">getAge</span>
+}<span class="c1">;</span>
+
+<span class="nv">xiaoming</span>.<span class="nv">age</span><span class="ss">()</span><span class="c1">; // 25, 正常结果</span>
+<span class="nv">getAge</span><span class="ss">()</span><span class="c1">; // NaN</span>
+</pre></div>
+
+
+<p>在一个方法内部，this是一个特殊变量，它始终指向当前对象</p>
+<p>以对象.方法形式调用，比如xiaoming.age()，该函数的this指向被调用的对象<br />
+单独调用函数，比如getAge()，此时，该函数的this指向全局对象，也就是window。<br />
+在strict模式, 函数的this指向undefined</p>
+<p>内部嵌套使用this</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>,
+    <span class="nv">birth</span>: <span class="mi">1990</span>,
+    <span class="nv">age</span>: <span class="nv">function</span> <span class="ss">()</span> {
+        <span class="nv">var</span> <span class="nv">that</span> <span class="o">=</span> <span class="nv">this</span><span class="c1">; // 在方法内部一开始就捕获this</span>
+
+        <span class="nv">function</span> <span class="nv">getAgeFromBirth</span><span class="ss">()</span> {
+            <span class="nv">var</span> <span class="nv">y</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="nv">y</span> <span class="o">-</span> <span class="nv">that</span>.<span class="nv">birth</span><span class="c1">; // 用that而不是this</span>
+        }
+        <span class="k">return</span> <span class="nv">getAgeFromBirth</span><span class="ss">()</span><span class="c1">;</span>
+    }
+}<span class="c1">;</span>
+
+<span class="nv">xiaoming</span>.<span class="nv">age</span><span class="ss">()</span><span class="c1">; // 25</span>
+</pre></div>
+
+
+<p>apply指定this指向对象</p>
+<p>指定函数的this指向哪个对象，可以用函数本身的apply方法<br />
+第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">getAge</span><span class="ss">()</span> {
+    <span class="nv">var</span> <span class="nv">y</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="k">return</span> <span class="nv">y</span> <span class="o">-</span> <span class="nv">this</span>.<span class="nv">birth</span><span class="c1">;</span>
+}
+
+<span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>,
+    <span class="nv">birth</span>: <span class="mi">1990</span>,
+    <span class="nv">age</span>: <span class="nv">getAge</span>
+}<span class="c1">;</span>
+
+<span class="nv">xiaoming</span>.<span class="nv">age</span><span class="ss">()</span><span class="c1">; // 25</span>
+<span class="nv">getAge</span>.<span class="nv">apply</span><span class="ss">(</span><span class="nv">xiaoming</span>, []<span class="ss">)</span><span class="c1">; // 25, this指向xiaoming, 参数为空</span>
+</pre></div>
+
+
+<p>apply()把参数打包成Array再传入；<br />
+call()把参数按顺序传入。</p>
+<div class="codehilite"><pre><span></span><span class="n">Math</span><span class="p">.</span><span class="k">max</span><span class="p">.</span><span class="n">apply</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span> <span class="o">//</span> <span class="mi">5</span>
+<span class="n">Math</span><span class="p">.</span><span class="k">max</span><span class="p">.</span><span class="k">call</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="o">//</span> <span class="mi">5</span>
+</pre></div>
+
+
+<p>普通函数调用，我们通常把this绑定为null</p>
+<p>装饰器<br />
+利用apply()， 还可以动态改变函数的行为<br />
+eg:</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> 统计一下代码一共调用了多少次<span class="nv">parseInt</span><span class="ss">()</span>
+<span class="nv">var</span> <span class="nv">count</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">oldParseInt</span> <span class="o">=</span> <span class="nv">parseInt</span><span class="c1">; // 保存原函数</span>
+
+<span class="nv">window</span>.<span class="nv">parseInt</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+    <span class="nv">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="c1">;</span>
+    <span class="k">return</span> <span class="nv">oldParseInt</span>.<span class="nv">apply</span><span class="ss">(</span><span class="nv">null</span>, <span class="nv">arguments</span><span class="ss">)</span><span class="c1">; // 调用原函数</span>
+}<span class="c1">;</span>
+</pre></div>
+
+
+<p>非严格模式中：</p>
+<p>1.在全局环境中this始终指向window</p>
+<div class="codehilite"><pre><span></span><span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">this</span><span class="p">);</span> <span class="o">//</span><span class="n">window</span>
+</pre></div>
+
+
+<p>2.在普通方法内部，this指向他的调用者</p>
+<p>作为普通函数调用：</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">f</span><span class="ss">()</span>{
+    <span class="k">return</span> <span class="nv">this</span><span class="c1">;</span>
+}
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">f</span><span class="ss">())</span><span class="c1">; // window</span>
+</pre></div>
+
+
+<p>作为对象方法调用：</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">obj</span> <span class="o">=</span> {
+    <span class="nv">prop</span>: <span class="mi">37</span>,
+    <span class="nv">f</span>: <span class="nv">function</span><span class="ss">()</span>{
+        <span class="k">return</span> <span class="nv">this</span>.<span class="nv">prop</span><span class="c1">;</span>
+    }
+}
+
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">obj</span>.<span class="nv">f</span><span class="ss">())</span><span class="c1">; //37</span>
+</pre></div>
+
+
+<p>3.在箭头函数内部，this被设置为函数创建时，将函数用‘{ }’封闭的词法作用域中的this</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">obj</span> <span class="o">=</span> {
+    <span class="nv">prop</span>: <span class="mi">37</span>,
+    <span class="nv">f</span>: <span class="nv">function</span><span class="ss">()</span>{
+        <span class="k">return</span> <span class="ss">()</span> <span class="o">=&gt;</span> {<span class="k">return</span> <span class="nv">this</span>.<span class="nv">prop</span><span class="c1">; }</span>
+    }
+}
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">obj</span>.<span class="nv">f</span><span class="ss">()())</span><span class="c1">; //37</span>
+</pre></div>
+
+
+<p>在箭头函数创建时，被f函数的‘{ }’封闭，所以箭头函数的this指向f函数的this，<br />
+而作为对象方法被调用的f函数的this就是obj,因此箭头函数的this也是obj</p>
+<h1 id="higher-order-function">高阶函数Higher-order function</h1>
+<p>JavaScript的函数其实都指向某个变量。<br />
+既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">add</span><span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span>, <span class="nv">f</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">f</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> <span class="o">+</span> <span class="nv">f</span><span class="ss">(</span><span class="nv">y</span><span class="ss">)</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<p>map映射</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="k">map</span><span class="p">(</span><span class="n">String</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>reduce归约</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="mi">1</span>, <span class="mi">3</span>, <span class="mi">5</span>, <span class="mi">7</span>, <span class="mi">9</span>]<span class="c1">;</span>
+<span class="nv">arr</span>.<span class="nv">reduce</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">; // 25</span>
+</pre></div>
+
+
+<p>filter过滤</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> 在一个<span class="nv">Array</span>中，删掉偶数，只保留奇数，可以这么写
+
+<span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="mi">1</span>, <span class="mi">2</span>, <span class="mi">4</span>, <span class="mi">5</span>, <span class="mi">6</span>, <span class="mi">9</span>, <span class="mi">10</span>, <span class="mi">15</span>]<span class="c1">;</span>
+
+<span class="nv">var</span> <span class="nv">r</span> <span class="o">=</span> <span class="nv">arr</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+<span class="nv">r</span><span class="c1">; // [1, 5, 9, 15]</span>
+
+<span class="o">//</span> 回调函数，可以有多个参数
+<span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">A</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">B</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">C</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">r</span> <span class="o">=</span> <span class="nv">arr</span>.<span class="nv">filter</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">element</span>, <span class="nv">index</span>, <span class="nv">self</span><span class="ss">)</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">element</span><span class="ss">)</span><span class="c1">; // 依次打印&#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">index</span><span class="ss">)</span><span class="c1">; // 依次打印0, 1, 2</span>
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">self</span><span class="ss">)</span><span class="c1">; // self就是变量arr</span>
+    <span class="k">return</span> <span class="nv">true</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+</pre></div>
+
+
+<p>sort排序</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="mi">10</span>, <span class="mi">20</span>, <span class="mi">1</span>, <span class="mi">2</span>]<span class="c1">;</span>
+
+<span class="nv">arr</span>.<span class="nv">sort</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">x</span> <span class="o">&lt;</span> <span class="nv">y</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="c1">;</span>
+    }
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">x</span> <span class="o">&gt;</span> <span class="nv">y</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="mi">1</span><span class="c1">;</span>
+    }
+    <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">arr</span><span class="ss">)</span><span class="c1">; // [1, 2, 10, 20]</span>
+</pre></div>
+
+
+<p>every<br />
+判断数组的所有元素是否满足测试条件</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">Apple</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">pear</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">orange</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">arr</span>.<span class="nv">every</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">s</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">s</span>.<span class="nv">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="c1">;</span>
+}<span class="ss">))</span><span class="c1">; // true, 因为每个元素都满足s.length&gt;0</span>
+</pre></div>
+
+
+<p>find<br />
+用于查找符合条件的第一个元素，如果找到了，返回这个元素，否则，返回undefined</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">Apple</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">pear</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">orange</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">arr</span>.<span class="nv">find</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">s</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">s</span>.<span class="nv">toLowerCase</span><span class="ss">()</span> <span class="o">===</span> <span class="nv">s</span><span class="c1">;</span>
+}<span class="ss">))</span><span class="c1">; // &#39;pear&#39;, 因为pear全部是小写</span>
+</pre></div>
+
+
+<p>findIndex<br />
+查找符合条件的第一个元素，返回这个元素的索引，如果没有找到，返回-1</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">arr</span> <span class="o">=</span> [<span class="s1">&#39;</span><span class="s">Apple</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">pear</span><span class="s1">&#39;</span>, <span class="s1">&#39;</span><span class="s">orange</span><span class="s1">&#39;</span>]<span class="c1">;</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">arr</span>.<span class="nv">findIndex</span><span class="ss">(</span><span class="nv">function</span> <span class="ss">(</span><span class="nv">s</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">s</span>.<span class="nv">toLowerCase</span><span class="ss">()</span> <span class="o">===</span> <span class="nv">s</span><span class="c1">;</span>
+}<span class="ss">))</span><span class="c1">; // 1, 因为&#39;pear&#39;的索引是1</span>
+</pre></div>
+
+
+<p>forEach<br />
+它也把每个元素依次作用于传入的函数，但不会返回新的数组。<br />
+forEach()常用于遍历数组，因此，传入的函数不需要返回值</p>
+<div class="codehilite"><pre><span></span><span class="n">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">];</span>
+<span class="n">arr</span><span class="p">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">);</span> <span class="o">//</span> <span class="err">依次打印每个元素</span>
+</pre></div>
+
+
+<h1 id="_3">闭包</h1>
+<p>函数作为返回值<br />
+高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回</p>
+<p>闭包（Closure）内部函数引用外部函数的参数和局部变量，<br />
+当返回函数时，相关参数和变量都保存在返回的函数中(夹带私货)</p>
+<p>返回闭包时牢记的一点:<br />
+返回函数不要引用任何循环变量，或者后续会发生变化的变量</p>
+<p>利用闭包创建新的函数</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">make_pow</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">function</span> <span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">Math</span>.<span class="nv">pow</span><span class="ss">(</span><span class="nv">x</span>, <span class="nv">n</span><span class="ss">)</span><span class="c1">;</span>
+    }
+}
+
+<span class="o">//</span> 创建两个新函数:
+<span class="nv">var</span> <span class="nv">pow2</span> <span class="o">=</span> <span class="nv">make_pow</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">var</span> <span class="nv">pow3</span> <span class="o">=</span> <span class="nv">make_pow</span><span class="ss">(</span><span class="mi">3</span><span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">pow2</span><span class="ss">(</span><span class="mi">5</span><span class="ss">))</span><span class="c1">; // 25</span>
+<span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">pow3</span><span class="ss">(</span><span class="mi">7</span><span class="ss">))</span><span class="c1">; // 343</span>
+</pre></div>
+
+
+<p>箭头函数<br />
+ES6标准新增 Arrow Function 匿名函数</p>
+<div class="codehilite"><pre><span></span><span class="nv">x</span> <span class="o">=&gt;</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span>
+
+<span class="o">//</span> 上面的箭头函数相当于
+
+<span class="nv">function</span> <span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span><span class="c1">;</span>
+}
+</pre></div>
+
+
+<p>只包含一个表达式，连{ ... }和return都省略掉了<br />
+包含多条语句，这时候就不能省略{ ... }和return</p>
+<div class="codehilite"><pre><span></span><span class="nv">x</span> <span class="o">=&gt;</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span><span class="c1">;</span>
+    }
+    <span class="k">else</span> {
+        <span class="k">return</span> <span class="o">-</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span><span class="c1">;</span>
+    }
+}
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">//</span> 两个参数:
+<span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span><span class="ss">)</span> <span class="o">=&gt;</span> <span class="nv">x</span> <span class="o">*</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span> <span class="o">*</span> <span class="nv">y</span>
+
+<span class="o">//</span> 无参数:
+<span class="ss">()</span> <span class="o">=&gt;</span> <span class="mi">3</span>.<span class="mi">14</span>
+
+<span class="o">//</span> 可变参数:
+<span class="ss">(</span><span class="nv">x</span>, <span class="nv">y</span>, ...<span class="nv">rest</span><span class="ss">)</span> <span class="o">=&gt;</span> {
+    <span class="nv">var</span> <span class="nv">i</span>, <span class="nv">sum</span> <span class="o">=</span> <span class="nv">x</span> <span class="o">+</span> <span class="nv">y</span><span class="c1">;</span>
+    <span class="k">for</span> <span class="ss">(</span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;rest.length; i++) {</span>
+        <span class="nv">sum</span> <span class="o">+=</span> <span class="nv">rest</span>[<span class="nv">i</span>]<span class="c1">;</span>
+    }
+    <span class="k">return</span> <span class="nv">sum</span><span class="c1">;</span>
+}
+
+<span class="o">//</span> 返回一个对象
+<span class="nv">x</span> <span class="o">=&gt;</span> <span class="ss">(</span>{ <span class="nv">foo</span>: <span class="nv">x</span> }<span class="ss">)</span>
+</pre></div>
+
+
+<p>箭头函数完全修复了this的指向，this总是指向词法作用域,也就是外层调用者obj</p>
+<div class="codehilite"><pre><span></span><span class="nv">var</span> <span class="nv">obj</span> <span class="o">=</span> {
+    <span class="nv">birth</span>: <span class="mi">1990</span>,
+    <span class="nv">getAge</span>: <span class="nv">function</span> <span class="ss">()</span> {
+        <span class="nv">var</span> <span class="nv">b</span> <span class="o">=</span> <span class="nv">this</span>.<span class="nv">birth</span><span class="c1">; // 1990</span>
+        <span class="nv">var</span> <span class="nv">fn</span> <span class="o">=</span> <span class="ss">()</span> <span class="o">=&gt;</span> <span class="nv">new</span> <span class="nv">Date</span><span class="ss">()</span>.<span class="nv">getFullYear</span><span class="ss">()</span> <span class="o">-</span> <span class="nv">this</span>.<span class="nv">birth</span><span class="c1">; // this指向obj对象</span>
+        <span class="k">return</span> <span class="nv">fn</span><span class="ss">()</span><span class="c1">;</span>
+    }
+}<span class="c1">;</span>
+<span class="nv">obj</span>.<span class="nv">getAge</span><span class="ss">()</span><span class="c1">; // 25</span>
+</pre></div>
+
+
+<p>箭头函数和匿名函数有个明显的区别：<br />
+箭头函数内部的this是词法作用域，由上下文确定。</p>
+<p>generator（生成器）<br />
+是ES6标准引入,借鉴了Python的generator的概念和语法</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">fib</span><span class="ss">(</span><span class="nv">max</span><span class="ss">)</span> {
+    <span class="nv">var</span> <span class="nv">t</span>,
+        <span class="nv">a</span> <span class="o">=</span> <span class="mi">0</span>,
+        <span class="nv">b</span> <span class="o">=</span> <span class="mi">1</span>,
+        <span class="nv">n</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">;</span>
+
+    <span class="k">while</span> <span class="ss">(</span><span class="nv">n</span> <span class="o">&lt;</span> <span class="nv">max</span><span class="ss">)</span> {
+        <span class="nv">yield</span> <span class="nv">a</span><span class="c1">;</span>
+        [<span class="nv">a</span>, <span class="nv">b</span>] <span class="o">=</span> [<span class="nv">b</span>, <span class="nv">a</span> <span class="o">+</span> <span class="nv">b</span>]<span class="c1">;</span>
+        <span class="nv">n</span> <span class="o">++</span><span class="c1">;</span>
+    }
+    <span class="k">return</span><span class="c1">;</span>
+}
+
+<span class="nv">var</span> <span class="nv">f</span> <span class="o">=</span> <span class="nv">fib</span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">f</span>.<span class="k">next</span><span class="ss">()</span><span class="c1">; // {value: 0, done: false}</span>
+<span class="nv">f</span>.<span class="k">next</span><span class="ss">()</span><span class="c1">; // {value: 1, done: false}</span>
+<span class="nv">f</span>.<span class="k">next</span><span class="ss">()</span><span class="c1">; // {value: 1, done: false}</span>
+<span class="nv">f</span>.<span class="k">next</span><span class="ss">()</span><span class="c1">; // {value: 2, done: false}</span>
+<span class="nv">f</span>.<span class="k">next</span><span class="ss">()</span><span class="c1">; // {value: 3, done: false}</span>
+<span class="nv">f</span>.<span class="k">next</span><span class="ss">()</span><span class="c1">; // {value: undefined, done: true}</span>
+
+<span class="o">//</span> <span class="k">for</span> ... <span class="nv">of</span>循环迭代<span class="nv">generator</span>对象
+<span class="k">for</span> <span class="ss">(</span><span class="nv">var</span> <span class="nv">x</span> <span class="nv">of</span> <span class="nv">fib</span><span class="ss">(</span><span class="mi">10</span><span class="ss">))</span> {
+    <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="c1">; // 依次输出0, 1, 1, 2, 3, ...</span>
+}
+</pre></div>
+
+
+<p>AJAX示例</p>
+<div class="codehilite"><pre><span></span><span class="nv">ajax</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">http://url-1</span><span class="s1">&#39;</span>, <span class="nv">data1</span>, <span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nb">result</span><span class="ss">)</span> {
+    <span class="k">if</span> <span class="ss">(</span><span class="nv">err</span><span class="ss">)</span> {
+        <span class="k">return</span> <span class="nv">handle</span><span class="ss">(</span><span class="nv">err</span><span class="ss">)</span><span class="c1">;</span>
+    }
+    <span class="nv">ajax</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">http://url-2</span><span class="s1">&#39;</span>, <span class="nv">data2</span>, <span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nb">result</span><span class="ss">)</span> {
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">err</span><span class="ss">)</span> {
+            <span class="k">return</span> <span class="nv">handle</span><span class="ss">(</span><span class="nv">err</span><span class="ss">)</span><span class="c1">;</span>
+        }
+        <span class="nv">ajax</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">http://url-3</span><span class="s1">&#39;</span>, <span class="nv">data3</span>, <span class="nv">function</span> <span class="ss">(</span><span class="nv">err</span>, <span class="nb">result</span><span class="ss">)</span> {
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">err</span><span class="ss">)</span> {
+                <span class="k">return</span> <span class="nv">handle</span><span class="ss">(</span><span class="nv">err</span><span class="ss">)</span><span class="c1">;</span>
+            }
+            <span class="k">return</span> <span class="nv">success</span><span class="ss">(</span><span class="nb">result</span><span class="ss">)</span><span class="c1">;</span>
+        }<span class="ss">)</span><span class="c1">;</span>
+    }<span class="ss">)</span><span class="c1">;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+回调越多，代码越难看。
+
+<span class="o">//</span> 有了<span class="nv">generator</span>的美好时代，用<span class="nv">AJAX</span>时可以这么写：
+<span class="nv">try</span> {
+    <span class="nv">r1</span> <span class="o">=</span> <span class="nv">yield</span> <span class="nv">ajax</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">http://url-1</span><span class="s1">&#39;</span>, <span class="nv">data1</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">r2</span> <span class="o">=</span> <span class="nv">yield</span> <span class="nv">ajax</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">http://url-2</span><span class="s1">&#39;</span>, <span class="nv">data2</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">r3</span> <span class="o">=</span> <span class="nv">yield</span> <span class="nv">ajax</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">http://url-3</span><span class="s1">&#39;</span>, <span class="nv">data3</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">success</span><span class="ss">(</span><span class="nv">r3</span><span class="ss">)</span><span class="c1">;</span>
+}
+<span class="nv">catch</span> <span class="ss">(</span><span class="nv">err</span><span class="ss">)</span> {
+    <span class="nv">handle</span><span class="ss">(</span><span class="nv">err</span><span class="ss">)</span><span class="c1">;</span>
+}
+
+看上去是同步的代码，实际执行是异步的。
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

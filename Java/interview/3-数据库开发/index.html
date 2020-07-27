@@ -1,0 +1,669 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>数据库 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                数据库
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据库优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nosql" class="md-nav__link">
+    NoSQL 使用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    分布式数据库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据库设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    缓存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    缓存与数据库同步
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    乐观锁和悲观锁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    数据缓存
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    数据库更新监听
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    数据库连接池实现原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    数据库事务控制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    数据源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    随机取得数据库数据
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">数据库</h1>
+<h2 id="_2">数据库优化</h2>
+<p>优化层次</p>
+<p>1、语句上的优化：<br />
+尽量不使用多表查询，不要频繁的使用各种神奇的统计查询（建议使用子查询代替）</p>
+<p>2、数据库优化只能体现在查询上<br />
+数据不应该进行物理删除，而要进行逻辑删除，为了保证索引不被重新创建</p>
+<p>空间换时间，时间换空间</p>
+<p>3、如果存在多个 RPC 业务端时，可以考虑进行垂直拆分库，只能按照功能进行拆分，需要接口技术支持</p>
+<p>4、分库也无法解决问题的时候，就需要考虑数据库的水平拆分</p>
+<p>5、如果需要保证强大的查询性能，那么就需要再次引入搜索引擎进行分词处理</p>
+<h2 id="nosql">NoSQL 使用场景</h2>
+<p>NoSQL 可以实现文档存储（BSON,JSON）、缓存存储、图像缓存（图像搜索）</p>
+<p>缓存型 Redis</p>
+<ol>
+<li>用于实现：购物车，短信验证码</li>
+<li>消息队列： Redis、RabbitMQ、Kafka</li>
+<li>优点：实现每秒近乎 10W 次的读写处理</li>
+</ol>
+<h2 id="_3">分布式数据库</h2>
+<div class="codehilite"><pre><span></span><span class="n">WEB</span> <span class="err">端</span>
+    <span class="err">视图层</span>
+    <span class="err">控制层</span>
+    <span class="err">业务层</span>
+    <span class="err">数据层</span>
+
+<span class="err">数据库服务器</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">WEB</span> <span class="err">端</span>
+    <span class="err">视图层</span>
+    <span class="err">控制层</span>
+
+<span class="n">RPC端</span>
+    <span class="err">业务层</span>
+    <span class="err">数据层</span>
+
+<span class="err">数据库服务器</span>
+</pre></div>
+
+
+<p>RPC 端将业务分离出来，WEB 端实现业务整合</p>
+<h2 id="_4">数据库设计</h2>
+<p>Spring 事务传播属性（Propagation）：</p>
+<ol>
+<li>
+<p>REQUIRED（默认属性）如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。</p>
+</li>
+<li>
+<p>MANDATORY 支持当前事务，如果当前没有事务，就抛出异常。</p>
+</li>
+<li>
+<p>NEVER 以非事务方式执行，如果当前存在事务，则抛出异常。</p>
+</li>
+<li>
+<p>NOT_SUPPORTED 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</p>
+</li>
+<li>
+<p>REQUIRES_NEW 新建事务，如果当前存在事务，把当前事务挂起。</p>
+</li>
+<li>
+<p>SUPPORTS 支持当前事务，如果当前没有事务，就以非事务方式执行。</p>
+</li>
+<li>
+<p>NESTED 支持当前事务，新增 Savepoint 点，与当前事务同步提交或回滚。</p>
+</li>
+</ol>
+<p>数据库拆分：</p>
+<ol>
+<li>水平拆分</li>
+<li>垂直拆分</li>
+</ol>
+<h2 id="_5">缓存</h2>
+<ol>
+<li>生成静态文件</li>
+<li>使用内存作为缓存</li>
+<li>使用缓存数据库 Redis/Memcached</li>
+</ol>
+<p>内存缓存组件：</p>
+<ol>
+<li>oscache 页面上使用 eg: jsp</li>
+<li>ehcache 框架中出现 eg: Hibernate、MyBatis</li>
+</ol>
+<p>缓存本质 = 减少物理磁盘读取时间</p>
+<h2 id="_6">缓存与数据库同步</h2>
+<p>缓存的内容 99%情况下和数据都不是同步的</p>
+<h2 id="_7">乐观锁和悲观锁</h2>
+<p>悲观锁：事务提交或回滚之前该数据都不允许更新</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表名</span> <span class="k">for</span> <span class="k">update</span>
+</pre></div>
+
+
+<p>乐观锁：（不推荐使用）多加一个字段列：版本号 version</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 允许更新</span>
+<span class="k">update</span> <span class="err">表名</span> <span class="k">set</span> <span class="n">name</span> <span class="o">=</span> <span class="ss">&quot;Tom&quot;</span><span class="p">,</span> <span class="k">version</span> <span class="o">=</span> <span class="k">version</span><span class="o">+</span><span class="mi">1</span> <span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">and</span> <span class="k">version</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="c1">-- 不允许更新</span>
+<span class="k">update</span> <span class="err">表名</span> <span class="k">set</span> <span class="n">name</span> <span class="o">=</span> <span class="ss">&quot;Tom&quot;</span><span class="p">,</span> <span class="k">version</span> <span class="o">=</span> <span class="k">version</span><span class="o">+</span><span class="mi">1</span> <span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">and</span> <span class="k">version</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+
+
+<h2 id="_8">数据缓存</h2>
+<p>分布式的核心本质：</p>
+<p>一台电脑上完成的功能交给多台电脑去做</p>
+<p>所有 CPU 可以处理的数据都要先加载到内存中</p>
+<ol>
+<li>需要缓存的数据：热点操作</li>
+<li>清理缓存数据的时机：常用算法: LRU、FIFO</li>
+<li>缓存同步：缓存数据只会采用只读模式</li>
+</ol>
+<p>缓存实现：</p>
+<ol>
+<li>文件缓存: 避免文件内容动态生成</li>
+<li>内存缓存 OSCache(jsp 页面) EhCache</li>
+<li>缓存数据库 Memcached Redis</li>
+</ol>
+<p>缓存数据丢失</p>
+<p>Zookeeper</p>
+<h2 id="_9">数据库更新监听</h2>
+<p>误区：</p>
+<ol>
+<li>触发器：只能够在数据库层次上存在</li>
+<li>定时数据监测：会额外增加数据库负荷</li>
+</ol>
+<p>解决：在业务层加 AOP 处理将更新消息发布到更新队列</p>
+<h2 id="_10">数据库连接池实现原理</h2>
+<p>对象数组和连接状态</p>
+<p>ConcurrentHashMap</p>
+<h2 id="_11">数据库事务控制</h2>
+<p>数据库划分:<br />
+关系型数据库<br />
+NoSQL 数据库</p>
+<p>ACID 原则:</p>
+<ol>
+<li>原子性（Atomicity，或称不可分割性）</li>
+<li>一致性（Consistency）</li>
+<li>隔离性（Isolation，又称独立性）</li>
+<li>持久性（Durability）</li>
+</ol>
+<p>原子性：一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</p>
+<p>一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。</p>
+<p>隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括</p>
+<ol>
+<li>读未提交（Read uncommitted）</li>
+<li>读提交（read committed）</li>
+<li>可重复读（repeatable read）</li>
+<li>串行化（Serializable）</li>
+</ol>
+<p>持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
+<p>开发中常见的事务处理：</p>
+<ol>
+<li>JDBC 事务处理： commit()/rollback()/setAutoCommit()</li>
+<li>容器控制事务 使用 jta 组件，一般不用</li>
+<li>Spring 事务控制</li>
+</ol>
+<p>事务处理核心思想：</p>
+<p>所有操作要么一起成功，要么一起失败</p>
+<h2 id="_12">数据源</h2>
+<p>数据库的数据源设置 DataSource，主要目的是为了解决数据库的频繁打开与关闭带来的性能损耗</p>
+<p>数据源：不进行重复打开与关闭，以及控制连接人数</p>
+<p>数据源配置主要的两种模式</p>
+<ol>
+<li>容器配置 Tomcat WebLogic WAS</li>
+<li>程序配置 （优先）Spring 中使用 C3p0</li>
+</ol>
+<h2 id="_13">随机取得数据库数据</h2>
+<p>算法：</p>
+<ol>
+<li>count()取得数据量个数</li>
+<li>Random.nextInt()</li>
+<li>id 不存在再生成一个</li>
+</ol>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

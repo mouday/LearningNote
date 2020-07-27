@@ -1,0 +1,1233 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Laravel-表单篇 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#laravel-" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel-表单篇
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-controller" class="md-nav__link">
+    第1章 Controller 介绍
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1request" class="md-nav__link">
+    1、Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2session" class="md-nav__link">
+    2、Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3response" class="md-nav__link">
+    3、Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4middleware" class="md-nav__link">
+    4、Middleware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-laravel" class="md-nav__link">
+    第2章 Laravel表单
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    第3张 总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="laravel-">Laravel-表单篇</h1>
+<h2 id="1-controller">第1章 Controller 介绍</h2>
+<p>1、Request<br />
+2、Session<br />
+3、Response<br />
+4、Middleware</p>
+<h3 id="1request">1、Request</h3>
+<p>Laravel请求使用的组件是symfony/http-foundatio<br />
+请求中存放了</p>
+<div class="codehilite"><pre><span></span><span class="err">$</span><span class="n">_GET</span> 
+<span class="err">$</span><span class="n">_POST</span>
+<span class="err">$</span><span class="n">_COOKIE</span>
+<span class="err">$</span><span class="n">_FILES</span>
+<span class="err">$</span><span class="n">_SERVER</span>
+</pre></div>
+
+
+<p>获取请求中的值<br />
+判断请求类型</p>
+<div class="codehilite"><pre><span></span><span class="x">/**</span>
+<span class="x"> * 请求url  </span>
+<span class="x"> * http://127.0.0.1:8000/student/list?name=Tom</span>
+<span class="x"> */</span>
+
+<span class="x">// 取值</span>
+<span class="x">$request-&gt;input(&#39;name&#39;);</span>
+<span class="x">// Tom</span>
+
+<span class="x">// 取值，设置默认值</span>
+<span class="x">$request-&gt;input(&#39;age&#39;, &#39;default&#39;);</span>
+<span class="x">// default</span>
+
+<span class="x">// 判断是否有值</span>
+<span class="x">$request-&gt;has(&#39;name&#39;);</span>
+<span class="x">// true</span>
+
+<span class="x">// 取出所有参数</span>
+<span class="x">$request-&gt;all();</span>
+<span class="x">// { [&quot;name&quot;]=&gt; &quot;Tom&quot; }</span>
+
+<span class="x">// 获取请求类型</span>
+<span class="x">$request-&gt;method();</span>
+<span class="x">// GET</span>
+
+<span class="x">// 判断请求类型</span>
+<span class="x">$request-&gt;isMethod(&#39;GET&#39;);</span>
+<span class="x">// true</span>
+
+<span class="x">// 判断是否为ajax请求</span>
+<span class="x">$request-&gt;ajax();</span>
+<span class="x">// false</span>
+
+<span class="x">// 判断路由格式</span>
+<span class="x">$request-&gt;is(&#39;student/*&#39;);</span>
+<span class="x">// true</span>
+
+<span class="x">// 获取当前url</span>
+<span class="x">$request-&gt;url();</span>
+<span class="x">// http://127.0.0.1:8000/student/list</span>
+</pre></div>
+
+
+<h3 id="2session">2、Session</h3>
+<p>HTTP协议无状态 Stateless<br />
+Session提供一种保存用户数据的方法</p>
+<p>支持多种session后端驱动：<br />
+Memcached、Redis、数据库</p>
+<p>默认使用file的Session驱动<br />
+配置文件：config/session.php</p>
+<p>启用Session中间件</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::group([&#39;middleware&#39;=&gt;[&#39;web&#39;]], function (){</span>
+<span class="x">    Route::get(&#39;student/list&#39;, &#39;StudentController@list&#39;);</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>使用方式<br />
+1、Request类session()方法<br />
+2、session()辅助函数<br />
+3、Session facade</p>
+<p>使用示例</p>
+<div class="codehilite"><pre><span></span><span class="x">// 1、HTTP request</span>
+<span class="x">$request-&gt;session()-&gt;put(&#39;key&#39;, &#39;value&#39;);</span>
+<span class="x">$request-&gt;session()-&gt;get(&#39;key&#39;);</span>
+
+<span class="x">// 2、session()</span>
+<span class="x">session()-&gt;put(&#39;key&#39;, &#39;value&#39;);</span>
+<span class="x">session()-&gt;get(&#39;key&#39;);</span>
+
+<span class="x">// 3、Session</span>
+<span class="x">Session::put(&#39;key&#39;, &#39;value&#39;);</span>
+<span class="x">Session::get(&#39;key&#39;, &#39;default&#39;);</span>
+
+<span class="x">// 以数组的形式存储</span>
+<span class="x">Session::put([&#39;key&#39; =&gt; &#39;value&#39;]);</span>
+
+<span class="x">// 放到Session数组中</span>
+<span class="x">Session::push(&#39;key&#39;, &#39;value1&#39;);</span>
+<span class="x">Session::push(&#39;key&#39;, &#39;value2&#39;);</span>
+
+<span class="x">// 从Session中取数据，取出就删除</span>
+<span class="x">Session::pull(&#39;key&#39;, &#39;value&#39;);</span>
+
+<span class="x">// 取出所有值</span>
+<span class="x">Session::all();</span>
+
+<span class="x">// 判断存在</span>
+<span class="x">Session::has(&#39;key&#39;);</span>
+
+<span class="x">// 删除指定key的值</span>
+<span class="x">Session::forget(&#39;key&#39;);</span>
+
+<span class="x">// 清空</span>
+<span class="x">Session::flush();</span>
+
+<span class="x">// 暂存数据，第一次访问的时候存在</span>
+<span class="x">Session::flash(&#39;key&#39;, &#39;value&#39;);</span>
+</pre></div>
+
+
+<h3 id="3response">3、Response</h3>
+<p>常见响应类型：<br />
+1、字符串<br />
+2、视图<br />
+3、Json<br />
+4、重定向</p>
+<div class="codehilite"><pre><span></span><span class="x">// json</span>
+<span class="x">$data = [</span>
+<span class="x">    &#39;code&#39;: 0,</span>
+<span class="x">    &#39;data&#39;: [&#39;name&#39; =&gt; &#39;Tom&#39;],</span>
+<span class="x">    &#39;msg&#39;: &#39;ok&#39;,</span>
+<span class="x">];</span>
+<span class="x">return response()-&gt;json($data);</span>
+
+<span class="x">// 重定向，</span>
+<span class="x">Route::get(&#39;student/list&#39;, [</span>
+<span class="x">    &#39;as&#39; =&gt; &#39;list&#39;, </span>
+<span class="x">    &#39;uses&#39; =&gt;&#39;StudentController@list&#39;</span>
+<span class="x">]);</span>
+
+
+<span class="x">return redirect(&#39;student/list&#39;);</span>
+
+<span class="x">// 携带Session快闪数据</span>
+<span class="x">return redirect(&#39;student/list&#39;)-&gt;with(&#39;key&#39;, &#39;value&#39;);</span>
+
+<span class="x">// action</span>
+<span class="x">return redirect()-action(&#39;StudentController@list&#39;);</span>
+
+<span class="x">// route</span>
+<span class="x">return redirect()-route(&#39;list&#39;);</span>
+
+<span class="x">// 返回上一页面</span>
+<span class="x">return redirect()-back();</span>
+</pre></div>
+
+
+<h3 id="4middleware">4、Middleware</h3>
+<p>Laravel中间件提供一个方便的机制来过滤进入应用程序的HTTP请求</p>
+<p>步骤：<br />
+新建中间件<br />
+注册中间件<br />
+使用中间件<br />
+中间件的前置和后置操作</p>
+<p>使用示例<br />
+需求：<br />
+活动开始前只能访问活动的-介绍页<br />
+活动开始后可以访问活动的-活动页</p>
+<p>1、新建中间件<br />
+app/Http/Middleware/Active.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Middleware;</span>
+
+<span class="x">use Closure;</span>
+
+
+<span class="x">class Active</span>
+<span class="x">{</span>
+<span class="x">    public function handle($request, Closure $next)</span>
+<span class="x">    {</span>
+<span class="x">        if (time() &lt; strtotime(&#39;2019-11-01&#39;)) {</span>
+<span class="x">            return redirect(&#39;student/index&#39;);</span>
+<span class="x">        } else{</span>
+<span class="x">            return $next($request);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>2、注册中间件<br />
+app/Http/Kernel.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http;</span>
+
+<span class="x">use Illuminate\Foundation\Http\Kernel as HttpKernel;</span>
+
+<span class="x">class Kernel extends HttpKernel</span>
+<span class="x">{</span>
+<span class="x"> protected $routeMiddleware = [</span>
+<span class="x">        &#39;active&#39; =&gt; \App\Http\Middleware\Active::class,</span>
+<span class="x">    ];</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>3、使用中间件<br />
+app/Http/Controllers/StudentController.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+
+<span class="x">use Illuminate\Http\Request;</span>
+
+<span class="x">class StudentController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    function list(Request $request)</span>
+<span class="x">    {</span>
+<span class="x">       return &#39;活动页&#39;;</span>
+<span class="x">    }</span>
+
+<span class="x">    function index(Request $request)</span>
+<span class="x">    {</span>
+<span class="x">        return &#39;介绍页&#39;;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>routes/web.php</p>
+<div class="codehilite"><pre><span></span><span class="x">// 活动开始前可以访问活动首页</span>
+<span class="x">Route::get(&#39;student/index&#39;, &#39;StudentController@index&#39;);</span>
+
+<span class="x">// 活动开始后才能访问活动列表页</span>
+<span class="x">Route::group([&#39;middleware&#39;=&gt;[&#39;active&#39;]], function (){</span>
+<span class="x">    Route::get(&#39;student/list&#39;, &#39;StudentController@list&#39;);</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>前置操作：请求执行前<br />
+后置操作：请求执行后</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Middleware;</span>
+
+<span class="x">use Closure;</span>
+
+
+<span class="x">class Active</span>
+<span class="x">{</span>
+<span class="x">    // 前置操作</span>
+<span class="x">    public function handleBefore($request, Closure $next)</span>
+<span class="x">    {</span>
+<span class="x">        if (time() &lt; strtotime(&#39;2019-11-01&#39;)) {</span>
+<span class="x">            return redirect(&#39;student/index&#39;);</span>
+<span class="x">        } else{</span>
+<span class="x">            return $next($request);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    // 后置操作</span>
+<span class="x">    public function handleAfter($request, Closure $next)</span>
+<span class="x">    {</span>
+<span class="x">        $response = $next($request);</span>
+
+<span class="x">        echo &#39;后置操作&#39;;</span>
+<span class="x">        return $response;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<h2 id="2-laravel">第2章 Laravel表单</h2>
+<p>1、静态资源管理及模板布局<br />
+ 2、表单列表及分页实现 <br />
+ 3、通过表单实现新增及操作状态提示功能 <br />
+ 4、表单验证及数据保持详解 <br />
+ 5、通过模型处理性别 <br />
+ 6、通过表单实现修改 <br />
+ 7、表单中查看详情及删除</p>
+<p>完整代码<br />
+1、配置数据库<br />
+.env</p>
+<div class="codehilite"><pre><span></span><span class="x">DB_CONNECTION=mysql</span>
+<span class="x">DB_HOST=127.0.0.1</span>
+<span class="x">DB_PORT=3306</span>
+<span class="x">DB_DATABASE=data</span>
+<span class="x">DB_USERNAME=root</span>
+<span class="x">DB_PASSWORD=123456</span>
+</pre></div>
+
+
+<p>2、配置路由<br />
+routes/web.php</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;/&#39;, [</span>
+<span class="x">    &#39;uses&#39;=&gt; &#39;StudentController@index&#39;</span>
+<span class="x">]);</span>
+
+<span class="x">Route::any(&#39;create&#39;, [</span>
+<span class="x">    &#39;uses&#39;=&gt; &#39;StudentController@create&#39;</span>
+<span class="x">]);</span>
+
+<span class="x">Route::post(&#39;save&#39;, [</span>
+<span class="x">    &#39;uses&#39;=&gt; &#39;StudentController@save&#39;</span>
+<span class="x">]);</span>
+
+<span class="x">Route::any(&#39;update/{id}&#39;, [</span>
+<span class="x">    &#39;uses&#39;=&gt; &#39;StudentController@update&#39;</span>
+<span class="x">]);</span>
+
+<span class="x">Route::any(&#39;detail/{id}&#39;, [</span>
+<span class="x">    &#39;uses&#39;=&gt; &#39;StudentController@detail&#39;</span>
+<span class="x">]);</span>
+
+<span class="x">Route::any(&#39;delete/{id}&#39;, [</span>
+<span class="x">    &#39;uses&#39;=&gt; &#39;StudentController@delete&#39;</span>
+<span class="x">]);</span>
+</pre></div>
+
+
+<p>3、Model<br />
+app/Student.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App;</span>
+
+<span class="x">use Illuminate\Database\Eloquent\Model;</span>
+
+<span class="x">class Student extends Model</span>
+<span class="x">{</span>
+
+<span class="x">    // 定义常量</span>
+<span class="x">    const SEX_NULL = 0;</span>
+<span class="x">    const SEX_BOY = 1;</span>
+<span class="x">    const SEX_GIRL = 2;</span>
+
+<span class="x">    // 指定表名</span>
+<span class="x">    protected $table = &#39;student&#39;;</span>
+
+<span class="x">    // 指定主键</span>
+<span class="x">    protected $primaryKey = &#39;id&#39;;</span>
+
+<span class="x">    // 自动维护时间戳字段</span>
+<span class="x">    public $timestamps = true;</span>
+
+<span class="x">    // 指定允许批量赋值的字段</span>
+<span class="x">    protected $fillable = [&#39;name&#39;, &#39;age&#39;, &#39;sex&#39;];</span>
+
+<span class="x">    // 自定义保存时间戳格式</span>
+<span class="x">    public function getDateFormat()</span>
+<span class="x">    {</span>
+<span class="x">        return time();</span>
+<span class="x">    }</span>
+
+<span class="x">    // 解决 Call to a member function format() on string</span>
+<span class="x">    public function fromDateTime($val)</span>
+<span class="x">    {</span>
+<span class="x">        return empty($val) ? $val : $this-&gt;getDateFormat();</span>
+
+<span class="x">    }</span>
+
+<span class="x">    // 不自动格式化时间戳</span>
+<span class="x">    protected function asDateTime($value)</span>
+<span class="x">    {</span>
+<span class="x">        return $value;</span>
+<span class="x">    }</span>
+
+<span class="x">    public function getSex($key = null)</span>
+<span class="x">    {</span>
+<span class="x">        $arr = [</span>
+<span class="x">            self::SEX_NULL =&gt; &#39;未知&#39;,</span>
+<span class="x">            self::SEX_BOY =&gt; &#39;男&#39;,</span>
+<span class="x">            self::SEX_GIRL =&gt; &#39;女&#39;,</span>
+<span class="x">        ];</span>
+
+<span class="x">        if ($key !== null) {</span>
+<span class="x">            return array_key_exists($key, $arr) ? $arr[$key] : $arr[self::SEX_NULL];</span>
+<span class="x">        } else {</span>
+<span class="x">            return $arr;</span>
+<span class="x">        }</span>
+
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>5、控制器<br />
+app/Http/Controllers/StudentController.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+
+<span class="x">use App\Student;</span>
+<span class="x">use Illuminate\Http\Request;</span>
+
+<span class="x">class StudentController extends Controller</span>
+<span class="x">{</span>
+
+<span class="x">    function index(Request $request)</span>
+<span class="x">    {</span>
+<span class="x">        // 分页每页数量</span>
+<span class="x">        $students = Student::paginate(20);</span>
+
+<span class="x">        return view(&#39;student/index&#39;,</span>
+<span class="x">            [&#39;students&#39; =&gt; $students]</span>
+<span class="x">        );</span>
+<span class="x">    }</span>
+
+<span class="x">    function create(Request $request)</span>
+<span class="x">    {</span>
+<span class="x">        if ($request-&gt;isMethod(&#39;POST&#39;)) {</span>
+
+<span class="x">            // 数据验证</span>
+<span class="x">            // 1、控制器验证</span>
+<span class="x">            // 通过会继续执行</span>
+<span class="x">            // 未通过会重定向到上一页面，抛出异常，错误信息存储到Session</span>
+<span class="x">            // $this-&gt;validate($request, [</span>
+<span class="x">            //     &#39;Student.name&#39; =&gt; &#39;required|min:2|max:20&#39;,</span>
+<span class="x">            //     &#39;Student.age&#39; =&gt; &#39;required|integer&#39;,</span>
+<span class="x">            //     &#39;Student.sex&#39; =&gt; &#39;required|integer&#39;,</span>
+<span class="x">            // ], [</span>
+<span class="x">            //     &#39;required&#39; =&gt; &#39;:attribute 为必填项&#39;, // 占位符</span>
+<span class="x">            //     &#39;integer&#39; =&gt; &#39;:attribute 必须为整数&#39;,</span>
+<span class="x">            //     &#39;min&#39; =&gt; &#39;:attribute 长度不符合要求&#39;,</span>
+<span class="x">            // ], [</span>
+<span class="x">            //     &#39;Student.name&#39; =&gt; &#39;姓名&#39;,</span>
+<span class="x">            //     &#39;Student.age&#39; =&gt; &#39;年龄&#39;,</span>
+<span class="x">            //     &#39;Student.sex&#39; =&gt; &#39;性别&#39;,</span>
+<span class="x">            // ]);</span>
+
+<span class="x">            // 2、Validator验证</span>
+<span class="x">            $validator = \Validator::make($request-&gt;input(), [</span>
+<span class="x">                &#39;Student.name&#39; =&gt; &#39;required|min:2|max:20&#39;,</span>
+<span class="x">                &#39;Student.age&#39; =&gt; &#39;required|integer&#39;,</span>
+<span class="x">                &#39;Student.sex&#39; =&gt; &#39;required|integer&#39;,</span>
+<span class="x">            ], [</span>
+<span class="x">                &#39;required&#39; =&gt; &#39;:attribute 为必填项&#39;, // 占位符</span>
+<span class="x">                &#39;integer&#39; =&gt; &#39;:attribute 必须为整数&#39;,</span>
+<span class="x">                &#39;min&#39; =&gt; &#39;:attribute 长度不符合要求&#39;,</span>
+<span class="x">            ], [</span>
+<span class="x">                    &#39;Student.name&#39; =&gt; &#39;姓名&#39;,</span>
+<span class="x">                    &#39;Student.age&#39; =&gt; &#39;年龄&#39;,</span>
+<span class="x">                    &#39;Student.sex&#39; =&gt; &#39;性别&#39;,</span>
+<span class="x">                ]</span>
+<span class="x">            );</span>
+
+<span class="x">            if ($validator-&gt;fails()) {</span>
+<span class="x">                // 数据保持</span>
+<span class="x">                return redirect()-&gt;back()-&gt;withErrors($validator)-&gt;withInput();</span>
+<span class="x">            }</span>
+
+<span class="x">            $data = $request-&gt;input(&#39;Student&#39;);</span>
+
+<span class="x">            // 需要设置模型批量赋值字段</span>
+<span class="x">            if (Student::create($data)) {</span>
+<span class="x">                return redirect(&#39;/&#39;)-&gt;with(&#39;success&#39;, &#39;添加成功&#39;);</span>
+<span class="x">            } else {</span>
+<span class="x">                return redirect()-&gt;back();</span>
+<span class="x">            }</span>
+
+<span class="x">        } else {</span>
+<span class="x">            $student = new Student();</span>
+
+<span class="x">            return view(&#39;student/create&#39;, [</span>
+<span class="x">                &#39;student&#39; =&gt; $student</span>
+<span class="x">            ]);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    function save(Request $request)</span>
+<span class="x">    {</span>
+<span class="x">        $data = $request-&gt;input(&#39;Student&#39;);</span>
+<span class="x">        var_dump($data);</span>
+<span class="x">        $student = new Student();</span>
+<span class="x">        $student-&gt;name = $data[&#39;name&#39;];</span>
+<span class="x">        $student-&gt;age = $data[&#39;age&#39;];</span>
+<span class="x">        $student-&gt;sex = $data[&#39;sex&#39;];</span>
+
+<span class="x">        if ($student-&gt;save()) {</span>
+<span class="x">            return redirect(&#39;/&#39;);</span>
+<span class="x">        } else {</span>
+<span class="x">            return redirect()-&gt;back();</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    function update(Request $request, $id)</span>
+<span class="x">    {</span>
+<span class="x">        $student = Student::find($id);</span>
+
+<span class="x">        if ($request-&gt;isMethod(&#39;POST&#39;)) {</span>
+<span class="x">            $data = $request-&gt;input(&#39;Student&#39;);</span>
+
+<span class="x">            $student-&gt;name = $data[&#39;name&#39;];</span>
+<span class="x">            $student-&gt;age = $data[&#39;age&#39;];</span>
+<span class="x">            $student-&gt;sex = $data[&#39;sex&#39;];</span>
+
+<span class="x">            if ($student-&gt;save()) {</span>
+<span class="x">                return redirect(&#39;/&#39;)-&gt;with(&#39;success&#39;, &#39;修改成功-&#39; . $id);</span>
+<span class="x">            }</span>
+<span class="x">        } else {</span>
+<span class="x">            return view(&#39;student/create&#39;, [</span>
+<span class="x">                &#39;student&#39; =&gt; $student</span>
+<span class="x">            ]);</span>
+<span class="x">        }</span>
+
+<span class="x">    }</span>
+
+<span class="x">    function detail(Request $request, $id)</span>
+<span class="x">    {</span>
+<span class="x">        $student = Student::find($id);</span>
+
+<span class="x">        return view(&#39;student/detail&#39;, [</span>
+<span class="x">                &#39;student&#39; =&gt; $student</span>
+<span class="x">            ]);</span>
+<span class="x">    }</span>
+
+<span class="x">    function delete(Request $request, $id)</span>
+<span class="x">    {</span>
+<span class="x">        $student = Student::find($id);</span>
+
+<span class="x">        if($student-&gt;delete()){</span>
+<span class="x">            return redirect(&#39;/&#39;)-&gt;with(&#39;success&#39;, &#39;删除成功-&#39; . $id);</span>
+<span class="x">        }</span>
+
+
+
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>6、视图<br />
+(1)公共布局<br />
+resources/views/common/layouts.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;html&gt;</span>
+<span class="x">&lt;head&gt;</span>
+<span class="x">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="x">    &lt;title&gt;Document - @yield(&#39;title&#39;)&lt;/title&gt;</span>
+<span class="x">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/index.css&quot;&gt;</span>
+<span class="x">&lt;/head&gt;</span>
+<span class="x">&lt;body&gt;</span>
+
+<span class="x">@section(&#39;header&#39;)</span>
+<span class="x">    &lt;div&gt;</span>
+<span class="x">        &lt;h1&gt;学生管理&lt;/h1&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">@show</span>
+
+<span class="x">&lt;div class=&quot;main&quot;&gt;</span>
+<span class="x">    &lt;div class=&quot;container&quot;&gt;</span>
+
+<span class="x">        @section(&#39;left&#39;)</span>
+
+<span class="x">            &lt;p&gt;&lt;a href=&quot;{{url(&#39;/&#39;)}}&quot; class=&quot;{{Request::getPathInfo() == &#39;/&#39;? &#39;active&#39;: &#39;&#39;}}&quot;&gt;学生列表&lt;/a&gt;&lt;/p&gt;</span>
+<span class="x">            &lt;p&gt;&lt;a href=&quot;{{url(&#39;/create&#39;)}}&quot; class=&quot;{{Request::getPathInfo() == &#39;/create&#39;? &#39;active&#39;: &#39;&#39;}}&quot;&gt;添加学生&lt;/a&gt;&lt;/p&gt;</span>
+
+<span class="x">        @show</span>
+<span class="x">    &lt;/div&gt;</span>
+
+<span class="x">    &lt;div class=&quot;container&quot;&gt;</span>
+<span class="x">        @include(&#39;common/message&#39;)</span>
+
+<span class="x">        @section(&#39;right&#39;)</span>
+<span class="x">            主页</span>
+<span class="x">        @show</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+
+<span class="x">@section(&#39;footer&#39;)</span>
+<span class="x">    &lt;div&gt;</span>
+<span class="x">        @2019</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">@show</span>
+
+<span class="x">&lt;/body&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>（2）消息组件<br />
+resources/views/common/message.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;div&gt;</span>
+<span class="x">    @if(Session::has(&#39;success&#39;))</span>
+<span class="x">        {{ Session::get(&#39;success&#39;)}}</span>
+<span class="x">    @endif</span>
+
+<span class="x">    @if(count($errors))</span>
+<span class="x">        &lt;p&gt;{{$errors-&gt;first()}}&lt;/p&gt;</span>
+<span class="x">    @endif</span>
+
+<span class="x">{{--    @if(count($errors))--}}</span>
+<span class="x">{{--        @foreach($errors-&gt;all() as $error)--}}</span>
+<span class="x">{{--            &lt;p&gt;{{$error}}&lt;/p&gt;--}}</span>
+<span class="x">{{--        @endforeach--}}</span>
+<span class="x">{{--    @endif--}}</span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>（3）首页<br />
+resources/views/student/index.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">@extends(&#39;common/layouts&#39;)</span>
+
+<span class="x">@section(&#39;right&#39;)</span>
+
+
+<span class="x">    &lt;table&gt;</span>
+<span class="x">        &lt;thead&gt;</span>
+<span class="x">        &lt;tr&gt;</span>
+<span class="x">            &lt;th&gt;序号&lt;/th&gt;</span>
+<span class="x">            &lt;th&gt;姓名&lt;/th&gt;</span>
+<span class="x">            &lt;th&gt;年龄&lt;/th&gt;</span>
+<span class="x">            &lt;th&gt;性别&lt;/th&gt;</span>
+
+<span class="x">            &lt;th&gt;创建日期&lt;/th&gt;</span>
+<span class="x">            &lt;th&gt;修改日期&lt;/th&gt;</span>
+<span class="x">            &lt;th&gt;操作&lt;/th&gt;</span>
+
+
+<span class="x">        &lt;/tr&gt;</span>
+<span class="x">        &lt;/thead&gt;</span>
+
+<span class="x">        &lt;tbody&gt;</span>
+
+<span class="x">        @foreach($students as $student)</span>
+<span class="x">            &lt;tr&gt;</span>
+<span class="x">                &lt;td&gt;{{$student-&gt;id}}&lt;/td&gt;</span>
+<span class="x">                &lt;td&gt;{{$student-&gt;name}}&lt;/td&gt;</span>
+<span class="x">                &lt;td&gt;{{$student-&gt;age}}&lt;/td&gt;</span>
+<span class="x">                &lt;td&gt;{{$student-&gt;getSex($student-&gt;sex)}}&lt;/td&gt;</span>
+<span class="x">                &lt;td&gt;{{date(&#39;Y-m-d&#39;, $student-&gt;created_at)}}&lt;/td&gt;</span>
+<span class="x">                &lt;td&gt;{{date(&#39;Y-m-d&#39;, $student-&gt;updated_at)}}&lt;/td&gt;</span>
+<span class="x">                &lt;td&gt;</span>
+<span class="x">                    &lt;a href=&quot;{{url(&#39;update&#39;, [&#39;id&#39;=&gt; $student-&gt;id])}}&quot;&gt;修改&lt;/a&gt;</span>
+<span class="x">                    &lt;a href=&quot;{{url(&#39;detail&#39;, [&#39;id&#39;=&gt; $student-&gt;id])}}&quot;&gt;详情&lt;/a&gt;</span>
+<span class="x">                    &lt;a href=&quot;{{url(&#39;delete&#39;, [&#39;id&#39;=&gt; $student-&gt;id])}}&quot;</span>
+<span class="x">                       onclick=&quot;if(confirm(&#39;确定删除&#39;)===false)return false;&quot;&gt;删除&lt;/a&gt;</span>
+<span class="x">                &lt;/td&gt;</span>
+<span class="x">            &lt;/tr&gt;</span>
+<span class="x">        @endforeach</span>
+<span class="x">        &lt;/tbody&gt;</span>
+
+<span class="x">    &lt;/table&gt;</span>
+
+<span class="x">    {{ $students-&gt;render() }}</span>
+<span class="x">@stop</span>
+</pre></div>
+
+
+<p>（4）详情页<br />
+resources/views/student/detail.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">@extends(&#39;common/layouts&#39;)</span>
+
+<span class="x">@section(&#39;right&#39;)</span>
+<span class="x">    &lt;table&gt;</span>
+<span class="x">        &lt;tr&gt;&lt;th&gt;id&lt;/th&gt;&lt;td&gt;{{$student-&gt;id}}&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="x">            &lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;td&gt;{{$student-&gt;name}}&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="x">            &lt;tr&gt;&lt;th&gt;年龄&lt;/th&gt;&lt;td&gt;{{$student-&gt;age}}&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="x">            &lt;tr&gt;&lt;th&gt;性别&lt;/th&gt;&lt;td&gt;{{$student-&gt;getSex($student-&gt;sex)}}&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="x">            &lt;tr&gt;&lt;th&gt;添加日期&lt;/th&gt;&lt;td&gt;{{date(&#39;Y-m-d&#39;, $student-&gt;created_at)}}&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="x">            &lt;tr&gt;&lt;th&gt;修改日期&lt;/th&gt;&lt;td&gt;{{date(&#39;Y-m-d&#39;, $student-&gt;updated_at)}}&lt;/td&gt;&lt;/tr&gt;</span>
+
+
+<span class="x">    &lt;/table&gt;</span>
+<span class="x">@stop</span>
+</pre></div>
+
+
+<p>（5）编辑页<br />
+resources/views/student/create.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">@extends(&#39;common/layouts&#39;)</span>
+
+<span class="x">@section(&#39;right&#39;)</span>
+<span class="x">    &lt;div class=&quot;form&quot;&gt;</span>
+
+<span class="x">    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;</span>
+<span class="x">        {{csrf_field()}}</span>
+<span class="x">        &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;{{$student-&gt;id}}&quot; /&gt;</span>
+
+<span class="x">        &lt;p&gt;</span>
+<span class="x">            &lt;label for=&quot;name&quot;&gt;姓名&lt;/label&gt;</span>
+<span class="x">            &lt;input id=&quot;name&quot; name=&quot;Student[name]&quot; type=&quot;text&quot;</span>
+<span class="x">                   value=&quot;{{old(&#39;Student&#39;)[&#39;name&#39;] ?  old(&#39;Student&#39;)[&#39;name&#39;]: $student-&gt;name }}&quot; &gt;</span>
+<span class="x">            &lt;span class=&quot;error&quot;&gt;{{$errors-&gt;first(&#39;Student.name&#39;)}}&lt;/span&gt;</span>
+<span class="x">        &lt;/p&gt;</span>
+
+<span class="x">        &lt;p&gt;</span>
+<span class="x">            &lt;label for=&quot;age&quot;&gt;年龄&lt;/label&gt;</span>
+<span class="x">            &lt;input id=&quot;age&quot; name=&quot;Student[age]&quot; type=&quot;text&quot;</span>
+<span class="x">                   value=&quot;{{old(&#39;Student&#39;)[&#39;age&#39;]? old(&#39;Student&#39;)[&#39;age&#39;]: $student-&gt;age }}&quot;&gt;</span>
+<span class="x">            &lt;span class=&quot;error&quot;&gt;{{$errors-&gt;first(&#39;Student.age&#39;)}}&lt;/span&gt;</span>
+<span class="x">        &lt;/p&gt;</span>
+
+<span class="x">        &lt;p&gt;</span>
+<span class="x">            性别</span>
+<span class="x">            @foreach($student-&gt;getSex() as $key=&gt; $val)</span>
+<span class="x">            &lt;label&gt;</span>
+<span class="x">            &lt;input id=&quot;sex-man&quot; name=&quot;Student[sex]&quot; type=&quot;radio&quot; value=&quot;{{$key}}&quot;</span>
+<span class="x">            {{(old(&#39;Student&#39;)[&#39;sex&#39;] ? old(&#39;Student&#39;)[&#39;sex&#39;]: $student-&gt;sex) === $key? &#39;checked&#39;: &#39;&#39;}}</span>
+<span class="x">            &gt;</span>
+<span class="x">                {{$val}}</span>
+<span class="x">            &lt;/label&gt;</span>
+<span class="x">            @endforeach</span>
+
+<span class="x">            &lt;span class=&quot;error&quot;&gt;{{$errors-&gt;first(&#39;Student.sex&#39;)}}&lt;/span&gt;</span>
+<span class="x">        &lt;/p&gt;</span>
+
+<span class="x">        &lt;p&gt;</span>
+<span class="x">            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span>
+<span class="x">        &lt;/p&gt;</span>
+<span class="x">    &lt;/form&gt;</span>
+<span class="x">    &lt;/div&gt;</span>
+<span class="x">@stop</span>
+</pre></div>
+
+
+<p>（6）css文件<br />
+public/css/index.scss</p>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">main</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+
+  <span class="err">.container</span> <span class="err">{</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#DDDDDD</span><span class="p">;</span>
+
+    <span class="err">a</span> <span class="err">{</span>
+      <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+      <span class="k">padding</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+
+      <span class="err">&amp;:link,</span> <span class="err">&amp;:visited</span> <span class="err">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="mh">#1b1e21</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="o">&amp;</span><span class="p">:</span><span class="nd">active</span> <span class="p">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="mh">#1b1e21</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="o">&amp;</span><span class="p">:</span><span class="nd">hover</span><span class="o">,</span> <span class="o">&amp;</span><span class="p">.</span><span class="nc">active</span><span class="p">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
+        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#DDDDDD</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="err">}</span>
+
+    <span class="p">.</span><span class="nc">form</span><span class="p">{</span>
+      <span class="err">.error{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+        <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+
+  <span class="p">.</span><span class="nc">pagination</span> <span class="p">{</span>
+    <span class="err">ul,</span> <span class="err">li</span> <span class="err">{</span>
+      <span class="k">list-style</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nt">display</span><span class="o">:</span> <span class="nt">flex</span><span class="o">;</span>
+
+    <span class="nt">li</span> <span class="p">{</span>
+      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#DDDDDD</span><span class="p">;</span>
+      <span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
+      <span class="k">padding</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+      <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="3">第3张 总结</h2>
+<p>Request<br />
+Response<br />
+Session<br />
+Middleware</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

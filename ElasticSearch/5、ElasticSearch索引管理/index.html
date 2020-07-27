@@ -1,0 +1,1150 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>5、ElasticSearch索引管理 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                5、ElasticSearch索引管理
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、创建、修改以及删除索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、修改分词器以及定制自己的分词器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    三、type底层数据结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping-root-object" class="md-nav__link">
+    四、mapping root object深入剖析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-mapping" class="md-nav__link">
+    五、定制化自己的dynamic mapping策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scollbulk" class="md-nav__link">
+    六、基于scoll+bulk+索引别名实现零停机重建索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    七、倒排索引组成结构以及其索引不可变原因
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentbuffersegmentcommit" class="md-nav__link">
+    八、深度图解剖析document写入原理（buffer，segment，commit）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nrtfilesystem-cacherefresh" class="md-nav__link">
+    九、优化写入流程实现NRT近实时（filesystem cache，refresh）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durabilitytranslogflush" class="md-nav__link">
+    十、优化写入流程实现durability可靠存储（translog，flush）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segment-mergeoptimize" class="md-nav__link">
+    十一、写入流程实现海量磁盘文件合并（segment merge，optimize）
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>5、ElasticSearch索引管理</h1>
+                
+                <h2 id="_1">一、创建、修改以及删除索引</h2>
+<p>1、创建索引</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba</span>
+<span class="err">{</span>
+<span class="err">  &quot;settings&quot;: {</span>
+<span class="err">    &quot;number_of_replicas&quot;: 0,</span>
+<span class="err">    &quot;number_of_shards&quot;: 1</span>
+<span class="err">  },</span>
+<span class="err">  &quot;mappings&quot;: {</span>
+<span class="err">    &quot;tianmao&quot;: {</span>
+<span class="err">      &quot;properties&quot;: {</span>
+<span class="err">        &quot;name&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;text&quot;</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>2、修改索引</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/_settings</span>
+<span class="err">{</span>
+<span class="err">  &quot;number_of_replicas&quot;: 1</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、删除索引</p>
+<div class="codehilite"><pre><span></span><span class="err">DELETE /index</span>
+<span class="err">DELETE /index1,index2</span>
+<span class="err">DELETE /index*</span>
+<span class="err">DELETE /_all</span>
+</pre></div>
+
+
+<p>禁用all参数，避免删除所有索引<br />
+elasticsearch.yml<br />
+action.destructive_requires_name: true</p>
+<h2 id="_2">二、修改分词器以及定制自己的分词器</h2>
+<p>1、默认的分词器<br />
+standard<br />
+standard tokenizer 以单词边界进行切分<br />
+shandard token filter 什么都不做<br />
+lowercase token filter 将所有字母转换为小写<br />
+stop token filter （默认被禁用）移除停用词，比如 a， the it等等</p>
+<p>2、修改分词器设置</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index</span>
+<span class="err">{</span>
+<span class="err">    &quot;settings&quot;: {</span>
+<span class="err">        &quot;analysis&quot;: {</span>
+<span class="err">            &quot;analyzer&quot;: {</span>
+<span class="err">                &quot;es_std&quot;: {</span>
+<span class="err">                    &quot;type&quot;: &quot;standard&quot;,</span>
+<span class="err">                    &quot;stopwords&quot;: &quot;_english_&quot;</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、分词测试</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/_analyze</span>
+<span class="err">{</span>
+<span class="err">  &quot;analyzer&quot;: &quot;es_std&quot;,</span>
+<span class="err">  &quot;text&quot;: &quot;nihao es&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、自定义分词器</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /index</span>
+<span class="err">{</span>
+<span class="err">    &quot;settings&quot;: {</span>
+<span class="err">        &quot;analysis&quot;: {</span>
+<span class="err">            &quot;char_filter&quot;: {</span>
+<span class="err">                &quot;&amp;_to_and&quot;: {</span>
+<span class="err">                    &quot;type&quot;: &quot;mapping&quot;,</span>
+<span class="err">                    &quot;mappings&quot;: [&quot;&amp;=&gt;and&quot;]</span>
+<span class="err">                }</span>
+<span class="err">            },</span>
+<span class="err">            &quot;filter&quot;: {</span>
+<span class="err">                &quot;my_stopwords&quot;: {</span>
+<span class="err">                    &quot;type&quot;: &quot;stop&quot;,</span>
+<span class="err">                    &quot;stopwords&quot;: [&quot;the&quot;, &quot;a&quot;]</span>
+<span class="err">                }</span>
+<span class="err">            },</span>
+<span class="err">            &quot;analyzer&quot;: {</span>
+<span class="err">                &quot;my_analyzer&quot;: {</span>
+<span class="err">                    &quot;type&quot;: &quot;custome&quot;,</span>
+<span class="err">                    &quot;char_filter&quot;: [&quot;html_strip&quot;, &quot;&amp;_to_and&quot;],</span>
+<span class="err">                    &quot;tokenizer&quot;: &quot;standard&quot;,</span>
+<span class="err">                    &quot;filter&quot;: [&quot;lowercase&quot;, &quot;my_stopwords&quot;]</span>
+<span class="err">                }</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>分词器测试</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /alibaba/_analyze</span>
+<span class="err">{</span>
+<span class="err">  &quot;analyzer&quot;: &quot;my_analyzer&quot;,</span>
+<span class="err">  &quot;text&quot;: &quot;nihao es &amp; haha shit &lt;a&gt;&quot;</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+<span class="err">  &quot;tokens&quot;: [</span>
+<span class="err">    {</span>
+<span class="err">      &quot;token&quot;: &quot;nihao&quot;,</span>
+<span class="err">      &quot;start_offset&quot;: 0,</span>
+<span class="err">      &quot;end_offset&quot;: 5,</span>
+<span class="err">      &quot;type&quot;: &quot;&lt;ALPHANUM&gt;&quot;,</span>
+<span class="err">      &quot;position&quot;: 0</span>
+<span class="err">    },</span>
+<span class="err">    {</span>
+<span class="err">      &quot;token&quot;: &quot;es&quot;,</span>
+<span class="err">      &quot;start_offset&quot;: 6,</span>
+<span class="err">      &quot;end_offset&quot;: 8,</span>
+<span class="err">      &quot;type&quot;: &quot;&lt;ALPHANUM&gt;&quot;,</span>
+<span class="err">      &quot;position&quot;: 1</span>
+<span class="err">    },</span>
+<span class="err">    {</span>
+<span class="err">      &quot;token&quot;: &quot;and&quot;,</span>
+<span class="err">      &quot;start_offset&quot;: 9,</span>
+<span class="err">      &quot;end_offset&quot;: 10,</span>
+<span class="err">      &quot;type&quot;: &quot;&lt;ALPHANUM&gt;&quot;,</span>
+<span class="err">      &quot;position&quot;: 2</span>
+<span class="err">    },</span>
+<span class="err">    {</span>
+<span class="err">      &quot;token&quot;: &quot;haha&quot;,</span>
+<span class="err">      &quot;start_offset&quot;: 11,</span>
+<span class="err">      &quot;end_offset&quot;: 15,</span>
+<span class="err">      &quot;type&quot;: &quot;&lt;ALPHANUM&gt;&quot;,</span>
+<span class="err">      &quot;position&quot;: 3</span>
+<span class="err">    },</span>
+<span class="err">    {</span>
+<span class="err">      &quot;token&quot;: &quot;shit&quot;,</span>
+<span class="err">      &quot;start_offset&quot;: 16,</span>
+<span class="err">      &quot;end_offset&quot;: 20,</span>
+<span class="err">      &quot;type&quot;: &quot;&lt;ALPHANUM&gt;&quot;,</span>
+<span class="err">      &quot;position&quot;: 4</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>使用自定义分词器</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/_mapping/fruit</span>
+<span class="err">{</span>
+<span class="err">  &quot;properties&quot;: {</span>
+<span class="err">    &quot;name&quot;: {</span>
+<span class="err">      &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">      &quot;analyzer&quot;: &quot;my_analyzer&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="type">三、type底层数据结构</h2>
+<p>type 是一index中用来区分类似的数据的，当可能有不同的fields，<br />
+而且有不同的属性来控制索引建立，分词器field的value，<br />
+在底层的lucene中建立索引的时候，全部是opaque bytes类型，不区分类型的<br />
+lucene是没有type的概念的，在document中，实际上将type作为一个document的field来存储，即type<br />
+es通过_type来进行type的过滤和筛选，一个index的多个type，实际上是放在一起存储的，<br />
+因此一个index下，不能有多个type重名，而且类型或者其他设置不同的，因为那样是无法处理的</p>
+<p>存储结构</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span>
+    <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;animal&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;dog&quot;</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+    <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;fruit&quot;</span><span class="p">,</span>
+    <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;apple&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>最佳实践<br />
+将类似结构的type放在一个index下，这些type应该有多个field是相同的<br />
+假如说，你讲两个type的field完全不同，放在一个index下，<br />
+那么就每条数据都至少有一半field在底层的lucene中是空值，会有严重的性能问题</p>
+<h2 id="mapping-root-object">四、mapping root object深入剖析</h2>
+<p>1、root object<br />
+就是某个type对应的mapping json，包括了<br />
+properties(type类型, index设置是否分词, analyzer分词器)，<br />
+metadata（<code>_id, _source, _type</code>）<br />
+settings（analyzer）<br />
+其他settings（比如include_in_all）</p>
+<p>2、properties</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/_mapping/fruit</span>
+<span class="err">{</span>
+<span class="err">  &quot;properties&quot;: {</span>
+<span class="err">    &quot;age&quot;: {</span>
+<span class="err">      &quot;type&quot;: &quot;long&quot;</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>3、source<br />
+（1）查询的时候，可以直接拿到完整的document，不需要先拿document id，再发送一次请求拿document<br />
+（2）partial update基于_source 实现<br />
+（3）reindex 时，直接基于_source 实现，不需要查询数据再修改<br />
+（4）可以基于_source 定制返回field<br />
+（5）debug query更容易，可以直接看到_source<br />
+禁用source</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/_mapping/fruit2</span>
+<span class="err">{</span>
+<span class="err">  &quot;_source&quot;: {</span>
+<span class="err">    &quot;enabled&quot;: false</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>4、all<br />
+将所有的field打包在一起，作为一个_all field，建立索引<br />
+没有指定任何field进行搜索时，就是使用_all field在搜索</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/_mapping/fruit3</span>
+<span class="err">{</span>
+<span class="err">  &quot;_all&quot;: {</span>
+<span class="err">    &quot;enabled&quot;: false</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>也可以在field级别设置include_in_all field ,设置是否将field的值包含在_all field中</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba/_mapping/fruit</span>
+<span class="err">{</span>
+<span class="err">  &quot;properties&quot;: {</span>
+<span class="err">   &quot;title&quot;: {</span>
+<span class="err">     &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">     &quot;include_in_all&quot;: false</span>
+<span class="err">   }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>5、标示性metadata</p>
+<div class="codehilite"><pre><span></span><span class="n">_index</span>
+<span class="n">_type</span>
+<span class="n">_id</span>
+</pre></div>
+
+
+<h2 id="dynamic-mapping">五、定制化自己的dynamic mapping策略</h2>
+<p>1、定制dynalic 策略</p>
+<p>true 遇到陌生字段，就进行dynamic mapping<br />
+flase 遇到陌生字段，就忽略<br />
+strict 遇到陌生字段，就报错</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /alibaba</span>
+<span class="err">{</span>
+<span class="err">  &quot;mappings&quot;: {</span>
+<span class="err">    &quot;taobao&quot;: {</span>
+<span class="err">      &quot;dynamic&quot;: &quot;strict&quot;,</span>
+<span class="err">      &quot;properties&quot;: {</span>
+<span class="err">        &quot;title&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;text&quot;</span>
+<span class="err">        },</span>
+<span class="err">        &quot;address&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;text&quot;</span>
+
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+
+<span class="err">PUT /alibaba/baotao/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;title&quot;: &quot;dog&quot;,</span>
+<span class="err">  &quot;address&quot;: &quot;beijing&quot;</span>
+<span class="err">}</span>
+
+<span class="err">PUT /alibaba/baotao/2</span>
+<span class="err">{</span>
+<span class="err">  &quot;title&quot;: &quot;dog&quot;,</span>
+<span class="err">  &quot;address&quot;: &quot;beijing&quot;,</span>
+<span class="err">  &quot;price&quot;: 26</span>
+<span class="err">}</span>
+
+<span class="err">GET /alibaba/_mapping/taobao</span>
+</pre></div>
+
+
+<p>2、定制dynamic mapping策略<br />
+（1）date_detection<br />
+默认会按照一定格式识别date，比如yyyy-MM-dd,<br />
+如果某个field先过来一个2019-05-02，就会被自动dynamic mapping成date<br />
+后面如果再过来一个“hello world”就被报错<br />
+可以手动关闭某个type的date_detection 如果需要，自己手动执行某个field为date类型</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index/_mapping/my_type</span>
+<span class="err">{</span>
+<span class="err">    &quot;date_detecion&quot;: false</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>(2)定制自己的dynamic mapping template(type level)</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index</span>
+<span class="err">{</span>
+<span class="err">  &quot;mappings&quot;: {</span>
+<span class="err">    &quot;my_type&quot;: {</span>
+<span class="err">      &quot;dynamic_templates&quot;: [{</span>
+<span class="err">        &quot;en&quot;: {</span>
+<span class="err">          &quot;match&quot;: &quot;*_en&quot;,</span>
+<span class="err">          &quot;match_mapping_type&quot;: &quot;string&quot;,</span>
+<span class="err">          &quot;mapping&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;string&quot;,</span>
+<span class="err">            &quot;analyzer&quot;: &quot;english&quot;</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }]</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>分词效果测试</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">标准分词器（</span><span class="n">this</span> <span class="k">is</span> <span class="n">a</span> <span class="n">good</span> <span class="n">man</span><span class="err">）</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">_analyze</span>
+<span class="err">{</span>
+  <span class="ss">&quot;analyzer&quot;</span><span class="p">:</span> <span class="ss">&quot;standard&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span>
+<span class="err">}</span>
+
+
+<span class="o">#</span> <span class="n">english分词器</span> <span class="err">（</span><span class="n">good</span> <span class="n">man</span><span class="err">）</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">_analyze</span>
+<span class="err">{</span>
+  <span class="ss">&quot;analyzer&quot;</span><span class="p">:</span> <span class="ss">&quot;english&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>检测动态分词模板效果</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">添加数据</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">my_type</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;name_en&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">使用</span><span class="n">english分词器字段搜索</span><span class="err">（失败）</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">my_type</span><span class="o">/</span><span class="n">_search</span>
+<span class="err">{</span>
+  <span class="ss">&quot;query&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;match&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;name_en&quot;</span><span class="p">:</span> <span class="ss">&quot;is&quot;</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">使用</span><span class="n">standard</span> <span class="err">分词器字段搜索（成功）</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">my_type</span><span class="o">/</span><span class="n">_search</span>
+<span class="err">{</span>
+  <span class="ss">&quot;query&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;match&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;is&quot;</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>默认standard 分词器不会过滤停用词，is等词不进行索引<br />
+english分词器会过滤停用词</p>
+<p>(3)定制自己的dynamic mapping template(index level)</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index</span>
+<span class="err">{</span>
+<span class="err">    &quot;mappings&quot;: {</span>
+<span class="err">        &quot;_default&quot;: {</span>
+<span class="err">            &quot;_all&quot;: {</span>
+<span class="err">                &quot;enabled&quot;: false</span>
+<span class="err">            }</span>
+<span class="err">        },</span>
+<span class="err">        &quot;blog&quot;: {</span>
+<span class="err">            &quot;_all&quot;: {</span>
+<span class="err">                &quot;enabled&quot;: false</span>
+<span class="err">            }</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="scollbulk">六、基于scoll+bulk+索引别名实现零停机重建索引</h2>
+<p>1、重建索引<br />
+一个field的设置是不能被修改的，<br />
+如果要修改一个field，那么应该重新按照新的mapping，建立一个index<br />
+然后，将数据批量查询出来，重新用bulk api写入index中，<br />
+批量查询的时候，建议才有scroll api，并采用多线程并发的方式来reindex数据，<br />
+每次scroll就查询指定日期的一段数据，交给一个线程即可</p>
+<p>（1）dymanic mapping将字符串识别为了日期类型</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index/my_type/1</span>
+<span class="err">{</span>
+<span class="err">  &quot;title&quot;: &quot;2019-05-03&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（2）当后期向索引中键入string类型的数据就报错</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">插入数据报错</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">my_type</span><span class="o">/</span><span class="mi">2</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a title&quot;</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">查看索引</span><span class="n">mapping</span><span class="err">，</span> <span class="err">发现</span><span class="n">title是date类型</span>
+<span class="k">GET</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">_mapping</span><span class="o">/</span><span class="n">my_type</span>
+<span class="err">{</span>
+  <span class="ss">&quot;my_index&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;mappings&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;my_type&quot;</span><span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;properties&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;date&quot;</span>
+          <span class="err">}</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（3）此时不能修改title类型</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">直接修改已存在索引字段会报错</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">my_index</span><span class="o">/</span><span class="n">_mapping</span><span class="o">/</span><span class="n">my_type</span>
+<span class="err">{</span>
+  <span class="ss">&quot;properties&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;text&quot;</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（4）唯一的办法就是reindex，重建索引，将旧的索引数据查询出来，再导入新索引<br />
+（5）如果旧的索引已经在使用，修改为新的索引名称之后，应用程序不知道<br />
+如果要java程序进行修改，那么需要停机重启，降低可用性</p>
+<p>（6）先给java应用一个别名用着，goods_index 指向旧索引my_index</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index/_alias/goods_index</span>
+
+<span class="err"># 两个索引名称都能查询到数据</span>
+<span class="err">GET /my_index/my_type/_search</span>
+
+<span class="err">GET /goods_index/my_type/_search</span>
+</pre></div>
+
+
+<p>（7）新建一个index，调整其title的类型为string</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index_new</span>
+<span class="err">{</span>
+<span class="err">  &quot;mappings&quot;: {</span>
+<span class="err">    &quot;my_type&quot;: {</span>
+<span class="err">      &quot;properties&quot;: {</span>
+<span class="err">        &quot;title&quot;: {</span>
+<span class="err">          &quot;type&quot;: &quot;string&quot;</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（8）使用scroll api将数据批量查询出来</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /my_index/my_type/_search?scroll=1m</span>
+<span class="err">{</span>
+<span class="err">  &quot;query&quot;: {</span>
+<span class="err">    &quot;match_all&quot;: {}</span>
+<span class="err">  },</span>
+<span class="err">  &quot;sort&quot;: [&quot;_doc&quot;],</span>
+<span class="err">  &quot;size&quot;: 1</span>
+
+<span class="err">}</span>
+
+<span class="err">GET /_search/scroll</span>
+<span class="err">{</span>
+<span class="err">  &quot;scroll_id&quot;: &quot;DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAEzPFkVUUFF3UUUyUmxhV1JTdWtPRkdpd2cAAAAAAABM0BZFVFBRd1FFMlJsYVdSU3VrT0ZHaXdnAAAAAAAATNEWRVRQUXdRRTJSbGFXUlN1a09GR2l3ZwAAAAAAAEzSFkVUUFF3UUUyUmxhV1JTdWtPRkdpd2cAAAAAAABM0xZFVFBRd1FFMlJsYVdSU3VrT0ZHaXdn&quot;,</span>
+<span class="err">  &quot;scroll&quot;: &quot;1m&quot;  </span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（9）采用bulk api将数据批量写入新索引</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /my_index_new/my_type/_bulk</span>
+<span class="err">{&quot;index&quot;: {&quot;_id&quot;: 1}}</span>
+<span class="err">{&quot;text&quot;: &quot;2019-05-03&quot;}</span>
+</pre></div>
+
+
+<p>（10）循环8~9,将数据全部写入新索引<br />
+（11）将旧索引，alias 切换到新索引，应用零停机切换</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /_aliases</span>
+<span class="err">{</span>
+<span class="err">  &quot;actions&quot;: [</span>
+<span class="err">    {</span>
+<span class="err">      &quot;remove&quot;: {</span>
+<span class="err">        &quot;index&quot;: &quot;my_index&quot;,</span>
+<span class="err">        &quot;alias&quot;: &quot;goods_index&quot;</span>
+<span class="err">      }</span>
+<span class="err">    },</span>
+<span class="err">    {</span>
+<span class="err">      &quot;add&quot;: {</span>
+<span class="err">        &quot;index&quot;: &quot;my_index_new&quot;,</span>
+<span class="err">        &quot;alias&quot;: &quot;goods_index&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+
+<span class="err"># 查看索引别名切换结果</span>
+<span class="err">GET /my_index</span>
+
+<span class="err">GET /my_index_new</span>
+</pre></div>
+
+
+<p>（12）直接通过goods_index别名查询</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /goods_index/my_type/_search</span>
+</pre></div>
+
+
+<p>2、基于alias 对client透明切换index</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index_v1/_alias/my_index</span>
+</pre></div>
+
+
+<p>client 对my_index进行操作<br />
+reindex操作完成之后，切换v1到v2</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /_aliases</span>
+<span class="err">{</span>
+<span class="err">  &quot;actions&quot;: [</span>
+<span class="err">    {</span>
+<span class="err">      &quot;remove&quot;: {</span>
+<span class="err">        &quot;index&quot;: &quot;my_index&quot;,</span>
+<span class="err">        &quot;alias&quot;: &quot;goods_index&quot;</span>
+<span class="err">      }</span>
+<span class="err">    },</span>
+<span class="err">    {</span>
+<span class="err">      &quot;add&quot;: {</span>
+<span class="err">        &quot;index&quot;: &quot;my_index_new&quot;,</span>
+<span class="err">        &quot;alias&quot;: &quot;goods_index&quot;</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="_3">七、倒排索引组成结构以及其索引不可变原因</h2>
+<p>1、倒排索引<br />
+倒排索引，适合用于搜索</p>
+<p>倒排索引结构<br />
+（1）包含这个关键词的document list<br />
+（2）包含这个关键词的document的数量 IDF<br />
+（3）这个关键词在每个document中出现的次数 TF<br />
+（4）这个关键词在这个document中的次序<br />
+（5）每个document的长度 length norm<br />
+（6）包含这个关键词的所有document的平均长度</p>
+<p>2、索引不可变<br />
+不可变的好处<br />
+（1）不需要锁，提升并发能力，避免锁的问题<br />
+（2）数据不变，一直保存在os cache中，只要cache内存足够<br />
+（3）filter cache一直驻留在内存，因为数据不变<br />
+（4）可以压缩，节省cpu和io开销</p>
+<p>不可变的坏处<br />
+每次都要重新构建整个索引</p>
+<h2 id="documentbuffersegmentcommit">八、深度图解剖析document写入原理（buffer，segment，commit）</h2>
+<p>1、数据写入<br />
+（1）数据写入buffer<br />
+（2）commit point<br />
+（3）buffer 中的数据写入新的index segment（lucene）<br />
+（4）等待在os cache 中的index segment被fsync强制刷到磁盘上<br />
+（5）新的index segment被打开，供search使用<br />
+（6）buffer被清空</p>
+<p>2、数据删除<br />
+每次commit point时，会有一个.del文件，<br />
+标记了哪些segment中的哪些document被标记delete了<br />
+搜索的时候，会一次查询所有的segment，从旧的到新的，<br />
+比如被修改过的document，在旧的segment中，会标记为deleted，<br />
+在新的segment中会有新的数据</p>
+<p>3、数据修改<br />
+相当于将旧的数据标记为deleted，新写一份数据到es</p>
+<h2 id="nrtfilesystem-cacherefresh">九、优化写入流程实现NRT近实时（filesystem cache，refresh）</h2>
+<p>基于上面的流程，每次必须等待fsync将segment刷入磁盘，才能将segment打开供search使用<br />
+这样一来，从写入document到可以搜索，可能会超过1分钟<br />
+主要瓶颈在于fsync实际发生磁盘IO写数据进磁盘，很耗时</p>
+<p>写入流程改进：<br />
+（1）数据写入buffer<br />
+（2）buffer满之后，buffer中的数据被写入segment文件，但是先写入os cache<br />
+（3）只要segment写入os cache，那就直接打开供search使用，不立即执行commit</p>
+<p>数据写入os cache，并打开供搜索的过程，叫做refresh，默认是每隔1秒一次<br />
+所以es是近实时的，写入到可以被搜索，默认是1秒</p>
+<p>手动refresh, 一般不用手动执行，es自己处理就行</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /my_index/_refresh</span>
+</pre></div>
+
+
+<p>设置refresh时间， 如果失效要求较低，可以设置长一些</p>
+<div class="codehilite"><pre><span></span><span class="err">PUT /my_index</span>
+<span class="err">{</span>
+<span class="err">    &quot;settings&quot;: {</span>
+<span class="err">        &quot;refresh_interval&quot;: &quot;30s&quot;</span>
+<span class="err">    }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="durabilitytranslogflush">十、优化写入流程实现durability可靠存储（translog，flush）</h2>
+<p>（1）数据写入buffer缓冲区和translog日志文件<br />
+（2）每隔1秒钟，buffer中的数据被写入新的segment file，并进入os cache，<br />
+此时segment被打开供search使用<br />
+（3）buffer被清空<br />
+（4）重复1~3 新的segment不断添加，buffer不断不清空，而translog中的数据不断累加<br />
+（5）当translog长度达到一定程度的时候，commit操作发生<br />
+    （5-1）buffer中的所有数据写入一个新的segment，并写入os cache，打开供search使用<br />
+    （5-2）buffer被清空<br />
+    （5-3）一个commit point 被写入磁盘，标明了所有的index segment<br />
+    （5-4）file system cache中的所有index segment file 缓存数据，被fsync强制刷到磁盘上<br />
+    （5-5）现有的translog被清空，创建一个新的translog</p>
+<p>基于translog 和commit point进行数据恢复</p>
+<p>fsync + 清空translog就是flush，默认每隔30分钟flush一次，<br />
+或者当translog过大的时候，也会flush,自动执行就行</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /my_index/_flush</span>
+</pre></div>
+
+
+<p>translog，每隔5 秒被fsync一次到磁盘上，在一次增删改操作之后，<br />
+当fsync 在primary shard 和 replica shard都成功之后，那次增删改操作才会成功</p>
+<p>但是，这种在一次增删改时强行fsync translog 可能会导致部分操作比较耗时，也可以允许部分数据丢失<br />
+设置异步fsync translog</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /my_index/_settings</span>
+<span class="err">{</span>
+<span class="err">    &quot;index.translog.durability&quot;: &quot;async&quot;,</span>
+<span class="err">    &quot;index.translog.sync_interval&quot;: &quot;5s&quot;,</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="segment-mergeoptimize">十一、写入流程实现海量磁盘文件合并（segment merge，optimize）</h2>
+<p>每秒1个segment file，文件过多，而且每次search都要搜索所有的segment，很耗时</p>
+<p>默认会在后台执行segment merge 操作，在merge的时候，被标记为deleted的document也会被彻底物理删除</p>
+<p>每次merge 操作的流程<br />
+（1）选择一些有相似大小的segment，merge成一个大的segment<br />
+（2）将新的segment flush到磁盘上<br />
+（3）写一个新的commit point，包括了新的segment，并且排除旧的哪些segment<br />
+（4）将新的segment打开供搜索<br />
+（5）将旧的segment删除</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /my_index/_optimize?max_num_segments=1</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

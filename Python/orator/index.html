@@ -1,0 +1,1683 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>orator - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#orator" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                orator
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    二、Query
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-builder" class="md-nav__link">
+    三、Query Builder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    四、Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model_1" class="md-nav__link">
+    五、Model关联查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model_2" class="md-nav__link">
+    六、Model多态关联
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    七、其他操作
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="orator">orator</h1>
+<p>安装</p>
+<div class="codehilite"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">orator</span>
+</pre></div>
+
+
+<p>文档</p>
+<p><a href="https://orator-orm.com/docs/">https://orator-orm.com/docs/</a></p>
+<p>Orator文档不是很完整，不过可以结合Laravel和ThinkPHP文档，思想和操作基本一致<br />
+（英文）<a href="https://laravel.com/docs/5.8/database">https://www.kancloud.cn/manual/thinkphp5/135176</a><br />
+（中文）<a href="https://www.kancloud.cn/manual/thinkphp5/135176">https://www.kancloud.cn/manual/thinkphp5/135176</a></p>
+<p>和Laravel一样，支持三种操作方式：<br />
+1、Query<br />
+2、Query Builder<br />
+3、ORM</p>
+<h2 id="_1">一、配置</h2>
+<p>测试使用的表</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">student</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">name</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;姓名&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">age</span><span class="o">`</span> <span class="n">tinyint</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;年龄&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">sex</span><span class="o">`</span> <span class="n">tinyint</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;性别&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">created_at</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;创建时间&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">updated_at</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;修改时间&#39;</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span>  <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span> <span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;学生表&#39;</span>
+</pre></div>
+
+
+<p>1、设置查询日志，打印sql</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;orator.connection.queries&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(elapsed_time)s</span><span class="s1"> ms </span><span class="si">%(query)s</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</pre></div>
+
+
+<p>2、配置数据库连接参数</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">DatabaseManager</span>
+
+<span class="c1"># 配置支持多个数据库连接，支持读写分离</span>
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;mysql&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;read&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;write&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+
+        <span class="s1">&#39;driver&#39;</span><span class="p">:</span> <span class="s1">&#39;mysql&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;database&#39;</span><span class="p">:</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;123456&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;log_queries&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1"># 开启日志</span>
+        <span class="s1">&#39;use_qmark&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>    <span class="c1"># 使用 ? 替代变量</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">DatabaseManager</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="query">二、Query</h2>
+<p>1、读操作</p>
+<div class="codehilite"><pre><span></span><span class="c1"># select return list</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;select * from student where id = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="c1"># ({&#39;id&#39;: 2, &#39;name&#39;: &#39;李白&#39;, &#39;age&#39;: 24, &#39;sex&#39;: 1, &#39;created_at&#39;: 1575127010, &#39;updated_at&#39;: 1575187008},)</span>
+</pre></div>
+
+
+<p>2、写操作</p>
+<div class="codehilite"><pre><span></span><span class="c1"># insert return int</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s1">&#39;insert into student (age, name) values (?, ?)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1"># 1</span>
+
+
+<span class="c1"># update return int</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;update student set age = 10 where name = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1"># 1</span>
+
+
+<span class="c1"># delete return int</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;delete from student where id = ?&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">132</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1"># 1</span>
+</pre></div>
+
+
+<p>3、表操作和事务</p>
+<div class="codehilite"><pre><span></span><span class="c1"># statement</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">statement</span><span class="p">(</span><span class="s1">&#39;drop table student&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1"># 0</span>
+
+<span class="c1"># 执行事务</span>
+<span class="k">with</span> <span class="n">db</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="c1"># db.table(&#39;posts&#39;).delete()</span>
+</pre></div>
+
+
+<h2 id="query-builder">三、Query Builder</h2>
+<p>1、select</p>
+<div class="codehilite"><pre><span></span><span class="c1"># select all row from table</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student`&#39;</span>
+
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>  <span class="c1"># 或者 user.name</span>
+
+<span class="c1"># chunk 每次获取5个</span>
+<span class="k">for</span> <span class="n">users</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;==&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+<span class="c1"># 获取single row(None) from a table</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="s2">&quot;SELECT * FROM `student` WHERE `name` = &#39;John&#39; LIMIT 1&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+<span class="c1"># 返回single column from a row</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="s2">&quot;SELECT `name` FROM `student` WHERE `name` = &#39;John&#39; LIMIT 1&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="c1"># 返回 某列值的列表</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="s1">&#39;SELECT `name` FROM `student`&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sql</span><span class="p">))</span>
+
+<span class="c1"># 返回一个字典列表</span>
+<span class="n">roles</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
+<span class="s1">&#39;SELECT `age`, `name` FROM `student`&#39;</span>
+<span class="c1"># {&#39;John&#39;: 1}</span>
+
+<span class="c1"># select</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT `name`, `age` FROM `student`&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT DISTINCT * FROM `student`&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;name as user_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT `name` AS `user_name` FROM `student`&#39;</span>
+
+<span class="c1"># where</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `age` &gt; 25&#39;</span>
+
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">or_where</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;--&quot;John&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `age` &gt; 25 OR `name` = \&#39;--\\&quot;John\&#39;&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where_between</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `age` BETWEEN 25 AND 35&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where_not_between</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `age` NOT BETWEEN 25 AND 35&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where_in</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `id` IN (1, 2, 3)&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where_not_in</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `id` NOT IN (1, 2, 3)&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where_null</span><span class="p">(</span><span class="s1">&#39;updated_at&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `updated_at` IS NULL&#39;</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">having</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="c1"># SELECT `age` FROM `student` GROUP BY `age` HAVING `age` &gt; 100 ORDER BY `age` ASC&#39;</span>
+</pre></div>
+
+
+<p>2、 insert</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># &quot;INSERT INTO `student` (`name`, `age`) VALUES (&#39;Tom&#39;, 12)&quot;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">13</span>
+<span class="p">})</span>
+<span class="c1"># &quot;INSERT INTO `student` (`name`, `age`) VALUES (&#39;Tom&#39;, 13)&quot;</span>
+
+<span class="n">uid</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert_get_id</span><span class="p">({</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">13</span>
+<span class="p">})</span>
+<span class="c1"># &quot;INSERT INTO `student` (`age`, `name`) VALUES (13, &#39;Tom&#39;)&quot;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">([</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">}</span>
+<span class="p">])</span>
+<span class="c1"># &quot;INSERT INTO `student` (`age`, `name`) VALUES (13, &#39;Tom&#39;), (14, &#39;Tom&#39;)&quot;</span>
+</pre></div>
+
+
+<p>3、update</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># &#39;UPDATE `student` SET `age` = 1 WHERE `id` = 1&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="c1"># &#39;UPDATE `student` SET `age` = 1 WHERE `id` = 1&#39;</span>
+</pre></div>
+
+
+<p>4、increment /decrement</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>  <span class="c1"># Increment the value by 1</span>
+<span class="s1">&#39;UPDATE `student` SET `age` = `age` + 1&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Increment the value by 5</span>
+<span class="s1">&#39;UPDATE `student` SET `age` = `age` + 5&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decrement</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>  <span class="c1"># Decrement the value by 1</span>
+<span class="s1">&#39;UPDATE `student` SET `age` = `age` - 1&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decrement</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Decrement the value by 5</span>
+<span class="s1">&#39;UPDATE `student` SET `age` = `age` - 5&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s1">&#39;votes&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
+<span class="c1"># TypeError: increment() got an unexpected keyword argument &#39;name&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">})</span>
+<span class="s2">&quot;UPDATE `student` SET `age` = `age` + 1, `name` = &#39;John&#39;&quot;</span>
+</pre></div>
+
+
+<p>5、delete</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="c1"># &#39;DELETE FROM `student` WHERE `age` &lt; 25&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="s1">&#39;DELETE FROM `student`&#39;</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+<span class="s1">&#39;TRUNCATE `student`&#39;</span>
+</pre></div>
+
+
+<h2 id="model">四、Model</h2>
+<p>定义model</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">SoftDeletes</span>
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">SoftDeletes</span><span class="p">,</span> <span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="c1"># 设置可以批量赋值的字段</span>
+    <span class="n">__fillable__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>
+
+    <span class="c1"># 设置不允许赋值字段</span>
+    <span class="n">__guarded__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+
+    <span class="c1"># 禁用时间自动更新 created_at updated_at</span>
+    <span class="n">__timestamps__</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="c1"># 需要继承 SoftDeletes 使用软删除, 好像不起作用</span>
+    <span class="n">__dates__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;deleted_at&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>1、select</p>
+<div class="codehilite"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="s1">&#39;SELECT * FROM `student`&#39;</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="c1"># 如果没有抛出异常</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">find_or_fail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">first_or_fail</span><span class="p">()</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `age` &gt; 100 LIMIT 1&#39;</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `age` &gt; 100 LIMIT 10&#39;</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="s1">&#39;SELECT COUNT(*) AS aggregate FROM `student` WHERE `age` &gt; 100&#39;</span>
+
+<span class="c1"># 使用原样查询</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">where_raw</span><span class="p">(</span><span class="s1">&#39;id &gt; ? and age = 100&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span><span class="p">])</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE id &gt; 25 AND age = 100&#39;</span>
+
+<span class="c1"># 分次取回数据</span>
+<span class="k">for</span> <span class="n">users</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+
+
+<p>2 insert</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Save新增数据</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+<span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;John&#39;</span>
+<span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="s2">&quot;INSERT INTO `student` (`name`) VALUES (&#39;John&#39;)&quot;</span>
+
+<span class="c1"># Create</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
+<span class="s2">&quot;INSERT INTO `student` (`name`) VALUES (&#39;John&#39;)&quot;</span>
+
+<span class="c1"># 查询数据，如果不存在则创建一条数据</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">first_or_create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Jini&#39;</span><span class="p">)</span>
+<span class="s2">&quot;SELECT * FROM `student` WHERE (`name` = &#39;Jini&#39;) LIMIT 1&quot;</span>
+<span class="s2">&quot;INSERT INTO `student` (`name`) VALUES (&#39;Jini&#39;)&quot;</span>
+
+<span class="c1"># 查询数据，如果不存在则创建一个实例</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">first_or_new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;java&#39;</span><span class="p">)</span>
+<span class="s2">&quot;SELECT * FROM `student` WHERE (`name` = &#39;java&#39;) LIMIT 1&quot;</span>
+</pre></div>
+
+
+<p>3、 Update</p>
+<div class="codehilite"><pre><span></span><span class="c1"># find -&gt;save</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 14 LIMIT 1&#39;</span>
+<span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Foo&#39;</span>
+
+<span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="s2">&quot;UPDATE `student` SET `name` = &#39;Foo&#39; WHERE `id` = 14&quot;</span>
+
+<span class="c1"># update</span>
+<span class="n">User</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Jack&#39;</span><span class="p">)</span>
+<span class="s2">&quot;UPDATE `student` SET `name` = &#39;Jack&#39; WHERE `age` &gt; 100&quot;</span>
+</pre></div>
+
+
+<p>4、 delete</p>
+<div class="codehilite"><pre><span></span><span class="c1"># find -&gt; delete</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="c1"># &#39;SELECT * FROM `student` WHERE `student`.`id` = 14 LIMIT 1&#39;</span>
+<span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="c1"># &#39;DELETE FROM `student` WHERE `id` = 14&#39;</span>
+
+<span class="n">User</span><span class="o">.</span><span class="n">destroy</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `id` IN (15)&#39;</span>
+<span class="s1">&#39;DELETE FROM `student` WHERE `id` = 15&#39;</span>
+
+<span class="n">User</span><span class="o">.</span><span class="n">destroy</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `id` IN (16, 17, 18)&#39;</span>
+<span class="s1">&#39;DELETE FROM `student` WHERE `id` = 16&#39;</span>
+<span class="s1">&#39;DELETE FROM `student` WHERE `id` = 17&#39;</span>
+<span class="s1">&#39;DELETE FROM `student` WHERE `id` = 18&#39;</span>
+
+<span class="n">User</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+<span class="s1">&#39;DELETE FROM `student` WHERE `age` &gt; 100&#39;</span>
+
+
+<span class="c1"># User.where(&#39;id&#39;, &#39;=&#39;, 19).delete()</span>
+<span class="s1">&#39;DELETE FROM `student` WHERE `id` = 19&#39;</span>
+
+
+<span class="c1"># 使用软删除后，查询结果没有删除后的数据</span>
+<span class="n">phone</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE (`student`.`id` = 20) AND (`student`.`deleted_at` IS NULL) LIMIT 1&#39;</span>
+
+<span class="c1"># 包含软删除后的数据</span>
+<span class="n">User</span><span class="o">.</span><span class="n">with_trashed</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `id` = 1&#39;</span>
+</pre></div>
+
+
+<h2 id="model_1">五、Model关联查询</h2>
+<p>引入模块</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">orator.orm</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">has_one</span><span class="p">,</span>
+    <span class="n">belongs_to</span><span class="p">,</span>
+    <span class="n">has_many</span><span class="p">,</span>
+    <span class="n">belongs_to_many</span><span class="p">,</span>
+    <span class="n">has_many_through</span><span class="p">,</span>
+    <span class="n">morph_to</span><span class="p">,</span>
+    <span class="n">morph_one</span><span class="p">,</span>
+    <span class="n">morph_many</span><span class="p">,</span>
+    <span class="n">morph_to_many</span><span class="p">,</span> 
+    <span class="n">morphed_by_many</span>
+   <span class="p">)</span>
+</pre></div>
+
+
+<p>1、一对一</p>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">student &lt;- -&gt; phone</span>
+
+<span class="sd">student</span>
+<span class="sd">    id - integer    </span>
+<span class="sd">    name - string</span>
+
+<span class="sd">phone</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    number - string</span>
+<span class="sd">    student_id - integer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="c1"># 指定外键</span>
+    <span class="nd">@has_one</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">phone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Phone</span>
+
+
+<span class="k">class</span> <span class="nc">Phone</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 指定本表中的外键字段</span>
+    <span class="nd">@belongs_to</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="n">phone</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">phone</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 20 LIMIT 1&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `phones` WHERE `phones`.`student_id` = 20 LIMIT 1&#39;</span>
+
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">Phone</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">student</span>
+<span class="s1">&#39;SELECT * FROM `phones` WHERE `phones`.`id` = 1 LIMIT 1&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 20 LIMIT 1&#39;</span>
+</pre></div>
+
+
+<p>2、一对多</p>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">student &lt;- =&gt; comment</span>
+
+<span class="sd">表结构和一对一样，查询的时候没有limit 1限制</span>
+
+<span class="sd">student</span>
+<span class="sd">    id - integer    </span>
+<span class="sd">    name - string</span>
+
+<span class="sd">comment</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+<span class="sd">    student_id - integer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@has_many</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Comment</span>
+
+
+<span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 定义反向关系</span>
+    <span class="nd">@belongs_to</span>
+    <span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="n">comments</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">comments</span>
+<span class="k">print</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 20 LIMIT 1&#39;</span>
+<span class="s1">&#39;SELECT * FROM `comments` WHERE `comments`.`student_id` = 20&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Comment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">student</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `comments` WHERE `comments`.`id` = 1 LIMIT 1&#39;</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 20 LIMIT 1&#39;</span>
+</pre></div>
+
+
+<p>3、多对多</p>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">student &lt;- =&gt; roles_student &lt;= -&gt; roles</span>
+
+<span class="sd">student</span>
+<span class="sd">    id - integer    </span>
+<span class="sd">    name - string</span>
+
+<span class="sd">roles</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">roles_student</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    role_id - integer</span>
+<span class="sd">    student_id - integer</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@belongs_to_many</span>
+    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Role</span>
+
+
+<span class="k">class</span> <span class="nc">Role</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@belongs_to_many</span>
+    <span class="k">def</span> <span class="nf">students</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="n">roles</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">roles</span>
+<span class="k">print</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
+
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `roles`. *, `roles_student`. </span>
+<span class="sd">`student_id` AS `pivot_student_id`, </span>
+<span class="sd">`roles_student`. `role_id` AS `pivot_role_id` </span>
+<span class="sd">FROM `roles` INNER JOIN `roles_student` </span>
+<span class="sd">ON `roles`. `id` = `roles_student`. `role_id`</span>
+<span class="sd"> WHERE `roles_student`. `student_id` = 20</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">Role</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">students</span><span class="p">)</span>
+
+
+<span class="s1">&#39;SELECT * FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `student`. *, `roles_student`. </span>
+<span class="sd">`role_id` AS `pivot_role_id`, </span>
+<span class="sd">`roles_student`. `student_id` AS `pivot_student_id` </span>
+<span class="sd">FROM `student` INNER JOIN `roles_student` </span>
+<span class="sd">ON `student`. `id` = `roles_student`. `student_id` </span>
+<span class="sd">WHERE `roles_student`. `role_id` = 1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>4、跨中间表一对多</p>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">countries &lt;- =&gt; students &lt;- =&gt; roles</span>
+
+<span class="sd">countries</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">students</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+<span class="sd">    country_id - integer</span>
+
+<span class="sd">roles</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    title - string</span>
+<span class="sd">    student_id - integer</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@has_many</span>
+    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Role</span>
+
+
+<span class="k">class</span> <span class="nc">Role</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@belongs_to</span>
+    <span class="k">def</span> <span class="nf">students</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="k">class</span> <span class="nc">Country</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;countrys&#39;</span>
+
+    <span class="c1"># 定义反向关系</span>
+    <span class="nd">@has_many_through</span><span class="p">(</span><span class="n">Student</span><span class="p">,</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span> <span class="s1">&#39;student_id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Role</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">Country</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">roles</span><span class="p">)</span>
+
+<span class="s1">&#39;SELECT * FROM `countrys` WHERE `countrys`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `roles`.*, `student`.`country_id` FROM `roles` </span>
+<span class="sd">INNER JOIN `student` ON `student`.`id` = `roles`.`student_id` </span>
+<span class="sd">WHERE `student`.`country_id` = 1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<h2 id="model_2">六、Model多态关联</h2>
+<p>1、多态一对一关联<br />
+和一对一关系相比，多了一个type类型字段，标记多个表</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 一个模型属于一个模型</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Staff &lt;- -&gt; Photo </span>
+<span class="sd">Order &lt;- -&gt; Photo </span>
+
+<span class="sd">staff</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">orders</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    price - integer</span>
+
+<span class="sd">photos</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    path - string</span>
+<span class="sd">    imageable_id - integer</span>
+<span class="sd">    imageable_type - string</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">orator.orm</span> <span class="kn">import</span> <span class="n">morph_one</span><span class="p">,</span> <span class="n">morph_to</span>
+
+<span class="k">class</span> <span class="nc">Photo</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morph_to</span>
+    <span class="k">def</span> <span class="nf">imageable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+
+<span class="k">class</span> <span class="nc">Staff</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morph_one</span><span class="p">(</span><span class="s1">&#39;imageable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">photo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Photo</span>
+
+
+<span class="k">class</span> <span class="nc">Order</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="c1"># 重写多态关联字段</span>
+    <span class="n">__morph_name__</span> <span class="o">=</span> <span class="s1">&#39;order&#39;</span>
+
+    <span class="nd">@morph_one</span><span class="p">(</span><span class="s1">&#39;imageable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">photo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Photo</span>
+
+
+<span class="n">staff</span> <span class="o">=</span> <span class="n">Staff</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `staffs` WHERE `staffs`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">staff</span><span class="o">.</span><span class="n">photo</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT * FROM `photos` </span>
+<span class="sd">WHERE `photos`.`imageable_id` = 1 </span>
+<span class="sd">AND `photos`.`imageable_type` = &#39;staffs&#39;</span>
+<span class="sd">LIMIT 1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">photo</span> <span class="o">=</span> <span class="n">Photo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `photos` WHERE `photos`.`id` = 1 LIMIT 1&#39;</span>
+</pre></div>
+
+
+<p>2、多态一对多关联<br />
+没有和多态一对多相比，没有limit</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator.orm</span> <span class="kn">import</span> <span class="n">morph_to</span><span class="p">,</span> <span class="n">morph_many</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># 一个模型属于多个模型</span>
+
+<span class="sd">Staff &lt;- =&gt; Photo </span>
+<span class="sd">Order &lt;- =&gt; Photo  </span>
+
+<span class="sd">staff</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">orders</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    price - integer</span>
+
+<span class="sd">photos</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    path - string</span>
+<span class="sd">    imageable_id - integer</span>
+<span class="sd">    imageable_type - string</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Photo</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morph_to</span>
+    <span class="k">def</span> <span class="nf">imageable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+
+<span class="k">class</span> <span class="nc">Staff</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morph_many</span><span class="p">(</span><span class="s1">&#39;imageable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">photos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Photo</span>
+
+
+<span class="k">class</span> <span class="nc">Order</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 重写多态关联字段</span>
+    <span class="n">__morph_name__</span> <span class="o">=</span> <span class="s1">&#39;order&#39;</span>
+
+    <span class="nd">@morph_many</span><span class="p">(</span><span class="s1">&#39;imageable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">photos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Photo</span>
+
+
+<span class="n">staff</span> <span class="o">=</span> <span class="n">Staff</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `staffs` WHERE `staffs`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="k">for</span> <span class="n">photo</span> <span class="ow">in</span> <span class="n">staff</span><span class="o">.</span><span class="n">photos</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">SELECT * FROM `photos` </span>
+<span class="sd">WHERE `photos`.`imageable_id` = 1 </span>
+<span class="sd">AND `photos`.`imageable_type` = &#39;staffs&#39;</span>
+
+
+<span class="sd">photo = Photo.find(1)</span>
+<span class="sd">&#39;SELECT * FROM `photos` WHERE `photos`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="sd">imageable = photo.imageable</span>
+<span class="sd">print(imageable)</span>
+<span class="sd"># &#39;SELECT * FROM `staffs` WHERE `staffs`.`id` = 1 LIMIT 1&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>3、多态多对多</p>
+<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">posts</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">videos</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">tags</span>
+<span class="sd">    id - integer</span>
+<span class="sd">    name - string</span>
+
+<span class="sd">taggables</span>
+<span class="sd">    tag_id - integer</span>
+<span class="sd">    taggable_id - integer</span>
+<span class="sd">    taggable_type - string</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">orator.orm</span> <span class="kn">import</span> <span class="n">morph_to_many</span><span class="p">,</span>  <span class="n">morphed_by_many</span>
+
+
+<span class="k">class</span> <span class="nc">Tag</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morphed_by_many</span><span class="p">(</span><span class="s1">&#39;taggable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">posts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Post</span>
+
+    <span class="nd">@morphed_by_many</span><span class="p">(</span><span class="s1">&#39;taggable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">videos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Video</span>
+
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morph_to_many</span><span class="p">(</span><span class="s1">&#39;taggable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Tag</span>
+
+
+<span class="k">class</span> <span class="nc">Video</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@morph_to_many</span><span class="p">(</span><span class="s1">&#39;taggable&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Tag</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">Video</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tags</span><span class="p">)</span>
+
+<span class="s1">&#39;SELECT * FROM `videos` WHERE `videos`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT `tags`.*, </span>
+<span class="sd">`taggables`.`taggable_id` AS `pivot_taggable_id`, </span>
+<span class="sd">`taggables`.`tag_id` AS `pivot_tag_id` </span>
+<span class="sd">FROM `tags` INNER JOIN `taggables` </span>
+<span class="sd">ON `tags`.`id` = `taggables`.`tag_id` </span>
+<span class="sd">WHERE `taggables`.`taggable_id` = 1 </span>
+<span class="sd">AND `taggables`.`taggable_type` = &#39;videos&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<h2 id="_2">七、其他操作</h2>
+<p>1、动态属性</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">SoftDeletes</span>
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@has_many</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Comment</span>
+
+
+<span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 定义反向关系</span>
+    <span class="nd">@belongs_to</span>
+    <span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">comments</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="s1">&#39;SELECT * FROM `comments` WHERE `comments`.`student_id` = 1&#39;</span>
+<span class="c1"># 2</span>
+
+<span class="c1"># 增加条件查询</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">comments</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="s1">&#39;SELECT * FROM `comments` WHERE `comments`.`student_id` = 1 AND `id` &gt; 1 LIMIT 1&#39;</span>
+</pre></div>
+
+
+<p>2、预加载数据</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">SoftDeletes</span>
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@has_many</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Comment</span>
+
+
+<span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 定义反向关系</span>
+    <span class="nd">@belongs_to</span>
+    <span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">Comment</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="o">.</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&#39;SELECT * FROM `comments`&#39;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` = 2 LIMIT 1&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># 预加载 解决  N + 1  次查询问题</span>
+
+<span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">Comment</span><span class="o">.</span><span class="n">with_</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">comment</span><span class="o">.</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&#39;SELECT * FROM `comments`&#39;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` IN (1, 2)&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># 增加查询条件</span>
+<span class="n">Comment</span><span class="o">.</span><span class="n">with_</span><span class="p">({</span>
+    <span class="s1">&#39;student&#39;</span><span class="p">:</span> <span class="n">Student</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">})</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&#39;SELECT * FROM `comments`&#39;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` IN (1, 2) AND `id` &gt; 1&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># load加载</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="n">Comment</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">comments</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `comments`&#39;</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` IN (1, 2)&#39;</span>
+
+<span class="c1"># 添加条件</span>
+<span class="n">comments</span><span class="o">.</span><span class="n">load</span><span class="p">({</span>
+   <span class="s1">&#39;student&#39;</span><span class="p">:</span> <span class="n">Student</span><span class="o">.</span><span class="n">query</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;like&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%f</span><span class="s1">oo%&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="s2">&quot;SELECT * FROM `student` WHERE `student`.`id` IN (1, 2) AND `name` like &#39;</span><span class="si">%f</span><span class="s2">oo%&#39;&quot;</span>
+</pre></div>
+
+
+<p>3、插入关联数据</p>
+<div class="codehilite"><pre><span></span><span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@has_many</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Comment</span>
+
+
+<span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="n">__fillable__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span>
+
+    <span class="n">__timestamps__</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="c1"># 定义反向关系</span>
+    <span class="nd">@belongs_to</span>
+    <span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+
+<span class="c1"># 插入一条关联数据</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="n">Comment</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="s1">&#39;A new comment&#39;</span><span class="p">)</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="n">comment</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">comments</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span>
+<span class="s2">&quot;INSERT INTO `comments` (`number`, `student_id`) VALUES (&#39;A new comment&#39;, 1)&quot;</span>
+
+
+<span class="c1"># 插入多条关联数据</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Comment</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="s1">&#39;Comment 1&#39;</span><span class="p">),</span>
+    <span class="n">Comment</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="s1">&#39;Comment 2&#39;</span><span class="p">),</span>
+    <span class="n">Comment</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="s1">&#39;Comment 3&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">student</span><span class="o">.</span><span class="n">comments</span><span class="p">()</span><span class="o">.</span><span class="n">save_many</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;INSERT INTO `comments` (`number`, `student_id`) VALUES (&#39;Comment 1&#39;, 1)&quot;</span>
+<span class="sd">&quot;INSERT INTO `comments` (`number`, `student_id`) VALUES (&#39;Comment 2&#39;, 1)&quot;</span>
+<span class="sd">&quot;INSERT INTO `comments` (`number`, `student_id`) VALUES (&#39;Comment 3&#39;, 1)&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># create方法</span>
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">student</span><span class="o">.</span><span class="n">comments</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="s2">&quot;INSERT INTO `comments` (`number`, `student_id`) VALUES (&#39;123&#39;, 1)&quot;</span>
+</pre></div>
+
+
+<p>4、一对多关系维护 </p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">SoftDeletes</span>
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@has_many</span><span class="p">(</span><span class="s1">&#39;student_id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Comment</span>
+
+
+<span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="n">__fillable__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span>
+
+    <span class="n">__timestamps__</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="c1"># 定义反向关系</span>
+    <span class="nd">@belongs_to</span>
+    <span class="k">def</span> <span class="nf">student</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+<span class="c1"># belongs_to 关系更新</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="n">Comment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+
+<span class="c1"># # 添加关系</span>
+<span class="n">comment</span><span class="o">.</span><span class="n">student</span><span class="p">()</span><span class="o">.</span><span class="n">associate</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+<span class="n">comment</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&#39;SELECT * FROM `comments` WHERE `comments`.`id` = 1 LIMIT 1&#39;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` = 22 LIMIT 1&#39;</span>
+<span class="sd">&#39;UPDATE `comments` SET `student_id` = 22 WHERE `id` = 1&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># 解除关系</span>
+<span class="n">comment</span><span class="o">.</span><span class="n">student</span><span class="p">()</span><span class="o">.</span><span class="n">dissociate</span><span class="p">()</span>
+<span class="n">comment</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="s1">&#39;UPDATE `comments` SET `student_id` = NULL WHERE `id` = 1&#39;</span>
+</pre></div>
+
+
+<p>5、多对多关系维护</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">SoftDeletes</span>
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@belongs_to_many</span>
+    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Role</span>
+
+
+<span class="k">class</span> <span class="nc">Role</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="nd">@belongs_to_many</span>
+    <span class="k">def</span> <span class="nf">students</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Student</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">role</span> <span class="o">=</span> <span class="n">Role</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 添加关联</span>
+<span class="n">user</span><span class="o">.</span><span class="n">roles</span><span class="p">()</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="sd">&#39;SELECT * FROM `roles` WHERE `roles`.`id` = 1 LIMIT 1&#39;</span>
+
+<span class="sd">&#39;INSERT INTO `roles_student` (`role_id`, `student_id`) VALUES (1, 1)&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># 解除关联</span>
+<span class="c1"># user.roles().detach(1)</span>
+<span class="s1">&#39;DELETE FROM `roles_student` WHERE `student_id` = 1 AND `role_id` IN (1)&#39;</span>
+
+<span class="c1"># 同步关系</span>
+<span class="n">user</span><span class="o">.</span><span class="n">roles</span><span class="p">()</span><span class="o">.</span><span class="n">sync</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&#39;SELECT `role_id` FROM `roles_student` WHERE `student_id` = 1&#39;</span>
+
+<span class="sd">&#39;DELETE FROM `roles_student` WHERE `student_id` = 1 AND `role_id` IN (NULL)&#39;</span>
+
+<span class="sd">&#39;INSERT INTO `roles_student` (`role_id`, `student_id`) VALUES (1, 1)&#39;</span>
+<span class="sd">&#39;INSERT INTO `roles_student` (`role_id`, `student_id`) VALUES (2, 1)&#39;</span>
+<span class="sd">&#39;INSERT INTO `roles_student` (`role_id`, `student_id`) VALUES (3, 1)&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<p>6、修改时间字段格式</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get_date_format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;DD-MM-YY&#39;</span>
+</pre></div>
+
+
+<p>7、scope重用查询</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+
+    <span class="nd">@scope</span>
+    <span class="k">def</span> <span class="nf">popular</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="nd">@scope</span>
+    <span class="k">def</span> <span class="nf">women</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s1">&#39;womem&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="p">)</span>
+
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">popular</span><span class="p">()</span><span class="o">.</span><span class="n">women</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="s2">&quot;SELECT * FROM `student` WHERE (`age` &gt; 100) AND (`sex` = &#39;womem&#39;) ORDER BY `created_at` ASC&quot;</span>
+</pre></div>
+
+
+<p>8、accessor、mutator</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">orator</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">SoftDeletes</span>
+<span class="kn">from</span> <span class="nn">orator.orm</span> <span class="kn">import</span> <span class="n">scope</span><span class="p">,</span> <span class="n">accessor</span><span class="p">,</span> <span class="n">mutator</span>
+
+
+<span class="n">Model</span><span class="o">.</span><span class="n">set_connection_resolver</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+
+<span class="c1"># scope重用查询</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 设置真正的表名</span>
+    <span class="n">__table__</span> <span class="o">=</span> <span class="s1">&#39;student&#39;</span>
+    <span class="n">__timestamps__</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="c1"># 设置序列化字段</span>
+    <span class="n">__hidden__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">]</span>
+    <span class="n">__visible__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;is_man&#39;</span><span class="p">]</span>
+
+    <span class="c1"># 添加额外字段</span>
+    <span class="n">__appends__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;is_man&#39;</span><span class="p">]</span>
+
+    <span class="c1"># 类型自动转换</span>
+    <span class="c1"># 支持 int, float, str, bool, dict, list.</span>
+    <span class="n">__casts__</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">sex_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;女&#39;</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;男&#39;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># 访问器</span>
+    <span class="nd">@accessor</span>
+    <span class="k">def</span> <span class="nf">get_sex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_raw_attribute</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span>
+        <span class="n">sex_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;女&#39;</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;男&#39;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sex_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+
+    <span class="c1"># 设置器</span>
+    <span class="nd">@mutator</span>
+    <span class="k">def</span> <span class="nf">set_sex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">sex_map_reverse</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sex_map</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_raw_attribute</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">sex_map_reverse</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="nd">@accessor</span>
+    <span class="k">def</span> <span class="nf">is_man</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_raw_attribute</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+
+
+<span class="c1"># users = Student.popular().women().order_by(&#39;created_at&#39;).get()</span>
+<span class="s2">&quot;SELECT * FROM `student` WHERE (`age` &gt; 100) AND (`sex` = &#39;womem&#39;) ORDER BY `created_at` ASC&quot;</span>
+
+<span class="c1"># print(Student.find(1).first_name)</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `student`.`id` = 1 LIMIT 1&#39;</span>
+<span class="c1"># John</span>
+
+<span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># student.set_first_name = &#39;JAcK&#39;</span>
+<span class="c1"># student.save()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">get_sex</span><span class="p">)</span>
+<span class="n">student</span><span class="o">.</span><span class="n">set_sex</span> <span class="o">=</span> <span class="s1">&#39;男&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">age</span><span class="p">))</span> <span class="c1"># &lt;class &#39;str&#39;&gt;</span>
+<span class="n">student</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+<span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="o">.</span><span class="n">serialize</span><span class="p">())</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">}</span>
+
+
+<span class="c1"># 添加额外字段后输出</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;is_man&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+</pre></div>
+
+
+<p>9、Pagination分页</p>
+<div class="codehilite"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;student&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="s1">&#39;SELECT COUNT(*) AS aggregate FROM `student`&#39;</span>
+<span class="s1">&#39;SELECT * FROM `student` LIMIT 15 OFFSET 15&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">users</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">[</span>
+<span class="sd">&#39;count&#39;, &#39;current_page&#39;, &#39;current_page_resolver&#39;, </span>
+<span class="sd">&#39;first_item&#39;, &#39;get_collection&#39;, &#39;has_more_pages&#39;, </span>
+<span class="sd">&#39;has_pages&#39;, &#39;is_empty&#39;, &#39;items&#39;, &#39;last_item&#39;, </span>
+<span class="sd">&#39;last_page&#39;, &#39;next_page&#39;, &#39;per_page&#39;, &#39;previous_page&#39;, </span>
+<span class="sd">&#39;resolve_current_page&#39;, &#39;serialize&#39;, </span>
+<span class="sd">&#39;to_dict&#39;, &#39;to_json&#39;, &#39;total&#39;</span>
+<span class="sd">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># 转换为json数据</span>
+<span class="k">print</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">[</span>
+<span class="sd">{&quot;id&quot;: 35, &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 0, &quot;sex&quot;: 0, &quot;created_at&quot;: 0, &quot;updated_at&quot;: 0, &quot;deleted_at&quot;: null, &quot;country_id&quot;: null}, </span>
+<span class="sd">{&quot;id&quot;: 36, &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 0, &quot;sex&quot;: 0, &quot;created_at&quot;: 0, &quot;updated_at&quot;: 0, &quot;deleted_at&quot;: null, &quot;country_id&quot;: null}</span>
+<span class="sd">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">some_users</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="s1">&#39;SELECT COUNT(*) AS aggregate FROM `student` WHERE `age` &gt; 100&#39;</span>
+<span class="s1">&#39;SELECT * FROM `student` WHERE `age` &gt; 100 LIMIT 15 OFFSET 15&#39;</span>
+
+
+<span class="c1"># simple-pagination</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">simple_paginate</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="s1">&#39;SELECT * FROM `student` LIMIT 16 OFFSET 15&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">[&#39;count&#39;, &#39;current_page&#39;, &#39;current_page_resolver&#39;, &#39;first_item&#39;, </span>
+<span class="sd">&#39;get_collection&#39;, &#39;has_more_pages&#39;, &#39;has_pages&#39;, &#39;is_empty&#39;, &#39;items&#39;, </span>
+<span class="sd">&#39;last_item&#39;, &#39;next_page&#39;, &#39;per_page&#39;, &#39;previous_page&#39;, &#39;resolve_current_page&#39;, </span>
+<span class="sd">&#39;serialize&#39;, &#39;to_dict&#39;, &#39;to_json&#39;]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

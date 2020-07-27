@@ -1,0 +1,633 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>LAMP - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#lamp-lnmp" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                LAMP
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lamp-lnmp" class="md-nav__link">
+    LAMP &amp; LNMP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    编译安装php
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    Apache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    Nginx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php-fpm" class="md-nav__link">
+    配置php-fpm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx_1" class="md-nav__link">
+    配置Nginx
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>LAMP</h1>
+                
+                <h2 id="lamp-lnmp">LAMP &amp; LNMP</h2>
+<p>LAMP = Linux + Apache + MySQL + PHP<br />
+LNMP = Linux + Nginx + MySQL + PHP</p>
+<p>流行，免费，开源，轻量</p>
+<p>Linux VS Windows: 完全免费，稳定高效<br />
+MySQL: 关系型数据库<br />
+Apache：Web服务器软件<br />
+监听端口，接收请求，解析HTTP协议，转发给PHP<br />
+Nginx 服务器软件</p>
+<p>Apache &amp; Nginx：前景更好，配置轻松，性能更优<br />
+Apache： select轮询机制<br />
+Nginx： epoll事件监听机制</p>
+<p>编译安装</p>
+<div class="codehilite"><pre><span></span>./configure  <span class="c1"># 编译前准备</span>
+make         <span class="c1"># 编译</span>
+make install <span class="c1"># 安装</span>
+</pre></div>
+
+
+<p>安装依赖软件</p>
+<div class="codehilite"><pre><span></span>yum install -y vim wget gcc gcc++ libxml2-devel
+</pre></div>
+
+
+<h2 id="php">编译安装php</h2>
+<p>1、下载<br />
+https://www.php.net/downloads.php</p>
+<div class="codehilite"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">php</span><span class="p">.</span><span class="n">net</span><span class="o">/</span><span class="n">distributions</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="mi">7</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="mi">11</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">php</span><span class="o">-</span><span class="mi">7</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="mi">11</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">php</span><span class="o">-</span><span class="mi">7</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="mi">11</span>
+</pre></div>
+
+
+<p>2、编译安装<br />
+启用支持FPM FastCGI<br />
+https://www.php.net/manual/zh/install.fpm.install.php</p>
+<div class="codehilite"><pre><span></span>./configure --prefix<span class="o">=</span>/usr/local/php7 --enable-fpm
+make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+
+
+<p>CGI     公共网关接口，一个协议 fork子进程，处理完释放<br />
+FastCGI 语言无关，解释器子进程常驻在内存<br />
+FPM     PHP扩展</p>
+<div class="codehilite"><pre><span></span>$ php -r <span class="s2">&quot;phpinfo();&quot;</span>
+</pre></div>
+
+
+<h2 id="mysql">MySQL</h2>
+<p>1、下载<br />
+https://dev.mysql.com/downloads/mysql/</p>
+<p>source code<br />
+-&gt; Generic Linux (Architecture Independent), Compressed TAR Archive</p>
+<div class="codehilite"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="k">get</span><span class="o">/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">MySQL</span><span class="o">-</span><span class="mi">8</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">mysql</span><span class="o">-</span><span class="mi">8</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">18</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<p>2、安装依赖</p>
+<div class="codehilite"><pre><span></span>yum install -y cmake gcc-c++ ncurses-devel perl-Data-Dumper boost boost-doc boost-devel
+</pre></div>
+
+
+<p>3、安装</p>
+<div class="codehilite"><pre><span></span><span class="n">cmake</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DCMAKE_INSTALL_PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">mysql</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DMYSQL_DATADIR</span><span class="o">=/</span><span class="k">data</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="k">data</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DSYSCONFDIR</span><span class="o">=/</span><span class="n">etc</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DMYSQL_USER</span><span class="o">=</span><span class="n">mysql</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_MYISAM_STORAGE_ENGINE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_INNOBASE_STORAGE_ENGINE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_ARCHIVE_STORAGE_ENGINE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_MEMORY_STORAGE_ENGINE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_READLINE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DMYSQL_UNIX_ADDR</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mysql</span><span class="p">.</span><span class="n">sock</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DMYSQL_TCP_PORT</span><span class="o">=</span><span class="mi">3306</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DENABLED_LOCAL_INFILE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DENABLE_DOWNLOADS</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_PARTITION_STORAGE_ENGINE</span><span class="o">=</span><span class="mi">1</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DEXTRA_CHARSETS</span><span class="o">=</span><span class="k">all</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DDEFAULT_CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DDEFAULT_COLLATION</span><span class="o">=</span><span class="n">utf8_general_ci</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_DEBUG</span><span class="o">=</span><span class="mi">0</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DMYSQL_MAINTAINER_MODE</span><span class="o">=</span><span class="mi">0</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_SSL</span><span class="p">:</span><span class="n">STRING</span><span class="o">=</span><span class="n">bundled</span> <span class="err">\</span>
+ <span class="o">-</span><span class="n">DWITH_ZLIB</span><span class="p">:</span><span class="n">STRING</span><span class="o">=</span><span class="n">bundled</span>
+
+<span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+
+
+<p>4、启动使用</p>
+<div class="codehilite"><pre><span></span><span class="n">mysqld</span>
+
+<span class="n">mysql</span>
+</pre></div>
+
+
+<h2 id="apache">Apache</h2>
+<p>1、下载<br />
+http://httpd.apache.org/</p>
+<p>依赖：apr apr-util pcre</p>
+<div class="codehilite"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="p">.</span><span class="n">tuna</span><span class="p">.</span><span class="n">tsinghua</span><span class="p">.</span><span class="n">edu</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">apache</span><span class="o">//</span><span class="n">httpd</span><span class="o">/</span><span class="n">httpd</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">41</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span>  <span class="n">httpd</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">41</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">httpd</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">.</span><span class="mi">41</span>
+</pre></div>
+
+
+<p>2、编译安装（配置必要的参数略）</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">configure</span>
+<span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+
+
+<p>3、启动</p>
+<div class="codehilite"><pre><span></span><span class="n">apachetcl</span> <span class="o">-</span><span class="n">k</span> <span class="k">start</span>
+</pre></div>
+
+
+<p>开放80端口sudo</p>
+<div class="codehilite"><pre><span></span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="c1">--zone=public --add-port80/tcp --permanent</span>
+<span class="n">systemctl</span> <span class="k">restart</span> <span class="n">firewalld</span><span class="p">.</span><span class="n">service</span>
+</pre></div>
+
+
+<h2 id="nginx">Nginx</h2>
+<p>1、下载<br />
+http://nginx.org/en/download.html</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">下载</span>
+<span class="n">wget</span>  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">nginx</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">16</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">zxvf</span> <span class="n">nginx</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">16</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+
+<span class="o">#</span> <span class="err">安装</span> <span class="n">pcre</span> <span class="n">url重写功能</span>
+<span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="c1">--prefix=/usr/local/nginx --with-pcre=/pcre</span>
+<span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="n">install</span>
+
+<span class="o">#</span> <span class="err">启动</span>
+<span class="p">.</span><span class="o">/</span><span class="n">nginx</span>
+</pre></div>
+
+
+<p>工作方式</p>
+<div class="codehilite"><pre><span></span>请求 <span class="o">&lt;-&gt;</span> <span class="n">Nginx</span> <span class="o">&lt;-&gt;</span> <span class="n">PHP</span><span class="o">-</span><span class="n">FPM</span>
+</pre></div>
+
+
+<p>配置</p>
+<div class="codehilite"><pre><span></span><span class="nv">location</span> <span class="o">~</span> \.<span class="nv">php</span> {
+         <span class="nv">fastcgi_pass</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>:<span class="mi">9000</span><span class="c1">;</span>
+         <span class="nv">fastcgi_index</span>  <span class="nv">index</span>.<span class="nv">php</span><span class="c1">;</span>
+         <span class="nv">fastcgi_split_path_info</span> <span class="o">^</span><span class="ss">(</span>.<span class="o">+</span>?\.<span class="nv">php</span><span class="ss">)(</span><span class="o">/</span>.<span class="o">*</span><span class="ss">)</span>$<span class="c1">;</span>
+         <span class="nv">fastcgi_param</span> <span class="nv">PATH_INFO</span> <span class="mh">$fa</span><span class="nv">stcgi_path_info</span><span class="c1">; </span>
+         <span class="nv">fastcgi_param</span>  <span class="nv">SCRIPT_FILENAME</span>  <span class="mh">$d</span><span class="nv">ocument_root</span><span class="mh">$fa</span><span class="nv">stcgi_script_name</span><span class="c1">;</span>
+         <span class="k">include</span>        <span class="nv">fastcgi_params</span><span class="c1">;</span>
+    }
+</pre></div>
+
+
+<h2 id="php-fpm">配置php-fpm</h2>
+<p>php-fpm.conf</p>
+<div class="codehilite"><pre><span></span><span class="n">pm</span> <span class="o">=</span> <span class="k">dynamic</span> <span class="err">设置动态解析</span>
+<span class="n">pm</span><span class="p">.</span><span class="n">max_children</span> <span class="o">=</span> <span class="mi">5</span> <span class="err">最大可以启动多少进程</span>
+<span class="n">pm</span><span class="p">.</span><span class="n">start_servers</span> <span class="o">=</span> <span class="mi">2</span> <span class="err">默认启动几个进程</span>
+</pre></div>
+
+
+<h2 id="nginx_1">配置Nginx</h2>
+<p>nginx.conf</p>
+<div class="codehilite"><pre><span></span><span class="n">worker_processes</span> <span class="mi">1</span><span class="p">;</span> <span class="p">(</span><span class="err">启动多少子进程</span><span class="p">)</span>
+</pre></div>
+
+
+<p>重启</p>
+<div class="codehilite"><pre><span></span><span class="n">nginx</span> <span class="o">-</span><span class="n">s</span> <span class="n">reload</span>
+</pre></div>
+
+
+<p>查看进程</p>
+<div class="codehilite"><pre><span></span><span class="n">ps</span> <span class="n">aux</span><span class="o">|</span><span class="n">grep</span> <span class="n">nginx</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

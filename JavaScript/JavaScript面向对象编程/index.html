@@ -1,0 +1,550 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>JavaScript面向对象编程 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                JavaScript面向对象编程
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>面向对象编程<br />
+类：类是对象的类型模板<br />
+实例：实例是根据类创建的对象</p>
+<p>JavaScript不区分类和实例的概念，而是通过原型（prototype）来实现面向对象编程<br />
+JavaScript的原型链和Java的Class区别就在，它没有“Class”的概念，所有对象都是实例，<br />
+所谓继承关系不过是把一个对象的原型指向另一个对象而已。</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="err">代码仅用于演示目的</span>
+<span class="n">var</span> <span class="n">Student</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Robot&#39;</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">run</span><span class="p">:</span> <span class="k">function</span> <span class="p">()</span> <span class="err">{</span>
+        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; is running...&#39;</span><span class="p">);</span>
+    <span class="err">}</span>
+<span class="err">}</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">xiaoming</span> <span class="o">=</span> <span class="err">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;小明&#39;</span>
+<span class="err">}</span><span class="p">;</span>
+
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">__proto__</span> <span class="o">=</span> <span class="n">Student</span><span class="p">;</span>
+
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="o">//</span> <span class="s1">&#39;小明&#39;</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">run</span><span class="p">();</span> <span class="o">//</span> <span class="err">小明</span> <span class="k">is</span> <span class="n">running</span><span class="p">...</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">//</span> 原型对象:
+<span class="nv">var</span> <span class="nv">Student</span> <span class="o">=</span> {
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">Robot</span><span class="s1">&#39;</span>,
+    <span class="nv">height</span>: <span class="mi">1</span>.<span class="mi">2</span>,
+    <span class="nv">run</span>: <span class="nv">function</span> <span class="ss">()</span> {
+        <span class="nv">console</span>.<span class="nv">log</span><span class="ss">(</span><span class="nv">this</span>.<span class="nv">name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s"> is running...</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+    }
+}<span class="c1">;</span>
+
+<span class="nv">function</span> <span class="nv">createStudent</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span> {
+    <span class="o">//</span> 基于<span class="nv">Student</span>原型创建一个新对象:
+    <span class="nv">var</span> <span class="nv">s</span> <span class="o">=</span> <span class="nv">Object</span>.<span class="nv">create</span><span class="ss">(</span><span class="nv">Student</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="o">//</span> 初始化新对象:
+    <span class="nv">s</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span><span class="c1">;</span>
+    <span class="k">return</span> <span class="nv">s</span><span class="c1">;</span>
+}
+
+<span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> <span class="nv">createStudent</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">xiaoming</span>.<span class="nv">run</span><span class="ss">()</span><span class="c1">; // 小明 is running...</span>
+<span class="nv">xiaoming</span>.<span class="nv">__proto__</span> <span class="o">===</span> <span class="nv">Student</span><span class="c1">; // true</span>
+</pre></div>
+
+
+<h1 id="_1">创建对象</h1>
+<p>obj.xxx访问一个对象的属性时，先在当前对象上查找该属性，<br />
+如果没有找到，就到其原型对象上找，<br />
+如果还没有找到，就一直上溯到Object.prototype对象，<br />
+最后，如果还没有找到，就只能返回undefined。</p>
+<p>array 原型链是</p>
+<div class="codehilite"><pre><span></span><span class="n">arr</span> <span class="c1">----&gt; Array.prototype ----&gt; Object.prototype ----&gt; null</span>
+</pre></div>
+
+
+<p>构造函数</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">Student</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="err">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">this</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="err">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="s1">&#39;Hello, &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="n">var</span> <span class="n">xiaoming</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;小明&#39;</span><span class="p">);</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="o">//</span> <span class="s1">&#39;小明&#39;</span>
+<span class="n">xiaoming</span><span class="p">.</span><span class="n">hello</span><span class="p">();</span> <span class="o">//</span> <span class="n">Hello</span><span class="p">,</span> <span class="err">小明</span><span class="o">!</span>
+</pre></div>
+
+
+<p>如果不写new，这就是一个普通函数，它返回undefined。<br />
+但是，如果写了new，它就变成了一个构造函数，它绑定的this指向新创建的对象，并默认返回this，<br />
+也就是说，不需要在最后写return this;</p>
+<p>用new Student()创建的对象还从原型上, 获得了一个constructor属性，它指向函数Student本身</p>
+<div class="codehilite"><pre><span></span><span class="n">xiaoming</span><span class="p">.</span><span class="k">constructor</span> <span class="o">===</span> <span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="k">constructor</span><span class="p">;</span> <span class="o">//</span> <span class="k">true</span>
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="k">constructor</span> <span class="o">===</span> <span class="n">Student</span><span class="p">;</span> <span class="o">//</span> <span class="k">true</span>
+
+<span class="k">Object</span><span class="p">.</span><span class="n">getPrototypeOf</span><span class="p">(</span><span class="n">xiaoming</span><span class="p">)</span> <span class="o">===</span> <span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">;</span> <span class="o">//</span> <span class="k">true</span>
+
+<span class="n">xiaoming</span> <span class="n">instanceof</span> <span class="n">Student</span><span class="p">;</span> <span class="o">//</span> <span class="k">true</span>
+</pre></div>
+
+
+<p>按照约定，构造函数首字母应当大写，而普通函数首字母应当小写</p>
+<div class="codehilite"><pre><span></span><span class="nv">function</span> <span class="nv">Student</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span> {
+    <span class="nv">this</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">name</span><span class="c1">;</span>
+}
+
+<span class="nv">Student</span>.<span class="nv">prototype</span>.<span class="nv">hello</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+    <span class="nv">alert</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Hello, </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">this</span>.<span class="nv">name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">!</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+}<span class="c1">;</span>
+
+
+<span class="nv">function</span> <span class="nv">Student</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+    <span class="nv">this</span>.<span class="nv">name</span> <span class="o">=</span> <span class="nv">props</span>.<span class="nv">name</span> <span class="o">||</span> <span class="s1">&#39;</span><span class="s">匿名</span><span class="s1">&#39;</span><span class="c1">; // 默认值为&#39;匿名&#39;</span>
+    <span class="nv">this</span>.<span class="nv">grade</span> <span class="o">=</span> <span class="nv">props</span>.<span class="nv">grade</span> <span class="o">||</span> <span class="mi">1</span><span class="c1">; // 默认值为1</span>
+}
+
+<span class="nv">Student</span>.<span class="nv">prototype</span>.<span class="nv">hello</span> <span class="o">=</span> <span class="nv">function</span> <span class="ss">()</span> {
+    <span class="nv">alert</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Hello, </span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nv">this</span>.<span class="nv">name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="s">!</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+}<span class="c1">;</span>
+
+<span class="nv">function</span> <span class="nv">createStudent</span><span class="ss">(</span><span class="nv">props</span><span class="ss">)</span> {
+    <span class="k">return</span> <span class="nv">new</span> <span class="nv">Student</span><span class="ss">(</span><span class="nv">props</span> <span class="o">||</span> {}<span class="ss">)</span>
+}
+
+<span class="o">//</span> 调用
+<span class="nv">var</span> <span class="nv">xiaoming</span> <span class="o">=</span> <span class="nv">createStudent</span><span class="ss">(</span>{
+    <span class="nv">name</span>: <span class="s1">&#39;</span><span class="s">小明</span><span class="s1">&#39;</span>
+}<span class="ss">)</span><span class="c1">;</span>
+
+<span class="nv">xiaoming</span>.<span class="nv">grade</span><span class="c1">; // 1</span>
+</pre></div>
+
+
+<h1 id="_2">原型继承</h1>
+<p>太难理解，略过</p>
+<h1 id="class">class继承</h1>
+<p>关键字class从ES6开始正式被引入</p>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">Student</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="err">{</span>
+    <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+<span class="err">}</span>
+
+<span class="n">Student</span><span class="p">.</span><span class="n">prototype</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="err">{</span>
+    <span class="n">alert</span><span class="p">(</span><span class="s1">&#39;Hello, &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+<span class="err">}</span>
+
+<span class="o">//</span> <span class="err">如果用新的</span><span class="n">class关键字来编写Student</span><span class="err">，可以这样写：</span>
+<span class="k">class</span> <span class="n">Student</span> <span class="err">{</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="err">}</span>
+
+    <span class="n">hello</span><span class="p">()</span> <span class="err">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="s1">&#39;Hello, &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+
+
+<span class="o">//</span> <span class="n">class继承</span>
+<span class="k">class</span> <span class="n">PrimaryStudent</span> <span class="n">extends</span> <span class="n">Student</span> <span class="err">{</span>
+    <span class="k">constructor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">)</span> <span class="err">{</span>
+        <span class="n">super</span><span class="p">(</span><span class="n">name</span><span class="p">);</span> <span class="o">//</span> <span class="err">记得用</span><span class="n">super调用父类的构造方法</span><span class="o">!</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">grade</span><span class="p">;</span>
+    <span class="err">}</span>
+
+    <span class="n">myGrade</span><span class="p">()</span> <span class="err">{</span>
+        <span class="n">alert</span><span class="p">(</span><span class="s1">&#39;I am at grade &#39;</span> <span class="o">+</span> <span class="n">this</span><span class="p">.</span><span class="n">grade</span><span class="p">);</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

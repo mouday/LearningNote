@@ -1,0 +1,1408 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Laravel-基础篇 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#laravel-" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel-基础篇
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#laravel" class="md-nav__link">
+    一、Laravel简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    二、环境配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    三、路由
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    四、控制器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五、视图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    六、模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    七、数据库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-facade" class="md-nav__link">
+    八、DB facade 原始查找
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    九、查询构造器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eloquent-orm" class="md-nav__link">
+    十、Eloquent ORM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blade" class="md-nav__link">
+    十一、Blade模板引擎
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="laravel-">Laravel-基础篇</h1>
+<h2 id="laravel">一、Laravel简介</h2>
+<p>框架提供的功能：<br />
+1、数据库DB<br />
+2、缓存Cache<br />
+3、会话Session<br />
+4、文件上传</p>
+<p>流行框架的优点<br />
+文档齐全<br />
+社区活跃<br />
+后期支持</p>
+<p>Laravel简介<br />
+1、简洁，优雅<br />
+2、验证，路由，session缓存，数据库迁移功能，单元测试</p>
+<p>版本选择<br />
+长期支持 LTS Long Time support</p>
+<h2 id="_1">二、环境配置</h2>
+<p>服务器环境</p>
+<div class="codehilite"><pre><span></span>$ php -v
+PHP <span class="m">7</span>.1.23
+</pre></div>
+
+
+<p>Laravel 5.8  要求：PHP &gt;= 7.1.3<br />
+文档：<a href="https://laravel.com/docs/5.8">https://laravel.com/docs/5.8</a></p>
+<p>MVC数据交互</p>
+<div class="codehilite"><pre><span></span>视图<span class="n">View</span> <span class="o">&lt;-&gt;</span> 控制器<span class="n">Controller</span> <span class="o">&lt;-&gt;</span> 模型<span class="n">Model</span>
+</pre></div>
+
+
+<p>Mac MAMP<br />
+Win XAMPP</p>
+<p>phpinfo.php</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="nb">phpinfo</span><span class="p">();</span>
+</pre></div>
+
+
+<p>设置国内镜像</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看全局设置</span>
+composer config -gl
+
+<span class="c1"># 设置镜像</span>
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer
+
+<span class="c1"># 解除镜像</span>
+composer config -g --unset repos.packagist
+</pre></div>
+
+
+<blockquote>
+<p>参考<a href="https://qq52o.me/2692.html">国内的Composer全量镜像汇总</a></p>
+</blockquote>
+<p>创建项目</p>
+<div class="codehilite"><pre><span></span>$ composer create-project laravel/laravel<span class="o">=</span><span class="m">5</span>.8.* demo --prefer-dist
+$ <span class="nb">cd</span> demo
+$ php artisan --version
+Laravel Framework <span class="m">5</span>.8.35
+
+<span class="c1"># 启动服务</span>
+$ php artisan serve
+</pre></div>
+
+
+<p>访问：http://127.0.0.1:8000</p>
+<p>整个文件夹大小<br />
+Laravel Framework 5.8.35 32.8M<br />
+ThinkPHP_5.0.24_with_extend 5.6M</p>
+<h2 id="_2">三、路由</h2>
+<p>1、路由简介<br />
+路由将用户的请求转发给对应的程序进行处理<br />
+作用：建立url和程序之间的映射<br />
+请求类型：get、post、put、patch、delete<br />
+路由文件：routes/web.php</p>
+<p>2、基本路由</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;hello&#39;, function () {</span>
+<span class="x">    return &#39;hello world&#39;;</span>
+<span class="x">});</span>
+
+<span class="x">Route::post(&#39;post&#39;, function () {</span>
+<span class="x">    return &#39;post&#39;;</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>3、多请求路由</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::match([&#39;get&#39;, &#39;post&#39;], &#39;match&#39;, function () {</span>
+<span class="x">    return &#39;match&#39;;</span>
+<span class="x">});</span>
+
+<span class="x">Route::any(&#39;any&#39;, function () {</span>
+<span class="x">    return &#39;any&#39;;</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>4、路由参数</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;detail/{id}&#39;, function ($id) {</span>
+<span class="x">    return &#39;detail-id: &#39; . $id ;</span>
+<span class="x">});</span>
+
+<span class="x">// 默认参数</span>
+<span class="x">Route::get(&#39;detail/{name?}&#39;, function ($name = null) {</span>
+<span class="x">    return &#39;detail-name: &#39; . $name ;</span>
+<span class="x">});</span>
+
+<span class="x">// 正则判断参数类型</span>
+<span class="x">Route::get(&#39;detail/{id}&#39;, function ($id) {</span>
+<span class="x">    return &#39;detail-id: &#39; . $id ;</span>
+<span class="x">})-&gt;where(&#39;id&#39;, &#39;\d+&#39;);</span>
+
+<span class="x">Route::get(&#39;detail/{name?}&#39;, function ($name = null) {</span>
+<span class="x">    return &#39;detail-name: &#39; . $name ;</span>
+<span class="x">})-&gt;where(&#39;name&#39;, &#39;[A-Za-z]+&#39;);</span>
+
+<span class="x">// 多个参数校验</span>
+<span class="x">Route::get(&#39;detail/{id}/{name?}&#39;, function ($id, $name = null) {</span>
+<span class="x">    return &#39;detail-id: &#39; . $id  . &#39; detail-name: &#39; . $name ;</span>
+<span class="x">})-&gt;where([&#39;id&#39; =&gt; &#39;\d+&#39;, &#39;name&#39; =&gt; &#39;[A-Za-z]+&#39;]);</span>
+</pre></div>
+
+
+<p>5、路由别名</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;path&#39;, [&#39;as&#39;=&gt;&#39;alias&#39;, function(){</span>
+<span class="x">    return Route(&#39;alias&#39;);</span>
+<span class="x">}]);</span>
+</pre></div>
+
+
+<p>6、路由群组</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::group([&#39;prefix&#39; =&gt; &#39;user&#39;], function (){</span>
+<span class="x">   // 访问方式：user/name</span>
+<span class="x">   Route::get(&#39;name&#39;, function (){</span>
+<span class="x">       return &#39;user name&#39;;</span>
+<span class="x">   });</span>
+
+<span class="x">   // 访问方式：user/age</span>
+<span class="x">    Route::get(&#39;age&#39;, function (){</span>
+<span class="x">        return &#39;user age&#39;;</span>
+<span class="x">    });</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<p>7、路由中输出视图</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;/&#39;, function () {</span>
+<span class="x">    return view(&#39;welcome&#39;);</span>
+<span class="x">    // resources/views/welcome.blade.php</span>
+<span class="x">});</span>
+</pre></div>
+
+
+<h2 id="_3">四、控制器</h2>
+<p>路由只接收请求，具体业务逻辑交由控制器处理</p>
+<p>1、新建控制器<br />
+app/Http/Controllers/MemberController.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+
+<span class="x">class MemberController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    function info(){</span>
+<span class="x">        return &#39;hello world&#39;;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>2、控制器和路由关联</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;member/info&#39;, &#39;MemberController@info&#39;);</span>
+
+<span class="x">// 或者</span>
+<span class="x">Route::get(&#39;member/info&#39;, [&#39;uses&#39; =&gt; &#39;MemberController@info&#39;]);</span>
+</pre></div>
+
+
+<p>3、关联控制器后，路由特性使用</p>
+<div class="codehilite"><pre><span></span><span class="x">// 别名</span>
+<span class="x">Route::get(&#39;member/info&#39;, [</span>
+<span class="x">    &#39;uses&#39; =&gt; &#39;MemberController@info&#39;,</span>
+<span class="x">    &#39;as&#39; =&gt; &#39;memberinfo&#39;</span>
+<span class="x">]);</span>
+<span class="x">// 控制器中使用别名</span>
+<span class="x">// Route(&#39;memberinfo&#39;);</span>
+
+<span class="x">// 路由参数</span>
+<span class="x">Route::get(&#39;member/info/{id}&#39;, &#39;MemberController@info&#39;);</span>
+<span class="x">// 控制器接收参数</span>
+<span class="x">// function info($id){</span>
+<span class="x">//     return &#39;info:&#39; . $id;</span>
+<span class="x">// }</span>
+
+<span class="x">// 验证路由参数</span>
+<span class="x">Route::get(&#39;member/info/{id}&#39;, &#39;MemberController@info&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, &#39;[0-9]+&#39;);</span>
+</pre></div>
+
+
+<h2 id="_4">五、视图</h2>
+<p>一个控制器对应一个目录</p>
+<p>1、新建视图<br />
+如果要输出变量，注意后缀为 <code>blade.php</code><br />
+resources/views/member/info.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>member info<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+name: {{$name}}
+age: {{$age}}
+</pre></div>
+
+
+<p>2、输出视图<br />
+路由配置</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;member/info&#39;, &#39;MemberController@info&#39;);</span>
+</pre></div>
+
+
+<p>控制器方法</p>
+<div class="codehilite"><pre><span></span><span class="x">class MemberController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    function info(){</span>
+<span class="x">        $data = [</span>
+<span class="x">          &#39;name&#39; =&gt; &#39;Tom&#39;,</span>
+<span class="x">          &#39;age&#39; =&gt; 18</span>
+<span class="x">        ];</span>
+
+<span class="x">        return view(&#39;member/info&#39;, $data);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<h2 id="_5">六、模型</h2>
+<p>1、新建模型<br />
+app/Member.php</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App;</span>
+
+
+<span class="x">use Illuminate\Database\Eloquent\Model;</span>
+
+
+<span class="x">class Member extends Model</span>
+<span class="x">{</span>
+<span class="x">   public static function getMember(){</span>
+<span class="x">       return [</span>
+<span class="x">           &#39;name&#39; =&gt; &#39;Tom&#39;,</span>
+<span class="x">           &#39;age&#39; =&gt; 18</span>
+<span class="x">       ];</span>
+<span class="x">   }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>2、使用模型</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+
+<span class="x">use App\Member;</span>
+
+
+<span class="x">class MemberController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    function info(){</span>
+
+<span class="x">        $data = Member::getMember();</span>
+
+<span class="x">        return $data</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<h2 id="_6">七、数据库</h2>
+<p>Laravel提供3种操作数据库方式<br />
+1、DB facade 原始查找<br />
+2、查询构造器query builder<br />
+3、Eloquent ORM</p>
+<h2 id="db-facade">八、DB facade 原始查找</h2>
+<p>1、新建数据表与连接数据库</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">student</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">name</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;姓名&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">age</span><span class="o">`</span> <span class="n">tinyint</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;年龄&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">sex</span><span class="o">`</span> <span class="n">tinyint</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;性别&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">created_at</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;创建时间&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">updated_at</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;0&#39;</span> <span class="k">COMMENT</span> <span class="s1">&#39;修改时间&#39;</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span> <span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;学生表&#39;</span>
+</pre></div>
+
+
+<p>2、配置数据连接库参数<br />
+.env</p>
+<div class="codehilite"><pre><span></span><span class="x">DB_CONNECTION=mysql</span>
+<span class="x">DB_HOST=127.0.0.1</span>
+<span class="x">DB_PORT=3306</span>
+<span class="x">DB_DATABASE=data</span>
+<span class="x">DB_USERNAME=root</span>
+<span class="x">DB_PASSWORD=123456</span>
+</pre></div>
+
+
+<p>3、使用DB facade实现CURD<br />
+如果配置完数据库信息不生效，可以清理缓存重启服务</p>
+<div class="codehilite"><pre><span></span><span class="n">php</span> <span class="n">artisan</span> <span class="k">cache</span><span class="p">:</span><span class="n">clear</span>
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">config</span><span class="p">:</span><span class="n">clear</span>
+<span class="n">php</span> <span class="n">artisan</span> <span class="n">serve</span>
+</pre></div>
+
+
+<p>CURD函数</p>
+<div class="codehilite"><pre><span></span><span class="x">static array select(string $query, array $bindings = [])</span>
+<span class="x">static bool insert(string $query, array $bindings = [])</span>
+<span class="x">static int update(string $query, array $bindings = [])</span>
+<span class="x">static int delete(string $query, array $bindings = [])</span>
+</pre></div>
+
+
+<p>完整示例</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+
+<span class="x">use Illuminate\Support\Facades\DB;</span>
+
+
+<span class="x">class StudentController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    function list()</span>
+<span class="x">    {</span>
+<span class="x">        # 查询</span>
+<span class="x">        $list = DB::select(&#39;select * from student&#39;);</span>
+
+<span class="x">        // return $list;    // json</span>
+<span class="x">        // var_dump($list); // Array</span>
+<span class="x">        dd($list);          // 便于查看的Array</span>
+
+<span class="x">    }</span>
+
+<span class="x">    function insert()</span>
+<span class="x">    {</span>
+<span class="x">        // 插入</span>
+<span class="x">        $bool = DB::insert(&#39;insert into student(name, age) values(?, ?)&#39;,</span>
+<span class="x">            [&#39;小白&#39;, 23]</span>
+<span class="x">        );</span>
+
+<span class="x">        var_dump($bool);</span>
+<span class="x">        // bool(true)</span>
+<span class="x">    }</span>
+
+<span class="x">    function update()</span>
+<span class="x">    {</span>
+<span class="x">        // 更新</span>
+<span class="x">        $num = DB::update(&#39;update student set name = ? where id = ? &#39;,</span>
+<span class="x">            [&#39;大白&#39;, 1]</span>
+<span class="x">        );</span>
+
+<span class="x">        var_dump($num);</span>
+<span class="x">        // int(1)</span>
+<span class="x">    }</span>
+
+<span class="x">    function delete()</span>
+<span class="x">    {</span>
+<span class="x">        // 删除</span>
+<span class="x">        $num = DB::delete(&#39;delete from student where id = ?&#39;,</span>
+<span class="x">            [2]</span>
+<span class="x">        );</span>
+<span class="x">        var_dump($num);</span>
+<span class="x">        // int(1)</span>
+<span class="x">    }</span>
+
+<span class="x">}</span>
+</pre></div>
+
+
+<h2 id="_7">九、查询构造器</h2>
+<p>Laravel查询构造器query builder<br />
+使用PDO参数绑定，SQL注入保护</p>
+<p>打印执行的SQL语句</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 安装</span>
+$ composer require <span class="s2">&quot;eleven26/listen-sql:~1.0.4&quot;</span> --dev
+
+<span class="c1"># 修改 bootstrap/app.php</span>
+<span class="nv">$app</span>-&gt;register<span class="o">(</span>Eleven26<span class="se">\L</span>istenSql<span class="se">\L</span>istenSqlServiceProvider::class<span class="o">)</span><span class="p">;</span>
+
+<span class="c1"># 启动</span>
+$ php artisan listen-sql:start
+</pre></div>
+
+
+<blockquote>
+<p>参考 <a href="https://learnku.com/articles/33598">控制台实时查看 sql</a></p>
+</blockquote>
+<p>1、新增数据</p>
+<div class="codehilite"><pre><span></span><span class="x">$data = [</span>
+<span class="x">    &#39;name&#39; =&gt; &#39;小白&#39;,</span>
+<span class="x">    &#39;age&#39; =&gt; 23</span>
+<span class="x">];</span>
+
+<span class="x">// 1、插入</span>
+<span class="x">$bool = DB::table(&#39;student&#39;)-&gt;insert($data);</span>
+<span class="x">// insert into `student` (`name`, `age`) values (&quot;小白&quot;, 23)</span>
+
+<span class="x">var_dump($bool);</span>
+<span class="x">// bool(true)</span>
+
+<span class="x">// 2、插入并获取自增id</span>
+<span class="x">$id = DB::table(&#39;student&#39;)-&gt;insertGetId($data);</span>
+<span class="x">// insert into `student` (`name`, `age`) values (&quot;小白&quot;, 23)</span>
+
+<span class="x">var_dump($id);</span>
+<span class="x">// int(2)</span>
+
+
+<span class="x">$list = [</span>
+<span class="x">    [&#39;name&#39; =&gt; &#39;小白&#39;, &#39;age&#39; =&gt; 23],</span>
+<span class="x">    [&#39;name&#39; =&gt; &#39;大白&#39;, &#39;age&#39; =&gt; 24],</span>
+<span class="x">];</span>
+
+<span class="x">// 3、插入多条数据</span>
+<span class="x">$bool = DB::table(&#39;student&#39;)-&gt;insert($list);</span>
+<span class="x">// insert into `student` (`age`, `name`) values (23, &quot;小白&quot;), (24, &quot;大白&quot;)</span>
+
+<span class="x">var_dump($bool);</span>
+<span class="x">// bool(true)</span>
+</pre></div>
+
+
+<p>2、更新数据</p>
+<div class="codehilite"><pre><span></span><span class="x"> // 1、更新， 注意要写where条件</span>
+<span class="x">$num = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, &#39;=&#39;,1)</span>
+<span class="x">    -&gt;update([&#39;name&#39; =&gt;  &#39;大黄&#39;]);</span>
+<span class="x">// update `student` set `name` = &quot;大黄&quot; where `id` = 1</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// int(1)</span>
+
+
+<span class="x">// 2、自增，默认1</span>
+<span class="x">$num = DB::table(&#39;student&#39;)-&gt;increment(&#39;age&#39;);</span>
+<span class="x">// update `student` set `age` = `age` + 1</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// int(8)</span>
+
+
+<span class="x">// 3、自减，默认1</span>
+<span class="x">$num = DB::table(&#39;student&#39;)-&gt;decrement(&#39;age&#39;);</span>
+<span class="x">// update `student` set `age` = `age` - 1</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// int(8)</span>
+
+
+<span class="x">// 4、带条件自增</span>
+<span class="x">$num = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, 1)</span>
+<span class="x">    -&gt;increment(&#39;age&#39;);</span>
+<span class="x">// update `student` set `age` = `age` + 1 where `id` = 1</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// int(1)</span>
+
+
+<span class="x">// 5、自增额外修改其他字段</span>
+<span class="x">$num = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, 1)</span>
+<span class="x">    -&gt;increment(&#39;age&#39;, 1, [&#39;name&#39; =&gt; &#39;大白&#39;]);</span>
+<span class="x">// update `student` set `age` = `age` + 1, `name` = &quot;大白&quot; where `id` = 1</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// int(1)</span>
+</pre></div>
+
+
+<p>3、删除数据</p>
+<div class="codehilite"><pre><span></span><span class="x">// 1、删除数据</span>
+<span class="x">$num = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, &#39;=&#39;, 1)</span>
+<span class="x">    -&gt;delete();</span>
+<span class="x">// delete from `student` where `id` = 1</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// int(1)</span>
+
+
+<span class="x">// 2、清空数据, 危险 谨慎使用</span>
+<span class="x">$num = DB::table(&#39;student&#39;)-&gt;truncate();</span>
+<span class="x">// truncate `student`</span>
+
+<span class="x">var_dump($num);</span>
+<span class="x">// NULL</span>
+</pre></div>
+
+
+<p>4、查询数据</p>
+<div class="codehilite"><pre><span></span><span class="x">// 1、get获取列表</span>
+<span class="x">$list = DB::table(&#39;student&#39;)-&gt;get();</span>
+<span class="x">// select * from `student`</span>
+
+<span class="x">// 2、first获取一条数据</span>
+<span class="x">$data = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;orderBy(&#39;age&#39;, &#39;desc&#39;)</span>
+<span class="x">    -&gt;first();</span>
+<span class="x">// select * from `student` order by `age` desc limit 1</span>
+
+<span class="x">// 3、where条件</span>
+<span class="x">$data = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;where(&#39;age&#39;, &#39;&gt;=&#39;, 24)</span>
+<span class="x">    -&gt;get();</span>
+<span class="x">// select * from `student` where `age` &gt;= 24</span>
+
+<span class="x">// 4、where多条件</span>
+<span class="x">$data = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;whereRaw(&#39;id &gt; ? and age &gt; ?&#39;, [1, 23])</span>
+<span class="x">    -&gt;get();</span>
+<span class="x">// select * from `student` where id &gt; 1 and age &gt; 23</span>
+
+<span class="x">// 5、返回键值对，第二个字段是key，第一个字段是value</span>
+<span class="x">// 5.3版本弃用了lists，使用pluck</span>
+<span class="x">$data = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;pluck(&#39;name&#39;, &#39;id&#39;);</span>
+<span class="x">// select `name`, `id` from `student`</span>
+
+<span class="x">// 6、select 指定字段</span>
+<span class="x">$data = DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;select(&#39;name&#39;, &#39;age&#39;)</span>
+<span class="x">    -&gt;get();</span>
+<span class="x">// select `name`, `age` from `student`</span>
+
+<span class="x">// 7、chunk分段获取，必须加order排序</span>
+<span class="x">DB::table(&#39;student&#39;)</span>
+<span class="x">    -&gt;orderBy(&#39;id&#39;)</span>
+<span class="x">    -&gt;chunk(2, function ($list) {</span>
+<span class="x">        echo $list;</span>
+<span class="x">    });</span>
+<span class="x">// select * from `student` order by `id` asc limit 2 offset 0</span>
+<span class="x">// select * from `student` order by `id` asc limit 2 offset 2</span>
+<span class="x">// ...</span>
+</pre></div>
+
+
+<p>5、聚合函数<br />
+count 计数<br />
+max 最大值<br />
+min 最小值<br />
+avg 平均值<br />
+sum 求和</p>
+<div class="codehilite"><pre><span></span><span class="x">$count = DB::table(&#39;student&#39;)-&gt;count();</span>
+<span class="x">// select count(*) as aggregate from `student`</span>
+
+<span class="x">var_dump($count);</span>
+<span class="x">// int(3)</span>
+
+<span class="x">$count = DB::table(&#39;student&#39;)-&gt;min(&#39;age&#39;);</span>
+<span class="x">// select min(`age`) as aggregate from `student`</span>
+</pre></div>
+
+
+<h2 id="eloquent-orm">十、Eloquent ORM</h2>
+<p>Active Record<br />
+每一张表都有一个与之对应的模型Model</p>
+<p>1、模型建立及查询数据<br />
+默认关联模型名称的复数表名<br />
+默认以id为主键</p>
+<div class="codehilite"><pre><span></span><span class="x">// 1、全部数据</span>
+<span class="x">Student::all();</span>
+<span class="x">// select * from `student`</span>
+
+<span class="x">// 2、根据主键id查找一条数据</span>
+<span class="x">Student::find(1);</span>
+<span class="x">// select * from `student` where `student`.`id` = 1 limit 1</span>
+
+<span class="x">// 3、根据主键id查找一条数据,如果没有抛出异常</span>
+<span class="x">Student::findOrFail(11);</span>
+<span class="x">// select * from `student` where `student`.`id` = 1 limit 1</span>
+
+<span class="x">// 4、获取列表</span>
+<span class="x">Student::get();</span>
+<span class="x">// select * from `student`</span>
+
+<span class="x">// 5、获取一条数据</span>
+<span class="x">Student::where(&#39;id&#39;, &#39;&gt;&#39;, 1)</span>
+<span class="x">    -&gt;orderbyDesc(&#39;age&#39;)</span>
+<span class="x">    -&gt;first();</span>
+<span class="x">//  select * from `student` where `id` &gt; 1 order by `age` desc limit 1</span>
+
+<span class="x">// 6、chunk分次获取</span>
+<span class="x">Student::chunk(2, function ($data){</span>
+<span class="x">    var_dump($data);</span>
+<span class="x">});</span>
+<span class="x">// select * from `student` order by `student`.`id` asc limit 2 offset 0</span>
+<span class="x">// select * from `student` order by `student`.`id` asc limit 2 offset 2</span>
+<span class="x">// ...</span>
+
+<span class="x">// 7、聚合函数</span>
+<span class="x">Student::count();</span>
+<span class="x">// select count(*) as aggregate from `student`</span>
+
+<span class="x">Student::where(&#39;id&#39;, &#39;&gt;=&#39;, 1)</span>
+<span class="x">    -&gt;max(&#39;age&#39;);</span>
+<span class="x">// select max(`age`) as aggregate from `student` where `id` &gt;= 1</span>
+</pre></div>
+
+
+<p>2、新增数据，自定义时间戳及批量赋值<br />
+（1）通过模型新增，涉及到自定义时间戳<br />
+默认维护时间字段created_at, updated_at</p>
+<p>[1]新增数据</p>
+<div class="codehilite"><pre><span></span><span class="x"># 取消自动维护时间字段，一般设置为true</span>
+<span class="x">public $timestamps = false;</span>
+
+<span class="x"># 自定义时间戳格式</span>
+<span class="x">public function getDateFormat(){</span>
+<span class="x">    return time();</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>通过模型新增数据</p>
+<div class="codehilite"><pre><span></span><span class="x">$student = new Student();</span>
+<span class="x">$student-&gt;name = &#39;小孙&#39;;</span>
+<span class="x">$student-&gt;age = 23;</span>
+<span class="x">$bool = $student-&gt;save();</span>
+<span class="x">// insert into `student` (`name`, `age`, `updated_at`, `created_at`) </span>
+<span class="x">// values (&quot;小孙&quot;, 23, &quot;157459359, &quot;1574593597&quot;)</span>
+</pre></div>
+
+
+<p>[2]获取数据<br />
+获取数据的时候会自动格式化</p>
+<div class="codehilite"><pre><span></span><span class="x">$student = Student::find(5);</span>
+<span class="x">echo $student-&gt;created_at;</span>
+<span class="x">// 2019-11-24 10:11:23</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">// 不自动格式化时间戳</span>
+<span class="x">protected function asDateTime($value)</span>
+<span class="x">{</span>
+<span class="x">    return $value;</span>
+<span class="x">}</span>
+
+<span class="x">// 自定义格式化</span>
+<span class="x">date(&#39;Y-m-d H:i:s&#39;, $student-&gt;created_at);</span>
+<span class="x">// 2019-11-24 10:11:23</span>
+</pre></div>
+
+
+<p>时区设置<br />
+方法一：修改php.ini配置文件</p>
+<div class="codehilite"><pre><span></span><span class="x">// 查看php.ini文件路径</span>
+<span class="x">phpinfo()</span>
+
+<span class="x">$ cp php.ini.default php.ini</span>
+
+<span class="x">[Date]</span>
+<span class="x">date.timezone = PRC</span>
+<span class="x">// 或者</span>
+<span class="x">// date.timezone = &quot;Asia/Shanghai&quot;</span>
+<span class="x">// PRC是指中华人民共和国 （People&#39;s Republic of China）</span>
+</pre></div>
+
+
+<p>方法二：临时修改</p>
+<div class="codehilite"><pre><span></span><span class="x">// 查看当前时区</span>
+<span class="x">date_default_timezone_get();</span>
+
+<span class="x">// 临时设置时区</span>
+<span class="x">date_default_timezone_set(&#39;Asia/Shanghai&#39;);</span>
+</pre></div>
+
+
+<blockquote>
+<p>参考<br />
+<a href="https://www.jianshu.com/p/5f02a3b2ef58">PHP 的 date 日期时间函数库简介</a></p>
+</blockquote>
+<p>如果不生效需要修改Laravel配置<br />
+config/app.php</p>
+<div class="codehilite"><pre><span></span><span class="x">// &#39;timezone&#39; =&gt; &#39;UTC&#39;,</span>
+<span class="x">&#39;timezone&#39; =&gt; &#39;PRC&#39;,</span>
+</pre></div>
+
+
+<p>（2）使用模型create方法新增数据，涉及批量赋值</p>
+<div class="codehilite"><pre><span></span><span class="x">// 指定允许批量赋值的字段</span>
+<span class="x">protected $fillable = [&#39;name&#39;, &#39;age&#39;];</span>
+
+<span class="x">// 指定不允许批量赋值的字段</span>
+<span class="x">protected $guarded = [];</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">$data = [</span>
+<span class="x">    &#39;name&#39;=&gt; &#39;小红&#39;,</span>
+<span class="x">    &#39;age&#39;=&gt; 23</span>
+<span class="x">];</span>
+
+<span class="x">$student = Student::create($data);</span>
+<span class="x">// insert into `student` (`name`, `age`, `updated_at`, `created_at`) </span>
+<span class="x">// values (&quot;小红&quot;, 23, &quot;157459331, &quot;1574593314&quot;)</span>
+</pre></div>
+
+
+<p>查找或创建 firstOrCreate()</p>
+<div class="codehilite"><pre><span></span><span class="x">// 存在则获取</span>
+<span class="x">$data = [</span>
+<span class="x">    &#39;name&#39;=&gt; &#39;小红&#39;,</span>
+<span class="x">    &#39;age&#39;=&gt; 23</span>
+<span class="x">];</span>
+
+<span class="x">$student = Student::firstOrCreate($data);</span>
+<span class="x">// select * from `student` where (`name` = &quot;小红&quot; and `age` = 23) limit 1</span>
+
+<span class="x">// 不存在则创建</span>
+<span class="x">$data = [</span>
+<span class="x">    &#39;name&#39;=&gt; &#39;小红&#39;,</span>
+<span class="x">    &#39;age&#39;=&gt; 25</span>
+<span class="x">];</span>
+
+<span class="x">$student = Student::firstOrCreate($data);</span>
+<span class="x">// select * from `student` where (`name` = &quot;小红&quot; and `age` = 25) limit 1</span>
+<span class="x">// insert into `student` (`name`, `age`, `updated_at`, `created_at`) </span>
+<span class="x">// values (&quot;小红&quot;, 25, &quot;157459366, &quot;1574593662&quot;)</span>
+</pre></div>
+
+
+<p>查找或创建实例，保存需要调用save<br />
+firstOrNew()</p>
+<p>3、修改数据<br />
+（1）模型更新</p>
+<div class="codehilite"><pre><span></span><span class="x">$student = Student::find(4);</span>
+<span class="x">// select * from `student` where `student`.`id` = 4 limit 1</span>
+
+<span class="x">$student-&gt;name = &#39;大白&#39;;</span>
+
+<span class="x">$student-&gt;save();</span>
+<span class="x">// update `student` </span>
+<span class="x">// set `name` = &quot;大白&quot;, `student`.`updated_at` = 1574594275 </span>
+<span class="x">// where `id` = 4</span>
+</pre></div>
+
+
+<p>（2）批量更新</p>
+<div class="codehilite"><pre><span></span><span class="x">Student::where(&#39;id&#39;, 1)-&gt;update([&#39;name&#39; =&gt; &#39;大白&#39;]);</span>
+<span class="x">// update `student` </span>
+<span class="x">// set `name` = &quot;大白&quot;, `student`.`updated_at` = 1574594465 </span>
+<span class="x">// where `id` = 1</span>
+</pre></div>
+
+
+<p>4、删除数据<br />
+（1）模型删除</p>
+<div class="codehilite"><pre><span></span><span class="x">$student = Student::find(4);</span>
+<span class="x">//  select * from `student` where `student`.`id` = 4 limit 1</span>
+
+<span class="x">$bool = $student-&gt;delete();</span>
+<span class="x">// delete from `student` where `id` = 4</span>
+</pre></div>
+
+
+<p>（2）主键删除</p>
+<div class="codehilite"><pre><span></span><span class="x">$num = Student::destroy(1);</span>
+<span class="x">// select * from `student` where `id` in (1)</span>
+<span class="x">// delete from `student` where `id` = 1</span>
+
+<span class="x">$num = Student::destroy(1, 2, 3);</span>
+<span class="x">// select * from `student` where `id` in (1, 2, 3)</span>
+<span class="x">// delete from `student` where `id` = 2</span>
+<span class="x">// delete from `student` where `id` = 3</span>
+
+<span class="x">$num = Student::destroy([1, 2, 3]);</span>
+<span class="x">// select * from `student` where `id` in (1, 2, 3)</span>
+<span class="x">// delete from `student` where `id` = 1</span>
+<span class="x">// delete from `student` where `id` = 2</span>
+<span class="x">// delete from `student` where `id` = 3</span>
+</pre></div>
+
+
+<p>（3）条件删除</p>
+<div class="codehilite"><pre><span></span><span class="x">$num = Student::where(&#39;id&#39;, &#39;=&#39;, &#39;1&#39;)-&gt;delete();</span>
+<span class="x">// delete from `student` where `id` = &quot;1&quot;</span>
+</pre></div>
+
+
+<h2 id="blade">十一、Blade模板引擎</h2>
+<p>Blade模板引擎可以使用PHP代码<br />
+编译完成后会被缓存</p>
+<p>1、模板继承<br />
+resources/views/student/layout.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;h1&gt;@yield(&#39;title&#39;, &#39;标题&#39;)&lt;/h1&gt;</span>
+
+<span class="x">&lt;div&gt;</span>
+<span class="x">    @section(&#39;main&#39;)</span>
+<span class="x">        主要内容</span>
+<span class="x">    @show</span>
+<span class="x">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>resources/views/student/index.blade.php</p>
+<div class="codehilite"><pre><span></span><span class="x">@extends(&#39;student/layout&#39;)</span>
+
+<span class="x">@section(&#39;title&#39;)</span>
+<span class="x">    重写标题</span>
+<span class="x">@stop</span>
+
+<span class="x">@section(&#39;main&#39;)</span>
+<span class="x">    @parent</span>
+<span class="x">    重写内容</span>
+<span class="x">@stop</span>
+</pre></div>
+
+
+<p>Controller返回模板</p>
+<div class="codehilite"><pre><span></span><span class="x">namespace App\Http\Controllers;</span>
+
+
+<span class="x">class StudentController extends Controller</span>
+<span class="x">{</span>
+<span class="x">    function list()</span>
+<span class="x">    {</span>
+<span class="x">        $data = [</span>
+<span class="x">            &#39;name&#39; =&gt; &#39;Tom&#39;</span>
+<span class="x">        ];</span>
+<span class="x">        return view(&#39;student/index&#39;, $data);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>编译结果</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;h1&gt;重写标题&lt;/h1&gt;</span>
+
+<span class="x">&lt;div&gt;主要内容重写内容&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>2、基础语法和include</p>
+<div class="codehilite"><pre><span></span><span class="x">// 1、模板中输出PHP变量</span>
+<span class="x">{{ $name }}</span>
+
+<span class="x">// 2、模板中调用PHP代码</span>
+<span class="x">{{ time() }}</span>
+<span class="x">{{ date(&#39;Y-m-d H:i:s&#39;, time()) }}</span>
+<span class="x">{{ in_array($name, $arr) ? &#39;true&#39; : &#39;false&#39; }}</span>
+<span class="x">{{ var_dump($arr) }}</span>
+
+<span class="x">{{ isset($name) ? $name : &#39;default&#39; }}</span>
+<span class="x">{{ $name or &#39;default&#39; }}</span>
+
+<span class="x">// 3、原样输出</span>
+<span class="x">@{{ @name }}</span>
+
+<span class="x">// 4、注释</span>
+<span class="x">{{-- 这是模板注释，看不到 --}}</span>
+<span class="x">&lt;!-- 这是html注释，可以看到 --&gt;</span>
+
+<span class="x">// 5、引入子视图</span>
+<span class="x">@include(&#39;student.common&#39;, [&#39;key&#39; =&gt; &#39;value&#39;])</span>
+</pre></div>
+
+
+<p>3、流程控制</p>
+<div class="codehilite"><pre><span></span><span class="x">// if控制</span>
+<span class="x">@if($name == &#39;Tom&#39;)</span>
+<span class="x">    Tom</span>
+<span class="x">@elseif($name == &#39;Jack&#39;)</span>
+<span class="x">    Jack</span>
+<span class="x">@else</span>
+<span class="x">    else</span>
+<span class="x">@endif</span>
+
+<span class="x">// unless === not if</span>
+<span class="x">@unless($name != &#39;Tom&#39;)</span>
+<span class="x">    Tom</span>
+<span class="x">@endunless</span>
+
+<span class="x">// for循环</span>
+<span class="x">@for ($i=0; $i &lt; 10; $i++)</span>
+<span class="x">    {{$i}}</span>
+<span class="x">@endfor</span>
+
+<span class="x">@foreach($students as $student)</span>
+<span class="x">    {{$student-&gt;name}}</span>
+<span class="x">@endforeach</span>
+
+<span class="x">// forelse 数组为空给默认值</span>
+<span class="x">@forelse($students as $student)</span>
+<span class="x">    {{$student-&gt;name}}</span>
+<span class="x">@empty</span>
+<span class="x">    null</span>
+<span class="x">@endforelse</span>
+</pre></div>
+
+
+<p>4、模板中的URL<br />
+url    路由名称生成  <br />
+action 控制器和方法名生成<br />
+route  别名生成</p>
+<p>控制器设置</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;student/list&#39;, [&#39;as&#39;=&gt; &#39;list&#39;, &#39;uses&#39;=&gt; &#39;StudentController@list&#39;]);</span>
+</pre></div>
+
+
+<p>三种方式结果一样</p>
+<div class="codehilite"><pre><span></span><span class="x">{{ url(&#39;student/list&#39;) }}</span>
+<span class="x">{{ action(&#39;StudentController@list&#39;) }}</span>
+<span class="x">{{ route(&#39;list&#39;) }}</span>
+</pre></div>
+
+
+<p>http://localhost:8000/student/list</p>
+<h2 id="_8">总结</h2>
+<p>安装Laravel<br />
+核心目录文件<br />
+路由<br />
+MVC<br />
+数据库操作3种<br />
+模板引擎</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,607 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>第三章 Spring Boot 日志 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#spring-boot" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                第三章 Spring Boot 日志
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、日志框架分类和选择
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2slf4j" class="md-nav__link">
+    2、slf4j 使用原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-slf4j" class="md-nav__link">
+    3、其他日志框架统一转换为 slf4j
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4springboot" class="md-nav__link">
+    4、SpringBoot 日志关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5springboot" class="md-nav__link">
+    5、SpringBoot 默认配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-profile" class="md-nav__link">
+    6、指定日志文件和日志 Profile 功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、切换日志框架
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="spring-boot">第三章 Spring Boot 日志</h1>
+<h2 id="1">1、日志框架分类和选择</h2>
+<p>日志框架：</p>
+<div class="codehilite"><pre><span></span>日志门面（抽象层）：
+<span class="nv">JCL</span> <span class="nv">Jakarta</span> <span class="nv">Commons</span> <span class="nv">Logging</span>
+<span class="nv">SLF4j</span> <span class="nv">Simple</span> <span class="nv">Logging</span> <span class="nv">Facade</span> <span class="k">for</span> <span class="nv">Java</span>
+<span class="nv">Jboss</span><span class="o">-</span><span class="nv">logging</span>
+
+日志实现：
+<span class="nv">JUL</span> <span class="nv">Java</span>.<span class="nv">util</span>.<span class="nv">logging</span>
+<span class="nv">logback</span>
+<span class="nv">log4j</span>
+<span class="nv">log4j2</span>
+</pre></div>
+
+
+<p>SpringBoot 选择：</p>
+<ol>
+<li>日志门面 SLF4j</li>
+<li>日志实现 logback</li>
+</ol>
+<h2 id="2slf4j">2、slf4j 使用原理</h2>
+<p>开发的时候，日志记录方法的调用不应该来直接调用日志的实现类</p>
+<p>而是调用日志抽象层里的方法</p>
+<p>http://www.slf4j.org/manual.html</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">HelloWorld</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Hello World&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+</pre></div>
+
+
+<p><img alt="" src="../img/concrete-bindings.png" /></p>
+<p>每一个日志的实现框架都有自己的配置文件，</p>
+<p>使用 slf4j 以后，配置文件还是做成日志实现框架的配置文件</p>
+<h2 id="3-slf4j">3、其他日志框架统一转换为 slf4j</h2>
+<p>遗留问题, 各框架使用的日志框架不一样</p>
+<div class="codehilite"><pre><span></span><span class="n">Spring</span> <span class="p">(</span><span class="n">commons</span><span class="o">-</span><span class="n">logging</span><span class="p">)</span>
+<span class="n">Hibernate</span><span class="p">(</span><span class="n">jboss</span><span class="o">-</span><span class="n">logging</span><span class="p">)</span>
+<span class="n">MyBaits</span>
+</pre></div>
+
+
+<p>统一日志框架</p>
+<p><img alt="" src="../img/legacy.png" /></p>
+<ol>
+<li>将系统中其他日志框架先排除</li>
+<li>用中间包来替换原有的日志框架</li>
+<li>引入 slf4j 其他实现</li>
+</ol>
+<h2 id="4springboot">4、SpringBoot 日志关系</h2>
+<ol>
+<li>SpringBoot 能自动适配所有日志，底层使用 slf4j+logback 方式记录日志</li>
+<li>SpringBoot 把其他日志替换成了 slf4j</li>
+<li>中间替换包</li>
+<li>如果引入其他框架，需要把其他框架默认的日志依赖移除</li>
+</ol>
+<h2 id="5springboot">5、SpringBoot 默认配置</h2>
+<p>日志级别由低到高</p>
+<div class="codehilite"><pre><span></span><span class="n">trace</span>
+<span class="n">debug</span>
+<span class="n">info</span>  <span class="err">默认级别</span>
+<span class="n">warn</span>
+<span class="n">error</span>
+</pre></div>
+
+
+<p>修改日志级别</p>
+<p>application.properties</p>
+<div class="codehilite"><pre><span></span>logging.level.com.className<span class="o">=</span>trace
+</pre></div>
+
+
+<p>使用示例</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.mouday</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringRunner</span><span class="o">;</span>
+
+<span class="nd">@RunWith</span><span class="o">(</span><span class="n">SpringRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoApplicationTests</span> <span class="o">{</span>
+
+    <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">getClass</span><span class="o">());</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">contextLoads</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">trace</span><span class="o">(</span><span class="s">&quot;trace&quot;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&quot;trace&quot;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;trace&quot;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">&quot;trace&quot;</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&quot;trace&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>日志配置</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 指定日志文件(优先作用)</span>
+logging.file<span class="o">=</span>spring.log
+
+<span class="c1"># 指定日志路径</span>
+logging.path<span class="o">=</span>logs
+
+<span class="c1"># 控制台输出日志格式</span>
+logging.pattern.console<span class="o">=</span>%d<span class="o">{</span>yyyy-MM-dd<span class="o">}</span> <span class="o">[</span>%thread<span class="o">]</span> %-5level %logger<span class="o">{</span><span class="m">50</span><span class="o">}</span> - %msg%n
+
+<span class="c1"># 文件输出日志格式</span>
+logging.pattern.file<span class="o">=</span>%d<span class="o">{</span>yyyy-MM-dd<span class="o">}</span> <span class="o">===</span> <span class="o">[</span>%thread<span class="o">]</span> %-5level %logger<span class="o">{</span><span class="m">50</span><span class="o">}</span> - %msg%n
+</pre></div>
+
+
+<p>日志格式说明</p>
+<div class="codehilite"><pre><span></span><span class="nf">%d</span>           <span class="err">日期时间</span>
+<span class="nf">%thread</span>      <span class="err">线程名</span>
+<span class="o">%-</span><span class="mi">5l</span><span class="n">evel</span>     <span class="err">级别从左显示</span><span class="mi">5</span><span class="err">个字符宽度</span>
+<span class="nf">%logger</span><span class="p">{</span><span class="mi">50</span><span class="p">}</span>  <span class="n">logger名字最长显示50个字符</span><span class="err">，否则按照句点分割</span>
+<span class="nf">%msg</span>         <span class="err">日志消息</span>
+<span class="nf">%n</span>           <span class="err">换行</span>
+</pre></div>
+
+
+<h2 id="6-profile">6、指定日志文件和日志 Profile 功能</h2>
+<p>建立使用日志框架的配置文件，springboot 将不使用默认配置</p>
+<div class="codehilite"><pre><span></span><span class="n">logback</span>                <span class="n">logback</span><span class="o">-</span><span class="n">spring</span><span class="p">.</span><span class="n">xml</span><span class="p">,</span> <span class="n">logback</span><span class="p">.</span><span class="n">xml</span>
+<span class="n">Log4j2</span>                 <span class="n">log4j2</span><span class="o">-</span><span class="n">spring</span><span class="p">.</span><span class="n">xml</span>
+<span class="n">JUL</span><span class="p">(</span><span class="n">Java</span> <span class="n">Util</span> <span class="n">Logging</span><span class="p">)</span> <span class="n">logging</span><span class="p">.</span><span class="n">properties</span>
+</pre></div>
+
+
+<p>说明</p>
+<div class="codehilite"><pre><span></span><span class="n">logback</span><span class="p">.</span><span class="n">xml</span> <span class="err">直接被日志框架识别</span>
+<span class="n">logback</span><span class="o">-</span><span class="n">spring</span><span class="p">.</span><span class="n">xml</span> <span class="err">日志框架不直接加载配置文件</span>
+</pre></div>
+
+
+<p>可以使用高级功能</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;springProfile</span> <span class="na">name=</span><span class="s">&quot;dev&quot;</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;/springProfile&gt;</span>
+</pre></div>
+
+
+<h2 id="7">7、切换日志框架</h2>
+<p>可以按照 slf4j 日志适配图进行切换</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

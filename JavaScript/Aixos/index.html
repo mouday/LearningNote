@@ -1,0 +1,892 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Aixos - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#aixos" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Aixos
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aixos" class="md-nav__link">
+    Aixos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#axios" class="md-nav__link">
+    Axios基础用法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#axios_1" class="md-nav__link">
+    axios进阶用法
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Aixos</h1>
+                
+                <h2 id="aixos">Aixos</h2>
+<p>1、Aixos特性<br />
+（1）支持Promise API<br />
+（2）拦截请求和响应<br />
+（3）装换请求数据和响应数据<br />
+（4）取消请求<br />
+（5）自动转换JSON数据<br />
+（6）客户端支持防御XSRF</p>
+<p>2、Axios基础用法<br />
+get post put等请求方法</p>
+<p>3、Axios进阶用法<br />
+实例 配置 拦截器 取消请求</p>
+<p>4、Axios进一步封装</p>
+<h2 id="axios">Axios基础用法</h2>
+<p>文档：https://www.npmjs.com/package/axios</p>
+<p>1、axios请求方法</p>
+<div class="codehilite"><pre><span></span><span class="k">get</span>      <span class="err">获取数据</span>
+<span class="n">post</span>     <span class="err">提交数据（表单提交</span><span class="o">+</span><span class="err">文件上传）</span>
+<span class="n">put</span>      <span class="err">更新数据（所有数据推送到后端）</span>
+<span class="n">patch</span>    <span class="err">更新数据（只将修改的数据推送到后端）</span>
+<span class="k">delete</span>   <span class="err">删除数据</span>
+</pre></div>
+
+
+<p>2、项目环境搭建</p>
+<div class="codehilite"><pre><span></span><span class="err">#</span><span class="w"> </span><span class="n">安装vue</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="nv">@vue</span><span class="o">/</span><span class="n">cli</span><span class="w"> </span><span class="c1">--registry=https://registry.npm.taobao.org</span>
+<span class="err">$</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="n">serve</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">vue</span><span class="w"> </span><span class="c1">--version   # 3.9.3</span>
+
+<span class="err">$</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">uninstall</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="nv">@vue</span><span class="o">/</span><span class="n">cli</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="n">卸载</span><span class="w"></span>
+
+<span class="err">$</span><span class="w"> </span><span class="n">vue</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="n">创建项目</span><span class="w"></span>
+
+<span class="err">（</span><span class="mi">1</span><span class="err">）</span><span class="n">选择自定义</span><span class="err">，</span><span class="n">增加以下两个选项</span><span class="w"></span>
+<span class="n">router</span><span class="w"></span>
+<span class="n">css</span><span class="w"> </span><span class="n">processer</span><span class="w"></span>
+
+<span class="err">（</span><span class="mi">2</span><span class="err">）</span><span class="n">选择默认配置后</span><span class="err">，</span><span class="n">可以自定义添加以下3个插件</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">vue</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="nv">@vue</span><span class="o">/</span><span class="n">eslint</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="n">安装插件</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">vue</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">router</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">vue</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">vuex</span><span class="w"> </span>
+
+<span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">serve</span><span class="w">           </span><span class="err">#</span><span class="w"> </span><span class="n">启动项目</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">npm</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">build</span><span class="w">           </span><span class="err">#</span><span class="w"> </span><span class="n">打包压缩</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">参数的意思是将其架设在</span><span class="w"> </span><span class="n">Single</span><span class="o">-</span><span class="n">Page</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="n">模式下</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">这个模式会处理即将提到的路由问题</span><span class="w"></span>
+<span class="n">serve</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">dist</span><span class="w"></span>
+</pre></div>
+
+
+<p>安装axios</p>
+<div class="codehilite"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">axios</span>
+</pre></div>
+
+
+<p>3、路由引入</p>
+<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="err">方式一</span> 
+<span class="o">//</span> <span class="err">不管有没有访问都加载</span>
+<span class="kn">import</span> <span class="nn">Home</span> <span class="nn">from</span> <span class="s1">&#39;./views/Home.vue&#39;</span>
+
+<span class="n">component</span><span class="p">:</span> <span class="n">Home</span>
+
+
+<span class="o">//</span> <span class="err">方式二</span> 
+<span class="o">//</span> <span class="err">访问时才加载，异步加载，懒加载</span>
+<span class="n">component</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="n">import</span><span class="p">(</span><span class="s1">&#39;./views/Home.vue&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>4、axios在vue项目中使用实例</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">Axios</span> <span class="nx">from</span> <span class="s2">&quot;axios&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;mydata&quot;</span><span class="p">,</span>
+
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span>
+    <span class="p">};</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * GET</span>
+<span class="cm">     * /getData.json?name=Tom</span>
+<span class="cm">     */</span>
+    <span class="nx">Axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/getData.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">params</span><span class="o">:</span> <span class="nx">data</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * POST</span>
+<span class="cm">     */</span>
+
+    <span class="c1">// Content-Type: application/json</span>
+    <span class="nx">Axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/PostJsonData.json&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Content-Type: multipart/form-data</span>
+    <span class="kd">let</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="nx">Axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/PostFormData.json&quot;</span><span class="p">,</span> <span class="nx">formData</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * PUT</span>
+<span class="cm">     * Content-Type: application/json</span>
+<span class="cm">     */</span>
+    <span class="nx">Axios</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s2">&quot;/PutData.json&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * PATCH</span>
+<span class="cm">     * Content-Type: application/json</span>
+<span class="cm">     */</span>
+    <span class="nx">Axios</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="s2">&quot;/PatchData.json&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * DELETE</span>
+<span class="cm">     */</span>
+
+    <span class="c1">// /DeleteData.json?name=Tom</span>
+    <span class="nx">Axios</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">&quot;/DeleteData.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">params</span><span class="o">:</span> <span class="nx">data</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Content-Type: application/json</span>
+    <span class="nx">Axios</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">&quot;/DeleteData.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Axios</span>
+<span class="cm">     */</span>
+    <span class="nx">Axios</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;/url&quot;</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+      <span class="nx">params</span><span class="o">:</span> <span class="nx">data</span><span class="p">,</span>   <span class="c1">// url 参数</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span>      <span class="c1">// 请求体参数</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>5、并发请求<br />
+同时进行多个请求，并统一处理返回值</p>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 并发请求</span>
+<span class="cm"> */</span>
+<span class="nx">Axios</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+  <span class="nx">Axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">),</span> 
+  <span class="nx">Axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/city.json&quot;</span><span class="p">)</span>
+<span class="p">]).</span><span class="nx">then</span><span class="p">(</span>
+  <span class="nx">Axios</span><span class="p">.</span><span class="nx">spread</span><span class="p">((</span><span class="nx">dataRes</span><span class="p">,</span> <span class="nx">cityRes</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dataRes</span><span class="p">,</span> <span class="nx">cityRes</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">);</span>
+</pre></div>
+
+
+<h2 id="axios_1">axios进阶用法</h2>
+<p>1、axios实例<br />
+后端接口地址有多个，并且超时时长不一样</p>
+<p>代码实例</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s2">&quot;axios&quot;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;axiosDemo&quot;</span><span class="p">,</span>
+
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">baseURL</span><span class="o">:</span> <span class="s2">&quot;http://localhost:8080&quot;</span><span class="p">,</span>
+      <span class="nx">timeout</span><span class="o">:</span> <span class="mi">1000</span> <span class="c1">// 1s</span>
+    <span class="p">});</span>
+
+    <span class="nx">instance</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>2、axios配置参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseURL</td>
+<td>请求的域名，基本地址</td>
+<td>"http://localhost:8080"</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>请求超时时长，毫秒</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>url</td>
+<td>请求路径</td>
+<td>"/data.json"</td>
+</tr>
+<tr>
+<td>method</td>
+<td>请求方法</td>
+<td>"get/post/put/patch/delete"</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>请求头</td>
+<td>{"token": ""}</td>
+</tr>
+<tr>
+<td>params</td>
+<td>url参数</td>
+<td>{}</td>
+</tr>
+<tr>
+<td>data</td>
+<td>body参数</td>
+<td>{}</td>
+</tr>
+</tbody>
+</table>
+<p>(1) axios全局配置</p>
+<div class="codehilite"><pre><span></span><span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">baseURL</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8080&quot;</span><span class="p">;</span>
+<span class="nx">axios</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">timeout</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+</pre></div>
+
+
+<p>(2) axios实例配置</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="nx">instance</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">timeout</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">;</span>
+</pre></div>
+
+
+<p>(3) axios请求配置</p>
+<div class="codehilite"><pre><span></span><span class="nx">instance</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">3000</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>3、实际开发示例<br />
+有两个请求接口<br />
+http://localhost:8081<br />
+http://localhost:8082</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">baseURL</span><span class="o">:</span> <span class="s2">&quot;http://localhost:8081&quot;</span><span class="p">,</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">1000</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">baseURL</span><span class="o">:</span> <span class="s2">&quot;http://localhost:8082&quot;</span><span class="p">,</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">2000</span>
+<span class="p">});</span>
+
+<span class="cm">/** 用到的参数</span>
+<span class="cm"> * baseURL、timeout、method、params</span>
+<span class="cm"> */</span>
+<span class="nx">instance1</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span>
+  <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{}</span>
+<span class="p">);</span>
+
+<span class="cm">/** 用到的参数</span>
+<span class="cm"> * baseURL、timeout、method</span>
+<span class="cm"> */</span>
+<span class="nx">instance2</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">5000</span>  <span class="c1">// 重新赋值</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span>
+  <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{}</span>
+<span class="p">);</span>
+</pre></div>
+
+
+<p>4、axios拦截器<br />
+拦截器：在请你去或响应被处理前拦截它们<br />
+（1）请求拦截器</p>
+<div class="codehilite"><pre><span></span><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 在请求发送前处理</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 在请求错误时候处理</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>（2）响应拦截器</p>
+<div class="codehilite"><pre><span></span><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 在请求成功对响应数据处理</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 在响应错误时候处理</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>(3)取消拦截器</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">interceptors</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+  <span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">auth</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+  <span class="p">});</span>
+
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">eject</span><span class="p">(</span><span class="nx">interceptors</span><span class="p">);</span>
+</pre></div>
+
+
+<p>代码实例</p>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 不需要登录的接口</span>
+<span class="cm"> */</span>
+<span class="kd">let</span> <span class="nx">newInstance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({});</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * 登录状态 token</span>
+<span class="cm"> */</span>
+
+<span class="kd">let</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({});</span>
+
+<span class="nx">instance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="s2">&quot;token&quot;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">});</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * 移动开发</span>
+<span class="cm"> */</span>
+<span class="kd">let</span> <span class="nx">phoneInstance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({});</span>
+
+<span class="c1">// 请求前显示弹框</span>
+<span class="nx">phoneInstance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">({</span>
+<span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#model&quot;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// 请求后隐藏弹框</span>
+<span class="nx">phoneInstance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">({</span>
+<span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#model&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p>5、axios错误处理</p>
+<div class="codehilite"><pre><span></span><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+<span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 请求成功</span>
+<span class="p">}</span>
+<span class="p">).</span><span class="k">catch</span><span class="p">(</span>
+<span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 请求错误</span>
+<span class="p">})</span>
+
+
+<span class="c1">// 实际开发中，添加统一的错误处理</span>
+<span class="kd">let</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({});</span>
+
+<span class="nx">instance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 请求错误，一般http状态码以4开头，401超时，404 not find</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#model&quot;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span><span class="o">=</span><span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#model&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">instance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// 响应错误，一般http状态码以5开头，500系统错误，502系统重启</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#model&quot;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span><span class="o">=</span><span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#model&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="p">},</span> <span class="mi">2000</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">instance</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+  <span class="nx">res</span><span class="p">=&gt;{</span>
+
+  <span class="p">}).</span><span class="k">catch</span><span class="p">(</span>
+  <span class="nx">err</span><span class="p">=&gt;{</span>
+
+  <span class="p">})</span>
+</pre></div>
+
+
+<p>6、axios取消请求<br />
+取消正在进行的http请求</p>
+<p>使用情况：商城 3-5秒</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">source</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">CancelToken</span><span class="p">.</span><span class="nx">source</span><span class="p">();</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/data.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">CancelToken</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">token</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span>
+  <span class="nx">res</span><span class="p">=&gt;{</span>
+
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span>
+  <span class="nx">err</span><span class="p">=&gt;{</span>
+
+<span class="p">});</span>
+
+<span class="c1">// 取消请求 message可选</span>
+<span class="nx">source</span><span class="p">.</span><span class="nx">cancel</span><span class="p">(</span><span class="s2">&quot;cancel http&quot;</span><span class="p">);</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

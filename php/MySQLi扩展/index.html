@@ -1,0 +1,626 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>MySQLi扩展 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#mysqli" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                MySQLi扩展
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    安装配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysqli_1" class="md-nav__link">
+    MySQLi扩展面向对象的使用
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mysqli">MySQLi扩展</h1>
+<h2 id="_1">简介</h2>
+<p>MySQL增强扩展 PHP&gt;=5</p>
+<p>面向过程 + 面向对象<br />
+支持预处理语句<br />
+支持事务</p>
+<h2 id="_2">安装配置</h2>
+<p>1、php配置文件 开启php_mysqli.dll<br />
+2、配置extension_dir= ext目录所在位置<br />
+3、重启服务器<br />
+4、检测扩展开启四种方式</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="c1">// 1、查看环境信息</span>
+<span class="nb">phpinfo</span><span class="p">();</span>
+
+<span class="c1">// 2、检测扩展是否加载 true/false</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">extension_loaded</span><span class="p">(</span><span class="s1">&#39;mysqli&#39;</span><span class="p">));</span>
+
+<span class="c1">// 3、检测函数是否存在</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">function_exists</span><span class="p">(</span><span class="s1">&#39;mysqli_connect&#39;</span><span class="p">));</span>
+
+<span class="c1">// 4、得到当前已经开启的扩展</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">get_loaded_extensions</span><span class="p">());</span>
+</pre></div>
+
+
+<h2 id="mysqli_1">MySQLi扩展面向对象的使用</h2>
+<ol>
+<li>建立MySQL连接</li>
+<li>打开指定数据库</li>
+<li>设置默认客户端字符集 utf-8</li>
+<li>执行SQL查询</li>
+<li>释放结果集</li>
+<li>关闭数据库</li>
+</ol>
+<p>MySQLi常用方法<br />
+方法 | 说明<br />
+-|-<br />
+new mysqli() |  实例化<br />
+connect()  | 连接<br />
+close() |  关闭<br />
+select_db() |  选择数据库<br />
+connect_errno |  连接错误号<br />
+connect_error |  连接错误<br />
+client_info |  客户端信息<br />
+get_client_info() | 客户端信息<br />
+client_version |  客户端版本<br />
+server_info |  服务器信息<br />
+get_server_info() | 服务器信息<br />
+server_version | 服务器版本<br />
+set_charset() | 设置字符编码<br />
+query() | 执行查询(bool, 获取result_set)<br />
+insert_id | 获取自增id<br />
+affected_rows |  影响行数（受影响条数&gt;0, 没有影响条数=0, sql有问题=-1）<br />
+errorno | 执行错误号<br />
+error | 执行错误编码<br />
+multi_query() | 执行多条sql，分号分隔<br />
+use_result()/store_result() | 获取结果集<br />
+more_results() | 检测是否还有更多结果集<br />
+next_result() | 结果集指针向下移动一位<br />
+prepare() | 预处理语句 占位符：?<br />
+$stmt-&gt;bind_param() | 绑定参数<br />
+$stmt-&gt;execute() | 执行sql</p>
+<p>结果集方法<br />
+方法 | 说明<br />
+-|-<br />
+$result-&gt;num_rows | 结果集数量<br />
+$result-&gt;fetch_all() | 获取结果集所有数据， <br />
+$result-&gt;fetch_row() | 获取结果集一条数据<br />
+$result-&gt;fetch_assoc() | 获取结果集一条关联数据<br />
+$result-&gt;fetch_array() | 获取结果集索引+关联数据<br />
+$result-&gt;fetch_object() | 获取结果集对象<br />
+$result-&gt;data_seek(0) | 移动结果集内部指针<br />
+$result-&gt;close() | 释放结果集</p>
+<p>fetch_all可选常量参数可省略<br />
+索引 MYSQLI_NUM<br />
+关联 MYSQLI_ASSOC<br />
+索引+关联 MYSQLI_BOTH</p>
+<p>使用示例<br />
+1、配置信息</p>
+<div class="codehilite"><pre><span></span><span class="x">$host = &#39;localhost&#39;;</span>
+<span class="x">$user = &#39;root&#39;;</span>
+<span class="x">$password = &#39;123456&#39;;</span>
+<span class="x">$database = &#39;data&#39;;</span>
+</pre></div>
+
+
+<p>2、连接数据库</p>
+<div class="codehilite"><pre><span></span><span class="x">// 方式一</span>
+<span class="x">$mysqli = new mysqli();</span>
+<span class="x">$mysqli-&gt;connect($host, $username, $password);</span>
+<span class="x">$mysqli-&gt;select_db($database);</span>
+
+<span class="x">// 方式二</span>
+<span class="x">$mysqli = new mysqli($host, $username, $password);</span>
+<span class="x">$mysqli-&gt;select_db($database);</span>
+
+<span class="x">// 方式三</span>
+<span class="x">$mysqli = new mysqli($host, $username, $password, $database);</span>
+
+<span class="x">// 获取连接产生的错误编号和错误信息</span>
+<span class="x">if($mysqli-&gt;connect_errno){</span>
+<span class="x">    die($mysqli-&gt;connect_error);</span>
+<span class="x">}</span>
+
+<span class="x">// 关闭链接</span>
+<span class="x">$mysqli-&gt;close();</span>
+</pre></div>
+
+
+<p>3、获取信息</p>
+<div class="codehilite"><pre><span></span><span class="x">// 客户端信息</span>
+<span class="x">echo $mysqli-&gt;client_info . PHP_EOL;</span>
+
+<span class="x">echo $mysqli-&gt;get_client_info(). PHP_EOL;</span>
+
+<span class="x">// 客户端版本</span>
+<span class="x">echo $mysqli-&gt;client_version . PHP_EOL;</span>
+
+<span class="x">// 服务端信息</span>
+<span class="x">echo $mysqli-&gt;server_info . PHP_EOL;</span>
+
+<span class="x">echo $mysqli-&gt;get_server_info() . PHP_EOL;</span>
+
+<span class="x">// 服务端版本</span>
+<span class="x">echo $mysqli-&gt;server_version . PHP_EOL;</span>
+</pre></div>
+
+
+<p>4、实现sql查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// @取消警告Warning</span>
+<span class="x">$mysqli = @new mysqli($host, $username, $password, $database);</span>
+
+<span class="x">// 获取连接产生的错误编号和错误信息</span>
+<span class="x">if($mysqli-&gt;connect_errno){</span>
+<span class="x">    die($mysqli-&gt;connect_error);</span>
+<span class="x">}</span>
+
+<span class="x">// 设置编码方式</span>
+<span class="x">$mysqli-&gt;set_charset(&#39;utf8&#39;);</span>
+
+<span class="x">// 执行sql </span>
+<span class="x">$sql = &#39;insert into student(name, age) values(&quot;Tom&quot;, 25)&#39;;</span>
+<span class="x">$res = $mysqli-&gt;query($sql);</span>
+<span class="x">var_dump($res); // bool(true)</span>
+
+<span class="x">if($res){</span>
+<span class="x">    // 获取自增id</span>
+<span class="x">    echo &quot;自增id：&quot; . $mysql-&gt;insert_id;</span>
+<span class="x">    echo &quot;插入条数：&quot; . $mysql-&gt;affected_rows;</span>
+<span class="x">} else{</span>
+<span class="x">    // 获取错误号和错误信息</span>
+<span class="x">    echo &quot;error&quot; . $mysql-&gt;errorno . $mysql-&gt;error;</span>
+<span class="x">}</span>
+
+<span class="x">// 返回结果 2种 </span>
+<span class="x">// select/desc/describe/show/explain 成功返回结果集mysqli_result对象，失败返回false</span>
+<span class="x">// 其他执行成功返回true，其他返回false</span>
+
+<span class="x">// 关闭连接</span>
+<span class="x">$mysqli-&gt;close();</span>
+</pre></div>
+
+
+<p>php和html混写示例</p>
+<div class="codehilite"><pre><span></span><span class="x">&lt;!-- 定义变量 --&gt;</span>
+<span class="x">&lt;!-- 替代语法 --&gt;</span>
+<span class="x">&lt;!-- https://www.jb51.net/article/23252.htm --&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nv">$items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve&#39;</span><span class="p">]</span><span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;!-- 循环输出 --&gt;</span>
+<span class="cp">&lt;?php</span>  <span class="nv">$i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="k">foreach</span><span class="p">(</span><span class="nv">$items</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">&lt;li&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$i</span> <span class="o">.</span> <span class="s1">&#39; - &#39;</span><span class="o">.</span> <span class="nv">$item</span> <span class="cp">?&gt;</span><span class="x">&lt;/li&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="nv">$i</span><span class="o">++</span><span class="p">;</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+
+<p>输出结果</p>
+<div class="codehilite"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">Tom</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="n">Jack</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="n">Steve</span>
+</pre></div>
+
+
+<p>示例：执行多条sql</p>
+<div class="codehilite"><pre><span></span><span class="x">$sql = &#39;select * from student limit 1;&#39;;</span>
+<span class="x">$sql .= &#39;select now()&#39;;</span>
+
+<span class="x">$mysqli-&gt;multi_query($sql);</span>
+
+<span class="x">do{</span>
+<span class="x">    if($mysqli_result = $mysqli-&gt;store_result()){</span>
+<span class="x">        $rows[] = $mysqli_result-&gt;fetch_assoc();</span>
+<span class="x">    }</span>
+<span class="x">} while($mysqli-&gt;more_results() &amp;&amp; $mysqli-&gt;next_result());</span>
+
+<span class="x">var_dump($rows);</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

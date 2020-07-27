@@ -1,0 +1,541 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Zookeeper单机模式安装 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#zookeeper" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Zookeeper单机模式安装
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="zookeeper">Zookeeper单机模式安装</h1>
+<p>1、下载解压<br />
+https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.5.5/</p>
+<div class="codehilite"><pre><span></span>$ wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz
+$ tar -zxvf apache-zookeeper-3.5.5-bin.tar.gz
+</pre></div>
+
+
+<p>2、修改配置</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> apache-zookeeper-3.5.5-bin
+
+$ cp conf/zoo_sample.cfg conf/zoo.cfg
+
+$ cat conf/zoo.cfg <span class="p">|</span>grep -v <span class="s2">&quot;^#&quot;</span>
+<span class="nv">tickTime</span><span class="o">=</span><span class="m">2000</span>
+<span class="nv">initLimit</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">syncLimit</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">dataDir</span><span class="o">=</span>apache-zookeeper-3.5.5/data
+<span class="nv">clientPort</span><span class="o">=</span><span class="m">2181</span>
+</pre></div>
+
+
+<p>3、配置环境变量</p>
+<div class="codehilite"><pre><span></span>$ vim ~/.bash_profile
+<span class="nb">export</span> <span class="nv">ZOO_HOME</span><span class="o">=</span>apache-zookeeper-3.5.5-bin
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ZOO_HOME</span>/bin
+
+$ <span class="nb">source</span> ~/.bash_profile
+</pre></div>
+
+
+<p>4、启动zookeeper服务</p>
+<div class="codehilite"><pre><span></span>$ zkServer.sh start
+
+<span class="c1"># 查看状态/停止</span>
+$ zkServer.sh status/stop
+</pre></div>
+
+
+<p>5、zookeeper客户端</p>
+<div class="codehilite"><pre><span></span>$ zkCli.sh
+</pre></div>
+
+
+<h1 id="_1">基本使用</h1>
+<div class="codehilite"><pre><span></span>ls /               <span class="c1"># 查看</span>
+create /key value  <span class="c1"># 创建</span>
+get /key           <span class="c1"># 获取</span>
+<span class="nb">set</span> /key value     <span class="c1"># 更新</span>
+delete /key        <span class="c1"># 删除</span>
+</pre></div>
+
+
+<h1 id="zookeeper_1">Zookeeper集群模式安装</h1>
+<p>1、下载解压（同单机模式）<br />
+2、配置3份文件<br />
+只需修改dataDir和clientPort不同即可</p>
+<div class="codehilite"><pre><span></span>$ touch conf/zoo-<span class="o">{</span><span class="m">1</span>..3<span class="o">}</span>.cfg
+
+$ cat conf/zoo-1.cfg <span class="p">|</span>grep -v <span class="s2">&quot;^#&quot;</span>
+<span class="nv">tickTime</span><span class="o">=</span><span class="m">2000</span>
+<span class="nv">initLimit</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">syncLimit</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">dataDir</span><span class="o">=</span>data-1
+<span class="nv">clientPort</span><span class="o">=</span><span class="m">2181</span>
+
+server.1<span class="o">=</span><span class="m">127</span>.0.0.1:2888:3888
+server.2<span class="o">=</span><span class="m">127</span>.0.0.1:2889:3889
+server.3<span class="o">=</span><span class="m">127</span>.0.0.1:2890:3890
+
+$ cat conf/zoo-2.cfg <span class="p">|</span>grep -v <span class="s2">&quot;^#&quot;</span>
+<span class="nv">tickTime</span><span class="o">=</span><span class="m">2000</span>
+<span class="nv">initLimit</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">syncLimit</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">dataDir</span><span class="o">=</span>data-2
+<span class="nv">clientPort</span><span class="o">=</span><span class="m">2182</span>
+
+server.1<span class="o">=</span><span class="m">127</span>.0.0.1:2888:3888
+server.2<span class="o">=</span><span class="m">127</span>.0.0.1:2889:3889
+server.3<span class="o">=</span><span class="m">127</span>.0.0.1:2890:3890
+
+$ cat conf/zoo-3.cfg <span class="p">|</span>grep -v <span class="s2">&quot;^#&quot;</span>
+<span class="nv">tickTime</span><span class="o">=</span><span class="m">2000</span>
+<span class="nv">initLimit</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">syncLimit</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">dataDir</span><span class="o">=</span>data-3
+<span class="nv">clientPort</span><span class="o">=</span><span class="m">2183</span>
+
+server.1<span class="o">=</span><span class="m">127</span>.0.0.1:2888:3888
+server.2<span class="o">=</span><span class="m">127</span>.0.0.1:2889:3889
+server.3<span class="o">=</span><span class="m">127</span>.0.0.1:2890:3890
+</pre></div>
+
+
+<p>重要参数说明<br />
+dataDir：Zookeeper 保存数据的目录<br />
+clientPort：客户端连接 Zookeeper 服务器的端口<br />
+server.A=B：C：D：其中<br />
+-A 是一个数字，表示这个是第几号服务器；<br />
+-B 是这个服务器的 ip 地址；<br />
+-C 这个服务器与集群中的 Leader 服务器交换信息的端口；<br />
+-D Leader选举时服务器相互通信的端口</p>
+<p>3、标识Server ID<br />
+myid和服务器server.id要匹配</p>
+<div class="codehilite"><pre><span></span>$ mkdir data-<span class="o">{</span><span class="m">1</span>..3<span class="o">}</span>
+$ <span class="nb">echo</span> <span class="m">1</span> &gt; data-1/myid
+$ <span class="nb">echo</span> <span class="m">2</span> &gt; data-2/myid
+$ <span class="nb">echo</span> <span class="m">3</span> &gt; data-3/myid
+</pre></div>
+
+
+<p>4、启动服务</p>
+<div class="codehilite"><pre><span></span><span class="n">zkServer</span><span class="p">.</span><span class="n">sh</span> <span class="k">start</span> <span class="n">conf</span><span class="o">/</span><span class="n">zoo</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="n">cfg</span>
+<span class="n">zkServer</span><span class="p">.</span><span class="n">sh</span> <span class="k">start</span> <span class="n">conf</span><span class="o">/</span><span class="n">zoo</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="n">cfg</span>
+<span class="n">zkServer</span><span class="p">.</span><span class="n">sh</span> <span class="k">start</span> <span class="n">conf</span><span class="o">/</span><span class="n">zoo</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="n">cfg</span>
+</pre></div>
+
+
+<p>5、客户端连接服务端</p>
+<div class="codehilite"><pre><span></span><span class="n">zkCli</span><span class="p">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">server</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">2181</span><span class="p">,</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">2182</span><span class="p">,</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">2183</span>
+</pre></div>
+
+
+<h1 id="_2">报错：</h1>
+<div class="codehilite"><pre><span></span><span class="n">Starting</span> <span class="n">zookeeper</span> <span class="p">...</span> <span class="n">FAILED</span> <span class="k">TO</span> <span class="k">START</span>
+</pre></div>
+
+
+<p>查看log下面的日志</p>
+<div class="codehilite"><pre><span></span><span class="err">错误</span><span class="o">:</span> <span class="err">找不到或无法加载主类</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">zookeeper</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">quorum</span><span class="o">.</span><span class="na">QuorumPeerMain</span>
+</pre></div>
+
+
+<p>查看下载包，发现有两个，要下载大的那个<br />
+https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.5.5/</p>
+<div class="codehilite"><pre><span></span><span class="n">apache</span><span class="o">-</span><span class="n">zookeeper</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span> <span class="mi">18</span><span class="p">:</span><span class="mi">40</span>   <span class="mi">10</span><span class="n">M</span>  <span class="o">#</span> <span class="err">下载这个包</span>
+<span class="n">apache</span><span class="o">-</span><span class="n">zookeeper</span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">.</span><span class="mi">5</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>     <span class="mi">2019</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">20</span> <span class="mi">18</span><span class="p">:</span><span class="mi">40</span>  <span class="mi">3</span><span class="p">.</span><span class="mi">1</span><span class="n">M</span>  
+</pre></div>
+
+
+<blockquote>
+<p>参考<br />
+<a href="https://blog.csdn.net/java_66666/article/details/81015302">Zookeeper入门看这篇就够了</a><br />
+<a href="https://www.jianshu.com/p/1f4c70d7ef40">ZooKeeper入门教程（一）</a></p>
+</blockquote>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

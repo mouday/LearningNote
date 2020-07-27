@@ -1,0 +1,969 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>3、ElasticSearch搜索基础 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                3、ElasticSearch搜索基础
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、搜索请求结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-index-multi-type" class="md-nav__link">
+    二、multi-index 和 multi-type搜索模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-paging" class="md-nav__link">
+    三、分页搜索语法 和 deep paging性能问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-string-searchall-metadata" class="md-nav__link">
+    四、query string search语法和all metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping" class="md-nav__link">
+    五、mapping到底是什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    六、精确匹配与全文搜索
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    七、倒排索引核心原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    八、分词器的内部组成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-string" class="md-nav__link">
+    九、query string的分词
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping_1" class="md-nav__link">
+    十、透彻理解mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-mapping" class="md-nav__link">
+    十一、dynamic mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping_2" class="md-nav__link">
+    十二、手动建立和修改mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping_3" class="md-nav__link">
+    十三、mapping复杂数据类型
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h2 id="_1">一、搜索请求结果</h2>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">taobao</span><span class="o">/</span><span class="n">product</span><span class="o">/</span><span class="n">_search</span><span class="o">?</span><span class="n">q</span><span class="o">=</span><span class="n">name</span><span class="p">:</span><span class="n">Pig</span>
+
+<span class="err">{</span>
+  <span class="ss">&quot;took&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+  <span class="ss">&quot;timed_out&quot;</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+  <span class="ss">&quot;_shards&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;total&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">&quot;successful&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">&quot;failed&quot;</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="err">}</span><span class="p">,</span>
+  <span class="ss">&quot;hits&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">&quot;max_score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">80259144</span><span class="p">,</span>
+    <span class="ss">&quot;hits&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="err">{</span>
+        <span class="ss">&quot;_index&quot;</span><span class="p">:</span> <span class="ss">&quot;taobao&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;_type&quot;</span><span class="p">:</span> <span class="ss">&quot;product&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;_id&quot;</span><span class="p">:</span> <span class="ss">&quot;4&quot;</span><span class="p">,</span>
+        <span class="ss">&quot;_score&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">80259144</span><span class="p">,</span>
+        <span class="ss">&quot;_source&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Pig&quot;</span><span class="p">,</span>
+          <span class="ss">&quot;price&quot;</span><span class="p">:</span> <span class="mi">36</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="p">]</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>took 整个搜索请求花费了多少毫秒<br />
+shards.total 处理请求的shards<br />
+shards.faild 失败数量，primary 和replica全部挂掉，不影响其他 shard<br />
+  默认情况下，一个搜索请求，会打到一个index的所有primary shard，<br />
+  也可能到primary shard的其中一个replica shard</p>
+<p>hits.total 本次搜索，返回几条结果<br />
+hits.max_score 本次搜索所有结果中，最大相关度<br />
+  每个document对于search的相关度，越相关score分数越大，排位越靠前</p>
+<p>hits.hits  默认前10条完成数据</p>
+<p>timeout 默认无timeout，latency平衡completeness，<br />
+部分应用会有时间限制，需要快速返回数据<br />
+指定每个shard，就只能在timeout时间范围内，将搜索到的部分数据直接返回给客户端</p>
+<p>1ms（毫秒） 1s（秒） 1m(分钟)</p>
+<div class="codehilite"><pre><span></span><span class="k">GET</span> <span class="n">_search</span><span class="o">?</span><span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+</pre></div>
+
+
+<h2 id="multi-index-multi-type">二、multi-index 和 multi-type搜索模式</h2>
+<p>（1）multi-index</p>
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="n">_search</span>   <span class="o">#</span> <span class="err">所有索引，所有</span><span class="n">type下的所有数据</span>
+<span class="o">/</span><span class="k">index</span><span class="o">/</span><span class="n">_search</span> <span class="err">指定索引，搜索其下的所有</span><span class="n">type数据</span>
+<span class="o">/</span><span class="n">index1</span><span class="p">,</span><span class="n">index2</span><span class="o">/</span><span class="n">_search</span> <span class="err">同时搜索两个索引下的数据</span>
+<span class="cm">/*1,*2/_search  按照通配符去匹配多个索引</span>
+</pre></div>
+
+
+<p>（2）multi-type</p>
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="k">index</span><span class="o">/</span><span class="k">type</span><span class="o">/</span><span class="n">_search</span> <span class="err">搜索指定索引下指定</span><span class="n">type数据</span>
+<span class="o">/</span><span class="k">index</span><span class="o">/</span><span class="n">type1</span><span class="p">,</span><span class="n">type2</span><span class="o">/</span><span class="n">_search</span>  <span class="err">一个索引下多个</span><span class="n">type数据</span>
+<span class="o">/</span><span class="n">index1</span><span class="p">,</span><span class="n">index2</span><span class="o">/</span><span class="n">type1</span><span class="p">,</span><span class="n">type2</span><span class="o">/</span><span class="n">_search</span>  <span class="err">多个索引下多个</span><span class="n">type数据</span>
+<span class="o">/</span><span class="n">_all</span><span class="o">/</span><span class="n">type1</span><span class="p">,</span><span class="n">type2</span><span class="o">/</span><span class="n">_search</span>   <span class="err">所有索引下多个</span><span class="n">type数据</span>
+</pre></div>
+
+
+<p>client 发送一个搜索请求，会把请求打到所有的primary shard上执行<br />
+因为每个shard都包含部分数据，所以每个shard上都可能会包含搜索请求的结果<br />
+但是，如果primary shard有replica shard，那么请求也可以打到replicashard执行</p>
+<h2 id="deep-paging">三、分页搜索语法 和 deep paging性能问题</h2>
+<p>（1）分页搜索语法</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /_search?size=10</span>
+<span class="err">GET /_search?size=10&amp;from=0</span>
+<span class="err">GET /_search?size=10&amp;from=20</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>      <span class="k">from</span> <span class="k">size</span>
+<span class="err">第一页：</span><span class="mi">0</span>     <span class="mi">3</span>
+<span class="err">第二页：</span><span class="mi">3</span>     <span class="mi">3</span>
+</pre></div>
+
+
+<p>（2）deep paging 深度分页<br />
+举例：<br />
+如果一共有60000条数，一共3个shard，每个shard20000条数据<br />
+搜索第1001页（1000，10）每个shard都会排序后返回1009条数据<br />
+coordinate node排序后在输出</p>
+<p>影响：<br />
+[1] 传输耗费带宽<br />
+[2] 数据耗费内存<br />
+[3] 排序耗费CUP</p>
+<h2 id="query-string-searchall-metadata">四、query string search语法和all metadata</h2>
+<p>（1）query string search语法</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search?q=key:value</span>
+<span class="err">GET /index/type/_search?q=+key:value  # 包含</span>
+<span class="err">GET /index/type/_search?q=-key:value  # 不包含</span>
+</pre></div>
+
+
+<p>(2)all metadata</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/type/_search?q=value</span>
+</pre></div>
+
+
+<p>搜索任意包含value的结果<br />
+<code>_all</code>元数据<br />
+在建立索引的时候，我们插入一条document，里边包含的所有字段，会串联起来变成一个长的字符创<br />
+作为<code>_all field</code> 的值，同时建立索引<br />
+搜索时没有指定字段field，就默认搜索<code>_all field</code></p>
+<p>注意：生产环境中不使用</p>
+<h2 id="mapping">五、mapping到底是什么</h2>
+<p>数据准备</p>
+<div class="codehilite"><pre><span></span><span class="n">put</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a title one&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a content one&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;post_date&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-05-02&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;author_id&quot;</span><span class="p">:</span> <span class="mi">9527</span>
+<span class="err">}</span>
+
+
+<span class="n">put</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="mi">2</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a title two&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a content two&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;post_date&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-05-03&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;author_id&quot;</span><span class="p">:</span> <span class="mi">9527</span>
+<span class="err">}</span>
+
+<span class="n">put</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">article</span><span class="o">/</span><span class="mi">3</span>
+<span class="err">{</span>
+  <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a title three&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a content three&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;post_date&quot;</span><span class="p">:</span> <span class="ss">&quot;2019-05-02&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;author_id&quot;</span><span class="p">:</span> <span class="mi">9525</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>搜索测试</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/article/_search?q=2019  # 3</span>
+
+<span class="err">GET /website/article/_search?q=2019-05-02  # 3</span>
+
+<span class="err">GET /website/article/_search?q=post_date:2019-05-02  # 1</span>
+
+<span class="err">GET /website/article/_search?q=post_date:2019  # 0</span>
+</pre></div>
+
+
+<p>自动或手动为index中的type建立一种数据结构和相关配置，简称为mapping<br />
+dynamic mapping 会自动创建index，创建type，以及type对应的mapping<br />
+mapping包含了每个field对应的数据类型，以及如何分词等设置</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /website/_mapping/article</span>
+
+<span class="err">{</span>
+<span class="err">  &quot;website&quot;: {</span>
+<span class="err">    &quot;mappings&quot;: {</span>
+<span class="err">      &quot;article&quot;: {</span>
+<span class="err">        &quot;properties&quot;: {</span>
+<span class="err">          &quot;author_id&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;long&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;content&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">            &quot;fields&quot;: {</span>
+<span class="err">              &quot;keyword&quot;: {</span>
+<span class="err">                &quot;type&quot;: &quot;keyword&quot;,</span>
+<span class="err">                &quot;ignore_above&quot;: 256</span>
+<span class="err">              }</span>
+<span class="err">            }</span>
+<span class="err">          },</span>
+<span class="err">          &quot;post_date&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;date&quot;</span>
+<span class="err">          },</span>
+<span class="err">          &quot;title&quot;: {</span>
+<span class="err">            &quot;type&quot;: &quot;text&quot;,</span>
+<span class="err">            &quot;fields&quot;: {</span>
+<span class="err">              &quot;keyword&quot;: {</span>
+<span class="err">                &quot;type&quot;: &quot;keyword&quot;,</span>
+<span class="err">                &quot;ignore_above&quot;: 256</span>
+<span class="err">              }</span>
+<span class="err">            }</span>
+<span class="err">          }</span>
+<span class="err">        }</span>
+<span class="err">      }</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="_2">六、精确匹配与全文搜索</h2>
+<p>1、exact value 精确搜索<br />
+例如：<br />
+2017-01-01 搜索的时候必须输入 2017-01-01，才能搜索出来</p>
+<p>2、full text 全文检索<br />
+（1）缩写 vs，全称：cn vs. chian<br />
+（2）格式转化：like liked likes<br />
+（3）大小写： Tom vs tom<br />
+（4）同义词：like vs love</p>
+<p>例如：<br />
+2017-01-01 搜索 2017 01 都可以搜出来</p>
+<p>全文检索，分词搜索，缩写，时态，大小写，同义词</p>
+<h2 id="_3">七、倒排索引核心原理</h2>
+<p>举例：<br />
+1、两个文档<br />
+I like my dog<br />
+I think you like my dog</p>
+<p>2、分词，初步建立倒排索引</p>
+<div class="codehilite"><pre><span></span><span class="n">word</span>  <span class="n">doc1</span>  <span class="n">doc2</span>  <span class="n">normalization</span>
+<span class="n">I</span>      <span class="o">*</span>     <span class="o">*</span>
+<span class="k">like</span>   <span class="o">*</span>     <span class="o">*</span>      <span class="o">-&gt;</span> <span class="k">like</span>
+<span class="n">my</span>     <span class="o">*</span>     <span class="o">*</span>
+<span class="n">dog</span>    <span class="o">*</span>     <span class="o">*</span>      <span class="o">-&gt;</span> <span class="n">dogs</span>
+<span class="n">think</span>  <span class="o">*</span>     <span class="o">-</span>
+<span class="n">you</span>    <span class="o">*</span>     <span class="o">-</span>
+</pre></div>
+
+
+<p>3、搜索搜不到任何结果<br />
+mother love little cat</p>
+<p>4、normalization <br />
+时态，单复数，同义词转换<br />
+建立倒排索引的时候，会对拆分出来的各个单词进行相应的处理<br />
+以提升后面搜索的时候能够搜到的相关联文档的概率</p>
+<p>5、搜索串分词后搜索：</p>
+<div class="codehilite"><pre><span></span><span class="n">mother</span>
+<span class="n">love</span>
+<span class="n">little</span>
+<span class="n">cat</span>
+</pre></div>
+
+
+<h2 id="_4">八、分词器的内部组成</h2>
+<p>1、分词器<br />
+切分词语，normalization</p>
+<p>提升recall召回率（查全率）：<br />
+搜索的时候，增加能够搜到结果的数量</p>
+<p>character filter 字符预处理 <h1>hello</h1> -&gt; hello<br />
+tokenizer   分词  hello you and me -&gt; hello, you, and , me<br />
+token filter  lowercase stop word   Tom -&gt; tom  small -&gt; little</p>
+<p>分词器很重要，将一段文本进行各种处理，最后处理好的结果才会拿去建立倒排索引</p>
+<p>2、内置分词器</p>
+<p>standard analyzer （默认）<br />
+simple analyzer<br />
+whitespace analyzer<br />
+language analyzer（特定语言分词器）</p>
+<h2 id="query-string">九、query string的分词</h2>
+<p>query string 必须以和index建立时相同的analyzer进行分词<br />
+query string 对exact value和full text的区别</p>
+<p>知识点：<br />
+不同类型的field，有的是full text， 有的是exact value<br />
+date： exact value  eg: date<br />
+<code>_all</code>: full text, 分词， normalization</p>
+<p>测试分词器</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /_analyze</span>
+<span class="err">{</span>
+<span class="err">  &quot;analyzer&quot;: &quot;standard&quot;,</span>
+<span class="err">  &quot;text&quot;: &quot;this is a good man&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="mapping_1">十、透彻理解mapping</h2>
+<p>1、往es直接插入数据，es会自动建立索引，建立type 以及对应的mapping<br />
+2、mapping自动定义每个field的数据类型<br />
+3、不同的数据类型，有exact value  和 full text<br />
+4、exact value 建立倒排索引的时候，不会分词，将整个值作为一个关键字建立到倒排索引中<br />
+5、full text 会经历各种处理，分词，normalization（时态，同义词，大小写），才会建立到索引中<br />
+6、一个搜索过来，对搜索文本的处理也一样<br />
+7、可以使用dynamic mapping 自动建立mapping，也可以手动设置<br />
+8、mapping就是index的type的元数据，每个type都有自己的mapping，<br />
+  决定了数据类型，建立倒排索引的行为，还有进行搜索的行为</p>
+<h2 id="dynamic-mapping">十一、dynamic mapping</h2>
+<p>1、核心数据类型<br />
+string<br />
+byte short integer long<br />
+float double<br />
+boolean<br />
+date</p>
+<p>2、dynamic mapping<br />
+true or false -&gt; boolean<br />
+123           -&gt; long<br />
+123.45        -&gt; double<br />
+2017-01-01    -&gt; date<br />
+"hello"       -&gt; string/text</p>
+<p>3、查看mapping</p>
+<div class="codehilite"><pre><span></span><span class="err">GET /index/_mapping/type</span>
+</pre></div>
+
+
+<h2 id="mapping_2">十二、手动建立和修改mapping</h2>
+<p>1、建立索引<br />
+analyzed<br />
+not_analyzed<br />
+no</p>
+<p>2、修改mapping<br />
+只能创建index时手动建立mapping，或新增field mapping<br />
+不能update field mapping</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">建立</span><span class="n">mapping</span>
+<span class="n">PUT</span> <span class="o">/</span><span class="n">website</span>
+<span class="err">{</span>
+  <span class="ss">&quot;mappings&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;article&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;properties&quot;</span><span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;text&quot;</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;text&quot;</span><span class="p">,</span>
+          <span class="ss">&quot;analyzer&quot;</span><span class="p">:</span> <span class="ss">&quot;english&quot;</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;long&quot;</span>
+        <span class="err">}</span><span class="p">,</span>
+        <span class="ss">&quot;post_date&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;date&quot;</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">添加字段不分词</span>
+<span class="n">PUT</span> <span class="n">website</span><span class="o">/</span><span class="n">_mapping</span><span class="o">/</span><span class="n">article</span>
+<span class="err">{</span>
+  <span class="ss">&quot;properties&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;publisher&quot;</span><span class="p">:</span><span class="err">{</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;string&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;index&quot;</span><span class="p">:</span> <span class="ss">&quot;not_analyzed&quot;</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="err">查看</span><span class="n">mapping</span> 
+<span class="k">GET</span> <span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">_mapping</span><span class="o">/</span><span class="n">article</span>
+<span class="err">{</span>
+  <span class="ss">&quot;website&quot;</span><span class="p">:</span> <span class="err">{</span>
+    <span class="ss">&quot;mappings&quot;</span><span class="p">:</span> <span class="err">{</span>
+      <span class="ss">&quot;article&quot;</span><span class="p">:</span> <span class="err">{</span>
+        <span class="ss">&quot;properties&quot;</span><span class="p">:</span> <span class="err">{</span>
+          <span class="ss">&quot;content&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;text&quot;</span><span class="p">,</span>
+            <span class="ss">&quot;analyzer&quot;</span><span class="p">:</span> <span class="ss">&quot;english&quot;</span>
+          <span class="err">}</span><span class="p">,</span>
+          <span class="ss">&quot;id&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;long&quot;</span>
+          <span class="err">}</span><span class="p">,</span>
+          <span class="ss">&quot;post_date&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;date&quot;</span>
+          <span class="err">}</span><span class="p">,</span>
+          <span class="ss">&quot;publisher&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;keyword&quot;</span>
+          <span class="err">}</span><span class="p">,</span>
+          <span class="ss">&quot;title&quot;</span><span class="p">:</span> <span class="err">{</span>
+            <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;text&quot;</span>
+          <span class="err">}</span>
+        <span class="err">}</span>
+      <span class="err">}</span>
+    <span class="err">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>分词测试</p>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="n">publisher字段不支持分词</span><span class="err">，会报错</span>
+<span class="k">GET</span> <span class="n">website</span><span class="o">/</span><span class="n">_analyze</span>
+<span class="err">{</span>
+  <span class="ss">&quot;field&quot;</span><span class="p">:</span> <span class="ss">&quot;publisher&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span>
+<span class="err">}</span>
+
+
+<span class="o">#</span> <span class="err">标准分词</span>
+<span class="k">GET</span> <span class="n">website</span><span class="o">/</span><span class="n">_analyze</span>
+<span class="err">{</span>
+  <span class="ss">&quot;field&quot;</span><span class="p">:</span> <span class="ss">&quot;title&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span>
+<span class="err">}</span>
+<span class="err">{</span>
+  <span class="ss">&quot;tokens&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;this&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="err">}</span><span class="p">,</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;is&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="err">}</span><span class="p">,</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;a&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="err">}</span><span class="p">,</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;good&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="err">}</span><span class="p">,</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;man&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="err">}</span>
+  <span class="p">]</span>
+<span class="err">}</span>
+
+<span class="o">#</span> <span class="n">english分词</span>
+<span class="k">GET</span> <span class="n">website</span><span class="o">/</span><span class="n">_analyze</span>
+<span class="err">{</span>
+  <span class="ss">&quot;field&quot;</span><span class="p">:</span> <span class="ss">&quot;content&quot;</span><span class="p">,</span>
+  <span class="ss">&quot;text&quot;</span><span class="p">:</span> <span class="ss">&quot;this is a good man&quot;</span>
+<span class="err">}</span>
+
+<span class="err">{</span>
+  <span class="ss">&quot;tokens&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;good&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="err">}</span><span class="p">,</span>
+    <span class="err">{</span>
+      <span class="ss">&quot;token&quot;</span><span class="p">:</span> <span class="ss">&quot;man&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;start_offset&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="ss">&quot;end_offset&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="ss">&quot;type&quot;</span><span class="p">:</span> <span class="ss">&quot;&lt;ALPHANUM&gt;&quot;</span><span class="p">,</span>
+      <span class="ss">&quot;position&quot;</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="err">}</span>
+  <span class="p">]</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="mapping_3">十三、mapping复杂数据类型</h2>
+<p>1、multivale field</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span><span class="ss">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="ss">&quot;red&quot;</span><span class="p">,</span> <span class="ss">&quot;blue&quot;</span><span class="p">]</span><span class="err">}</span>
+</pre></div>
+
+
+<p>2、empty field</p>
+<div class="codehilite"><pre><span></span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="err">[]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">null</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
+
+<p>3、object类型数据底层结构</p>
+<div class="codehilite"><pre><span></span><span class="err">{</span>
+  <span class="ss">&quot;info&quot;</span>
+  <span class="err">{</span>
+    <span class="ss">&quot;address&quot;</span><span class="p">:</span> <span class="ss">&quot;beijing&quot;</span>
+  <span class="err">}</span>
+  <span class="ss">&quot;name&quot;</span><span class="p">:</span> <span class="ss">&quot;Tom&quot;</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>数据类型存储</p>
+<div class="codehilite"><pre><span></span><span class="n">info</span><span class="p">.</span><span class="n">address</span><span class="p">:</span> <span class="n">beijing</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Tom</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
