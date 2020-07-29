@@ -162,6 +162,141 @@ Github: https://github.com/searchbox-io/Jest
 
 版本适配
 
-```
+```bash
+# 拉取
 docker pull elasticsearch:7.6.2
+
+# 单节点启动
+docker run -d \
+-e ES_JAVA_POTS="-Xms256m -Xmx256m" \
+-e "discovery.type=single-node" \
+-p 9200:9200 \
+-p 9300:9300 \
+--name ES1 \
+elasticsearch:7.6.2
+
+# 查看所有容器
+docker ps -a
+
+# 删除
+docker rm <容器ID>
+
+# 查看日志
+docker logs -f <容器ID>
+```
+
+查看数据
+http://localhost:9200/data/_search
+
+SpringBoot 操作 elasticsearch
+
+文档：
+https://github.com/spring-projects/spring-data-elasticsearch
+
+```java
+package com.example.demo.pojo;
+
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName="data")
+public class Book {
+    private Integer id;
+    private String name;
+    private String author;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
+}
+
+```
+
+```java
+package com.example.demo.repository;
+
+import com.example.demo.pojo.Book;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+import java.util.List;
+
+public interface BookRepository extends ElasticsearchRepository<Book, Integer> {
+    List<Book> findByNameLike(String name);
+}
+
+```
+
+```java
+package com.example.demo;
+
+
+import com.example.demo.pojo.Book;
+import com.example.demo.repository.BookRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
+import java.util.Optional;
+
+@SpringBootTest
+public class ElasticSearchTest {
+    @Autowired
+    public BookRepository bookRepository;
+
+
+    @Test
+    public void testSave(){
+        Book book = new Book();
+        book.setId(1);
+        book.setName("<tom>");
+        book.setAuthor("Jack");
+
+        bookRepository.save(book);
+    }
+
+    @Test
+    public void testQuery01(){
+        Optional result= bookRepository.findById(1);
+        if(result.isPresent()){
+            System.out.println(result.get());
+        }
+    }
+
+    @Test
+    public void testQuery02(){
+        List<Book> list =  bookRepository.findByNameLike("To");
+        System.out.println(list);
+    }
+
+}
+
 ```

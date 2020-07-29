@@ -22,7 +22,9 @@
 
 [第十章-SpringBoot 与消息](第十章-SpringBoot与消息)
 
-[第十一章-SpringBoot 与检索](第十一章-SpringBoot与检索.md)
+[第十一章-SpringBoot 与检索](第十一章-SpringBoot与检索)
+
+[第十二章-SpringBoot 与任务](第十二章-SpringBoot与任务)
 
 ## 课程视频地址
 
