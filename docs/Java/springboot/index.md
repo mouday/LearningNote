@@ -22,6 +22,8 @@
 
 [第十章-SpringBoot 与消息](第十章-SpringBoot与消息)
 
+[第十一章-SpringBoot 与检索](第十一章-SpringBoot与检索.md)
+
 ## 课程视频地址
 
 1-8 章：[SpringBoot 快速掌握(1)：核心技术](https://edu.aliyun.com/course/1912)
