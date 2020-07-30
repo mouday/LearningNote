@@ -162,6 +162,17 @@ Github: https://github.com/searchbox-io/Jest
 
 版本适配
 
+| Spring Data Release Train | Spring Data Elasticsearch | Elasticsearch | Spring Boot |
+| ------------------------- | ------------------------- | ------------- | ----------- |
+| Neumann                   | 4.0.x                     | 7.6.2         | 2.3.x       |
+| Moore                     | 3.2.x                     | 6.8.6         | 2.2.x       |
+| Lovelace                  | 3.1.x                     | 6.2.2         | 2.1.x       |
+| Kay                       | 3.0.x                     | 5.5.0         | 2.0.x       |
+| Ingalls                   | 2.1.x                     | 2.4.0         | 1.5.x       |
+
+> 来源：
+> [https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#preface.versions](https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#preface.versions)
+
 ```bash
 # 拉取
 docker pull elasticsearch:7.6.2
@@ -300,3 +311,7 @@ public class ElasticSearchTest {
 }
 
 ```
+
+接口方法命名
+
+[https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#elasticsearch.query-methods.criterions](https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#elasticsearch.query-methods.criterions)
