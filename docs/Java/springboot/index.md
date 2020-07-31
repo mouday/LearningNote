@@ -26,6 +26,8 @@
 
 [第十二章-SpringBoot 与任务](第十二章-SpringBoot与任务)
 
+[第十三章-SpringBoot 与安全](第十三章-SpringBoot与安全)
+
 ## 课程视频地址
 
 1-8 章：[SpringBoot 快速掌握(1)：核心技术](https://edu.aliyun.com/course/1912)
