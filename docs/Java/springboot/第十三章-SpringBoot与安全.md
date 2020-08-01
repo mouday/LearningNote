@@ -195,3 +195,33 @@ class SecurityDemoApplicationTests {
 }
 
 ```
+
+常用配置
+
+```java
+
+// 定制请求的授权规则
+http.authorizeRequests()
+        .antMatchers("/").permitAll()
+        .antMatchers("/vip1/**").hasRole("VIP1")
+        .antMatchers("/vip2/**").hasRole("VIP2")
+        .antMatchers("/vip3/**").hasRole("VIP3");
+
+// 开启登录功能  /login GET 去登录页，POST 提交登录数据
+http.formLogin()
+
+// 自定义登录页
+http.formLogin().loginPage("/user-login");
+
+// 自定义登录请求参数
+http.formLogin()
+    .usernameParameter("username")
+    .passwordParameter("password")
+    .loginPage("/user-login");
+
+// 开启注销功能
+http.logout().logoutSuccessUrl("/")
+
+// 记住我,将用户信息保存在cookie中
+http.remenberMe();
+```
