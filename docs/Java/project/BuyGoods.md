@@ -420,7 +420,7 @@ Unknown system variable 'query_cache_size'
 
 升级 mysql 连接驱动版本
 
-```
+```xml
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>

@@ -32,11 +32,13 @@
 
 [第十五章-SpringBoot 与部署](第十五章-SpringBoot与部署)
 
+[第十六章-SpringBoot 与监控管理](第十六章-SpringBoot与监控管理)
+
 ## 课程视频地址
 
 1-8 章：[SpringBoot 快速掌握(1)：核心技术](https://edu.aliyun.com/course/1912)
 
-[SpringBoot 快速掌握(2)：高级应用 ](https://edu.aliyun.com/course/1913)
+9-16 章：[SpringBoot 快速掌握(2)：高级应用 ](https://edu.aliyun.com/course/1913)
 
 示例代码地址:
 [https://github.com/mouday/SpringBoot-demo](https://github.com/mouday/SpringBoot-demo)
