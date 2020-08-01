@@ -1,0 +1,1078 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>4.2-SQL进阶：约束、关系、连接 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#42-sql" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                4.2-SQL进阶：约束、关系、连接
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    课时1 1.单表的查询练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-2mysql" class="md-nav__link">
+    课时2 2.mysql编码问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-3mysql" class="md-nav__link">
+    课时3 3.mysql备份与恢复数据库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-4" class="md-nav__link">
+    课时4 4.约束之主键约束
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-5" class="md-nav__link">
+    课时5 5.主键自增长
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-6" class="md-nav__link">
+    课时6 6.非空和唯一约束
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-7" class="md-nav__link">
+    课时7 7.概述模型、对象模型、关系模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-8" class="md-nav__link">
+    课时8 8.外键约束
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-9" class="md-nav__link">
+    课时9 9.一对一关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-10" class="md-nav__link">
+    课时10 10.多对多关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-11" class="md-nav__link">
+    课时11 11.合并结果集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-12" class="md-nav__link">
+    课时12 12.连接查询之内连接（方言）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-13" class="md-nav__link">
+    课时13 13.连接查询之内连接（标签和自然）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-14" class="md-nav__link">
+    课时14 14.连接查询之外连接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-15" class="md-nav__link">
+    课时15 15.子查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-161" class="md-nav__link">
+    课时16 16.多表查询练习第1题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-172" class="md-nav__link">
+    课时17 17.多表查询练习第2题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-184" class="md-nav__link">
+    课时18 18.多表查询练习第4题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-195" class="md-nav__link">
+    课时19 19.多表查询练习第5题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-207" class="md-nav__link">
+    课时20 20.多表查询练习第7题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-218" class="md-nav__link">
+    课时21 21.多表查询练习第8题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-229" class="md-nav__link">
+    课时22 22.多表查询练习第9题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-2310" class="md-nav__link">
+    课时23 23.多表查询练习第10题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-2411" class="md-nav__link">
+    课时24 24.多表查询练习第11题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-2413" class="md-nav__link">
+    课时25 24.多表查询练习第13题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="42-sql">4.2-SQL进阶：约束、关系、连接</h1>
+<h2 id="1-1">课时1 1.单表的查询练习</h2>
+<p>可视化客户端 SQLyog</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 查询部门编号为30的所有员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span><span class="o">=</span><span class="mi">30</span><span class="p">;</span>
+
+<span class="c1">-- 查询所有销售员的姓名、编号和部门编号</span>
+<span class="k">select</span> <span class="n">ename</span><span class="p">,</span> <span class="n">empno</span><span class="p">,</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">job</span><span class="o">=</span><span class="s1">&#39;销售员&#39;</span>
+
+<span class="c1">-- 查询奖金高于工资的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">comm</span> <span class="o">&gt;</span> <span class="n">sal</span><span class="p">;</span>
+
+<span class="c1">-- 查询奖金高于工资60%的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">comm</span> <span class="o">&gt;</span> <span class="n">sal</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">;</span>
+
+<span class="c1">-- 查询部门编号为10中所有经理，和部门编号编号为20中所有销售员的详细资料</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> 
+<span class="k">where</span> <span class="p">(</span><span class="n">deptno</span><span class="o">=</span><span class="mi">10</span> <span class="k">and</span> <span class="n">job</span><span class="o">=</span><span class="s1">&#39;经理&#39;</span><span class="p">)</span>
+<span class="k">or</span> <span class="p">(</span><span class="n">deptno</span><span class="o">=</span><span class="mi">20</span> <span class="k">and</span> <span class="n">job</span><span class="o">=</span><span class="s1">&#39;销售员&#39;</span><span class="p">);</span>
+
+<span class="c1">-- 查询部门编号为10中所有经理，和部门编号编号为20中所有销售员，</span>
+<span class="c1">-- 还有既不是经理又不是销售员但工资大于等于20000的所有员工详细资料</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> 
+<span class="k">where</span> <span class="p">(</span><span class="n">deptno</span><span class="o">=</span><span class="mi">10</span> <span class="k">and</span> <span class="n">job</span><span class="o">=</span><span class="s1">&#39;经理&#39;</span><span class="p">)</span>
+<span class="k">or</span> <span class="p">(</span><span class="n">deptno</span><span class="o">=</span><span class="mi">20</span> <span class="k">and</span> <span class="n">job</span><span class="o">=</span><span class="s1">&#39;销售员&#39;</span><span class="p">)</span>
+<span class="k">or</span> <span class="p">(</span><span class="n">job</span> <span class="k">not</span> <span class="k">in</span> <span class="p">(</span><span class="s1">&#39;经理&#39;</span><span class="p">,</span> <span class="s1">&#39;销售员&#39;</span><span class="p">)</span> <span class="k">and</span> <span class="n">sal</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">);</span>
+
+<span class="c1">-- 无奖金或奖金低于1000的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">comm</span> <span class="k">is</span> <span class="k">null</span> <span class="k">or</span> <span class="n">comm</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span>
+
+<span class="c1">-- 查询名字由3个字组成的员工(3个下划线)</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">ename</span> <span class="k">like</span> <span class="s1">&#39;___&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 查询2000年入职的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">hiredate</span> <span class="k">like</span> <span class="s1">&#39;2000-%&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 查询所有员工，用编号升序排序</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">empno</span> <span class="k">asc</span><span class="p">;</span>
+
+<span class="c1">-- 查询所有员工详细信息，用工资降序排序，如果工资相同使用入职日期升序排序</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">sal</span> <span class="k">desc</span><span class="p">,</span> <span class="n">hiredate</span> <span class="k">asc</span><span class="p">;</span>
+
+<span class="c1">-- 查询每个部门的平均工资</span>
+<span class="k">select</span> <span class="n">deptno</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span><span class="p">;</span>
+
+<span class="c1">-- 查询每个部门雇员数量</span>
+<span class="k">select</span> <span class="n">deptno</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span><span class="p">;</span>
+
+<span class="c1">-- 查询每种工作的最高工资，最低工资，人数</span>
+<span class="k">select</span> <span class="n">job</span><span class="p">,</span> <span class="k">max</span><span class="p">(</span><span class="n">sal</span><span class="p">),</span> <span class="k">min</span><span class="p">(</span><span class="n">sal</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">job</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="2-2mysql">课时2 2.mysql编码问题</h2>
+<div class="codehilite"><pre><span></span><span class="c1">-- 查看MySQL的数据库编码</span>
+<span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;char%&#39;</span><span class="p">;</span>
+
+<span class="c1">-- 临时设置变量</span>
+<span class="k">set</span> <span class="n">character_set_client</span><span class="o">=</span><span class="n">utf8</span>
+<span class="k">set</span> <span class="n">character_set_results</span><span class="o">=</span><span class="n">utf8</span>
+</pre></div>
+
+
+<p>永久设置:<br />
+my.ini中配置</p>
+<h2 id="3-3mysql">课时3 3.mysql备份与恢复数据库</h2>
+<p>1、备份：数据库-&gt;SQL语句</p>
+<div class="codehilite"><pre><span></span>$ mysqldump -u用户名 -p密码 数据库名 &gt; 要生成的SQL脚本路径
+</pre></div>
+
+
+<p>2、恢复：SQL语句-&gt;数据库</p>
+<div class="codehilite"><pre><span></span>$ mysql -u用户名 -p密码 数据库名 &lt; 要生成的SQL脚本路径
+
+<span class="c1"># 或者</span>
+&gt; <span class="nb">source</span> 要生成的SQL脚本路径
+</pre></div>
+
+
+<h2 id="4-4">课时4 4.约束之主键约束</h2>
+<p>特点：唯一，非空，被引用</p>
+<p>指定id列为主键列</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 1、创建表时指定主键</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">stu</span><span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">-- 或者</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">stu</span><span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+    <span class="k">primary</span> <span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">-- 2、已存在表添加主键</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">stu</span> <span class="k">add</span> <span class="k">primary</span> <span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+
+<span class="c1">-- 3、删除主键</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">stu</span> <span class="k">drop</span> <span class="k">primary</span> <span class="k">key</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="5-5">课时5 5.主键自增长</h2>
+<p>保证插入数据时主键唯一非空</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 1、创建表时指定主键自增长</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">stu</span><span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">-- 设置字段自增长</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">stu</span> <span class="n">change</span> <span class="n">id</span> <span class="n">id</span> <span class="nb">int</span> <span class="n">auto_increment</span><span class="p">;</span>
+
+<span class="c1">-- 删除自增长</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">stu</span> <span class="n">change</span> <span class="n">id</span> <span class="n">id</span> <span class="nb">int</span><span class="p">;</span>
+</pre></div>
+
+
+<p>uuid作为主键</p>
+<h2 id="6-6">课时6 6.非空和唯一约束</h2>
+<p>非空约束：不能为null<br />
+not null</p>
+<p>唯一约束:不能重复<br />
+unique</p>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">stu</span><span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span> <span class="k">unique</span> 
+<span class="p">)</span>
+</pre></div>
+
+
+<h2 id="7-7">课时7 7.概述模型、对象模型、关系模型</h2>
+<p>1、对象模型<br />
+is a  继承<br />
+has a 关联 1对1 1对多 多对多<br />
+use a </p>
+<p>2、关系模型<br />
+数据库中的表</p>
+<p>代码实现</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 一对一关系 丈夫-妻子</span>
+<span class="kd">class</span>  <span class="nc">Husband</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Wife</span> <span class="n">wife</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Wife</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Husband</span> <span class="n">husband</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// 一对多关系 部门-员工</span>
+<span class="kd">class</span> <span class="nc">Employee</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Department</span> <span class="n">department</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Department</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">employee</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// 多对多关系 老师-学生</span>
+<span class="kd">class</span> <span class="nc">Student</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Teacher</span><span class="o">&gt;</span> <span class="n">teachers</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Teacher</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>外键约束<br />
+外键引用主键，必须引用另一张表主键<br />
+外键可以重复<br />
+外键可以为空<br />
+一张表中可以有多个外键</p>
+<h2 id="8-8">课时8 8.外键约束</h2>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">dept</span><span class="p">(</span>
+    <span class="n">deptno</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">dname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">dept</span> <span class="k">values</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;人力部&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">dept</span> <span class="k">values</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;研发部&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">dept</span> <span class="k">values</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;财务部&#39;</span><span class="p">);</span>
+
+<span class="c1">-- 创建表时添加外键约束</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">emp</span><span class="p">(</span>
+    <span class="n">empno</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">ename</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+    <span class="n">dno</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">constraint</span> <span class="n">fk_emp_dept</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">dno</span><span class="p">)</span> <span class="k">references</span> <span class="n">dept</span><span class="p">(</span><span class="n">deptno</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">-- 添加外键约束</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">fk_emp_dept</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">dno</span><span class="p">)</span> <span class="k">references</span> <span class="n">dept</span><span class="p">(</span><span class="n">deptno</span><span class="p">)</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">emp</span><span class="p">(</span><span class="n">ename</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;张三&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">emp</span><span class="p">(</span><span class="n">ename</span><span class="p">,</span> <span class="n">dno</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;李四&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">emp</span><span class="p">(</span><span class="n">ename</span><span class="p">,</span> <span class="n">dno</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;王五&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="9-9">课时9 9.一对一关系</h2>
+<p>从表的主键就是外键</p>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">husband</span><span class="p">(</span>
+    <span class="n">hid</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">hname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">husband</span><span class="p">(</span><span class="n">hname</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="s1">&#39;刘备&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;关羽&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;张飞&#39;</span><span class="p">)</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">wife</span><span class="p">(</span>
+    <span class="n">wid</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">wname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+    <span class="k">constraint</span> <span class="n">fk_wife_husband</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">wid</span><span class="p">)</span> <span class="k">references</span> <span class="n">husband</span><span class="p">(</span><span class="n">hid</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="c1">-- wid 非空，唯一，引用hid</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">wife</span><span class="p">(</span><span class="n">wid</span><span class="p">,</span> <span class="n">wname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;杨贵妃&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">wife</span><span class="p">(</span><span class="n">wid</span><span class="p">,</span> <span class="n">wname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;西施&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="10-10">课时10 10.多对多关系</h2>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">student</span><span class="p">(</span>
+    <span class="n">sid</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">sname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">teacher</span><span class="p">(</span>
+    <span class="n">tid</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">tname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">stu_tea</span><span class="p">(</span>
+    <span class="n">sid</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">tid</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="k">constraint</span> <span class="n">fk_student</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">sid</span><span class="p">)</span> <span class="k">references</span> <span class="n">student</span><span class="p">(</span><span class="n">sid</span><span class="p">),</span>
+    <span class="k">constraint</span> <span class="n">fk_teacher</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">tid</span><span class="p">)</span> <span class="k">references</span> <span class="n">teacher</span><span class="p">(</span><span class="n">tid</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">student</span><span class="p">(</span><span class="n">sname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;段誉&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">student</span><span class="p">(</span><span class="n">sname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;乔峰&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">student</span><span class="p">(</span><span class="n">sname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;虚竹&#39;</span><span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">teacher</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;黄老师&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">teacher</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;刘老师&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">teacher</span><span class="p">(</span><span class="n">tname</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;李老师&#39;</span><span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">stu_tea</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="11-11">课时11 11.合并结果集</h2>
+<p>要合并的结果集表结构一样(列数, 列类型)</p>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">tb_a</span><span class="p">(</span><span class="n">id</span> <span class="nb">int</span><span class="p">,</span> <span class="n">a_name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_a</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">a_name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_a</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">a_name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_a</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">a_name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">);</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">tb_b</span><span class="p">(</span><span class="n">id</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b_name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_b</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">b_name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_b</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">b_name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">tb_b</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">b_name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">);</span>
+
+<span class="c1">-- 不合并重复行</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tb_a</span> <span class="k">union</span> <span class="k">all</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tb_b</span><span class="p">;</span>
+
+<span class="c1">-- 合并重复行</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tb_a</span> <span class="k">union</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tb_b</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="12-12">课时12 12.连接查询之内连接（方言）</h2>
+<div class="codehilite"><pre><span></span><span class="c1">-- 方言</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span><span class="p">,</span> <span class="err">表</span><span class="mi">2</span> <span class="err">别名</span><span class="mi">2</span> <span class="k">where</span> <span class="err">别名</span><span class="mi">1</span><span class="p">.</span><span class="n">xx</span> <span class="o">=</span> <span class="err">别名</span><span class="mi">2</span><span class="p">.</span><span class="n">xx</span><span class="p">;</span>
+
+<span class="c1">-- 标准 (推荐)</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span> <span class="k">inner</span> <span class="k">join</span> <span class="err">表</span><span class="mi">2</span> <span class="err">别名</span><span class="mi">2</span> <span class="k">on</span> <span class="err">别名</span><span class="mi">1</span><span class="p">.</span><span class="n">xx</span> <span class="o">=</span> <span class="err">别名</span><span class="mi">2</span><span class="p">.</span><span class="n">xx</span><span class="p">;</span>
+
+<span class="c1">-- 自然</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span> <span class="k">natural</span> <span class="k">join</span> <span class="err">表</span><span class="mi">2</span> <span class="err">别名</span><span class="mi">2</span>
+</pre></div>
+
+
+<p>笛卡尔积:</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="k">c</span><span class="p">)</span> <span class="n">X</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="o">-&gt;</span> 
+<span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1">-- 笛卡尔积</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">,</span> <span class="n">dept</span>
+
+<span class="c1">-- 员工对应部门信息</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">,</span> <span class="n">dept</span> <span class="k">where</span> <span class="n">emp</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">dept</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+
+<span class="c1">-- 打印所有员工的姓名，部门名称, 取别名</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span><span class="p">,</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="13-13">课时13 13.连接查询之内连接（标签和自然）</h2>
+<div class="codehilite"><pre><span></span><span class="c1">-- 标准推荐</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">inner</span> <span class="k">join</span> <span class="n">dept</span> <span class="k">on</span> <span class="n">emp</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">dept</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+
+<span class="c1">-- 自动加where条件</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">natural</span> <span class="k">join</span> <span class="n">dept</span>
+</pre></div>
+
+
+<h2 id="14-14">课时14 14.连接查询之外连接</h2>
+<p>主表中所有记录都会打印, 副表没有null补位</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 左外连接, 左表为主</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">ifnull</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">dname</span><span class="p">,</span> <span class="s1">&#39;无部门&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+
+<span class="c1">-- 右外连接, 右表为主</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">right</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+
+<span class="c1">-- 全外连接</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+<span class="k">union</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">right</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">dno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="15-15">课时15 15.子查询</h2>
+<p>查询中有查询</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 查询本公司工资最高的员工详细信息</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">sal</span><span class="o">=</span><span class="p">(</span><span class="k">select</span> <span class="k">max</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span><span class="p">);</span>
+</pre></div>
+
+
+<p>子查询出现的位置</p>
+<div class="codehilite"><pre><span></span><span class="k">from</span> <span class="err">后作为表存在</span><span class="p">(</span><span class="err">多行多列</span><span class="p">)</span>
+<span class="k">where</span> <span class="err">后作为条件存在</span>
+</pre></div>
+
+
+<p>条件</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 单行单列 </span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span> <span class="k">where</span> <span class="err">列</span><span class="mi">1</span><span class="p">[</span><span class="o">=</span><span class="p">,</span> <span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="p">,</span> <span class="o">&gt;=</span><span class="p">,</span> <span class="o">&lt;=</span><span class="p">,</span> <span class="o">!=</span><span class="p">]</span>
+<span class="p">(</span><span class="k">select</span> <span class="err">列</span> <span class="k">from</span> <span class="err">表</span><span class="mi">2</span> <span class="err">别名</span><span class="mi">2</span> <span class="k">where</span> <span class="err">条件</span><span class="p">)</span>
+
+<span class="c1">-- 多行单列</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span> <span class="k">where</span> <span class="err">列</span><span class="mi">1</span><span class="p">[</span><span class="k">in</span><span class="p">,</span> <span class="k">all</span><span class="p">,</span> <span class="k">any</span><span class="p">]</span>
+<span class="p">(</span><span class="k">select</span> <span class="err">列</span> <span class="k">from</span> <span class="err">表</span><span class="mi">2</span> <span class="err">别名</span><span class="mi">2</span> <span class="k">where</span> <span class="err">条件</span><span class="p">)</span>
+
+<span class="c1">-- 单行多列（一个对象）</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span> <span class="k">where</span> <span class="p">(</span><span class="err">列</span><span class="mi">1</span><span class="p">,</span> <span class="err">列</span><span class="mi">2</span><span class="p">)</span> <span class="k">in</span>
+<span class="p">(</span><span class="k">select</span> <span class="err">列</span><span class="mi">1</span><span class="p">,</span> <span class="err">列</span><span class="mi">2</span> <span class="k">from</span> <span class="err">表</span><span class="mi">2</span> <span class="err">别名</span><span class="mi">2</span> <span class="k">where</span> <span class="err">条件</span><span class="p">)</span>
+
+<span class="c1">-- 多行多列</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="err">表</span><span class="mi">1</span> <span class="err">别名</span><span class="mi">1</span><span class="p">,</span> 
+<span class="p">(</span><span class="k">select</span> <span class="p">...)</span> <span class="err">别名</span><span class="mi">2</span> <span class="k">where</span> <span class="err">条件</span>
+</pre></div>
+
+
+<p>eg:</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 工资高于平均工资的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">sal</span> <span class="o">&gt;</span> <span class="p">(</span><span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span><span class="p">);</span>
+
+<span class="c1">-- 大于30部门所有人的工资的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">sal</span> <span class="o">&gt;</span> <span class="k">all</span><span class="p">(</span><span class="k">select</span> <span class="n">sal</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+
+<span class="c1">-- 和李白岗位部门都相同的员工</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="p">(</span><span class="n">job</span><span class="p">,</span> <span class="n">deptno</span><span class="p">)</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="n">jobm</span><span class="p">,</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">ename</span> <span class="o">=</span><span class="s1">&#39;李白&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="16-161">课时16 16.多表查询练习第1题</h2>
+<p>查询至少有一个员工的部门，显示部门编号，部门名称，部门位置，部门人数</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 部门编号，部门名称，部门位置</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+
+<span class="c1">-- 部门人数</span>
+<span class="k">select</span> <span class="n">deptno</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span>
+
+<span class="c1">-- 整合</span>
+<span class="k">select</span> <span class="n">d</span><span class="p">.</span><span class="o">*</span> <span class="n">e1</span><span class="p">.</span><span class="n">cnt</span> <span class="k">from</span> <span class="n">dept</span> <span class="n">d</span> <span class="k">inner</span> <span class="k">join</span> 
+<span class="p">(</span><span class="k">select</span> <span class="n">deptno</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">cnt</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span><span class="p">)</span> <span class="k">as</span> <span class="n">e1</span>
+<span class="k">on</span> <span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">e1</span><span class="p">.</span><span class="n">deptno</span>
+</pre></div>
+
+
+<h2 id="17-172">课时17 17.多表查询练习第2题</h2>
+<p>列出所有员工的姓名及其直接上级的姓名</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">ename</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">emp</span> <span class="n">m</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">mgr</span><span class="o">=</span><span class="n">m</span><span class="p">.</span><span class="n">empno</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="18-184">课时18 18.多表查询练习第4题</h2>
+<p>列出受雇日期早于直接上级的所有员工编号，姓名，部门名称</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 1、先查询员工</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">empno</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span><span class="p">,</span> <span class="n">emp</span> <span class="n">m</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">mgr</span><span class="o">=</span><span class="n">m</span><span class="p">.</span><span class="n">empno</span> <span class="k">and</span> <span class="n">e</span><span class="p">.</span><span class="n">hiredate</span><span class="o">&lt;</span><span class="n">m</span><span class="p">.</span><span class="n">hiredate</span>
+
+<span class="c1">-- 2、查询部门名称</span>
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">empno</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span><span class="p">,</span> <span class="n">emp</span> <span class="n">m</span><span class="p">,</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">mgr</span><span class="o">=</span><span class="n">m</span><span class="p">.</span><span class="n">empno</span> 
+<span class="k">and</span> <span class="n">e</span><span class="p">.</span><span class="n">hiredate</span><span class="o">&lt;</span><span class="n">m</span><span class="p">.</span><span class="n">hiredate</span> 
+<span class="k">and</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span>
+</pre></div>
+
+
+<h2 id="19-195">课时19 19.多表查询练习第5题</h2>
+<p>列出部门名称和这些部门的员工信息，同时列出哪些没有员工的部门</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">right</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="20-207">课时20 20.多表查询练习第7题</h2>
+<p>列出最低薪金大于15000的各种工作及从事此工作的员工人数</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="n">job</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">job</span>
+<span class="k">having</span> <span class="k">min</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">15000</span>
+</pre></div>
+
+
+<h2 id="21-218">课时21 21.多表查询练习第8题</h2>
+<p>列出在销售部工作的员工姓名，假定不知道销售部的部门编号</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="n">ename</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span> <span class="o">=</span> <span class="p">(</span><span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span> <span class="k">where</span> <span class="n">dname</span><span class="o">=</span><span class="s1">&#39;销售部&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="22-229">课时22 22.多表查询练习第9题</h2>
+<p>列出薪金高于公司平均薪金的所有员工信息，所在部门名称，上级领导，工资等级</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 薪金高于公司平均薪金的所有员工信息</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">sal</span><span class="o">&gt;</span><span class="p">(</span><span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span><span class="p">)</span>
+
+<span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">grade</span> 
+<span class="k">from</span> 
+    <span class="n">emp</span> <span class="n">e</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span> <span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span>
+          <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">emp</span> <span class="n">m</span> <span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">mgr</span><span class="o">=</span><span class="n">m</span><span class="p">.</span><span class="n">empno</span>
+          <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">salgrade</span> <span class="n">s</span> <span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">sal</span> <span class="k">between</span> <span class="n">s</span><span class="p">.</span><span class="n">losal</span> <span class="k">and</span> <span class="n">s</span><span class="p">.</span><span class="n">hisal</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">sal</span><span class="o">&gt;</span><span class="p">(</span><span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="23-2310">课时23 23.多表查询练习第10题</h2>
+<p>列出与庞统从事相同工作的所有员工及部门名称</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">emp</span> <span class="n">e</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">dept</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">job</span><span class="o">=</span><span class="p">(</span><span class="k">select</span> <span class="n">job</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">ename</span><span class="o">=</span><span class="s1">&#39;庞统&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="24-2411">课时24 24.多表查询练习第11题</h2>
+<p>列出薪金高于部门30工作的所有员工的薪金的员工姓名和薪金，部门名称</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="n">e</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">sal</span><span class="p">,</span> <span class="n">d</span><span class="p">.</span><span class="n">dname</span>
+<span class="k">from</span> <span class="n">ename</span> <span class="n">e</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">deptno</span> <span class="n">d</span>
+<span class="k">on</span> <span class="n">e</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">deptno</span>
+<span class="k">where</span> <span class="n">e</span><span class="p">.</span><span class="n">sal</span><span class="o">&gt;</span><span class="p">(</span><span class="k">select</span> <span class="k">max</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="25-2413">课时25 24.多表查询练习第13题</h2>
+<p>查出年份，利润，年度增长比</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tb_year</span>
+<span class="k">year</span>  <span class="n">zz</span>
+<span class="mi">2000</span>  <span class="mi">100</span>
+<span class="mi">2001</span>  <span class="mi">150</span>
+<span class="mi">2002</span>  <span class="mi">250</span>
+<span class="mi">2003</span>  <span class="mi">300</span>
+
+<span class="k">select</span> <span class="n">y1</span><span class="p">.</span><span class="o">*</span> <span class="n">ifnull</span><span class="p">(</span><span class="n">concat</span><span class="p">((</span><span class="n">y1</span><span class="p">.</span><span class="n">zz</span><span class="o">-</span><span class="n">y2</span><span class="p">.</span><span class="n">zz</span><span class="p">)</span><span class="o">/</span><span class="n">y2</span><span class="p">.</span><span class="n">zz</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">),</span> <span class="s1">&#39;0%&#39;</span><span class="p">)</span> <span class="err">增长比</span>
+<span class="k">from</span> <span class="n">tb_year</span> <span class="n">y1</span> <span class="k">left</span> <span class="k">outer</span> <span class="k">join</span> <span class="n">tb_year</span> <span class="n">y2</span>
+<span class="k">on</span> <span class="n">y1</span><span class="p">.</span><span class="k">year</span><span class="o">=</span><span class="n">y2</span><span class="p">.</span><span class="k">year</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,749 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>第十一章-SpringBoot 与检索 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#-springboot" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                第十一章-SpringBoot 与检索
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    Elasticsearch 快速入门
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#springboot-jest-es" class="md-nav__link">
+    SpringBoot 整合 Jest 操作 ES
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="-springboot">第十一章-SpringBoot 与检索</h1>
+<p>ElasticSearch 分布式搜索服务,底层基于 Lucene</p>
+<p>安装 elasticsearch</p>
+<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="k">search</span> <span class="n">elasticsearch</span>
+
+<span class="n">docker</span> <span class="n">pull</span> <span class="n">elasticsearch</span>
+
+<span class="n">docker</span> <span class="n">images</span>
+
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="n">ES_JAVA_OPTS</span><span class="o">=</span><span class="ss">&quot;-Xms256m -Xmx256m&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9200</span><span class="p">:</span><span class="mi">9200</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9300</span><span class="p">:</span><span class="mi">9300</span> <span class="c1">--name ES01 elasticsearch</span>
+</pre></div>
+
+
+<p>http://localhost:9200/</p>
+<h2 id="elasticsearch">Elasticsearch 快速入门</h2>
+<p>文档：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html</p>
+<div class="codehilite"><pre><span></span><span class="n">ES</span><span class="o">:</span> <span class="err">集群</span><span class="o">-</span><span class="err">索引</span><span class="o">-</span><span class="err">类型</span><span class="o">-</span><span class="err">文档</span><span class="o">-</span><span class="err">属性</span>
+<span class="n">MySQL</span><span class="o">:</span> <span class="o">?-</span><span class="err">数据库</span><span class="o">-</span><span class="err">表</span><span class="o">-</span><span class="err">记录</span><span class="o">-</span><span class="err">列</span>
+</pre></div>
+
+
+<p>使用 PostMan 发送请求</p>
+<p>请求方式</p>
+<div class="codehilite"><pre><span></span><span class="err">POST /{index}/{type}/{id}</span>
+</pre></div>
+
+
+<p>基本操作</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 存入文档</span>
+PUT /data/employee/1
+<span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Tom&quot;</span>,
+  <span class="s2">&quot;age&quot;</span>: <span class="m">23</span>
+<span class="o">}</span>
+
+<span class="c1"># 获取文档</span>
+GET /data/employee/1
+
+<span class="c1"># 检查存在</span>
+HEAD /data/employee/4
+
+<span class="c1"># 返回状态码</span>
+<span class="c1"># 存在：200</span>
+<span class="c1"># 不存在：404</span>
+
+<span class="c1"># 删除</span>
+DELETE http://localhost:9200/data/employee/3
+
+<span class="c1"># 更新文档</span>
+PUT /data/employee/1
+<span class="o">{</span>
+  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Tom&quot;</span>,
+  <span class="s2">&quot;age&quot;</span>: <span class="m">24</span>
+<span class="o">}</span>
+
+<span class="c1"># 搜索数据</span>
+GET /data/employee/_search
+
+<span class="c1"># 使用查询字符串</span>
+GET /data/employee/_search?q<span class="o">=</span>name:Tom
+
+<span class="c1"># 使用查询体</span>
+POST /data/employee/_search
+<span class="o">{</span>
+  <span class="s2">&quot;query&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;match&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Tom&quot;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1"># 复杂查询</span>
+POST /data/employee/_search
+<span class="o">{</span>
+  <span class="s2">&quot;query&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;bool&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;must&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;match&quot;</span>: <span class="o">{</span>
+          <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Tom&quot;</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+      <span class="s2">&quot;filter&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;range&quot;</span>: <span class="o">{</span>
+          <span class="s2">&quot;age&quot;</span>: <span class="o">{</span>
+            <span class="s2">&quot;gt&quot;</span>: <span class="m">20</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1"># 短语搜索(必须完全匹配)</span>
+
+POST /data/employee/_search
+<span class="o">{</span>
+  <span class="s2">&quot;query&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;match_phrase&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Tom Steve&quot;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="c1"># 高亮结果 会增加em标签</span>
+POST /data/employee/_search
+<span class="o">{</span>
+  <span class="s2">&quot;query&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;match_phrase&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Tom Steve&quot;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;highlight&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;fields&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="o">{}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="springboot-jest-es">SpringBoot 整合 Jest 操作 ES</h2>
+<p>依赖</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-elasticsearch<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>SpringBoot 支持两种技术和 ES 交互</p>
+<ul>
+<li>Jest 默认不生效 io.searchbox.client.JestClient</li>
+<li>SpringData ElasticSearch 操作 ES</li>
+<li>Client</li>
+<li>ElasticsearchTemplate</li>
+<li>ElasticSearchRepository</li>
+</ul>
+<p>1、使用 Jest</p>
+<p>Github: https://github.com/searchbox-io/Jest</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.searchbox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jest<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.3.4<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>版本适配</p>
+<table>
+<thead>
+<tr>
+<th>Spring Data Release Train</th>
+<th>Spring Data Elasticsearch</th>
+<th>Elasticsearch</th>
+<th>Spring Boot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neumann</td>
+<td>4.0.x</td>
+<td>7.6.2</td>
+<td>2.3.x</td>
+</tr>
+<tr>
+<td>Moore</td>
+<td>3.2.x</td>
+<td>6.8.6</td>
+<td>2.2.x</td>
+</tr>
+<tr>
+<td>Lovelace</td>
+<td>3.1.x</td>
+<td>6.2.2</td>
+<td>2.1.x</td>
+</tr>
+<tr>
+<td>Kay</td>
+<td>3.0.x</td>
+<td>5.5.0</td>
+<td>2.0.x</td>
+</tr>
+<tr>
+<td>Ingalls</td>
+<td>2.1.x</td>
+<td>2.4.0</td>
+<td>1.5.x</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>来源：<br />
+<a href="https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#preface.versions">https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#preface.versions</a></p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="c1"># 拉取</span>
+docker pull elasticsearch:7.6.2
+
+<span class="c1"># 单节点启动</span>
+docker run -d <span class="se">\</span>
+-e <span class="nv">ES_JAVA_POTS</span><span class="o">=</span><span class="s2">&quot;-Xms256m -Xmx256m&quot;</span> <span class="se">\</span>
+-e <span class="s2">&quot;discovery.type=single-node&quot;</span> <span class="se">\</span>
+-p <span class="m">9200</span>:9200 <span class="se">\</span>
+-p <span class="m">9300</span>:9300 <span class="se">\</span>
+--name ES1 <span class="se">\</span>
+elasticsearch:7.6.2
+
+<span class="c1"># 查看所有容器</span>
+docker ps -a
+
+<span class="c1"># 删除</span>
+docker rm &lt;容器ID&gt;
+
+<span class="c1"># 查看日志</span>
+docker logs -f &lt;容器ID&gt;
+</pre></div>
+
+
+<p>查看数据<br />
+http://localhost:9200/data/_search</p>
+<p>SpringBoot 操作 elasticsearch</p>
+<p>文档：<br />
+https://github.com/spring-projects/spring-data-elasticsearch</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.pojo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.data.elasticsearch.annotations.Document</span><span class="o">;</span>
+
+<span class="nd">@Document</span><span class="o">(</span><span class="n">indexName</span><span class="o">=</span><span class="s">&quot;data&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Book</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">author</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAuthor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">author</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAuthor</span><span class="o">(</span><span class="n">String</span> <span class="n">author</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">author</span> <span class="o">=</span> <span class="n">author</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Book{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, author=&#39;&quot;</span> <span class="o">+</span> <span class="n">author</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.example.demo.pojo.Book</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.data.elasticsearch.repository.ElasticsearchRepository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BookRepository</span> <span class="kd">extends</span> <span class="n">ElasticsearchRepository</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span> <span class="nf">findByNameLike</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">com.example.demo.pojo.Book</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.repository.BookRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElasticSearchTest</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">public</span> <span class="n">BookRepository</span> <span class="n">bookRepository</span><span class="o">;</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSave</span><span class="o">(){</span>
+        <span class="n">Book</span> <span class="n">book</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Book</span><span class="o">();</span>
+        <span class="n">book</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">book</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;&lt;tom&gt;&quot;</span><span class="o">);</span>
+        <span class="n">book</span><span class="o">.</span><span class="na">setAuthor</span><span class="o">(</span><span class="s">&quot;Jack&quot;</span><span class="o">);</span>
+
+        <span class="n">bookRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">book</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testQuery01</span><span class="o">(){</span>
+        <span class="n">Optional</span> <span class="n">result</span><span class="o">=</span> <span class="n">bookRepository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">isPresent</span><span class="o">()){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testQuery02</span><span class="o">(){</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Book</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span>  <span class="n">bookRepository</span><span class="o">.</span><span class="na">findByNameLike</span><span class="o">(</span><span class="s">&quot;To&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>接口方法命名</p>
+<p><a href="https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#elasticsearch.query-methods.criterions">https://docs.spring.io/spring-data/elasticsearch/docs/4.0.2.RELEASE/reference/html/#elasticsearch.query-methods.criterions</a></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

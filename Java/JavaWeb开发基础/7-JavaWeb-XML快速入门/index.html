@@ -1,0 +1,1760 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>7 JavaWeb XML快速入门 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1-xml" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                7 JavaWeb XML快速入门
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-xml_1" class="md-nav__link">
+    课时1 XML简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-xml" class="md-nav__link">
+    课时2 XML的应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-xml" class="md-nav__link">
+    课时3 XML的文档声明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-xml" class="md-nav__link">
+    课时4 XML中文乱码问题解决
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-xml" class="md-nav__link">
+    课时5 XML元素的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-xml" class="md-nav__link">
+    课时6 XML属性的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-xml" class="md-nav__link">
+    课时7 XML注释
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-xml" class="md-nav__link">
+    课时8 XML特殊字符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-xmlcdata" class="md-nav__link">
+    课时9 XML的CDATA区
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-xmlpi" class="md-nav__link">
+    课时10 XML的PI指令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-xml" class="md-nav__link">
+    课时11 XML约束简介
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>XML快速入门</p>
+<h1 id="1-xml">第1 章 ： XML入门</h1>
+<h2 id="1-xml_1">课时1 XML简介</h2>
+<p>eXtensible Markup Language<br />
+主要使用1.0版本</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>中文名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>html</td>
+<td>标记型语言</td>
+<td>显示数据</td>
+</tr>
+<tr>
+<td>xml</td>
+<td>可扩展标记型语言</td>
+<td>存储数据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-xml">课时2 XML的应用</h2>
+<p>1、传输数据<br />
+2、表示有关系的数据<br />
+3、配置文件</p>
+<h2 id="3-xml">课时3 XML的文档声明</h2>
+<p>(1)xml的文档声明<br />
+(2)定义元素（标签）<br />
+(3)注释<br />
+(4)特殊字符<br />
+(5)CDATA区<br />
+(6)PI指令</p>
+<p>文件<code>*.xml</code></p>
+<p>1、xml的文档声明<br />
+必须写在第一行第一列</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot; ?&gt;</span>
+</pre></div>
+
+
+<p>属性：<br />
+version 版本 1.0<br />
+encoding 编码 gbk/utf-8<br />
+standalone 依赖其他文件 yes/no</p>
+<h2 id="4-xml">课时4 XML中文乱码问题解决</h2>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot; ?&gt;</span>
+<span class="nt">&lt;person&gt;</span>
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/person&gt;</span>  
+</pre></div>
+
+
+<h2 id="5-xml">课时5 XML元素的定义</h2>
+<p>1、只能有一个根标签<br />
+2、合理嵌套<br />
+3、空格和换行都会当做原始内容解析<br />
+4、有开始必须有结束</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;person&gt;&lt;/person&gt;</span>  
+</pre></div>
+
+
+<p>5、标签没有内容，可以在标签内结束</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;person</span> <span class="nt">/&gt;</span> 
+</pre></div>
+
+
+<p>标签命名规则<br />
+（1）区分大小写<br />
+（2）不能以数字下划线开头<br />
+（3）不能以xml、XML、Xml等开头<br />
+（4）不能包含空格和冒号<br />
+（5）标签可以是中文</p>
+<h2 id="6-xml">课时6 XML属性的定义</h2>
+<p>html和xml都是标记型文档，可以有属性</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;person</span> <span class="na">id=</span><span class="s">&quot;001&quot;</span><span class="nt">&gt;&lt;/person&gt;</span>
+</pre></div>
+
+
+<p>属性要求<br />
+（1）一个标签可以有多个属性<br />
+（2）属性名称不能相同<br />
+（3）属性名称与属性值之间使用等号（=）<br />
+（4）属性值使用引号（单引号或双引号）包起来<br />
+（5）属性名命名贵方和元素的命名规范一致</p>
+<h2 id="7-xml">课时7 XML注释</h2>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!--  这里是注释 --&gt;</span>
+</pre></div>
+
+
+<p>注释不能嵌套<br />
+注释不能放到第一行</p>
+<h2 id="8-xml">课时8 XML特殊字符</h2>
+<p><code>&gt;</code>： <code>&amp;gt;</code><br />
+<code>&lt;</code>：<code>&amp;lt;</code></p>
+<h2 id="9-xmlcdata">课时9 XML的CDATA区</h2>
+<p>可以解决多个字符都需要转义的操作<br />
+特殊字符会当做文本内容</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;![CDATA[ 内容 ]]&gt;</span>
+</pre></div>
+
+
+<h2 id="10-xmlpi">课时10 XML的PI指令</h2>
+<p>Processing Instruction<br />
+可以在xml中设置样式<br />
+只能对英文标签起作用</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="cp">&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;./demo.css&quot; ?&gt;</span>
+<span class="nt">&lt;person&gt;</span>
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/person&gt;</span>  
+</pre></div>
+
+
+<p>demo.css</p>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="11-xml">课时11 XML约束简介</h2>
+<p>1、xml语法总结<br />
+（1）所有xml元素都必须有关闭标签<br />
+（2）xml标签对大小写敏感<br />
+（3）xml必须正确嵌套<br />
+（4）xml必须有且只有一个根元素<br />
+（5）xml属性值需要加引号<br />
+（6）特殊字符必须转义<br />
+（7）原样输出文本使用<code>&lt;![CDATA[]]&gt;</code><br />
+（8）xml中的空格、回车换行在解析时会被保留</p>
+<p>2、xml的约束<br />
+（1）dtd约束<br />
+（2）scheme约束</p>
+<h1 id="2-dtd">第2 章 ： DTD（文档类型定义）</h1>
+<h2 id="12-dtd">课时12 DTD快速入门</h2>
+<p>文件<code>*.dtd</code>，使用idea打开会提示<br />
+文档类型定义（DTD，Document Type Definition）</p>
+<p>1、复杂元素：有子元素的元素</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">元素名称</span> <span class="o">(</span><span class="nt">子元素</span><span class="o">)</span><span class="k">&gt;</span>
+
+<span class="err">eg:</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">person</span> <span class="o">(</span><span class="nt">name</span><span class="o">,</span><span class="nt">age</span><span class="o">)</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<p>2、简单元素</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">元素名称</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+
+<span class="err">eg:</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">age</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<p>3、引入dtd文件</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE person SYSTEM &quot;demo.dtd&quot;&gt;</span>
+</pre></div>
+
+
+<p>示例</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE person SYSTEM &quot;demo.dtd&quot;&gt;</span>
+<span class="nt">&lt;person&gt;</span>
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/person&gt;</span>
+</pre></div>
+
+
+<p>demo.dtd</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">person</span> <span class="o">(</span><span class="nt">name</span><span class="o">,</span> <span class="nt">age</span><span class="o">)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">name</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">age</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<h2 id="13-dtd">课时13 DTD的三种引入方式</h2>
+<p>1、引入外部</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;!</span><span class="n">DOCTYPE</span> <span class="err">根元素名称</span> <span class="k">SYSTEM</span> <span class="ss">&quot;dtd路径&quot;</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>2、引入内部</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!DOCTYPE</span> <span class="nt">根元素名称</span> <span class="k">[</span>
+        <span class="k">&lt;!ELEMENT</span> <span class="nt">person</span> <span class="o">(</span><span class="nt">name</span><span class="o">,</span> <span class="nt">age</span><span class="o">)</span><span class="k">&gt;</span>
+        <span class="k">&lt;!ELEMENT</span> <span class="nt">name</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+        <span class="k">&lt;!ELEMENT</span> <span class="nt">age</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+<span class="k">]&gt;</span>
+</pre></div>
+
+
+<p>3、使用网络</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;!</span><span class="n">DOCTYPE</span> <span class="err">根元素名称</span> <span class="k">PUBLIC</span> <span class="ss">&quot;DTD名称&quot;</span> <span class="ss">&quot;DTD路径URL&quot;</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h2 id="14-dtd">课时14 使用DTD定义元素</h2>
+<p>语法</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">元素名</span> <span class="nt">约束</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<p>1、简单元素：没有子元素的元素</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">元素名</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<p>(#PCDATA) 字符串（需要加括号）<br />
+EMPTY 元素为空<br />
+ANY 任意</p>
+<p>2、复杂元素</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">元素名</span> <span class="o">(</span><span class="nt">子元素</span><span class="o">)</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<p>（1）子元素出现次数<br />
+<code>+</code> 一次或多次<br />
+<code>?</code> 零次或一次<br />
+<code>*</code> 零次或多次</p>
+<p>（2）子元素分隔符<br />
+逗号隔开：表示出现顺序<br />
+竖线隔开：表示任意一个</p>
+<p>eg:</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">person</span> <span class="o">(</span><span class="nt">name</span><span class="o">+,</span> <span class="nt">age</span><span class="o">?,</span> <span class="nt">sex</span><span class="o">,</span> <span class="nt">school</span><span class="o">*)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">name</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">age</span> <span class="o">(</span><span class="kc">#PCDATA</span><span class="o">)</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">sex</span> <span class="kc">EMPTY</span><span class="k">&gt;</span>
+<span class="k">&lt;!ELEMENT</span> <span class="nt">school</span> <span class="kc">ANY</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<h2 id="15-dtd">课时15 使用DTD定义属性</h2>
+<p>语法</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;!</span> <span class="n">ATTLIST</span> <span class="err">元素名称</span>
+    <span class="err">属性名称</span> <span class="err">属性类型</span> <span class="err">属性的约束</span>
+<span class="o">&gt;</span>
+</pre></div>
+
+
+<p>1、属性类型<br />
+（1）CDATA 字符串<br />
+（2）(a|b|c) 枚举<br />
+（3）ID 值只能以字母或下划线开头</p>
+<p>2、属性的约束<br />
+（1）#REQUIRED 属性必须存在<br />
+（2）#IMPLIED 属性可有可无<br />
+（3）#FIXED  属性必须是固定值<br />
+（4）默认值 不写属性做为默认值</p>
+<p>eg:</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ATTLIST</span> <span class="nt">页面作者</span>
+    <span class="na">姓名</span> <span class="kc">CDATA</span> <span class="kc">#REQUIRED</span>
+    <span class="na">年龄</span> <span class="kc">CDATA</span> <span class="kc">#IMPLIED</span>
+    <span class="na">职位</span> <span class="kc">CDATA</span> <span class="kc">#FIXED</span> <span class="na">作者</span>
+    <span class="na">爱好</span> <span class="kc">CDATA</span> <span class="na">写作</span>
+<span class="k">&gt;</span>
+</pre></div>
+
+
+<h2 id="16">课时16 定义实体</h2>
+<p>语法</p>
+<div class="codehilite"><pre><span></span><span class="err">定义</span>
+<span class="k">&lt;!ENTITY</span> <span class="ni">实体名称</span> <span class="s2">&quot;实体值&quot;</span><span class="k">&gt;</span>
+
+<span class="err">使用</span>
+<span class="err">&amp;实体名称</span>
+</pre></div>
+
+
+<p>实体需要定义在内部dtd</p>
+<h2 id="17-w3c">课时17 W3C的案例</h2>
+<p>https://www.w3school.com.cn/dtd/dtd_examples.asp</p>
+<h1 id="3-xmljaxp">第3 章： XML解析之JAXP</h1>
+<h2 id="18-xml">课时18 XML解析简介</h2>
+<p>1、dom方式解析xml过程：<br />
+根据xml的层级结构，在内存中分配一个树形结构<br />
+把xml中每部分都封装成对象</p>
+<p>（1）优点：方便实现增、删、改操作<br />
+（2）缺点：如果文件过大，造成内存溢出</p>
+<p>2、sax方式解析xml过程：<br />
+采用事件驱动，边读边解析，从上到下，一行一行的解析，<br />
+解析到一个对象，把对象名称返回</p>
+<p>（1）优点：不会造成内存溢出，实现查询<br />
+（2）缺点：不能实现增、删、改操作</p>
+<h2 id="19-jaxp-api">课时19 JAXP API的查看</h2>
+<p>dom和sax解析器：<br />
+（1）sun公司   jaxp<br />
+（2）dom4j组织 dom4j（实际开发）<br />
+（3）jdom组织  jdom</p>
+<p>1、jaxp<br />
+jaxp是javese一部分<br />
+javax.xml.parses</p>
+<div class="codehilite"><pre><span></span><span class="kd">interface</span> <span class="nc">Node</span><span class="o">{</span>
+    <span class="c1">// 添加节点</span>
+    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">appendChild</span><span class="o">(</span><span class="n">Node</span> <span class="n">newChild</span><span class="o">);</span>
+
+    <span class="c1">// 移除节点</span>
+    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">removeChild</span><span class="o">(</span><span class="n">Node</span> <span class="n">oldChild</span><span class="o">);</span>
+
+    <span class="c1">// 获取父节点</span>
+    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">getParentNode</span><span class="o">();</span>
+
+    <span class="c1">// 返回文本内容</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getTextContent</span><span class="o">()</span>
+
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">NodeList</span><span class="o">{</span>
+    <span class="c1">// 通过下标获取具体值</span>
+    <span class="kd">public</span> <span class="n">Node</span> <span class="nf">item</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">);</span>
+
+    <span class="c1">// 得到集合长度</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getLength</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">Document</span> <span class="kd">extends</span> <span class="n">Node</span><span class="o">{</span>
+    <span class="c1">// 获取标签</span>
+    <span class="kd">public</span> <span class="n">NodeList</span> <span class="nf">getElementsByTagName</span><span class="o">(</span><span class="n">String</span> <span class="n">tagname</span><span class="o">);</span>
+
+    <span class="c1">// 创建标签</span>
+    <span class="kd">public</span> <span class="n">Element</span> <span class="nf">createElement</span><span class="o">(</span><span class="n">String</span> <span class="n">tagName</span><span class="o">);</span>
+
+    <span class="c1">// 创建文本</span>
+    <span class="kd">public</span> <span class="n">Text</span> <span class="nf">createTextNode</span><span class="o">(</span><span class="n">String</span> <span class="n">data</span><span class="o">);</span>
+
+<span class="o">}</span>
+
+<span class="kd">abstract</span> <span class="n">DocumentBuilder</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Document</span> <span class="nf">parse</span><span class="o">(</span><span class="n">File</span> <span class="n">f</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="kd">abstract</span> <span class="n">DocumentBuilderFactory</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">DocumentBuilderFactory</span> <span class="nf">newInstance</span><span class="o">()</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">DocumentBuilder</span> <span class="nf">newDocumentBuilder</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">SAXParser</span><span class="o">{}</span>
+
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">SAXParserFactory</span><span class="o">{}</span>
+</pre></div>
+
+
+<h2 id="20-21-jaxp">课时20-21 使用JAXP查询节点</h2>
+<p>示例：查询xml中所有name值</p>
+<p>demo.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;list&gt;</span>
+    <span class="nt">&lt;person&gt;</span>
+        <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+    <span class="nt">&lt;/person&gt;</span>
+    <span class="nt">&lt;person&gt;</span>
+        <span class="nt">&lt;name&gt;</span>李四<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;age&gt;</span>24<span class="nt">&lt;/age&gt;</span>
+    <span class="nt">&lt;/person&gt;</span>
+<span class="nt">&lt;/list&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.w3c.dom.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.w3c.dom.Node</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.w3c.dom.NodeList</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.DocumentBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.DocumentBuilderFactory</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * 1、创建解析器工厂</span>
+<span class="cm">     * 2、根据解析器工厂创建解析器</span>
+<span class="cm">     * 3、解析xml返回document</span>
+<span class="cm">     *</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">DocumentBuilderFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">DocumentBuilderFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+
+        <span class="n">DocumentBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">newDocumentBuilder</span><span class="o">();</span>
+
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">);</span>
+
+        <span class="n">NodeList</span> <span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementsByTagName</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">getLength</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getTextContent</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+            <span class="c1">// 张三 李四</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="22-jaxp">课时22 使用JAXP添加节点</h2>
+<p>在person节点下添加sex子节点</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.w3c.dom.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.w3c.dom.Node</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.w3c.dom.NodeList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.w3c.dom.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.w3c.dom.Text</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.DocumentBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.DocumentBuilderFactory</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.xml.transform.Transformer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.TransformerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.dom.DOMSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.stream.StreamResult</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器工厂</span>
+        <span class="n">DocumentBuilderFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">DocumentBuilderFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+
+        <span class="c1">// 根据解析器工厂创建解析器</span>
+        <span class="n">DocumentBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">newDocumentBuilder</span><span class="o">();</span>
+
+        <span class="c1">// 解析xml返回document</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">);</span>
+
+        <span class="n">NodeList</span> <span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementsByTagName</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 获取第一个元素</span>
+        <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+        <span class="c1">// 创建一个元素</span>
+        <span class="n">Element</span> <span class="n">element</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">createElement</span><span class="o">(</span><span class="s">&quot;sex&quot;</span><span class="o">);</span>
+        <span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">createTextNode</span><span class="o">(</span><span class="s">&quot;女&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 添加创建的元素到节点</span>
+        <span class="n">element</span><span class="o">.</span><span class="na">appendChild</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">appendChild</span><span class="o">(</span><span class="n">element</span><span class="o">);</span>
+
+        <span class="c1">// 回写到硬盘</span>
+        <span class="n">TransformerFactory</span> <span class="n">transformerFactory</span> <span class="o">=</span> <span class="n">TransformerFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+        <span class="n">Transformer</span> <span class="n">transformer</span> <span class="o">=</span> <span class="n">transformerFactory</span><span class="o">.</span><span class="na">newTransformer</span><span class="o">();</span>
+        <span class="n">transformer</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="k">new</span> <span class="n">DOMSource</span><span class="o">(</span><span class="n">document</span><span class="o">),</span> <span class="k">new</span> <span class="n">StreamResult</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="23-24-jaxp">课时23-24 使用JAXP修改、删除节点</h2>
+<p>xml读取和保存的工具类</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">util</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.w3c.dom.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.xml.sax.SAXException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.DocumentBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.DocumentBuilderFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.ParserConfigurationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.Transformer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.TransformerException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.TransformerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.dom.DOMSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.transform.stream.StreamResult</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DocumentUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Document</span> <span class="nf">loadXml</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ParserConfigurationException</span><span class="o">,</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">SAXException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器工厂</span>
+        <span class="n">DocumentBuilderFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">DocumentBuilderFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+
+        <span class="c1">// 根据解析器工厂创建解析器</span>
+        <span class="n">DocumentBuilder</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">newDocumentBuilder</span><span class="o">();</span>
+
+        <span class="c1">// 解析xml返回document</span>
+        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">dumpXml</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">,</span> <span class="n">Document</span> <span class="n">document</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">TransformerException</span> <span class="o">{</span>
+        <span class="n">TransformerFactory</span> <span class="n">transformerFactory</span> <span class="o">=</span> <span class="n">TransformerFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+        <span class="n">Transformer</span> <span class="n">transformer</span> <span class="o">=</span> <span class="n">transformerFactory</span><span class="o">.</span><span class="na">newTransformer</span><span class="o">();</span>
+        <span class="n">transformer</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="k">new</span> <span class="n">DOMSource</span><span class="o">(</span><span class="n">document</span><span class="o">),</span> <span class="k">new</span> <span class="n">StreamResult</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.w3c.dom.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.DocumentUtil</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="c1">// 读取</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">DocumentUtil</span><span class="o">.</span><span class="na">loadXml</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+
+        <span class="c1">// 查询节点</span>
+        <span class="n">NodeList</span> <span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementsByTagName</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">);</span>
+        <span class="n">Node</span> <span class="n">node</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+        <span class="c1">// 设置节点内容</span>
+        <span class="n">node</span><span class="o">.</span><span class="na">setTextContent</span><span class="o">(</span><span class="s">&quot;大壮&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 删除节点</span>
+        <span class="n">Node</span> <span class="n">parentNode</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getParentNode</span><span class="o">();</span>
+        <span class="n">parentNode</span><span class="o">.</span><span class="na">removeChild</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+
+        <span class="c1">// 回写到硬盘</span>
+        <span class="n">DocumentUtil</span><span class="o">.</span><span class="na">dumpXml</span><span class="o">(</span><span class="n">filename</span><span class="o">,</span> <span class="n">document</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="25-jaxp">课时25 使用JAXP遍历节点</h2>
+<p>使用递归遍历</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.w3c.dom.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.DocumentUtil</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">listElement</span><span class="o">(</span><span class="n">Node</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 如果节点类型元素节点则打印</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getNodeType</span><span class="o">()</span> <span class="o">==</span> <span class="n">node</span><span class="o">.</span><span class="na">ELEMENT_NODE</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getNodeName</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="n">NodeList</span> <span class="n">list</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getChildNodes</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">list</span><span class="o">.</span><span class="na">getLength</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">listElement</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">item</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="c1">// 读取</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">DocumentUtil</span><span class="o">.</span><span class="na">loadXml</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+
+        <span class="n">listElement</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1 id="4-schemaxmldtd">第4 章 ： Schema：基于XML的DTD替代者</h1>
+<h2 id="26-schema">课时26 Schema的介绍</h2>
+<p>dtd语法</p>
+<div class="codehilite"><pre><span></span><span class="k">&lt;!ELEMENT</span> <span class="nt">元素名称</span> <span class="nt">约束</span><span class="k">&gt;</span>
+</pre></div>
+
+
+<p>scheme符合xml语法<br />
+一个xml可以有多个scheme，使用名称空间区分<br />
+dtd有PCDAT类型scheme支持更多数据类型<br />
+scheme语法更加复杂</p>
+<p>Schema 教程<br />
+https://www.w3school.com.cn/schema/index.asp</p>
+<h2 id="27-schema">课时27 Schema的开发过程</h2>
+<p>文件<code>*.xsd</code></p>
+<p>1、属性</p>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- 表示约束文件 --&gt;</span>
+xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot;
+
+<span class="c">&lt;!-- 约束文件命名空间 url地址保证不会重复 --&gt;</span>
+targetNamespace=&quot;http://www.w3school.com.cn&quot;
+
+<span class="c">&lt;!-- 质量良好 --&gt;</span>
+elementFormDefault=&quot;qualified&quot;
+</pre></div>
+
+
+<p>2、复杂元素</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;complexType&gt;</span>
+    <span class="nt">&lt;sequence&gt;</span>
+        <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;&lt;/element&gt;</span>
+        <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;&lt;/element&gt;</span>
+    <span class="nt">&lt;/sequence&gt;</span>
+<span class="nt">&lt;/complexType&gt;</span>
+</pre></div>
+
+
+<p>3、引入约束文档</p>
+<div class="codehilite"><pre><span></span>表示被约束文档，别名xsi
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+
+路径地址
+xsi:schemaLocation=&quot;http://www.w3school.com.cn demo.xsd&quot;&gt;
+</pre></div>
+
+
+<p>完整示例<br />
+demo.xsd</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;schema</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>
+        <span class="na">targetNamespace=</span><span class="s">&quot;http://www.w3school.com.cn&quot;</span>
+        <span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;person&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;complexType&gt;</span>
+            <span class="nt">&lt;sequence&gt;</span>
+                <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">&gt;&lt;/element&gt;</span>
+                <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;&lt;/element&gt;</span>
+            <span class="nt">&lt;/sequence&gt;</span>
+        <span class="nt">&lt;/complexType&gt;</span>
+    <span class="nt">&lt;/element&gt;</span>
+<span class="nt">&lt;/schema&gt;</span>
+</pre></div>
+
+
+<p>引入xsd文件</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot;?&gt;</span>
+<span class="nt">&lt;person</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+      <span class="na">xmlns=</span><span class="s">&quot;http://www.w3school.com.cn&quot;</span>
+      <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.w3school.com.cn demo.xsd&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/person&gt;</span>
+</pre></div>
+
+
+<h2 id="28-schemaapi">课时28 Schema约束API查看</h2>
+<p>sequence 表示元素出现顺序<br />
+all 只能出现一次<br />
+choice 出现任意一个<br />
+maxOccurs="unbounded" 出现次数没有限制<br />
+any 任意元素</p>
+<p>复杂元素中定义属性</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span> <span class="na">use=</span><span class="s">&quot;required&quot;</span><span class="nt">&gt;&lt;/attribute&gt;</span>
+</pre></div>
+
+
+<p>引入多个schema，可以给每个schema取别名</p>
+<h2 id="29-sax">课时29 sax解析的过程</h2>
+<p>dom 内存虚拟树形结构<br />
+sax 事件驱动，边读边解析</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">org.xml.sax</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HandlerBase</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startElement</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">AttributeList</span> <span class="n">attributes</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">characters</span> <span class="o">(</span><span class="kt">char</span> <span class="n">ch</span><span class="o">[],</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">length</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">endElement</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="o">}</span>
+
+
+<span class="kn">package</span> <span class="nn">org.xml.sax.helpers</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DefaultHandler</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startElement</span> <span class="o">(</span><span class="n">String</span> <span class="n">uri</span><span class="o">,</span> <span class="n">String</span> <span class="n">localName</span><span class="o">,</span>
+                              <span class="n">String</span> <span class="n">qName</span><span class="o">,</span> <span class="n">Attributes</span> <span class="n">attributes</span><span class="o">)</span>    
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">endElement</span> <span class="o">(</span><span class="n">String</span> <span class="n">uri</span><span class="o">,</span> <span class="n">String</span> <span class="n">localName</span><span class="o">,</span> <span class="n">String</span> <span class="n">qName</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">characters</span> <span class="o">(</span><span class="kt">char</span> <span class="n">ch</span><span class="o">[],</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">length</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="30-schemasaxxml">课时30 使用Schema的sax方式操作xml</h2>
+<p>demo.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;person&gt;</span> 
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>  
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span> 
+<span class="nt">&lt;/person&gt;</span>
+</pre></div>
+
+
+<p>使用jaxp的sax解析只能进行查询操作</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.xml.sax.Attributes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.xml.sax.helpers.DefaultHandler</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.SAXParser</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.xml.parsers.SAXParserFactory</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+        <span class="n">SAXParserFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">SAXParserFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+        <span class="n">SAXParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">newSAXParser</span><span class="o">();</span>
+
+        <span class="c1">// 传入事件处理类</span>
+        <span class="n">parser</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">MyDefaultHandler</span><span class="o">());</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 自定义事件处理</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">MyDefaultHandler</span> <span class="kd">extends</span> <span class="n">DefaultHandler</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startElement</span><span class="o">(</span><span class="n">String</span> <span class="n">uri</span><span class="o">,</span> <span class="n">String</span> <span class="n">localName</span><span class="o">,</span> <span class="n">String</span> <span class="n">qName</span><span class="o">,</span> <span class="n">Attributes</span> <span class="n">attributes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">qName</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">endElement</span><span class="o">(</span><span class="n">String</span> <span class="n">uri</span><span class="o">,</span> <span class="n">String</span> <span class="n">localName</span><span class="o">,</span> <span class="n">String</span> <span class="n">qName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">qName</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">characters</span><span class="o">(</span><span class="kt">char</span><span class="o">[]</span> <span class="n">ch</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">length</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">ch</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">length</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1 id="5-xmldom4j">第5 章 ： XML解析之dom4j</h1>
+<h2 id="31-dom4j">课时31 dom4j的简介</h2>
+<p>https://dom4j.github.io/<br />
+依赖</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.dom4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>dom4j<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>demo.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;list&gt;</span> 
+  <span class="nt">&lt;person&gt;</span> 
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>  
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span> 
+  <span class="nt">&lt;/person&gt;</span>  
+  <span class="nt">&lt;person&gt;</span> 
+    <span class="nt">&lt;name&gt;</span>李四<span class="nt">&lt;/name&gt;</span>  
+    <span class="nt">&lt;age&gt;</span>24<span class="nt">&lt;/age&gt;</span> 
+  <span class="nt">&lt;/person&gt;</span> 
+<span class="nt">&lt;/list&gt;</span>
+</pre></div>
+
+
+<h2 id="32-dom4jxml">课时32 使用dom4j实现查询xml操作</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.SAXReader</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器</span>
+        <span class="n">SAXReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SAXReader</span><span class="o">();</span>
+
+        <span class="c1">// 得到Document</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 获取根元素</span>
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+
+        <span class="c1">// 得到所有person标签</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Element</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">elements</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 遍历标签</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Element</span> <span class="n">element</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Element</span> <span class="n">name</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">);</span>
+
+            <span class="c1">// 获取值</span>
+            <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="33-dom4j">课时33 使用dom4j实现在末尾添加节点的操作</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.OutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.SAXReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.XMLWriter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器， 得到Document</span>
+        <span class="n">SAXReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SAXReader</span><span class="o">();</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 获取根元素</span>
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+
+        <span class="c1">// 添加元素并设置内容</span>
+        <span class="n">Element</span> <span class="n">person</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+        <span class="n">Element</span> <span class="n">sex</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;sex&quot;</span><span class="o">);</span>
+        <span class="n">sex</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;男&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 回写并格式化</span>
+        <span class="n">OutputFormat</span> <span class="n">format</span> <span class="o">=</span> <span class="n">OutputFormat</span><span class="o">.</span><span class="na">createPrettyPrint</span><span class="o">();</span>
+        <span class="n">XMLWriter</span> <span class="n">xmlWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">),</span> <span class="n">format</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="34-dom4j">课时34 使用dom4j实现在在特定位置添加节点的操作</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentHelper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.OutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.SAXReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.XMLWriter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器， 得到Document</span>
+        <span class="n">SAXReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SAXReader</span><span class="o">();</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">);</span>
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+
+        <span class="c1">// 指定位置添加元素</span>
+        <span class="n">Element</span> <span class="n">person</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Element</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">elements</span><span class="o">();</span>
+        <span class="n">Element</span> <span class="n">sex</span> <span class="o">=</span> <span class="n">DocumentHelper</span><span class="o">.</span><span class="na">createElement</span><span class="o">(</span><span class="s">&quot;sex&quot;</span><span class="o">);</span>
+        <span class="n">sex</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;女&quot;</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">sex</span><span class="o">);</span>
+
+        <span class="c1">// 回写并格式化</span>
+        <span class="n">OutputFormat</span> <span class="n">format</span> <span class="o">=</span> <span class="n">OutputFormat</span><span class="o">.</span><span class="na">createPrettyPrint</span><span class="o">();</span>
+        <span class="n">XMLWriter</span> <span class="n">xmlWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="s">&quot;demo.xml&quot;</span><span class="o">),</span> <span class="n">format</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="35-dom4j">课时35 dom4j里面封装方法的操作</h2>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">util</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.OutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.SAXReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.XMLWriter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dom4jUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Document</span> <span class="nf">getDocument</span><span class="o">(</span><span class="n">String</span> <span class="n">path</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器， 得到Document</span>
+        <span class="n">SAXReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SAXReader</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">writeXml</span><span class="o">(</span><span class="n">String</span> <span class="n">path</span><span class="o">,</span> <span class="n">Document</span> <span class="n">document</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="c1">// 回写并格式化</span>
+        <span class="n">OutputFormat</span> <span class="n">format</span> <span class="o">=</span> <span class="n">OutputFormat</span><span class="o">.</span><span class="na">createPrettyPrint</span><span class="o">();</span>
+        <span class="n">XMLWriter</span> <span class="n">xmlWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">path</span><span class="o">),</span> <span class="n">format</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="36-dom4j">课时36 使用dom4j实现修改的操作</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.Dom4jUtil</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器， 得到Document</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="c1">// 获取根元素</span>
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+
+        <span class="n">Element</span> <span class="n">peron</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+        <span class="n">Element</span> <span class="n">sex</span> <span class="o">=</span> <span class="n">peron</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;sex&quot;</span><span class="o">);</span>
+        <span class="n">sex</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&quot;男&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 回写并格式化</span>
+        <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">writeXml</span><span class="o">(</span><span class="n">path</span><span class="o">,</span> <span class="n">document</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="37-dom4j">课时37 使用dom4j实现删除节点的操作</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.Dom4jUtil</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="c1">// 获取根元素</span>
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+        <span class="n">Element</span> <span class="n">person</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+        <span class="n">Element</span> <span class="n">sex</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;sex&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 通过父节点删除</span>
+        <span class="n">sex</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">remove</span><span class="o">(</span><span class="n">sex</span><span class="o">);</span>
+
+        <span class="c1">// 回写并格式化</span>
+        <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">writeXml</span><span class="o">(</span><span class="n">path</span><span class="o">,</span> <span class="n">document</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="38-dom4j">课时38 使用dom4j实现获取属性值的操作</h2>
+<p>demo.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;person</span> <span class="na">id=</span><span class="s">&quot;001&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/person&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.Dom4jUtil</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">id</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">attributeValue</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">id</span><span class="o">);</span> <span class="c1">// 001</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1 id="6-xpath">第6 章 ： XPATH</h1>
+<h2 id="39-xpath">课时39 XPATH简介</h2>
+<p>dom4j支持xpath操作</p>
+<p>可以直接获取元素</p>
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="w">             </span><span class="n">一层一层选择</span><span class="w"></span>
+<span class="o">//</span><span class="n">b</span><span class="w">                </span><span class="n">不管层级</span><span class="err">，</span><span class="n">直接选择b</span><span class="w"></span>
+<span class="cm">/*                 所有元素</span>
+<span class="cm">/a/b[1]            第一个b元素</span>
+<span class="cm">/a/b[last()]       最后一个b元素</span>
+<span class="cm">//b[@id]           只要有id属性 </span>
+<span class="cm">//b[@name=&quot;bbb&quot;]   name属性等于bbb</span>
+</pre></div>
+
+
+<h2 id="40-dom4jxpath">课时40 使用dom4j支持XPATH的操作一</h2>
+<p>jaxen</p>
+<p>selectNode()<br />
+selectSingleNode()</p>
+<p>demo.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;person</span> <span class="na">id=</span><span class="s">&quot;001&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;name&gt;</span>张三<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;age&gt;</span>23<span class="nt">&lt;/age&gt;</span>
+<span class="nt">&lt;/person&gt;</span>
+</pre></div>
+
+
+<p>示例：得到所有name节点</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Node</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.Dom4jUtil</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="c1">// 获取元素</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">selectNodes</span><span class="o">(</span><span class="s">&quot;//name&quot;</span><span class="o">);</span>
+
+        <span class="c1">// 遍历集合</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Node</span> <span class="n">node</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="41-dom4jxpath">课时41 使用dom4j支持XPATH的操作二</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Node</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.Dom4jUtil</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="c1">// 获取根元素</span>
+        <span class="n">Node</span> <span class="n">name</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">selectSingleNode</span><span class="o">(</span><span class="s">&quot;/person[@id=&#39;001&#39;]/name&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h1 id="7">第7 章 ： 案例</h1>
+<h2 id="42-44-">课时42-44 学生管理系统实现-添加、删除、查询操作</h2>
+<p>使用xml作为数据库，存储学生数据</p>
+<p>依赖</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.dom4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>dom4j<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>demo.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;list&gt;</span>
+
+<span class="nt">&lt;/list&gt;</span>
+</pre></div>
+
+
+<p>Dom4jUtil.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">util</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.OutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.SAXReader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.io.XMLWriter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dom4jUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Document</span> <span class="nf">getDocument</span><span class="o">(</span><span class="n">String</span> <span class="n">path</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="c1">// 创建解析器， 得到Document</span>
+        <span class="n">SAXReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SAXReader</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">writeXml</span><span class="o">(</span><span class="n">String</span> <span class="n">path</span><span class="o">,</span> <span class="n">Document</span> <span class="n">document</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="c1">// 回写并格式化</span>
+        <span class="n">OutputFormat</span> <span class="n">format</span> <span class="o">=</span> <span class="n">OutputFormat</span><span class="o">.</span><span class="na">createPrettyPrint</span><span class="o">();</span>
+        <span class="n">XMLWriter</span> <span class="n">xmlWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XMLWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">path</span><span class="o">),</span> <span class="n">format</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
+        <span class="n">xmlWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Student.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.student</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Student</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="n">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Student{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;id=&#39;&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, age=&quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>StudentService.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.student</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.dom4j.Document</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Element</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.dom4j.Node</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">util.Dom4jUtil</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="s">&quot;demo.xml&quot;</span><span class="o">;</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 添加数据</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param student</span>
+<span class="cm">     * @throws DocumentException</span>
+<span class="cm">     * @throws IOException</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">addStudent</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+        <span class="n">Element</span> <span class="n">root</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">();</span>
+
+        <span class="n">Element</span> <span class="n">person</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;person&quot;</span><span class="o">);</span>
+
+        <span class="n">Element</span> <span class="n">id</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">);</span>
+        <span class="n">id</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">student</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+
+        <span class="n">Element</span> <span class="n">name</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">);</span>
+        <span class="n">name</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">student</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+
+        <span class="n">Element</span> <span class="n">age</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">);</span>
+        <span class="n">age</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">student</span><span class="o">.</span><span class="na">getAge</span><span class="o">()));</span>
+
+        <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">writeXml</span><span class="o">(</span><span class="n">path</span><span class="o">,</span> <span class="n">document</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 删除数据</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param uid</span>
+<span class="cm">     * @throws IOException</span>
+<span class="cm">     * @throws DocumentException</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">removeStudent</span><span class="o">(</span><span class="n">String</span> <span class="n">uid</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="c1">// 获取所有的id</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">selectNodes</span><span class="o">(</span><span class="s">&quot;//id&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Node</span> <span class="n">node</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">nodeId</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+            <span class="c1">// System.out.println(nodeId);</span>
+
+            <span class="c1">// 判断id相同，通过祖父节点移除父节点</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">uid</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">nodeId</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">Element</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getParent</span><span class="o">();</span>
+                <span class="n">Element</span> <span class="n">grandfather</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="na">getParent</span><span class="o">();</span>
+                <span class="n">grandfather</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">parent</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">writeXml</span><span class="o">(</span><span class="n">path</span><span class="o">,</span> <span class="n">document</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * 查询数据</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param uid</span>
+<span class="cm">     * @return</span>
+<span class="cm">     * @throws IOException</span>
+<span class="cm">     * @throws DocumentException</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Student</span> <span class="nf">getStudent</span><span class="o">(</span><span class="n">String</span> <span class="n">uid</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Dom4jUtil</span><span class="o">.</span><span class="na">getDocument</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+        <span class="c1">// 获取所有的id</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">selectNodes</span><span class="o">(</span><span class="s">&quot;//id&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Node</span> <span class="n">node</span> <span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">nodeId</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+            <span class="c1">// System.out.println(nodeId);</span>
+
+            <span class="c1">// 判断id相同，通过祖父节点移除父节点</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">uid</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">nodeId</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">Element</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getParent</span><span class="o">();</span>
+
+                <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">();</span>
+                <span class="n">student</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">parent</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">).</span><span class="na">getText</span><span class="o">());</span>
+                <span class="n">student</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">parent</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">).</span><span class="na">getText</span><span class="o">());</span>
+                <span class="n">student</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">parent</span><span class="o">.</span><span class="na">element</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">).</span><span class="na">getText</span><span class="o">()));</span>
+
+                <span class="k">return</span> <span class="n">student</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>StudentTest.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.student</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.dom4j.DocumentException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentTest</span> <span class="o">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAddStudent</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;001&quot;</span><span class="o">,</span> <span class="s">&quot;Tom&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">);</span>
+        <span class="n">StudentService</span><span class="o">.</span><span class="na">addStudent</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testRemoveStudent</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">StudentService</span><span class="o">.</span><span class="na">removeStudent</span><span class="o">(</span><span class="s">&quot;001&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGEtStudent</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DocumentException</span> <span class="o">{</span>
+        <span class="n">Student</span> <span class="n">student</span><span class="o">=</span> <span class="n">StudentService</span><span class="o">.</span><span class="na">getStudent</span><span class="o">(</span><span class="s">&quot;001&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

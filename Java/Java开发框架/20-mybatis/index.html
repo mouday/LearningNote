@@ -1,0 +1,1477 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>MyBatis 第一个程序 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#mybatis" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                MyBatis 第一个程序
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#curd" class="md-nav__link">
+    curd 操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    配置文件解析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    配置优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    属性名和列名不一致
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    分页的实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    注解开发
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    多对一的处理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    一对多关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    动态 SQL
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mybatis">MyBatis 第一个程序</h1>
+<p>MyBatis 是基于 Java 的数据持久层框架</p>
+<p>持久化：数据从瞬时状态变为持久状态<br />
+持久层：完成持久化工作的代码块 DAO</p>
+<p>简而言之：</p>
+<p>MyBatis 将数据存入数据库中，从数据库中取数据</p>
+<p>通过框架可以减少重复代码，提高开发效率</p>
+<p>MyBatis 是一个半自动化的 ORM 框架<br />
+Object Relationship Mapping</p>
+<p>文档：<br />
+https://mybatis.org/mybatis-3/zh/index.html</p>
+<p>1、依赖</p>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.mybatis<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>mybatis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.5.4<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>2、配置数据库</p>
+<p>mybatis-config.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE configuration</span>
+<span class="cp">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span>
+<span class="cp">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;environments</span> <span class="na">default=</span><span class="s">&quot;development&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;environment</span> <span class="na">id=</span><span class="s">&quot;development&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;transactionManager</span> <span class="na">type=</span><span class="s">&quot;JDBC&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;dataSource</span> <span class="na">type=</span><span class="s">&quot;POOLED&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;driver&quot;</span> <span class="na">value=</span><span class="s">&quot;com.mysql.cj.jdbc.Driver&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span> <span class="na">value=</span><span class="s">&quot;jdbc:mysql://127.0.0.1:3306/data&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">value=</span><span class="s">&quot;root&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">value=</span><span class="s">&quot;123456&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/dataSource&gt;</span>
+        <span class="nt">&lt;/environment&gt;</span>
+    <span class="nt">&lt;/environments&gt;</span>
+
+    <span class="nt">&lt;mappers&gt;</span>
+        <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">&quot;StudentMapper.xml&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/mappers&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>3、SQL 工厂类</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.util</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.io.Resources</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSessionFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSessionFactoryBuilder</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBatisUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SqlSessionFactory</span> <span class="nf">getSqlSessionFactory</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">resource</span> <span class="o">=</span> <span class="s">&quot;mybatis-config.xml&quot;</span><span class="o">;</span>
+        <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">Resources</span><span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="n">resource</span><span class="o">);</span>
+        <span class="n">SqlSessionFactory</span> <span class="n">sqlSessionFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SqlSessionFactoryBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">(</span><span class="n">inputStream</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">sqlSessionFactory</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">SqlSession</span> <span class="nf">getSqlSession</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">getSqlSessionFactory</span><span class="o">().</span><span class="na">openSession</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">session</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>4、创建实体类</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.entity</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Student{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, age=&quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>5、编写 SQL 语句映射文件</p>
+<p>StudentMapper.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE mapper</span>
+<span class="cp">        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span>
+<span class="cp">        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectStudent&quot;</span> <span class="na">resultType=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.Student&quot;</span><span class="nt">&gt;</span>
+        select * from students where id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<p>6、测试</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.util.MyBatisUtil</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectOne</span><span class="o">(</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectStudent&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="c1">//    Student{id=3, name=&#39;李白&#39;, age=30}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="curd">curd 操作</h2>
+<p>StudentMapper.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE mapper</span>
+<span class="cp">        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span>
+<span class="cp">        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectStudent&quot;</span> <span class="na">resultType=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.Student&quot;</span><span class="nt">&gt;</span>
+        select * from students where id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span> <span class="na">resultType=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.Student&quot;</span><span class="nt">&gt;</span>
+        select * from students
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;insert</span> <span class="na">id=</span><span class="s">&quot;insertStudent&quot;</span> <span class="na">parameterType=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.Student&quot;</span><span class="nt">&gt;</span>
+        insert into students(name, age) values(#{name}, #{age})
+    <span class="nt">&lt;/insert&gt;</span>
+
+    <span class="nt">&lt;update</span> <span class="na">id=</span><span class="s">&quot;updateStudent&quot;</span> <span class="na">parameterType=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.Student&quot;</span><span class="nt">&gt;</span>
+        update students set name = #{name}, age = #{age} where id = #{id}
+    <span class="nt">&lt;/update&gt;</span>
+
+    <span class="nt">&lt;delete</span> <span class="na">id=</span><span class="s">&quot;deleteStudent&quot;</span><span class="nt">&gt;</span>
+        delete from students where id = #{id}
+    <span class="nt">&lt;/delete&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.util.MyBatisUtil</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentDao</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Student</span> <span class="nf">select</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectOne</span><span class="o">(</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectStudent&quot;</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">student</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectAllStudent&quot;</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">insert</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.insertStudent&quot;</span><span class="o">,</span> <span class="n">student</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">update</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.updateStudent&quot;</span><span class="o">,</span> <span class="n">student</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">delete</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.deleteStudent&quot;</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.StudentDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">StudentDao</span> <span class="n">studentDao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StudentDao</span><span class="o">();</span>
+
+        <span class="c1">// 查询</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="c1">// Student{id=3, name=&#39;李白&#39;, age=30}</span>
+
+        <span class="c1">// 写入</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">();</span>
+        <span class="n">student</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Jack&quot;</span><span class="o">);</span>
+        <span class="n">student</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">studentDao</span><span class="o">.</span><span class="na">inset</span><span class="o">(</span><span class="n">student</span><span class="o">));</span>
+        <span class="c1">// 1</span>
+
+        <span class="c1">// 更新</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
+        <span class="n">student</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">33</span><span class="o">);</span>
+        <span class="n">student</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Tom&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">studentDao</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">student</span><span class="o">));</span>
+        <span class="c1">// 1</span>
+
+        <span class="c1">// 删除数据</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">studentDao</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">12</span><span class="o">));</span>
+        <span class="c1">// 1</span>
+
+        <span class="c1">// 查询多条数据</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">selectAll</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">:</span> <span class="n">students</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_1">配置文件解析</h2>
+<p>配置文件</p>
+<p>每个数据库对应一个 SqlSessionFactory 实例</p>
+<p>dataSource：</p>
+<ol>
+<li>UNPOOLED 每次请求时打开和关闭连接</li>
+<li>POOLED 使用连接池</li>
+<li>JNDI 能在如 EJB 或应用服务器这类容器中使用</li>
+</ol>
+<p>mapper 文件</p>
+<p>namespace 命名规则：<br />
+包名+类名/包名+mapper 文件名</p>
+<ol>
+<li>parameterType 参数类型</li>
+<li>resultType 返回结果类型</li>
+<li>useGeneratedKeys="true" 使用自增主键</li>
+</ol>
+<h2 id="_2">配置优化</h2>
+<p>执行流程</p>
+<ol>
+<li>读取核心配置文件</li>
+<li>sqlSessionFactory 类</li>
+<li>sqlSession</li>
+<li>执行相关操作</li>
+</ol>
+<p>1、可以将数据库配置单独放在一个文件里边</p>
+<p>db.properties</p>
+<div class="codehilite"><pre><span></span><span class="n">driver</span><span class="o">=</span><span class="n">com</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">cj</span><span class="p">.</span><span class="n">jdbc</span><span class="p">.</span><span class="n">Driver</span>
+<span class="n">url</span><span class="o">=</span><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="o">//</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="k">data</span>
+<span class="n">username</span><span class="o">=</span><span class="n">root</span>
+<span class="n">password</span><span class="o">=</span><span class="mi">123456</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE configuration</span>
+<span class="cp">        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span>
+<span class="cp">        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="c">&lt;!-- 加载数据库配置 --&gt;</span>
+    <span class="nt">&lt;properties</span> <span class="na">resource=</span><span class="s">&quot;db.properties&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;settings&gt;</span>
+        <span class="c">&lt;!-- 打印sql日志 --&gt;</span>
+        <span class="nt">&lt;setting</span> <span class="na">name=</span><span class="s">&quot;logImpl&quot;</span> <span class="na">value=</span><span class="s">&quot;STDOUT_LOGGING&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/settings&gt;</span>
+
+    <span class="nt">&lt;environments</span> <span class="na">default=</span><span class="s">&quot;development&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;environment</span> <span class="na">id=</span><span class="s">&quot;development&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;transactionManager</span> <span class="na">type=</span><span class="s">&quot;JDBC&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;dataSource</span> <span class="na">type=</span><span class="s">&quot;POOLED&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;driver&quot;</span> <span class="na">value=</span><span class="s">&quot;${driver}&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span> <span class="na">value=</span><span class="s">&quot;${url}&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">value=</span><span class="s">&quot;${username}&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">value=</span><span class="s">&quot;${password}&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/dataSource&gt;</span>
+        <span class="nt">&lt;/environment&gt;</span>
+    <span class="nt">&lt;/environments&gt;</span>
+
+    <span class="nt">&lt;mappers&gt;</span>
+        <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">&quot;StudentMapper.xml&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/mappers&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>2、别名配置</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;typeAliases&gt;</span>
+        <span class="c">&lt;!-- 指定单个类的别名 --&gt;</span>
+        <span class="nt">&lt;typeAlias</span> <span class="na">type=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.Student&quot;</span> <span class="na">alias=</span><span class="s">&quot;Student&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- 指定整个包下的类都是别名 --&gt;</span>
+        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;com.pengshiyu.mybatis.entity&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/typeAliases&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>使用别名</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span> <span class="na">resultType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        select * from students
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<h2 id="_3">属性名和列名不一致</h2>
+<p>MyBatis 会根据列名取赋值，会将列名转为小写</p>
+<p>1、为列名指定别名</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectStudent&quot;</span> <span class="na">resultType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        select id, name, age as old from students where id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<p>2、使用结果映射类型</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectStudent&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;StudentMap&quot;</span><span class="nt">&gt;</span>
+        select id, name, age from students where id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&quot;StudentMap&quot;</span> <span class="na">type=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- id为主键 --&gt;</span>
+        <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&quot;id&quot;</span> <span class="na">property=</span><span class="s">&quot;id&quot;</span> <span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- column是数据库表的列名，property是实体类属性名 --&gt;</span>
+        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;name&quot;</span> <span class="na">property=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;age&quot;</span> <span class="na">property=</span><span class="s">&quot;age&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/resultMap&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<h2 id="_4">分页的实现</h2>
+<p>1、sql 中实现<br />
+如果将数据看做下标从 0 开始，那么就是数据切片 [startIndex, pageSize）</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span> <span class="na">parameterType=</span><span class="s">&quot;Map&quot;</span> <span class="na">resultType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        select * from students limit #{offset}, #{limit}
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentDao</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">(</span><span class="kt">int</span> <span class="n">currentPage</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pageSize</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;offset&quot;</span><span class="o">,</span> <span class="o">(</span><span class="n">currentPage</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">pageSize</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;limit&quot;</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span>
+            <span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectAllStudent&quot;</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">StudentDao</span> <span class="n">studentDao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StudentDao</span><span class="o">();</span>
+
+        <span class="c1">// 查询第二页的数据，每页2条</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">selectAll</span><span class="o">(</span><span class="mi">2</span> <span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">:</span> <span class="n">students</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>2、使用 RowBounds</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span>  <span class="na">resultType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        select * from students
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">org.apache.ibatis.session.RowBounds</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentDao</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">(</span><span class="kt">int</span> <span class="n">currentPage</span><span class="o">,</span> <span class="kt">int</span> <span class="n">pageSize</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+
+        <span class="n">RowBounds</span> <span class="n">rowBounds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RowBounds</span><span class="o">((</span><span class="n">currentPage</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">*</span> <span class="n">pageSize</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span>
+            <span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectAllStudent&quot;</span><span class="o">,</span>
+            <span class="kc">null</span><span class="o">,</span> <span class="n">rowBounds</span><span class="o">);</span>
+
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>通过打印的日志发现：</p>
+<ol>
+<li>sql 限制起始位置和返回数量，currentPage=2, pageSize=2 时返回 2 条数据</li>
+<li>RowBounds 不限制起始位置，currentPage=2, pageSize=2 时返回 4 条数据</li>
+</ol>
+<h2 id="_5">注解开发</h2>
+<p>面向接口编程</p>
+<p>扩展性好，分层开发中，上层不用管具体实现，</p>
+<p>大家都遵循共同的实现，开发变得容易，规范性更好</p>
+<p>DAO 接口</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.annotations.Select</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IStudentDao</span> <span class="o">{</span>
+    <span class="nd">@Select</span><span class="o">(</span><span class="s">&quot;select * from students&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">getList</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>修改配置文件</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;mappers&gt;</span>
+<span class="c">&lt;!--        &lt;mapper resource=&quot;StudentMapper.xml&quot;/&gt;--&gt;</span>
+        <span class="nt">&lt;mapper</span> <span class="na">class=</span><span class="s">&quot;com.pengshiyu.mybatis.dao.IStudentDao&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/mappers&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>测试使用</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.IStudentDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.StudentDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.util.MyBatisUtil</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span>  <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="n">IStudentDao</span> <span class="n">studentDao</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">IStudentDao</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">getList</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_6">多对一的处理</h2>
+<p>多个学生 student 对一个老师 teacher</p>
+<p>1、数据库表设计</p>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">teachers</span><span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">PRIMARY</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">students</span><span class="p">(</span>
+    <span class="n">id</span> <span class="nb">int</span> <span class="k">PRIMARY</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">teacher_id</span> <span class="nb">int</span>
+<span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">teachers</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;王老师&quot;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">teachers</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;李老师&quot;</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">teachers</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;赵老师&quot;</span><span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">students</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">teacher_id</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;宋江&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">students</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">teacher_id</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;李逵&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">students</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">teacher_id</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;鲁智深&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">students</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">teacher_id</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;林冲&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">students</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">teacher_id</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="ss">&quot;高俅&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+
+
+<p>2、实体类</p>
+<p>Teacher</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.entity</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Teacher</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Teacher{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Student</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.entity</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Teacher</span> <span class="n">teacher</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">Teacher</span> <span class="nf">getTeacher</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">teacher</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTeacher</span><span class="o">(</span><span class="n">Teacher</span> <span class="n">teacher</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">teacher</span> <span class="o">=</span> <span class="n">teacher</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Student{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, teacher=&quot;</span> <span class="o">+</span> <span class="n">teacher</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>3、映射文件</p>
+<p>多对一处理方式：</p>
+<p>（1）按结果嵌套</p>
+<p>查询一次</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;StudentMap&quot;</span><span class="nt">&gt;</span>
+        select s.id sid, s.name sname, t.id tid, t.name tname
+        from students as s
+        left join teachers as t
+        on s.teacher_id = t.id
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&quot;StudentMap&quot;</span> <span class="na">type=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 主键 --&gt;</span>
+        <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&quot;sid&quot;</span> <span class="na">property=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;sname&quot;</span> <span class="na">property=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- 关联对象--&gt;</span>
+        <span class="nt">&lt;association</span> <span class="na">property=</span><span class="s">&quot;teacher&quot;</span> <span class="na">javaType=</span><span class="s">&quot;Teacher&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&quot;tid&quot;</span> <span class="na">property=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;tname&quot;</span> <span class="na">property=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/association&gt;</span>
+    <span class="nt">&lt;/resultMap&gt;</span>
+
+
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<ol>
+<li>按查询嵌套</li>
+</ol>
+<p>会查询 n 次，n 是 Student 数量</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;StudentTeacher&quot;</span><span class="nt">&gt;</span>
+        select * from students
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&quot;StudentTeacher&quot;</span> <span class="na">type=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 关联对象--&gt;</span>
+        <span class="nt">&lt;association</span>  <span class="na">property=</span><span class="s">&quot;teacher&quot;</span>  <span class="na">column=</span><span class="s">&quot;teacher_id&quot;</span>
+        <span class="na">javaType=</span><span class="s">&quot;Teacher&quot;</span> <span class="na">select=</span><span class="s">&quot;getTeacher&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&quot;tid&quot;</span> <span class="na">property=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;tname&quot;</span> <span class="na">property=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/association&gt;</span>
+    <span class="nt">&lt;/resultMap&gt;</span>
+
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;getTeacher&quot;</span> <span class="na">resultType=</span><span class="s">&quot;Teacher&quot;</span><span class="nt">&gt;</span>
+        select * from teachers where id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<p>4、引入映射文件</p>
+<p>mybatis-config.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;typeAliases&gt;</span>
+        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;com.pengshiyu.mybatis.entity&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/typeAliases&gt;</span>
+
+    <span class="nt">&lt;mappers&gt;</span>
+        <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">&quot;StudentMapper.xml&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/mappers&gt;</span>
+
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>5、Dao 编写</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.util.MyBatisUtil</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentDao</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span>
+                <span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectAllStudent&quot;</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>6、测试类</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.StudentDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+
+        <span class="n">StudentDao</span> <span class="n">studentDao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StudentDao</span><span class="o">();</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">selectAll</span><span class="o">();</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">:</span> <span class="n">students</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>查询结果</p>
+<div class="codehilite"><pre><span></span><span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;宋江&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="n">Teacher</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;王老师&#39;</span><span class="err">}}</span>
+<span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;李逵&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="n">Teacher</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;王老师&#39;</span><span class="err">}}</span>
+<span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;鲁智深&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="n">Teacher</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;李老师&#39;</span><span class="err">}}</span>
+<span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;林冲&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="n">Teacher</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;赵老师&#39;</span><span class="err">}}</span>
+<span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;高俅&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="n">Teacher</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;赵老师&#39;</span><span class="err">}}</span>
+</pre></div>
+
+
+<h2 id="_7">一对多关系</h2>
+<p>Teacher</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Teacher</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">getStudents</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setStudents</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">students</span> <span class="o">=</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;Teacher{&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span>
+                <span class="s">&quot;, name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+                <span class="s">&quot;, students=&quot;</span> <span class="o">+</span> <span class="n">students</span> <span class="o">+</span>
+                <span class="sc">&#39;}&#39;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>TeacherMapper</p>
+<p>查询一次</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.TeacherMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectOneTeacher&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;TeacherStudent&quot;</span><span class="nt">&gt;</span>
+        select t.id tid, t.name tname, s.id sid, s.name sname
+        from teachers t left join students s
+        on t.id = s.teacher_id
+        where t.id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&quot;TeacherStudent&quot;</span> <span class="na">type=</span><span class="s">&quot;Teacher&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&quot;tid&quot;</span> <span class="na">property=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;tname&quot;</span> <span class="na">property=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- 关联集合 --&gt;</span>
+        <span class="nt">&lt;collection</span> <span class="na">property=</span><span class="s">&quot;students&quot;</span> <span class="na">ofType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;id</span> <span class="na">column=</span><span class="s">&quot;sid&quot;</span> <span class="na">property=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;result</span> <span class="na">column=</span><span class="s">&quot;sname&quot;</span> <span class="na">property=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/collection&gt;</span>
+    <span class="nt">&lt;/resultMap&gt;</span>
+
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<p>查询两次</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.TeacherMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectOneTeacher&quot;</span> <span class="na">resultMap=</span><span class="s">&quot;TeacherStudent&quot;</span><span class="nt">&gt;</span>
+        select *
+        from teachers
+        where id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+
+    <span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&quot;TeacherStudent&quot;</span> <span class="na">type=</span><span class="s">&quot;Teacher&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- 关联集合 --&gt;</span>
+        <span class="c">&lt;!-- column 是外键 --&gt;</span>
+        <span class="nt">&lt;collection</span> <span class="na">property=</span><span class="s">&quot;students&quot;</span> <span class="na">column=</span><span class="s">&quot;id&quot;</span> <span class="na">ofType=</span><span class="s">&quot;Student&quot;</span>
+                    <span class="na">select=</span><span class="s">&quot;getStudentByTeacherId&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/collection&gt;</span>
+    <span class="nt">&lt;/resultMap&gt;</span>
+
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;getStudentByTeacherId&quot;</span> <span class="na">resultType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        select * from students where teacher_id = #{id}
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<p>mybatis-config.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;typeAliases&gt;</span>
+        <span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&quot;com.pengshiyu.mybatis.entity&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/typeAliases&gt;</span>
+
+    <span class="nt">&lt;mappers&gt;</span>
+        <span class="nt">&lt;mapper</span> <span class="na">resource=</span><span class="s">&quot;TeacherMapper.xml&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/mappers&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p>TeacherDao</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Teacher</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.util.MyBatisUtil</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TeacherDao</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">Teacher</span> <span class="nf">selectOne</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+        <span class="n">Teacher</span> <span class="n">teacher</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectOne</span><span class="o">(</span>
+                <span class="s">&quot;com.pengshiyu.mybatis.entity.TeacherMapper.selectOneTeacher&quot;</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">teacher</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.StudentDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.TeacherDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Teacher</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+
+        <span class="n">TeacherDao</span> <span class="n">teacherDao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TeacherDao</span><span class="o">();</span>
+        <span class="n">Teacher</span> <span class="n">teacher</span> <span class="o">=</span> <span class="n">teacherDao</span><span class="o">.</span><span class="na">selectOne</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">teacher</span><span class="o">);</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">:</span> <span class="n">teacher</span><span class="o">.</span><span class="na">getStudents</span><span class="o">()){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>输出</p>
+<div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;王老师&#39;</span><span class="p">,</span> <span class="n">students</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;宋江&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="k">null</span><span class="err">}</span><span class="p">,</span>
+    <span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;李逵&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="k">null</span><span class="err">}</span>
+    <span class="p">]</span>
+<span class="err">}</span>
+<span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;宋江&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="k">null</span><span class="err">}</span>
+<span class="n">Student</span><span class="err">{</span><span class="n">id</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;李逵&#39;</span><span class="p">,</span> <span class="n">teacher</span><span class="o">=</span><span class="k">null</span><span class="err">}</span>
+</pre></div>
+
+
+<h2 id="sql">动态 SQL</h2>
+<p>根据不同的查询条件，生成不同的 sql</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAllStudent&quot;</span> <span class="na">resultType=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
+        select * from students
+        <span class="nt">&lt;where&gt;</span>
+            <span class="nt">&lt;if</span> <span class="na">test=</span><span class="s">&quot;name != null&quot;</span><span class="nt">&gt;</span>
+                name = #{name}
+            <span class="nt">&lt;/if&gt;</span>
+        <span class="nt">&lt;/where&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<p>sql:</p>
+<div class="codehilite"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">students</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="o">?</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.util.MyBatisUtil</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentDao</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">selectAllStudent</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtil</span><span class="o">.</span><span class="na">getSqlSession</span><span class="o">();</span>
+
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span>
+                <span class="s">&quot;com.pengshiyu.mybatis.entity.StudentMapper.selectAllStudent&quot;</span><span class="o">,</span>
+                <span class="n">map</span>
+        <span class="o">);</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">students</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.pengshiyu.mybatis.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.dao.StudentDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.pengshiyu.mybatis.entity.Student</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Demo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+
+        <span class="n">StudentDao</span> <span class="n">studentDao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StudentDao</span><span class="o">();</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="n">studentDao</span><span class="o">.</span><span class="na">selectAllStudent</span><span class="o">(</span><span class="s">&quot;宋江&quot;</span><span class="o">);</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="n">Student</span> <span class="n">student</span><span class="o">:</span> <span class="n">students</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
