@@ -4,9 +4,9 @@
 
 [bootstrap 模态框](bootstrap模态框)
 
-[css 预处理器-sass（scss）](css预处理器-sass/scss)
+[css 预处理器-sass（scss）](css预处理器-sass-scss)
 
-[es6](es6)
+[es6](ES6)
 
 [egg.js](egg-js)
 

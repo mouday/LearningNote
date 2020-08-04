@@ -1,5 +1,9 @@
 # LearningNote
 
+在线阅读：
+
+[https://www.pengshiyu.com/LearningNote/](https://www.pengshiyu.com/LearningNote/)
+
 pip install mkdocs
 https://www.mkdocs.org/
 
