@@ -1132,6 +1132,7 @@ user.setName("Tom");
 user.deleteById();
 // DELETE FROM user WHERE id=?
 
+
 // 插入或更新
 User user = new User();
 user.setId(123L);
@@ -1165,4 +1166,91 @@ private Long id;
 ```bash
 # 配置全局策略
 mybatis-plus.global-config.db-config.id-type=assign_uuid
+```
+
+## 配置
+
+```bash
+configLocation # MyBatis 配置文件位置
+typeAliasesPackage # 别名包扫描路径
+mapUnderscoreToCamelCase  # 开启自动驼峰命名规则 true
+
+insertStrategy NOT_NULL
+updateStrategy NOT_NULL
+selectStrategy NOT_NULL
+
+idType          # 主键类型
+tablePrefix     # 表名前缀
+tableUnderline  # 表名是否使用驼峰转下划线命名
+```
+
+## 通用 Service
+
+接口
+
+```java
+package com.example.demo.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.entity.User;
+
+public interface UserService extends IService<User> {
+}
+
+```
+
+实现
+
+```java
+package com.example.demo.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.dao.UserMapper;
+import com.example.demo.entity.User;
+import com.example.demo.service.UserService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+}
+
+```
+
+测试
+
+```java
+// 取一个
+User user = userService.getOne(Wrappers.<User>lambdaQuery()
+         .gt(User::getName, "Tom")
+         .last("limit 1"));
+// SELECT id,name,age,email,manager_id,create_time
+// FROM user WHERE (name > ?) limit 1
+
+
+// 取回多个不抛出异常
+User user = userService.getOne(Wrappers.<User>lambdaQuery()
+        .gt(User::getName, "Tom"), false);
+// SELECT id,name,age,email,manager_id,create_time
+// FROM user WHERE (name > ?)
+
+System.out.println(user);
+
+
+// 取列表
+List<User> users = userService.lambdaQuery().eq(User::getName, "Tom").list();
+users.forEach(System.out::println);
+//    SELECT id,name,age,email,manager_id,create_time
+//    FROM user WHERE (name = ?)
+
+
+// 更新数据
+boolean ret = userService.lambdaUpdate().eq(User::getName, "Tom").set(User::getAge, 25).update();
+System.out.println(ret);
+// UPDATE user SET age=? WHERE (name = ?)
+
+
+// 删除数据
+boolean ret = userService.lambdaUpdate().eq(User::getAge, 20).remove();
+System.out.println(ret);
+// DELETE FROM user WHERE (age = ?)
 ```
