@@ -24,7 +24,7 @@
 
 [第十一章-SpringBoot 与检索](第十一章-SpringBoot与检索)
 
-[第十二章-SpringBoot 与任务](第十二章-SpringBoot与任务)
+[第十二章-SpringBoot 与任务](第十二章-SpringBoot与任务邮件)
 
 [第十三章-SpringBoot 与安全](第十三章-SpringBoot与安全)
 
