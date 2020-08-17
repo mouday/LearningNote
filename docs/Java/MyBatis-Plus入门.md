@@ -339,7 +339,7 @@ class ApplicationTests {
 }
 ```
 
-## MyBatis vs
+## MyBatis vs MyBatis-Plus
 
 ```
 接口中写抽象方法
