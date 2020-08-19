@@ -117,7 +117,7 @@
 
 ```bash
 # 数据源
-spring.datasource.url=jdbc:mysql://127.0.0.1:3306/data?useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT+8
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/data?useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
 spring.datasource.username=root
 spring.datasource.password=123456
 
@@ -125,6 +125,10 @@ spring.datasource.password=123456
 logging.level.root=warn
 logging.level.com.example.demo.dao=trace
 logging.pattern.console=%p%m%n
+
+# 全局逻辑删除和逻辑不删除（默认值）
+mybatis-plus.global-config.db-config.logic-not-delete-value=0
+mybatis-plus.global-config.db-config.logic-delete-value=1
 
 ```
 
@@ -166,6 +170,7 @@ VALUES (1087982257332887553, '大boss', 40, 'boss@baomidou.com', NULL
 ```java
 package com.example.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -197,6 +202,7 @@ public class User {
     private Integer version;
 
     // 逻辑删除标识(0.未删除,1.已删除)
+    @TableLogic
     private Integer deleted;
 }
 
@@ -232,6 +238,187 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+}
+
+```
+
+## 逻辑删除
+
+```java
+@Data
+public class User {
+    ...
+
+    // 逻辑删除标识(0.未删除,1.已删除)
+    @TableLogic
+    private Integer deleted;
+}
+```
+
+```java
+/**
+* 删除数据
+*/
+int rows = userMapper.deleteById(1094590409767661570L);
+// UPDATE user SET deleted=1 WHERE id=? AND deleted=0
+
+
+/**
+* 查询数据
+*/
+List<User> rows = userMapper.selectList(null);
+// SELECT id,name,age,email,manager_id,create_time,update_time,version,deleted FROM user WHERE deleted=0
+
+
+/**
+* 更新数据
+*/
+User user = new User();
+user.setId(1094590409767661570L);
+user.setAge(24);
+
+int rows = userMapper.updateById(user);
+// UPDATE user SET age=? WHERE id=? AND deleted=0
+```
+
+排除字段
+
+```java
+@Data
+public class User {
+    ...
+
+    // 逻辑删除标识(0.未删除,1.已删除)
+    @TableLogic
+    @TableField(select = false) // 查询的时候排除
+    private Integer deleted;
+}
+```
+
+自定义 sql
+
+```java
+
+/**
+* 自定义sql
+*/
+public interface UserMapper extends BaseMapper<User> {
+
+    @Select("select * from user ${ew.customSqlSegment}")
+    List<User> selectAllUser(@Param(Constants.WRAPPER)Wrapper<User> wrapper);
+}
+
+
+/**
+* 查询
+*/
+List<User> rows = userMapper.selectAllUser(Wrappers.<User>lambdaQuery()
+                .gt(User::getAge, 25)
+                .eq(User::getDeleted, 0));
+// select * from user WHERE (age > ? AND deleted = ?)
+```
+
+## 自动填充
+
+配置自动更新字段
+
+```java
+package com.example.demo.config;
+
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+
+@Component
+public class MyMetaObjectHandler implements MetaObjectHandler {
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        setFieldValByName("createTime", LocalDateTime.now(), metaObject);
+    }
+
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        setFieldValByName("updateTime", LocalDateTime.now(), metaObject);
+    }
+}
+
+```
+
+```java
+
+@Data
+public class User {
+    ...
+
+    // 创建时间
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    // 创建时间
+    @TableField(fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
+
+}
+
+```
+
+```java
+/**
+* 插入数据
+*/
+User user = new User();
+user.setId(1094590409767661571L);
+user.setAge(24);
+user.setName("tom");
+
+int rows = userMapper.insert(user);
+// INSERT INTO user ( id, name, age, create_time ) VALUES ( ?, ?, ?, ? )
+
+/**
+* 更新数据
+*/
+User user = new User();
+user.setId(1094590409767661571L);
+user.setAge(24);
+user.setName("tom");
+
+int rows = userMapper.updateById(user);
+// UPDATE user SET name=?, age=?, update_time=? WHERE id=? AND deleted=0
+
+```
+
+自动填充优化
+
+```java
+package com.example.demo.config;
+
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+
+@Component
+public class MyMetaObjectHandler implements MetaObjectHandler {
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        boolean hasCreateTimeSetter = metaObject.hasSetter("createTime");
+        // 如果有createTime字段才进行自动填充
+        if (hasCreateTimeSetter) {
+            setFieldValByName("createTime", LocalDateTime.now(), metaObject);
+        }
+    }
+
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        Object updateTime = getFieldValByName("updateTime", metaObject);
+        // 如果updateTime 为空才进行自动填充
+        if (updateTime == null) {
+            setFieldValByName("updateTime", LocalDateTime.now(), metaObject);
+        }
     }
 }
 

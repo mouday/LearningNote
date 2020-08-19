@@ -34,6 +34,8 @@
 
 [第十六章-SpringBoot 与监控管理](第十六章-SpringBoot与监控管理)
 
+[SpringBoot 指南笔记](SpringBoot指南笔记)
+
 ## 课程视频地址
 
 1-8 章：[SpringBoot 快速掌握(1)：核心技术](https://edu.aliyun.com/course/1912)
