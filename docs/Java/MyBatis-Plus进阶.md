@@ -1,5 +1,7 @@
 # MyBatis-Plus 进阶
 
+https://baomidou.com/guide/
+
 高级功能：
 
 - 逻辑删除
@@ -423,3 +425,152 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 }
 
 ```
+
+## 乐观锁
+
+简介
+
+```
+取出记录时，获取当前version
+
+更新时，带上这个version
+
+版本正确更新成功，错误更新失败
+```
+
+多读，使用乐观锁
+多写，使用悲观锁
+
+配置乐观锁
+
+```java
+package com.example.demo.config;
+
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MyBatisPlusConfiguration {
+
+    // 乐观锁插件
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor(){
+        return new OptimisticLockerInterceptor();
+    }
+}
+
+```
+
+设置版本号字段
+
+```java
+
+public class User {
+    ...
+    // 版本
+    @Version
+    private Integer version;
+
+}
+
+```
+
+更新数据
+
+```java
+User user = new User();
+
+user.setId(1094590409767661571L);
+user.setAge(24);
+user.setVersion(1);
+user.setName("tom");
+
+int rows = userMapper.updateById(user);
+```
+
+执行 sql
+
+```
+UPDATE user SET name=?, age=?, update_time=?, version=? WHERE id=? AND version=? AND deleted=0
+tom(String), 24(Integer), 2020-08-20T22:54:35.515(LocalDateTime), 2(Integer), 1094590409767661571(Long), 1(Integer)
+```
+
+## 性能分析
+
+PerformanceInterceptor 在 3.2.0 被移除了
+
+## 执行 SQL 分析打印
+
+```xml
+<!--打印sql-->
+<dependency>
+    <groupId>p6spy</groupId>
+    <artifactId>p6spy</artifactId>
+    <version>3.9.1</version>
+</dependency>
+```
+
+数据源 application.properties
+
+```bash
+#spring.datasource.url=jdbc:mysql://127.0.0.1:3306/data?useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+spring.datasource.url=jdbc:p6spy:mysql://127.0.0.1:3306/data?useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+spring.datasource.driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+
+```
+
+spy.properties
+
+```bash
+#3.2.1以上使用
+modulelist=com.baomidou.mybatisplus.extension.p6spy.MybatisPlusLogFactory,com.p6spy.engine.outage.P6OutageFactory
+#3.2.1以下使用或者不配置
+#modulelist=com.p6spy.engine.logging.P6LogFactory,com.p6spy.engine.outage.P6OutageFactory
+# 自定义日志打印
+logMessageFormat=com.baomidou.mybatisplus.extension.p6spy.P6SpyLogger
+#日志输出到控制台
+appender=com.baomidou.mybatisplus.extension.p6spy.StdoutLogger
+# 使用日志系统记录 sql
+#appender=com.p6spy.engine.spy.appender.Slf4JLogger
+# 设置 p6spy driver 代理
+deregisterdrivers=true
+# 取消JDBC URL前缀
+useprefix=true
+# 配置记录 Log 例外,可去掉的结果集有error,info,batch,debug,statement,commit,rollback,result,resultset.
+excludecategories=info,debug,result,commit,resultset
+# 日期格式
+dateformat=yyyy-MM-dd HH:mm:ss
+# 实际驱动可多个
+#driverlist=org.h2.Driver
+# 是否开启慢SQL记录
+outagedetection=true
+# 慢SQL记录标准 2 秒
+outagedetectioninterval=2
+# 输出到文件， 需要注释 日志输出到控制台
+logfile=log.log
+```
+
+执行结果
+
+```
+ Consume Time：2 ms 2020-08-20 23:22:20
+ Execute SQL：UPDATE user SET name='tom', age=24, update_time='2020-08-20T23:22:20.570', version=2 WHERE id=1094590409767661571 AND version=1 AND deleted=0
+
+```
+
+## 多租户
+
+1. 不同享数据库
+2. 共享数据库
+3. 共享数据表
+
+## 动态表名
+
+## SQL 注入器
+
+1. 创建自定义方法的类
+2. 创建注入器
+3. 在 Mapper 中加入自定义方法
+
+选装件
