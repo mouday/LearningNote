@@ -37,3 +37,5 @@
 [MyBatis-Plus 入门](MyBatis-Plus入门)
 
 [MyBatis-Plus 进阶](MyBatis-Plus进阶)
+
+[Java 继承和多态](Java继承和多态)
