@@ -18,3 +18,7 @@
 [8、ElasticSearch深度探秘搜索技术2.md](8、ElasticSearch深度探秘搜索技术2.md)
 
 [9、ElasticSearch深度探秘搜索技术3.md](9、ElasticSearch深度探秘搜索技术3.md)
+
+[es笔记](es笔记)
+
+[Springboot-ElasticSearch](Springboot-ElasticSearch)
