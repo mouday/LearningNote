@@ -1,0 +1,605 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>动画 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#css3" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                动画
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#css3" class="md-nav__link">
+    css3动画
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition" class="md-nav__link">
+    transition过渡
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation" class="md-nav__link">
+    animation动画
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    时间函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js" class="md-nav__link">
+    过渡和动画在js中的监听
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>动画</h1>
+                
+                <h2 id="css3">css3动画</h2>
+<p>分类：<br />
+- 帧动画<br />
+- 过渡动画</p>
+<p>CSS3动画属性：<br />
+- transition<br />
+- animation</p>
+<p>常用属性 </p>
+<ul>
+<li>transform</li>
+</ul>
+<p>动画库：<br />
+- swiper<br />
+- vue-transition<br />
+- svg<br />
+- animate.css</p>
+<h2 id="transition">transition过渡</h2>
+<p>语法</p>
+<div class="codehilite"><pre><span></span><span class="nt">transition</span><span class="o">:</span> <span class="nt">property</span> <span class="nt">duration</span> <span class="nt">timing-function</span> <span class="nt">delay</span><span class="o">;</span>
+</pre></div>
+
+
+<p>属性名称property</p>
+<p>过渡时间duration</p>
+<p>时间函数timing-function</p>
+<p>延迟时间delay</p>
+<p>2、注意：</p>
+<ul>
+<li>
+<p>display不能和transition一起使用</p>
+</li>
+<li>
+<p>transition后面尽量不要跟all</p>
+</li>
+<li>
+<p>常见闪动可以persp和backface-visibility</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="nc">box</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#000000</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">鼠标经过变化宽度</span>
+<span class="p">.</span><span class="nc">trasition-1</span><span class="p">{</span>
+    <span class="err">//</span> <span class="k">transition</span><span class="p">:</span> <span class="k">width</span> <span class="mi">2</span><span class="kt">s</span> <span class="kc">linear</span> <span class="mi">1</span><span class="kt">s</span><span class="p">;</span>
+    <span class="k">transition</span><span class="p">:</span> <span class="k">width</span> <span class="mi">2</span><span class="kt">s</span> <span class="kc">linear</span><span class="p">;</span>
+
+    <span class="err">&amp;:hover{</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">500</span><span class="kt">px</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+
+<span class="o">//</span> <span class="nt">鼠标经过旋转</span>
+<span class="p">.</span><span class="nc">trasition-2</span><span class="p">{</span>
+    <span class="k">transition</span><span class="p">:</span> <span class="k">transform</span> <span class="mi">2</span><span class="kt">s</span> <span class="kc">ease-out</span><span class="p">;</span>
+
+    <span class="err">&amp;:hover{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">45</span><span class="kt">deg</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h2 id="animation">animation动画</h2>
+<p>语法</p>
+<div class="codehilite"><pre><span></span><span class="nt">animation</span><span class="o">:</span> <span class="nt">name</span> <span class="nt">duration</span> <span class="nt">timing-function</span> <span class="nt">delay</span> <span class="nt">iteration-count</span> <span class="nt">direction</span> <span class="nt">fill-mode</span> <span class="nt">play-state</span><span class="o">;</span>
+</pre></div>
+
+
+<p>动画名称（name）@keyframes</p>
+<p>过渡时间(duration)</p>
+<p>时间函数(timing-function)</p>
+<p>延迟时间(delay)</p>
+<p>播放次数（iteration-count）</p>
+<p>播放方向（direction）轮流播放和反向播放</p>
+<p>停止播放的状态（fill-mode）</p>
+<p>是否暂停（play-state）</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="nc">box</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#000000</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">鼠标经过移动</span>
+<span class="p">.</span><span class="nc">animation-1</span><span class="p">{</span>
+    <span class="err">&amp;:hover{</span>
+        <span class="k">animation</span><span class="p">:</span> <span class="kc">move</span> <span class="mi">2</span><span class="kt">s</span> <span class="kc">linear</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+
+<span class="p">@</span><span class="k">keyframes</span> <span class="nt">move</span><span class="p">{</span>
+    <span class="nt">100</span><span class="o">%</span><span class="p">{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">200</span><span class="kt">px</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">小球滚动</span>
+<span class="p">.</span><span class="nc">animation-2</span><span class="p">{</span>
+    <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">animation</span><span class="p">:</span> <span class="n">jump</span> <span class="mi">2</span><span class="kt">s</span> <span class="nb">cubic-bezier</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">-0.04</span><span class="p">,</span> <span class="mf">0.94</span><span class="p">,</span> <span class="mf">0.29</span><span class="p">)</span> <span class="kc">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">keyframes</span> <span class="nt">jump</span><span class="p">{</span>
+    <span class="nt">0</span><span class="o">%</span><span class="p">{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nt">40</span><span class="o">%</span><span class="p">{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">200</span><span class="kt">px</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nt">60</span><span class="o">%</span><span class="p">{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">200</span><span class="kt">px</span><span class="p">);</span>
+        <span class="k">clip-path</span><span class="p">:</span> <span class="nb">ellipse</span><span class="p">(</span><span class="mi">50</span><span class="kt">%</span> <span class="mi">50</span><span class="kt">%</span> <span class="n">at</span> <span class="mi">50</span><span class="kt">%</span> <span class="mi">50</span><span class="kt">%</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nt">100</span><span class="o">%</span><span class="p">{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">translateX</span><span class="p">(</span><span class="mi">0</span><span class="kt">px</span><span class="p">);</span>
+        <span class="k">clip-path</span><span class="p">:</span> <span class="nb">ellipse</span><span class="p">(</span><span class="mi">50</span><span class="kt">%</span> <span class="mi">45</span><span class="kt">%</span> <span class="n">at</span> <span class="mi">50</span><span class="kt">%</span> <span class="mi">48</span><span class="kt">%</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">菊花图旋转</span>
+<span class="p">.</span><span class="nc">animation-3</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">111</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">animation</span><span class="p">:</span> <span class="kc">round</span> <span class="mi">1</span><span class="kt">s</span> <span class="nb">steps</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="kc">infinite</span><span class="p">;</span>
+    <span class="k">background</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">./loading.jpg</span><span class="p">)</span> <span class="kc">no-repeat</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="p">@</span><span class="k">keyframes</span> <span class="nt">round</span><span class="p">{</span>
+    <span class="nt">100</span><span class="o">%</span><span class="p">{</span>
+        <span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="_1">时间函数</h2>
+<p>时间函数：管理动画在单位帧内播放的速度曲线<br />
+三次贝塞尔函数的数学函数<br />
+预设值：<br />
+- linear 匀速<br />
+- ease <br />
+- ease-in<br />
+- ease-out <br />
+- ease-in-out</p>
+<p>steps作用是每一个关键帧，而不是整个时间</p>
+<h2 id="js">过渡和动画在js中的监听</h2>
+<p>animationstart<br />
+animationend<br />
+trasitionend<br />
+animationitertion</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 过渡事件监听</span>
+<span class="kd">let</span> <span class="nx">transitionend</span> <span class="o">=</span> <span class="p">()=&gt;{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;transitionend&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">$box</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.trasition-1&#39;</span><span class="p">);</span>
+<span class="c1">// IE FireFox已经支持</span>
+<span class="nx">$box</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;transitionend&quot;</span><span class="p">,</span> <span class="nx">transitionend</span><span class="p">);</span>
+<span class="c1">// 360 safari chrome下需要兼容处理</span>
+<span class="nx">$box</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;WebkitTransitionend&quot;</span><span class="p">,</span> <span class="nx">transitionend</span><span class="p">);</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

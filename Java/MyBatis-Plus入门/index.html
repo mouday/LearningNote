@@ -1,0 +1,1756 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>MyBatis-Plus 入门 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#mybatis-plus" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                MyBatis-Plus 入门
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mybatis-vs-jpa" class="md-nav__link">
+    MyBatis VS JPA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mybatis-plus_1" class="md-nav__link">
+    MyBatis-Plus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lombok" class="md-nav__link">
+    lombok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    快速入门
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mybatis-vs-mybatis-plus" class="md-nav__link">
+    MyBatis vs MyBatis-Plus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    常用注解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    排除非表字段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    普通查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    以构造器为参数的查询方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    Select 中字段不全出现的处理方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condition" class="md-nav__link">
+    Condition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    实体对象作为条件构造器方法的参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alleq" class="md-nav__link">
+    allEq
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    其他查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    Lambda 条件构造器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    自定义 SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    分页查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    更新操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    删除功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activerecord" class="md-nav__link">
+    ActiveRecord 模式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    主键策略
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    通用 Service
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="mybatis-plus">MyBatis-Plus 入门</h1>
+<h2 id="_1">环境</h2>
+<div class="codehilite"><pre><span></span><span class="n">JDK1</span><span class="p">.</span><span class="mi">8</span>
+<span class="n">SpringBoot</span>
+<span class="n">MySQL</span>
+<span class="n">MyBatis</span><span class="o">-</span><span class="n">Plus</span>
+<span class="n">Maven</span>
+</pre></div>
+
+
+<h2 id="mybatis-vs-jpa">MyBatis VS JPA</h2>
+<p>1、MyBatis：</p>
+<p>（1）优势</p>
+<ul>
+<li>SQL 语句可以自由控制，更灵活，性能较高</li>
+<li>SQL 与代码分离，易于阅读和维护</li>
+<li>提供 XML 标签，支持编写动态 SQL 语句</li>
+</ul>
+<p>（2）劣势</p>
+<ul>
+<li>简单的 CRUD 操作还需要写 SQL 语句</li>
+<li>XML 中有大量的 SQL 需要维护</li>
+<li>MyBatis 自身功能有限，但是支持 Plugin</li>
+</ul>
+<p>2、JPA:<br />
+（1）优势</p>
+<ul>
+<li>JPA 移植性好 JPQL</li>
+<li>提供了很多 CRUD 方法，开发效率高</li>
+<li>对象化程度更高</li>
+</ul>
+<h2 id="mybatis-plus_1">MyBatis-Plus</h2>
+<p>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<p>文档：<a href="https://mp.baomidou.com/">https://mp.baomidou.com/</a></p>
+<p>特性：</p>
+<ul>
+<li>无侵入</li>
+<li>损耗小</li>
+<li>强大的 CRUD 操作</li>
+<li>支持 Lambda 形式调用</li>
+<li>支持主键自动生成</li>
+<li>支持 ActiveRecord 模式</li>
+<li>支持自定义全局通用操作</li>
+<li>内置代码生成器</li>
+<li>内置分页插件</li>
+<li>分页插件支持多种数据库</li>
+<li>内置性能分析插件</li>
+<li>内置全局拦截插件</li>
+</ul>
+<h2 id="lombok">lombok</h2>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- https://mvnrepository.com/artifact/org.projectlombok/lombok --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.18.12<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<h2 id="_2">快速入门</h2>
+<p>建库建表<br />
+引入依赖<br />
+配置<br />
+编码<br />
+测试</p>
+<p>建表语句</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- 创建用户表</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">user</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">BIGINT</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">&#39;主键&#39;</span><span class="p">,</span>
+    <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">&#39;姓名&#39;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="nb">INT</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">&#39;年龄&#39;</span><span class="p">,</span>
+    <span class="n">email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">&#39;邮箱&#39;</span><span class="p">,</span>
+    <span class="n">manager_id</span> <span class="nb">BIGINT</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">&#39;直属上级id&#39;</span><span class="p">,</span>
+    <span class="n">create_time</span> <span class="n">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">&#39;创建时间&#39;</span><span class="p">,</span>
+    <span class="k">CONSTRAINT</span> <span class="n">manager_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">manager_id</span><span class="p">)</span>
+        <span class="k">REFERENCES</span> <span class="k">user</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span>  <span class="n">ENGINE</span><span class="o">=</span><span class="n">INNODB</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">UTF8</span><span class="p">;</span>
+
+<span class="c1">-- 初始化数据：</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">user</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">manager_id</span><span class="p">,</span> <span class="n">create_time</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">1087982257332887553</span><span class="p">,</span> <span class="s1">&#39;大boss&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;boss@baomidou.com&#39;</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;2019-01-11 14:20:20&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1088248166370832385</span><span class="p">,</span> <span class="s1">&#39;王天风&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;wtf@baomidou.com&#39;</span><span class="p">,</span> <span class="mi">1087982257332887553</span><span class="p">,</span> <span class="s1">&#39;2019-02-05 11:12:22&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1088250446457389058</span><span class="p">,</span> <span class="s1">&#39;李艺伟&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;lyw@baomidou.com&#39;</span><span class="p">,</span> <span class="mi">1088248166370832385</span><span class="p">,</span> <span class="s1">&#39;2019-02-14 08:31:16&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1094590409767661570</span><span class="p">,</span> <span class="s1">&#39;张雨琪&#39;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="s1">&#39;zjq@baomidou.com&#39;</span><span class="p">,</span> <span class="mi">1088248166370832385</span><span class="p">,</span> <span class="s1">&#39;2019-01-14 09:15:15&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1094592041087729666</span><span class="p">,</span> <span class="s1">&#39;刘红雨&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;lhm@baomidou.com&#39;</span><span class="p">,</span> <span class="mi">1088248166370832385</span><span class="p">,</span> <span class="s1">&#39;2019-01-14 09:48:16&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>项目结构</p>
+<div class="codehilite"><pre><span></span>$ tree
+.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── example
+    │   │           └── demo
+    │   │               ├── Application.java
+    │   │               ├── dao
+    │   │               │   └── UserMapper.java
+    │   │               └── entity
+    │   │                   └── User.java
+    │   └── resources
+    │       ├── application.properties
+    └── <span class="nb">test</span>
+        └── java
+            └── com
+                └── example
+                    └── demo
+                        └── ApplicationTests.java
+</pre></div>
+
+
+<p>pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
+<span class="s">         https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>2.3.2.RELEASE<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;relativePath/&gt;</span> <span class="c">&lt;!-- lookup parent from repository --&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>com.example<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-demo<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>mybatis-plus-demo<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Demo project for Spring Boot<span class="nt">&lt;/description&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;java.version&gt;</span>1.8<span class="nt">&lt;/java.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="c">&lt;!--web --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--devtools--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-devtools<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--mysql--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--lombok--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--mybatis-plus--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.3.2<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--test--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
+
+<p>application.properties</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 数据源</span>
+spring.datasource.url<span class="o">=</span>jdbc:mysql://127.0.0.1:3306/data?useSSL<span class="o">=</span>false<span class="p">&amp;</span><span class="nv">serverTimezone</span><span class="o">=</span>GMT%2B8
+spring.datasource.username<span class="o">=</span>root
+spring.datasource.password<span class="o">=</span><span class="m">123456</span>
+
+<span class="c1"># 日志级别</span>
+logging.level.root<span class="o">=</span>warn
+logging.level.com.example.demo.dao<span class="o">=</span>trace
+logging.pattern.console<span class="o">=</span>%p%m%n
+</pre></div>
+
+
+<p>User.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
+
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="c1">// 主键</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="c1">// 姓名</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="c1">// 年龄</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
+
+    <span class="c1">// 邮箱</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="o">;</span>
+
+    <span class="c1">// 直属上级</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">managerId</span><span class="o">;</span>
+
+    <span class="c1">// 创建时间</span>
+    <span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">createTime</span><span class="o">;</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>UserMapper.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.mapper.BaseMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.User</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Application.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.mybatis.spring.annotation.MapperScan</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
+
+
+<span class="nd">@SpringBootApplication</span>
+<span class="nd">@MapperScan</span><span class="o">({</span><span class="s">&quot;com.example.demo.dao&quot;</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>ApplicationTests.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.example.demo.dao.UserMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.test.context.SpringBootTest</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+
+<span class="nd">@SpringBootTest</span>
+<span class="kd">class</span> <span class="nc">ApplicationTests</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="n">UserMapper</span> <span class="n">userMapper</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">select</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+        <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">insert</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+        <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;王强&quot;</span><span class="o">);</span>
+        <span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+        <span class="n">user</span><span class="o">.</span><span class="na">setCreateTime</span><span class="o">(</span><span class="n">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">());</span>
+
+        <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ret&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="mybatis-vs-mybatis-plus">MyBatis vs MyBatis-Plus</h2>
+<div class="codehilite"><pre><span></span><span class="err">接口中写抽象方法</span>
+<span class="n">XML</span> <span class="err">或注解写</span> <span class="k">SQL</span>
+<span class="n">Service</span> <span class="err">中调用接口</span>
+<span class="n">Controller</span> <span class="err">调用</span> <span class="n">Service</span>
+</pre></div>
+
+
+<p>MyBatis-Plus 采用通用 Mapper</p>
+<h2 id="_3">常用注解</h2>
+<div class="codehilite"><pre><span></span><span class="nv">@TableName</span><span class="p">(</span><span class="ss">&quot;user&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">自定义表名</span><span class="w"></span>
+<span class="nv">@TableId</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">对应数据库中主键</span><span class="w"></span>
+<span class="nv">@TableField</span><span class="p">(</span><span class="ss">&quot;user_name&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">指定表中对应字段名</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="_4">排除非表字段</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// 不参与序列化</span>
+<span class="kd">private</span> <span class="kd">transient</span> <span class="n">String</span> <span class="n">remark</span><span class="o">;</span>
+
+<span class="c1">// 设置为静态变量</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">remark</span><span class="o">;</span>
+
+<span class="c1">// 排除字段</span>
+<span class="nd">@TableField</span><span class="o">(</span><span class="n">exist</span><span class="o">=</span><span class="kc">false</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">remark</span><span class="o">;</span>
+</pre></div>
+
+
+<h2 id="_5">普通查询</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* 基础查询</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testSelectById</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="mi">1087982257332887553L</span><span class="o">);</span>
+    <span class="c1">// SELECT user_id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE user_id=?</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testSelectList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="c1">// SELECT user_id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user</span>
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testSelectBatchIds</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">idList</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1087982257332887553L</span><span class="o">,</span> <span class="mi">1094592041087729666L</span><span class="o">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectBatchIds</span><span class="o">(</span><span class="n">idList</span><span class="o">);</span>
+    <span class="c1">// SELECT user_id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE user_id IN ( ? , ? )</span>
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testSelectByMap</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span> <span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王天风&quot;</span><span class="o">);</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">25</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectByMap</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
+    <span class="c1">// SELECT user_id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE name = ? AND age = ?</span>
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_6">以构造器为参数的查询方法</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">    * 1、名字中包含雨并且年龄小于40</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * name like &#39;%雨%&#39; and age&lt;40</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper1</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;雨&quot;</span><span class="o">).</span><span class="na">lt</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">40</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE (name LIKE ? AND age &lt; ?)</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    * 2、名字中包含雨年并且龄大于等于20且小于等于40并且email不为空</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * name like &#39;%雨%&#39; and age between 20 and 40 and email is not null</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;雨&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">between</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">20</span><span class="o">,</span> <span class="mi">40</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">isNotNull</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE (name LIKE ? AND age BETWEEN ? AND ? AND email IS NOT NULL)</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    * 3、名字为王姓或者年龄大于等于25，按照年龄降序排列，年龄相同按照id升序排列</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * name like &#39;王%&#39; or age&gt;=25 order by age desc,id asc</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper3</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">likeRight</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">or</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">ge</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">25</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">orderByDesc</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">orderByAsc</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE (name LIKE ? OR age &gt;= ?) ORDER BY age DESC,id ASC</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+
+<span class="cm">/**</span>
+<span class="cm">    * 4、创建日期为2019年2月14日并且直属上级为名字为王姓</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * date_format(create_time,&#39;%Y-%m-%d&#39;)=&#39;2019-02-14&#39;</span>
+<span class="cm">    * and manager_id in (select id from user where name like &#39;王%&#39;)</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper4</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="c1">// 使用占位符，避免SQL注入</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="s">&quot;date_format(create_time, &#39;%Y-%m-%d&#39;) = {0}&quot;</span><span class="o">,</span> <span class="s">&quot;2019-02-14&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">inSql</span><span class="o">(</span><span class="s">&quot;manager_id&quot;</span><span class="o">,</span> <span class="s">&quot;select id from user where name like &#39;王%&#39;&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE (date_format(create_time, &#39;%Y-%m-%d&#39;) = ?</span>
+    <span class="c1">// AND manager_id IN (select id from user where name like &#39;王%&#39;))</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    * 5、名字为王姓并且（年龄小于40或邮箱不为空）</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * name like &#39;王%&#39; and (age&lt;40 or email is not null)</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper5</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">likeRight</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">qw</span> <span class="o">-&gt;</span> <span class="n">qw</span><span class="o">.</span><span class="na">lt</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">40</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">or</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">isNotNull</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">)</span>
+            <span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE (name LIKE ? AND (age &lt; ? OR email IS NOT NULL))</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+
+<span class="cm">/**</span>
+<span class="cm">    * 6、名字为王姓或者（年龄小于40并且年龄大于20并且邮箱不为空）</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * name like &#39;王%&#39; or (age&lt;40 and age&gt;20 and email is not null)</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper6</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">likeRight</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">or</span><span class="o">(</span><span class="n">qw</span> <span class="o">-&gt;</span> <span class="n">qw</span><span class="o">.</span><span class="na">lt</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">40</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">gt</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">20</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">isNotNull</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">)</span>
+            <span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE (name LIKE ? OR (age &lt; ? AND age &gt; ? AND email IS NOT NULL))</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    * 7、（年龄小于40或邮箱不为空）并且名字为王姓</span>
+<span class="cm">    * &lt;p&gt;</span>
+<span class="cm">    * (age&lt;40 or email is not null) and name like &#39;王%&#39;</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper7</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">nested</span><span class="o">(</span><span class="n">qw</span> <span class="o">-&gt;</span> <span class="n">qw</span><span class="o">.</span><span class="na">lt</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">40</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">isNotNull</span><span class="o">(</span><span class="s">&quot;email&quot;</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">likeRight</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE ((age &lt; ? AND email IS NOT NULL) AND name LIKE ?)</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    * 8、年龄为30、31、34、35</span>
+<span class="cm">    *</span>
+<span class="cm">    * age in (30、31、34、35)</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper8</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">in</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span> <span class="mi">34</span><span class="o">,</span> <span class="mi">35</span><span class="o">));</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE (age IN (?,?,?,?))</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    * 9、只返回满足条件的其中一条语句即可</span>
+<span class="cm">    *</span>
+<span class="cm">    * limit 1</span>
+<span class="cm">    */</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper9</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">in</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="mi">31</span><span class="o">,</span> <span class="mi">34</span><span class="o">,</span> <span class="mi">35</span><span class="o">)).</span><span class="na">last</span><span class="o">(</span><span class="s">&quot;limit 1&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE (age IN (?,?,?,?)) limit 1</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="select">Select 中字段不全出现的处理方法</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* 返回指定字段</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper10</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="s">&quot;name&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name FROM user</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 排除指定字段</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper11</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">info</span><span class="o">-&gt;!</span><span class="n">info</span><span class="o">.</span><span class="na">getColumn</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;create_time&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span>
+            <span class="o">!</span><span class="n">info</span><span class="o">.</span><span class="na">getColumn</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;manager_id&quot;</span><span class="o">));</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email FROM user</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="condition">Condition</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* 条件判断</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper12</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Tom&quot;</span><span class="o">;</span>
+
+    <span class="n">query</span><span class="o">.</span><span class="na">like</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">name</span><span class="o">),</span> <span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+
+    <span class="c1">//等价于</span>
+    <span class="c1">// if(!StringUtils.isEmpty(name)){</span>
+    <span class="c1">//     query.like(&quot;name&quot;, name);</span>
+    <span class="c1">// }</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE (name LIKE ?)</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_7">实体对象作为条件构造器方法的参数</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* // 指定表中对应字段名, 设置条件</span>
+<span class="cm">*     @TableField(value=&quot;name&quot;, condition= SqlCondition.LIKE)</span>
+<span class="cm">*     private String name;</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper13</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;王强&quot;</span><span class="o">);</span>
+    <span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;(</span><span class="n">user</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE name LIKE CONCAT(&#39;%&#39;,?,&#39;%&#39;) AND age=?</span>
+
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="alleq">allEq</h2>
+<div class="codehilite"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper14</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span> <span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+
+    <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王强&quot;</span><span class="o">);</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">);</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">allEq</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">//  SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">//  FROM user WHERE (name = ? AND age = ?)</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="_8">其他查询</h2>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* 返回map 而不是User实体对象</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper15</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="s">&quot;name&quot;</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectMaps</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+
+    <span class="n">list</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 11、按照直属上级分组，查询每组的平均年龄、最大年龄、最小年龄。</span>
+<span class="cm">* 并且只取年龄总和小于500的组。</span>
+<span class="cm">*</span>
+<span class="cm">* select avg(age) avg_age,min(age) min_age,max(age) max_age</span>
+<span class="cm">* from user</span>
+<span class="cm">* group by manager_id</span>
+<span class="cm">* having sum(age) &lt;500</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper16</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&quot;avg(age) avg_age&quot;</span><span class="o">,</span> <span class="s">&quot;min(age) min_age&quot;</span><span class="o">,</span> <span class="s">&quot;max(age) max_age&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">groupBy</span><span class="o">(</span><span class="s">&quot;manager_id&quot;</span><span class="o">).</span><span class="na">having</span><span class="o">(</span><span class="s">&quot;sum(age) &lt; {0}&quot;</span><span class="o">,</span> <span class="mi">5000</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectMaps</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT avg(age) avg_age,min(age) min_age,max(age) max_age</span>
+    <span class="c1">// FROM user</span>
+    <span class="c1">// GROUP BY manager_id</span>
+    <span class="c1">// HAVING sum(age) &lt; ?</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 只返回第一列</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper17</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectObjs</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time FROM user</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 计算count</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper18</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+
+    <span class="n">Integer</span> <span class="n">count</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectCount</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT COUNT( 1 ) FROM user</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 返回一条数据,如果大于1条会报错</span>
+<span class="cm">*/</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper19</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王天风&quot;</span><span class="o">);</span>
+    <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectOne</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user WHERE (name = ?)</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="lambda">Lambda 条件构造器</h2>
+<div class="codehilite"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper20</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">LambdaQueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaQueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">ge</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">ge</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user</span>
+    <span class="c1">// WHERE (age &gt;= ? AND name &gt;= ?)</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kt">void</span> <span class="nf">testQueryWrapper21</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="n">LambdaQueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaQueryWrapper</span><span class="o">&lt;&gt;();</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">likeRight</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">);</span>
+    <span class="n">query</span><span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">q</span><span class="o">-&gt;</span><span class="n">q</span><span class="o">.</span><span class="na">ge</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">23</span><span class="o">).</span><span class="na">or</span><span class="o">().</span><span class="na">isNotNull</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getEmail</span><span class="o">));</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+    <span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+    <span class="c1">// FROM user</span>
+    <span class="c1">// WHERE (name LIKE ? AND (age &gt;= ? OR email IS NOT NULL))</span>
+
+    <span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// LambdaQueryChainWrapper</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaQueryChainWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;(</span><span class="n">userMapper</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">).</span><span class="na">list</span><span class="o">();</span>
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="c1">//    SELECT id,name,age,email,manager_id,create_time</span>
+<span class="c1">//    FROM user</span>
+<span class="c1">//    WHERE (name LIKE ?)</span>
+</pre></div>
+
+
+<h2 id="sql">自定义 SQL</h2>
+<p>1、注解方法</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.conditions.Wrapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.mapper.BaseMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.toolkit.Constants</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.annotations.Param</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.annotations.Select</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="nd">@Select</span><span class="o">(</span><span class="s">&quot;select * from user ${ew.customSqlSegment}&quot;</span><span class="o">)</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">WRAPPER</span><span class="o">)</span> <span class="n">Wrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">wrapper</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>使用</p>
+<div class="codehilite"><pre><span></span><span class="n">LambdaQueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaQueryWrapper</span><span class="o">&lt;&gt;();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">likeRight</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;王&quot;</span><span class="o">);</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectAll</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="c1">//  select * from user WHERE (name LIKE ?)</span>
+</pre></div>
+
+
+<p>2、使用 Mapper</p>
+<p>pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;resources&gt;</span>
+        <span class="c">&lt;!--编译src/main/java目录下的xml文件--&gt;</span>
+        <span class="nt">&lt;resource&gt;</span>
+            <span class="nt">&lt;directory&gt;</span>src/main/java<span class="nt">&lt;/directory&gt;</span>
+            <span class="nt">&lt;includes&gt;</span>
+                <span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
+            <span class="nt">&lt;/includes&gt;</span>
+            <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+        <span class="nt">&lt;/resource&gt;</span>
+    <span class="nt">&lt;/resources&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+
+
+<p>application.properties</p>
+<div class="codehilite"><pre><span></span>mybatis-plus.mapper-locations<span class="o">=</span>com/example/demo/mapper/*
+</pre></div>
+
+
+<p>com/example/demo/dao/UserMapper.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.dao</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.conditions.Wrapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.mapper.BaseMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.core.toolkit.Constants</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.annotations.Param</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.ibatis.annotations.Select</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="c1">// @Select(&quot;select * from user ${ew.customSqlSegment}&quot;)</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">WRAPPER</span><span class="o">)</span> <span class="n">Wrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">wrapper</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>com/example/demo/mapper/UserMapper.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span>
+<span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&quot;com.example.demo.dao.UserMapper&quot;</span><span class="nt">&gt;</span>
+
+   <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectAll&quot;</span> <span class="na">resultType=</span><span class="s">&quot;com.example.demo.entity.User&quot;</span><span class="nt">&gt;</span>
+        select * from user ${ew.customSqlSegment}
+   <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/mapper&gt;</span>
+</pre></div>
+
+
+<h2 id="_9">分页查询</h2>
+<p>配置分页生效</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBatisPlusConfig</span> <span class="o">{</span>
+    <span class="c1">// 配置分页生效</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">PaginationInterceptor</span> <span class="nf">paginationInterceptor</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">PaginationInterceptor</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1">// 返回 IPage</span>
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">IPage</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectPage</span><span class="o">(</span><span class="n">page</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;总页数&quot;</span> <span class="o">+</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getPages</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;总记录数&quot;</span> <span class="o">+</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">());</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">();</span>
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+
+<span class="c1">// 返回 Map</span>
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">IPage</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectMapsPage</span><span class="o">(</span><span class="n">page</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;总页数&quot;</span> <span class="o">+</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getPages</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;总记录数&quot;</span> <span class="o">+</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">());</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">();</span>
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+
+<span class="c1">// 总页数3</span>
+<span class="c1">// 总记录数6</span>
+
+<span class="c1">// SELECT COUNT(1) FROM user</span>
+<span class="c1">// SELECT id,name,age,email,manager_id,create_time FROM user LIMIT ?,?</span>
+
+<span class="c1">// 不查询总记录数</span>
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</pre></div>
+
+
+<p>自定义查询分页</p>
+<p>接口</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">IPage</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">selectUserPage</span><span class="o">(</span><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">page</span><span class="o">,</span> <span class="nd">@Param</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">WRAPPER</span><span class="o">)</span> <span class="n">Wrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">wrapper</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>mapper</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&quot;selectUserPage&quot;</span> <span class="na">resultType=</span><span class="s">&quot;com.example.demo.entity.User&quot;</span><span class="nt">&gt;</span>
+    select * from user ${ew.customSqlSegment}
+<span class="nt">&lt;/select&gt;</span>
+</pre></div>
+
+
+<p>查询</p>
+<div class="codehilite"><pre><span></span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;张雨琪&quot;</span><span class="o">);</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+
+<span class="n">IPage</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectUserPage</span><span class="o">(</span><span class="n">page</span><span class="o">,</span> <span class="n">query</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;总页数&quot;</span> <span class="o">+</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getPages</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;总记录数&quot;</span> <span class="o">+</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">());</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">();</span>
+
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="_10">更新操作</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// 1、通过id更新</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1289581152783228930L</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">updateById</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+<span class="c1">// UPDATE user SET age=? WHERE id=?</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;rows: &quot;</span> <span class="o">+</span> <span class="n">rows</span><span class="o">);</span>
+
+
+<span class="c1">// 2、通过查询条件更新</span>
+<span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王强&quot;</span><span class="o">);</span>
+
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">query</span><span class="o">);</span>
+<span class="c1">// UPDATE user SET age=? WHERE (name = ?)</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;rows: &quot;</span> <span class="o">+</span> <span class="n">rows</span><span class="o">);</span>
+
+
+<span class="c1">// 3、更新少量字段</span>
+<span class="n">UpdateWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UpdateWrapper</span><span class="o">&lt;&gt;();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;王强&quot;</span><span class="o">).</span><span class="na">set</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">query</span><span class="o">);</span>
+<span class="c1">// UPDATE user SET age=? WHERE (name = ?)</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;rows: &quot;</span> <span class="o">+</span> <span class="n">rows</span><span class="o">);</span>
+
+
+<span class="c1">// 4、使用Lambda</span>
+<span class="n">LambdaUpdateWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="n">Wrappers</span><span class="o">.</span><span class="na">lambdaUpdate</span><span class="o">();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;王强&quot;</span><span class="o">).</span><span class="na">set</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">query</span><span class="o">);</span>
+<span class="c1">// UPDATE user SET age=? WHERE (name = ?)</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;rows: &quot;</span> <span class="o">+</span> <span class="n">rows</span><span class="o">);</span>
+
+
+<span class="c1">// 5、ChainWrapper</span>
+<span class="kt">boolean</span> <span class="n">ret</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaUpdateChainWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;(</span><span class="n">userMapper</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;王强&quot;</span><span class="o">).</span><span class="na">set</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">23</span><span class="o">).</span><span class="na">update</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ret&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="o">);</span>
+<span class="c1">//    UPDATE user SET age=? WHERE (name = ?)</span>
+</pre></div>
+
+
+<h2 id="_11">删除功能</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// 1、根据id删除</span>
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">deleteById</span><span class="o">(</span><span class="mi">1094592041087729667L</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ret&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="o">);</span>
+<span class="c1">// DELETE FROM user WHERE id=?</span>
+
+<span class="c1">// 2、根据map条件删除</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;刘备&quot;</span><span class="o">);</span>
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">,</span> <span class="mi">23</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">deleteByMap</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ret&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="o">);</span>
+<span class="c1">// DELETE FROM user WHERE name = ? AND age = ?</span>
+
+<span class="c1">// 3、批量删除</span>
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">deleteBatchIds</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ret&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="o">);</span>
+<span class="c1">// DELETE FROM user WHERE id IN ( ? , ? , ? )</span>
+
+<span class="c1">// 4、条件删除</span>
+<span class="n">LambdaQueryWrapper</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LambdaQueryWrapper</span><span class="o">&lt;&gt;();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;Tom&quot;</span><span class="o">).</span><span class="na">or</span><span class="o">().</span><span class="na">ge</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">23</span><span class="o">);</span>
+
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ret&quot;</span> <span class="o">+</span> <span class="n">ret</span><span class="o">);</span>
+<span class="c1">// DELETE FROM user WHERE (name = ? OR age &gt;= ?)</span>
+</pre></div>
+
+
+<h2 id="activerecord">ActiveRecord 模式</h2>
+<p>AR 模式</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 需要继承Model</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="n">Model</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{}</span>
+
+
+<span class="c1">// 插入数据</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Tom&quot;</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">insert</span><span class="o">();</span>
+<span class="c1">//  INSERT INTO user ( id, name, age ) VALUES ( ?, ?, ? )</span>
+
+
+<span class="c1">// 查询数据</span>
+<span class="n">User</span> <span class="n">newUser</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="na">selectById</span><span class="o">();</span>
+<span class="c1">// SELECT id,name,age,email,manager_id,create_time FROM user WHERE id=?</span>
+
+
+<span class="c1">// 更新数据</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">123L</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Tom&quot;</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">updateById</span><span class="o">();</span>
+<span class="c1">// UPDATE user SET name=?, age=? WHERE id=?</span>
+
+
+<span class="c1">// 删除数据</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">123L</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Tom&quot;</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">deleteById</span><span class="o">();</span>
+<span class="c1">// DELETE FROM user WHERE id=?</span>
+
+
+<span class="c1">// 插入或更新</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">123L</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">23</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;Tom&quot;</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">insertOrUpdate</span><span class="o">();</span>
+<span class="c1">//    SELECT id,name,age,email,manager_id,create_time FROM user WHERE id=?</span>
+<span class="c1">//    INSERT INTO user ( id, name, age ) VALUES ( ?, ?, ? )</span>
+</pre></div>
+
+
+<h2 id="_12">主键策略</h2>
+<div class="codehilite"><pre><span></span><span class="n">AUTO</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="c1">// 数据库ID自增</span>
+<span class="n">NONE</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="c1">// 该类型为未设置主键类型</span>
+<span class="n">INPUT</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="c1">// 用户输入ID</span>
+<span class="n">ASSIGN_ID</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="c1">// 分配ID</span>
+<span class="n">ASSIGN_UUID</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span> <span class="c1">// 分配UUID 8d3d8b402efb9aeb6252693ca71a58b8</span>
+</pre></div>
+
+
+<p>局部主键策略实现</p>
+<div class="codehilite"><pre><span></span><span class="nd">@TableId</span><span class="o">(</span><span class="n">type</span><span class="o">=</span><span class="n">IdType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span> <span class="c1">// 对应数据库中主键</span>
+<span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+<span class="c1">// alter table user change column id id int(11) auto_increment;</span>
+</pre></div>
+
+
+<p>全局主键策略实现</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 配置全局策略</span>
+mybatis-plus.global-config.db-config.id-type<span class="o">=</span>assign_uuid
+</pre></div>
+
+
+<h2 id="_13">配置</h2>
+<div class="codehilite"><pre><span></span>configLocation <span class="c1"># MyBatis 配置文件位置</span>
+typeAliasesPackage <span class="c1"># 别名包扫描路径</span>
+mapUnderscoreToCamelCase  <span class="c1"># 开启自动驼峰命名规则 true</span>
+
+insertStrategy NOT_NULL
+updateStrategy NOT_NULL
+selectStrategy NOT_NULL
+
+idType          <span class="c1"># 主键类型</span>
+tablePrefix     <span class="c1"># 表名前缀</span>
+tableUnderline  <span class="c1"># 表名是否使用驼峰转下划线命名</span>
+</pre></div>
+
+
+<h2 id="service">通用 Service</h2>
+<p>接口</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.extension.service.IService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.User</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserService</span> <span class="kd">extends</span> <span class="n">IService</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>实现</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.example.demo.service.impl</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.extension.service.impl.ServiceImpl</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.dao.UserMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.entity.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.demo.service.UserService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImpl</span> <span class="kd">extends</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">UserMapper</span><span class="o">,</span> <span class="n">User</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">UserService</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>测试</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 取一个</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">getOne</span><span class="o">(</span><span class="n">Wrappers</span><span class="o">.&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="n">lambdaQuery</span><span class="o">()</span>
+         <span class="o">.</span><span class="na">gt</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;Tom&quot;</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">last</span><span class="o">(</span><span class="s">&quot;limit 1&quot;</span><span class="o">));</span>
+<span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+<span class="c1">// FROM user WHERE (name &gt; ?) limit 1</span>
+
+
+<span class="c1">// 取回多个不抛出异常</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">getOne</span><span class="o">(</span><span class="n">Wrappers</span><span class="o">.&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="n">lambdaQuery</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">gt</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;Tom&quot;</span><span class="o">),</span> <span class="kc">false</span><span class="o">);</span>
+<span class="c1">// SELECT id,name,age,email,manager_id,create_time</span>
+<span class="c1">// FROM user WHERE (name &gt; ?)</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+
+
+<span class="c1">// 取列表</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">lambdaQuery</span><span class="o">().</span><span class="na">eq</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;Tom&quot;</span><span class="o">).</span><span class="na">list</span><span class="o">();</span>
+<span class="n">users</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="c1">//    SELECT id,name,age,email,manager_id,create_time</span>
+<span class="c1">//    FROM user WHERE (name = ?)</span>
+
+
+<span class="c1">// 更新数据</span>
+<span class="kt">boolean</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">lambdaUpdate</span><span class="o">().</span><span class="na">eq</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getName</span><span class="o">,</span> <span class="s">&quot;Tom&quot;</span><span class="o">).</span><span class="na">set</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">25</span><span class="o">).</span><span class="na">update</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ret</span><span class="o">);</span>
+<span class="c1">// UPDATE user SET age=? WHERE (name = ?)</span>
+
+
+<span class="c1">// 删除数据</span>
+<span class="kt">boolean</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">lambdaUpdate</span><span class="o">().</span><span class="na">eq</span><span class="o">(</span><span class="n">User</span><span class="o">::</span><span class="n">getAge</span><span class="o">,</span> <span class="mi">20</span><span class="o">).</span><span class="na">remove</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ret</span><span class="o">);</span>
+<span class="c1">// DELETE FROM user WHERE (age = ?)</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

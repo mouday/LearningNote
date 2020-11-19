@@ -1,0 +1,1270 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>线性代数的本质 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                线性代数的本质
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、向量究竟是什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、线性组合、张成的空间、基
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、矩阵与线性变换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、矩阵乘法与线性变换复合
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、三维空间中的线性变换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、行列式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、逆矩阵、列空间与零空间
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、非方阵
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9、点积和对偶性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10、叉积
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11、基变换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12、特征向量与特征值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13、抽象向量空间
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    克莱姆法则
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">线性代数的本质</h1>
+<div class="toc">
+<ul>
+<li><a href="#_1">线性代数的本质</a><ul>
+<li><a href="#1">1、向量究竟是什么</a></li>
+<li><a href="#2">2、线性组合、张成的空间、基</a></li>
+<li><a href="#3">3、矩阵与线性变换</a></li>
+<li><a href="#4">4、矩阵乘法与线性变换复合</a></li>
+<li><a href="#5">5、三维空间中的线性变换</a></li>
+<li><a href="#6">6、行列式</a></li>
+<li><a href="#7">7、逆矩阵、列空间与零空间</a></li>
+<li><a href="#8">8、非方阵</a></li>
+<li><a href="#9">9、点积和对偶性</a></li>
+<li><a href="#10">10、叉积</a></li>
+<li><a href="#11">11、基变换</a></li>
+<li><a href="#12">12、特征向量与特征值</a></li>
+<li><a href="#13">13、抽象向量空间</a></li>
+<li><a href="#_2">克莱姆法则</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>视频：https://www.bilibili.com/video/BV1ys411472E</p>
+<h2 id="1">1、向量究竟是什么</h2>
+<p>物理解释：向量是空间中的箭头（长度、方向）</p>
+<p>计算机解释：向量是有序的数字列表</p>
+<p>点point (2, 3)</p>
+<p>向量vector  $\begin{bmatrix}2 \ 3\end{bmatrix}$</p>
+<p>线性代数围绕两种基本的运算：</p>
+<p>向量加法与向量数乘</p>
+<p>加法：位移结果</p>
+<p>数轴Number line 加法<br />
+$$<br />
+\begin{align}<br />
+&amp;0 \rightarrow 2 + 0 \rightarrow 3 = 0 \rightarrow 5<br />
+\<br />
+&amp;=&gt;<br />
+\<br />
+&amp;2 + 3 = 5<br />
+\end{align}<br />
+$$</p>
+<p>向量加法<br />
+$$<br />
+\begin{bmatrix}<br />
+x_1 \<br />
+y_2<br />
+\end{bmatrix}<br />
++ <br />
+\begin{bmatrix}<br />
+x_2 \<br />
+y_2<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+x_1 + x_2 \<br />
+y_1 + y_2<br />
+\end{bmatrix}<br />
+$$</p>
+<p>缩放：标量scalar * 向量<br />
+$$<br />
+2 * \begin{bmatrix}<br />
+x \<br />
+y<br />
+\end{bmatrix}<br />
+= <br />
+\begin{bmatrix}<br />
+2x \<br />
+2y<br />
+\end{bmatrix}<br />
+$$</p>
+<h2 id="2">2、线性组合、张成的空间、基</h2>
+<p>单位向量（基向量）</p>
+<p>$\overrightarrow{i}$=(1,0), $\overrightarrow{j}$=(0,1)<br />
+$$<br />
+\begin{bmatrix}<br />
+1 &amp; 0\<br />
+0 &amp; 1<br />
+\end{bmatrix}<br />
+$$</p>
+<p>缩放向量并且相加</p>
+<p>$(3, 2)$ (i, j) -&gt; $3i + 2j$</p>
+<p>当使用数字描述向量时，都依赖于我们正在使用的基</p>
+<p>线性组合：两个数乘向量的和被称为这两个向量的线性组合<br />
+$$<br />
+a\overrightarrow{v} + b\overrightarrow{w}<br />
+$$</p>
+<p>$\overrightarrow{v}$ 与 $\overrightarrow{w}$ 全部线性组合构成的向量合称为“张成的空间”</p>
+<p>单个向量看做箭头，多个向量看做点</p>
+<p>线性相关 Linearly dependent：多个向量，移除其中一个不减小张成的空间</p>
+<p>线性无关 Linearly independent：如果所有的向量都给张成的空间增加了新的维度</p>
+<p>严格定义：</p>
+<p>向量空间的一组基是张成该空间的一个<code>线性无关</code>向量集</p>
+<h2 id="3">3、矩阵与线性变换</h2>
+<p>变换 &lt;=&gt; 函数</p>
+<p>矩阵看做是空间的变换</p>
+<p>线性的条件：</p>
+<ol>
+<li>
+<p>直线在变换后仍然保持为直线，不能有所弯曲</p>
+</li>
+<li>
+<p>原点必须保持固定</p>
+</li>
+</ol>
+<p>两个点 (a, c)、(b, d)，矩阵的乘法</p>
+<p>$$<br />
+   \begin{bmatrix}<br />
+   a &amp; b \<br />
+   c &amp; d<br />
+   \end{bmatrix}</p>
+<p>\begin{bmatrix}<br />
+   x \<br />
+   y<br />
+   \end{bmatrix}<br />
+   =<br />
+   x\begin{bmatrix}<br />
+   a \<br />
+   c<br />
+   \end{bmatrix}<br />
+    + <br />
+   y\begin{bmatrix}<br />
+   b \<br />
+   d<br />
+   \end{bmatrix}<br />
+   =<br />
+   \begin{bmatrix}<br />
+   ax + by \<br />
+   cx + dy<br />
+   \end{bmatrix}<br />
+   $$</p>
+<p>1、逆时针旋转90度</p>
+<p>i=(1, 0), j=(0, 1) =&gt; (0, 1), (-1, 0)</p>
+<p>A (2, 2) =&gt; (-2, 2)<br />
+$$<br />
+\begin{bmatrix}<br />
+0 &amp; -1 \<br />
+1 &amp; 0<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+2 \<br />
+2<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+-2 \<br />
+2<br />
+\end{bmatrix}<br />
+$$</p>
+<p>2、剪切基向量对角线剪开</p>
+<p>i=(1, 0), j=(0, 1) =&gt; (0, 1), (1, 1)</p>
+<p>A (2, 2) =&gt; (2, 4)<br />
+$$<br />
+\begin{bmatrix}<br />
+0 &amp; 1 \<br />
+1 &amp; 1<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+2 \<br />
+2<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+2 \<br />
+4<br />
+\end{bmatrix}<br />
+$$</p>
+<h2 id="4">4、矩阵乘法与线性变换复合</h2>
+<p>复合变换</p>
+<p>旋转矩阵 + 剪切矩阵  =&gt; 复合矩阵<br />
+$$<br />
+\begin{bmatrix}<br />
+1 &amp; 1 \<br />
+0 &amp; 1<br />
+\end{bmatrix}<br />
+(<br />
+\begin{bmatrix}<br />
+0 &amp; -1 \<br />
+1 &amp; 0<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+x \<br />
+y<br />
+\end{bmatrix}<br />
+)<br />
+=<br />
+\begin{bmatrix}<br />
+1 &amp; -1 \<br />
+1 &amp; 0<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+x \<br />
+y<br />
+\end{bmatrix}<br />
+$$</p>
+<p>矩阵乘法<br />
+$$<br />
+\begin{bmatrix}<br />
+a &amp; b \<br />
+c &amp; d<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+e &amp; f \<br />
+g &amp; h<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+ae + bg &amp; af + bh \<br />
+ce + dg &amp; cf + dh<br />
+\end{bmatrix}<br />
+\</p>
+<p>\begin{bmatrix}<br />
+a &amp; b \<br />
+c &amp; d<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+e \<br />
+g<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+a \<br />
+c<br />
+\end{bmatrix}<br />
+e<br />
++<br />
+\begin{bmatrix}<br />
+b \<br />
+d<br />
+\end{bmatrix}<br />
+g<br />
+=<br />
+\begin{bmatrix}<br />
+ae + bg \<br />
+ce + dg<br />
+\end{bmatrix}<br />
+\</p>
+<p>\begin{bmatrix}<br />
+a &amp; b \<br />
+c &amp; d<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+f \<br />
+h<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+a \<br />
+c<br />
+\end{bmatrix}<br />
+f<br />
++<br />
+\begin{bmatrix}<br />
+b \<br />
+d<br />
+\end{bmatrix}<br />
+h<br />
+=<br />
+\begin{bmatrix}<br />
+af + bh \<br />
+cf + dh<br />
+\end{bmatrix}<br />
+$$<br />
+不满足交换律 $NM \neq MN $</p>
+<p>满足结合律 $A(BC) = (AB)C$</p>
+<h2 id="5">5、三维空间中的线性变换</h2>
+<p>三维空间中坐标x,y,z 对应基向量$(\overrightarrow{i}, \overrightarrow{j}, \overrightarrow{k})$<br />
+$$<br />
+\begin{bmatrix}<br />
+a &amp; b &amp; c \<br />
+d &amp; e &amp; f \<br />
+g &amp; h &amp; i<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+x\<br />
+y\<br />
+z<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+a \<br />
+d\<br />
+g<br />
+\end{bmatrix}<br />
+x<br />
++<br />
+\begin{bmatrix}<br />
+b \<br />
+e \<br />
+h <br />
+\end{bmatrix}<br />
+y<br />
++<br />
+\begin{bmatrix}<br />
+c \<br />
+f \<br />
+i<br />
+\end{bmatrix}<br />
+z<br />
+=<br />
+\begin{bmatrix}<br />
+ax &amp; by &amp; cz \<br />
+dx &amp; ey &amp; fz \<br />
+gx &amp; hy &amp; iz<br />
+\end{bmatrix}<br />
+$$</p>
+<h2 id="6">6、行列式</h2>
+<p>缩放比例，线性变换改变面积的比例被称为这个变换的行列式</p>
+<p>行列式为正</p>
+<p>行列式为0 变换减少了空间的维度</p>
+<p>行列式为负 变换改变了空间的定向<br />
+$$<br />
+det(<br />
+\begin{bmatrix}<br />
+1 &amp; 2\<br />
+1 &amp; -1<br />
+\end{bmatrix}<br />
+) <br />
+=<br />
+-3<br />
+$$<br />
+右手定则</p>
+<p>右手食指指向i-hat方向</p>
+<p>右手中指指向j-hat方向</p>
+<p>大拇指竖起来，指向k-hat方向</p>
+<p>计算行列式<br />
+$$<br />
+det(<br />
+\begin{bmatrix}<br />
+a &amp; b \<br />
+c &amp; d <br />
+\end{bmatrix}<br />
+)<br />
+=<br />
+(a+b)(c+d) -ac - bd - 2bc<br />
+=<br />
+ad - bc<br />
+$$</p>
+<p>三阶行列式 （体积）<br />
+$$<br />
+det(\begin{bmatrix}<br />
+a &amp; b &amp; c \<br />
+d &amp; e &amp; f \<br />
+g &amp; h &amp; i<br />
+\end{bmatrix})<br />
+=a * det(\begin{bmatrix}<br />
+e &amp; f \<br />
+h &amp; i<br />
+\end{bmatrix})<br />
++<br />
+b * det(\begin{bmatrix}<br />
+d  &amp; f \<br />
+g  &amp; i<br />
+\end{bmatrix}<br />
++<br />
+c * det(\begin{bmatrix}<br />
+e &amp; f \<br />
+h &amp; i<br />
+\end{bmatrix})<br />
+$$</p>
+<p>性质<br />
+$$<br />
+det(M_1M_2) = det(M_1)det(M_2)<br />
+$$</p>
+<h2 id="7">7、逆矩阵、列空间与零空间</h2>
+<p>线性方程组$A\overrightarrow{x}=\overrightarrow{v}$<br />
+$$<br />
+\begin{cases}<br />
+2x + 5y + 3z = -3 \<br />
+4x + 0y + 8z = 0 \<br />
+1x + 3y + 0z = 2<br />
+\end{cases}<br />
+=&gt;<br />
+\begin{bmatrix}<br />
+2 &amp; 5 &amp; 3 \<br />
+4 &amp; 0 &amp; 8 \<br />
+1 &amp; 3 &amp; 0<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+x \<br />
+y \<br />
+z<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+-3 \<br />
+0 \<br />
+2<br />
+\end{bmatrix}<br />
+$$<br />
+逆变换： $A^{-1}$  称为 A 的逆</p>
+<p>恒等变换，什么都不做<br />
+$$<br />
+A^{-1}A<br />
+$$<br />
+逆矩阵Inverse matrices 存在时，可以用来求解方程组<br />
+$$<br />
+\begin{aligned}<br />
+&amp;A\overrightarrow{x}=\overrightarrow{v}\<br />
+&amp;A^{-1}A\overrightarrow{x}=A^{-1}\overrightarrow{v}\<br />
+&amp;\overrightarrow{x}=A^{-1}\overrightarrow{v}<br />
+\end{aligned}<br />
+$$</p>
+<p>秩 Rank ：变换后空间的维数</p>
+<p>列空间 Column space：所有可能的变换结果集合</p>
+<p>变换后基向量张成的空间，就是所有可能的结果</p>
+<p>换句话说，列空间就是矩阵的列所张成的空间</p>
+<p>秩是列空间的维数</p>
+<p>满秩Full rank：秩与列数相等</p>
+<p>列空间与方程组解的个数有关</p>
+<p>矩阵的零空间 null space 变换后落在原点的向量的集合</p>
+<h2 id="8">8、非方阵</h2>
+<p>$A_{2\times3}$ 2维到3维变换<br />
+$$<br />
+\begin{bmatrix}<br />
+1 &amp; 2 &amp; 1\<br />
+1 &amp; 0 &amp; 2\<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+2\<br />
+1\<br />
+0<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+4\<br />
+2<br />
+\end{bmatrix}<br />
+$$</p>
+<p>$A_{3\times2}$ 3维到2维变换<br />
+$$<br />
+\begin{bmatrix}<br />
+1 &amp; 2\<br />
+1 &amp; 0\<br />
+-1 &amp; 1<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+2\<br />
+1\<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+4\<br />
+2\<br />
+-1<br />
+\end{bmatrix}<br />
+$$</p>
+<h2 id="9">9、点积和对偶性</h2>
+<p>两个向量点积（数量积/投影）$\overrightarrow{v} \cdot \overrightarrow{w}$</p>
+<p>$$<br />
+\begin{bmatrix}<br />
+4\<br />
+1<br />
+\end{bmatrix} <br />
+\cdot<br />
+\begin{bmatrix}<br />
+2\<br />
+-1<br />
+\end{bmatrix}<br />
+=4 \times 2 + 1 \times (-1) = 7<br />
+$$</p>
+<p>$$<br />
+\begin{bmatrix}<br />
+4\<br />
+1<br />
+\end{bmatrix}^T <br />
+\begin{bmatrix}<br />
+2\<br />
+-1<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+4 &amp; 1<br />
+\end{bmatrix} <br />
+\begin{bmatrix}<br />
+2\<br />
+-1<br />
+\end{bmatrix}<br />
+=7<br />
+$$</p>
+<h2 id="10">10、叉积</h2>
+<p>平行边行的面积 $\overrightarrow{v} \times \overrightarrow{w} = - \overrightarrow{w} \times \overrightarrow{v}$<br />
+$$<br />
+\begin{bmatrix}<br />
+3\<br />
+1<br />
+\end{bmatrix}<br />
+\times<br />
+\begin{bmatrix}<br />
+2\<br />
+-1<br />
+\end{bmatrix}<br />
+=det(<br />
+\begin{bmatrix}<br />
+3 &amp; 2\<br />
+1 &amp; -1<br />
+\end{bmatrix}<br />
+)<br />
+$$</p>
+<p>$3\overrightarrow{v} \times \overrightarrow{w} = 3(\overrightarrow{v} \times \overrightarrow{w})$</p>
+<p>右手定则</p>
+<p>食指 $\overrightarrow{v}$</p>
+<p>中指 $ \overrightarrow{w}$</p>
+<p>拇指 $ \overrightarrow{v} \times \overrightarrow{w}$<br />
+$$<br />
+\begin{bmatrix}<br />
+v_1\<br />
+v_2 \<br />
+v_3<br />
+\end{bmatrix}<br />
+\times<br />
+\begin{bmatrix}<br />
+w_1\<br />
+w_2\<br />
+w_3<br />
+\end{bmatrix}<br />
+=det(<br />
+\begin{bmatrix}<br />
+i &amp; v_1 &amp; w_1\<br />
+j &amp; v_2 &amp; w_2\<br />
+k &amp; v_3 &amp; w_3<br />
+\end{bmatrix}<br />
+)<br />
+\<br />
+i(v_2w_3 - v_3w_2) + j(v_3w_1 - v_1w_3) + k(v_1w_2 - v_2w_1)<br />
+$$</p>
+<h2 id="11">11、基变换</h2>
+<p>$$<br />
+A<br />
+\begin{bmatrix}<br />
+x_i\<br />
+y_i<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+x_o\<br />
+y_o<br />
+\end{bmatrix}<br />
+\</p>
+<p>\begin{bmatrix}<br />
+x_i\<br />
+y_i<br />
+\end{bmatrix}<br />
+=<br />
+A^{-1}<br />
+\begin{bmatrix}<br />
+x_o\<br />
+y_o<br />
+\end{bmatrix}<br />
+$$</p>
+<h2 id="12">12、特征向量与特征值</h2>
+<p>能够被A拉伸且保持方向不变的向量就是A的特征向量，拉伸的倍数就是特征值</p>
+<p>特征值：每个特征向量都有一个所属的值，衡量特征向量在变换中拉伸或压缩比例的因子<br />
+$$<br />
+A\overrightarrow{v} = \lambda \overrightarrow{v}<br />
+$$<br />
+特征向量 $\overrightarrow{v}$</p>
+<p>特征值 $\lambda$</p>
+<p>左边是用矩阵A将向量$\overrightarrow{v}$做了一个转换，右边是将向量拉伸了$\lambda$ 倍。<br />
+$$<br />
+A\overrightarrow{v} = \lambda \overrightarrow{v} \<br />
+A\overrightarrow{v} - \lambda \overrightarrow{v} = 0 \<br />
+(A - \lambda I)\overrightarrow{v} = 0 \<br />
+det(A - \lambda I)  = 0<br />
+$$<br />
+对角矩阵</p>
+<p>一组基向量（同样是特征向量）构成的集合被称为一组“特征基”</p>
+<p>示例：求矩阵特征值,特征向量<br />
+$$<br />
+\begin{aligned}<br />
+&amp; A = <br />
+\begin{bmatrix}<br />
+-1 &amp; 1 &amp; 0 \<br />
+-4 &amp; 3 &amp; 0 \<br />
+1 &amp; 0 &amp; 2 \<br />
+\end{bmatrix}<br />
+\<br />
+\<br />
+&amp;求解：\<br />
+&amp;|A - \lambda E| = <br />
+\begin{vmatrix}<br />
+-1-\lambda &amp; 1 &amp; 0 \<br />
+-4 &amp; 3-\lambda &amp; 0 \<br />
+1 &amp; 0 &amp; 2 -\lambda\<br />
+\end{vmatrix}<br />
+=(2 -\lambda)<br />
+\begin{vmatrix}<br />
+-1-\lambda &amp; 1 \<br />
+-4 &amp; 3-\lambda \<br />
+\end{vmatrix}<br />
+\<br />
+&amp;=(2 - \lambda){(3 - \lambda)(-1 - \lambda) - (-4)}<br />
+\<br />
+&amp;=(2 - \lambda)(-3-3 \lambda+\lambda + \lambda^2 + 4)\<br />
+&amp;=(2 - \lambda)(\lambda^2 -2\lambda + 1)\<br />
+&amp;=(2 - \lambda)(\lambda - 1)^2 \<br />
+\<br />
+&amp;特征值 \lambda = 2, 1<br />
+\<br />
+\<br />
+&amp; 当 \lambda = 2 \<br />
+&amp; (A - 2 E)= 0 \<br />
+&amp;\begin{bmatrix}<br />
+-3 &amp; 1 &amp; 0 \<br />
+-4 &amp; 1 &amp; 0 \<br />
+1 &amp; 0 &amp; 0\<br />
+\end{bmatrix}x<br />
+=0 \<br />
+&amp;\begin{cases}<br />
+-3x_1 + x_2 = 0\<br />
+-4x_1 + x_2 = 0 \<br />
+x_1= 0<br />
+&amp;\end{cases}<br />
+\<br />
+&amp;\begin{cases}<br />
+x_2 = 0\<br />
+x_1= 0<br />
+&amp;\end{cases}<br />
+\<br />
+&amp;P_1 =\begin{bmatrix}<br />
+0 \<br />
+0 \<br />
+1  \<br />
+\end{bmatrix}<br />
+\<br />
+\<br />
+&amp; 当 \lambda = 1 \<br />
+&amp; (A - E)= 0 \<br />
+&amp;\begin{bmatrix}<br />
+-2 &amp; 1 &amp; 0 \<br />
+-4 &amp; 2 &amp; 0 \<br />
+1 &amp; 0 &amp; 1\<br />
+\end{bmatrix}x<br />
+=0 \<br />
+&amp;\begin{cases}<br />
+-2x_1 + x_2 = 0\<br />
+-4x_1 + 2x_2 = 0 \<br />
+x_1 + x_3 = 0<br />
+&amp;\end{cases}<br />
+\<br />
+&amp;\begin{cases}<br />
+x_2 = 2x_1\<br />
+x_3 = -x_1<br />
+&amp;\end{cases}<br />
+\<br />
+&amp;P_2 =\begin{bmatrix}<br />
+-1 \<br />
+-2 \<br />
+1  \<br />
+\end{bmatrix}<br />
+\end{aligned}<br />
+$$</p>
+<h2 id="13">13、抽象向量空间</h2>
+<p>函数 f(x)<br />
+$$<br />
+f(x) + g(x)\</p>
+<p>af(x) <br />
+$$<br />
+满足以下两条的变换是线性的</p>
+<p>1、可加性 Additivity<br />
+$$<br />
+L(\overrightarrow{v} + \overrightarrow{w}) = L(\overrightarrow{v}) + L(\overrightarrow{w})<br />
+$$</p>
+<p>2、成比例 scaling<br />
+$$<br />
+L(c\overrightarrow{v}) = cL(\overrightarrow{v}))<br />
+$$</p>
+<table>
+<thead>
+<tr>
+<th>线性代数</th>
+<th>函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性变换</td>
+<td>线性算子</td>
+</tr>
+<tr>
+<td>点积</td>
+<td>内积</td>
+</tr>
+<tr>
+<td>特征向量</td>
+<td>特征函数</td>
+</tr>
+</tbody>
+</table>
+<p>向量加法和数乘<br />
+$$<br />
+\overrightarrow{u} + (\overrightarrow{v} + \overrightarrow{w}) = (\overrightarrow{u} + \overrightarrow{v}) + \overrightarrow{w}<br />
+\<br />
+\overrightarrow{v} + \overrightarrow{w} = \overrightarrow{w} + \overrightarrow{v}<br />
+\<br />
+0 + \overrightarrow{v} = \overrightarrow{v}<br />
+\<br />
+\overrightarrow{v} + (-\overrightarrow{v}) = 0<br />
+\<br />
+\<br />
+a(b\overrightarrow{v}) = (ab)\overrightarrow{v}<br />
+\<br />
+1\overrightarrow{v} = \overrightarrow{v}<br />
+\<br />
+a(\overrightarrow{v} + \overrightarrow{w}) = a\overrightarrow{v} + a\overrightarrow{w}<br />
+\<br />
+(a + b) \overrightarrow{v} = a\overrightarrow{v} + b\overrightarrow{v}</p>
+<p>$$</p>
+<h2 id="_2">克莱姆法则</h2>
+<p>$$<br />
+\begin{cases}<br />
+2x - 1y = 4 \<br />
+0x + 1y = 2<br />
+\end{cases}<br />
+\<br />
+\begin{bmatrix}<br />
+2 &amp; -1\<br />
+0 &amp; 1<br />
+\end{bmatrix}<br />
+\begin{bmatrix}<br />
+x\<br />
+y<br />
+\end{bmatrix}<br />
+=<br />
+\begin{bmatrix}<br />
+4\<br />
+2<br />
+\end{bmatrix}<br />
+\<br />
+x = \frac{Area}{det(A)} = <br />
+\frac{<br />
+det(<br />
+\begin{bmatrix}<br />
+4 &amp; -1\<br />
+2 &amp; 1<br />
+\end{bmatrix}<br />
+)<br />
+}<br />
+{<br />
+det(<br />
+\begin{bmatrix}<br />
+2 &amp; -1\<br />
+0 &amp; 1<br />
+\end{bmatrix}<br />
+)<br />
+}=\frac{4+2}{2}<br />
+=\frac{6}{2}<br />
+=3<br />
+\<br />
+y = \frac{Area}{det(A)} = <br />
+\frac{<br />
+det(<br />
+\begin{bmatrix}<br />
+2 &amp; 4\<br />
+0 &amp; 2<br />
+\end{bmatrix}<br />
+)<br />
+}<br />
+{<br />
+det(<br />
+\begin{bmatrix}<br />
+2 &amp; -1\<br />
+0 &amp; 1<br />
+\end{bmatrix}<br />
+)<br />
+}=\frac{4}{2}<br />
+=2<br />
+$$</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2020
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

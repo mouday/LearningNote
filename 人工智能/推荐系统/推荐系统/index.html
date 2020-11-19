@@ -36,7 +36,7 @@
     
     
       
-        <title>第五章-SpringBoot 与 Docker - 学习笔记</title>
+        <title>推荐系统 - 学习笔记</title>
       
     
     
@@ -75,7 +75,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#-springboot-docker" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                第五章-SpringBoot 与 Docker
+                推荐系统
               
             </span>
           
@@ -194,7 +194,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../" title="Java" class="md-nav__link">
+    <a href="../../../Java/" title="Java" class="md-nav__link">
       Java
     </a>
   </li>
@@ -254,7 +254,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+    <a href="../../" title="人工智能" class="md-nav__link">
       人工智能
     </a>
   </li>
@@ -310,15 +310,125 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
-    Docker 核心概念
+  <a href="#_1" class="md-nav__link">
+    推荐系统定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    推荐系统环节
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    推荐系统召回路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netflix" class="md-nav__link">
+    Netflix 经典推荐系统架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    推荐系统技术架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基于内容的推荐系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    基于协同过滤的推荐系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    多路召回融合排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ab" class="md-nav__link">
+    AB 测试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    实现内容相似推荐
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    实现用户聚类推荐
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    实现矩阵分解推荐
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    推荐系统 API 服务接口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    物品冷启动
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    Embedding 技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    推荐系统依赖数据源与特征工程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    环境
   </a>
   
 </li>
@@ -340,117 +450,136 @@
               
                 
                 
-                <h1 id="-springboot-docker">第五章-SpringBoot 与 Docker</h1>
-<p>Docker 开源的应用容器引擎<br />
-支持软件编译成一个镜像</p>
-<h2 id="docker">Docker 核心概念</h2>
-<p>主机 Host：安装了 Docker 程序的机器<br />
-客户端 Client：连接主机进行操作<br />
-仓库 Registry：保存打包好的软件镜像<br />
-镜像 Images：软件打包好的镜像<br />
-容器 Container：镜像启动后的实例，容器是独立运行的一个或一组应用</p>
-<p>使用 Docker 的步骤</p>
+                  <h1>推荐系统</h1>
+                
+                <p>《推荐系统从入门到实战》学习笔记<br />
+https://www.bilibili.com/video/av200358253</p>
+<h2 id="_1">推荐系统定义</h2>
+<p>推荐系统<br />
+定义：根据用户的历史信息和行为，向用户推荐他感兴趣的内容</p>
+<p>基于行为的协同过滤<br />
+基于内容的相似推荐</p>
+<p>推荐系统解决的问题</p>
 <ol>
-<li>安装 Docker</li>
-<li>找到 Docker 仓库</li>
+<li>信息过载</li>
+<li>挖掘长尾</li>
+<li>用户体验</li>
 </ol>
-<p>虚拟机 VirtualBox<br />
-设置虚拟机网络</p>
-<p>重启网络</p>
-<div class="codehilite"><pre><span></span><span class="n">service</span> <span class="n">network</span> <span class="k">restart</span>
+<h2 id="_2">推荐系统环节</h2>
+<p>低延迟 50ms\~300ms</p>
+<p>推荐系统环节：</p>
+<div class="codehilite"><pre><span></span>      <span class="err">输入</span> <span class="o">-&gt;</span> <span class="err">召回</span> <span class="o">-&gt;</span> <span class="err">排序</span> <span class="o">-&gt;</span> <span class="err">调整</span> <span class="o">-&gt;</span> <span class="err">输出</span>
+<span class="err">数据量</span> <span class="err">百万</span>     <span class="err">万</span>             <span class="err">千</span>     <span class="err">百</span>
 </pre></div>
 
 
-<p>查看内核版本</p>
-<p>Linux 安装 Docker</p>
-<div class="codehilite"><pre><span></span><span class="c1"># 查看内核版本</span>
-$ uname -r
-
-<span class="c1"># 升级软件</span>
-$ yum update
-
-<span class="c1"># 安装Docker</span>
-$ yum install docker
-
-<span class="c1"># 启动</span>
-$ systemctl start docker
-
-<span class="c1"># 停止</span>
-$ systemctl start docker
-
-<span class="c1"># 设置开机启动</span>
-$ systemctl <span class="nb">enable</span> docker
-</pre></div>
-
-
-<p>常用操作</p>
-<p>https://hub.docker.com/</p>
-<div class="codehilite"><pre><span></span><span class="c1"># 搜索docker hub</span>
-docker search mysql
-
-<span class="c1"># 拉取 默认latest</span>
-docker pull 镜像名<span class="o">[</span>:tag<span class="o">]</span>
-
-<span class="c1"># 查看本地镜像列表</span>
-docker images
-
-<span class="c1"># 删除本地镜像</span>
-docker rmi image-id
-</pre></div>
-
-
-<p>容器操作<br />
-软件镜像 运行镜像 产生一个镜像</p>
-<div class="codehilite"><pre><span></span>docker search tomcat
-
-<span class="c1"># 运行</span>
-docker run --name container-name -d image-name
---name 自定义容器名
--d 后台运行
-image-name 指定镜像模板
-
-<span class="c1"># 查看运行中的容器 -a所有</span>
-docker ps <span class="o">[</span>-a<span class="o">]</span>
-
-<span class="c1"># 停止</span>
-docker stop container-name/container-id
-
-<span class="c1"># 启动</span>
-docker start container-name/container-id
-
-<span class="c1"># 删除</span>
-docker rm container-id
-
-<span class="c1"># 端口映射 主机端口映射到容器内部端口</span>
-docker run -d -p <span class="m">6379</span>:6379 --name myredis docker.io/redis
--p <span class="m">6379</span>:6379
-
-<span class="c1"># 容器日志</span>
-docker logs container-name/container-id
-
-<span class="c1"># 防火墙状态</span>
-service firewalld status
-
-<span class="c1"># 关闭防火墙</span>
-service firewalld stop
-</pre></div>
-
-
-<p>MySQL</p>
-<div class="codehilite"><pre><span></span><span class="c1"># 需要指定密码：</span>
-MYSQL_ROOT_PASSWORD, MYSQL_ALLOW_EMPTY_PASSWORD and MYSQL_RANDOM_ROOT_PASSWORD
-
-<span class="c1"># 启动命令</span>
-docker run -p <span class="m">3306</span>:3306 --name mysql01 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">123456</span> -d mysql
-
-<span class="c1"># 将主机目录挂载到容器目录</span>
--v /my/custom:/etc/mysql/conf.d
-</pre></div>
-
-
-<p>redis<br />
-rabbitmq<br />
-elasticsearch</p>
+<ol>
+<li>
+<p>召回：</p>
+</li>
+<li>
+<p>协同过滤召回</p>
+</li>
+<li>内容相似召回</li>
+<li>图算法召回</li>
+<li>热门召回</li>
+<li>
+<p>新课召回<br />
+  ...</p>
+</li>
+<li>
+<p>排序</p>
+</li>
+<li>
+<p>机器学习-二分类算法</p>
+</li>
+<li>LR</li>
+<li>GBDT</li>
+<li>DNN</li>
+<li>
+<p>Wide&amp;Deep</p>
+</li>
+<li>
+<p>调整</p>
+</li>
+<li>
+<p>去重</p>
+</li>
+<li>已购/已读过滤</li>
+<li>在线过滤</li>
+<li>热门补足</li>
+<li>分页提取</li>
+<li>合并内容信息</li>
+</ol>
+<h2 id="_3">推荐系统召回路径</h2>
+<p>i2i u2i u2i2i u2u2i u2tag2i</p>
+<h2 id="netflix">Netflix 经典推荐系统架构</h2>
+<p><img alt="" src="../img/Netflix.jpg" /></p>
+<p>既能够处理海量数据，又能及时响应用户交互</p>
+<ol>
+<li>在线层 200ms</li>
+<li>近线层 10s</li>
+<li>离线层 天粒度</li>
+</ol>
+<h2 id="_4">推荐系统技术架构</h2>
+<p><img alt="" src="../img/推荐系统技术架构.png" /></p>
+<h2 id="_5">基于内容的推荐系统</h2>
+<p><img alt="" src="../img/基于内容的推荐系统.png" /></p>
+<h2 id="_6">基于协同过滤的推荐系统</h2>
+<p><img alt="" src="../img/推荐系统分类.png" /></p>
+<p>集体智慧</p>
+<ul>
+<li>基于用户的协同过滤</li>
+<li>基于物品的协同过滤</li>
+</ul>
+<p>相似度计算方法</p>
+<ul>
+<li>Jaccard 相似度</li>
+<li>余弦相似度</li>
+<li>皮尔逊相关系数</li>
+</ul>
+<h2 id="_7">多路召回融合排序</h2>
+<p>TopN</p>
+<p>融合方法</p>
+<ul>
+<li>按顺序展示</li>
+<li>平均法</li>
+<li>加权平均</li>
+<li>动态加权法</li>
+<li>机器学习权重法</li>
+</ul>
+<h2 id="ab">AB 测试</h2>
+<p>数据驱动</p>
+<h2 id="_8">实现内容相似推荐</h2>
+<p><img alt="" src="../img/内容相似推荐.png" /></p>
+<h2 id="_9">实现用户聚类推荐</h2>
+<p>群聚分析</p>
+<p><img alt="" src="../img/用户聚类算法.png" /></p>
+<h2 id="_10">实现矩阵分解推荐</h2>
+<p>降维</p>
+<p><img alt="" src="../img/矩阵分解.png" /></p>
+<h2 id="api">推荐系统 API 服务接口</h2>
+<p>猜你喜欢<br />
+相关推荐</p>
+<h2 id="_11">物品冷启动</h2>
+<p><img alt="" src="../img/物品冷启动.png" /></p>
+<p><img alt="" src="../img/基于物品相似算法.png" /></p>
+<p><img alt="" src="../img/多级流量池机制.png" /></p>
+<h2 id="embedding">Embedding 技术</h2>
+<p>直观上，是一个数组，元素是一个小数数字</p>
+<p>物理意义上，每个小数代表一个兴趣强度</p>
+<p>faiss 近邻搜索库</p>
+<h2 id="_12">推荐系统依赖数据源与特征工程</h2>
+<p><img alt="" src="../img/数据来源与数据应用.png" /></p>
+<p><img alt="" src="../img/推荐系统数据分类.png" /></p>
+<p><img alt="" src="../img/数据源的特征处理.png" /></p>
+<h2 id="_13">环境</h2>
+<p>Python<br />
+numpy<br />
+pandas<br />
+pyspark<br />
+flask<br />
+scipy</p>
                 
                   
                 
