@@ -42,19 +42,19 @@
 
 ## 学习笔记
 
-[笔记：二进制与Java中的基本数据类型](笔记：二进制与Java中的基本数据类型)
+[笔记-二进制与Java中的基本数据类型](笔记-二进制与Java中的基本数据类型)
 
-[笔记：Java从编程语言到编程思想](笔记：Java从编程语言到编程思想)
+[笔记-Java从编程语言到编程思想](笔记-Java从编程语言到编程思想)
 
-[笔记：Java继承和多态](笔记：Java继承和多态)
+[笔记-Java继承和多态](笔记-Java继承和多态)
 
-[笔记：Map从入门到性能分析](笔记：Map从入门到性能分析)
+[笔记-Map从入门到性能分析](笔记-Map从入门到性能分析)
 
-[笔记：Spring配置xml和注解](笔记：Spring配置xml和注解)
+[笔记-Spring配置xml和注解](笔记-Spring配置xml和注解)
 
-[笔记：SpringBoot发送邮件](笔记：SpringBoot发送邮件)
+[笔记-SpringBoot发送邮件](笔记-SpringBoot发送邮件)
 
-[笔记：SpringBoot热部署](笔记：SpringBoot热部署)
+[笔记-SpringBoot热部署](笔记-SpringBoot热部署)
 
-[笔记：ThreadLocal](笔记：ThreadLocal)
+[笔记-ThreadLocal](笔记-ThreadLocal)
 
