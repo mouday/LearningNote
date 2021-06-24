@@ -12,6 +12,7 @@ nav:
   - LEK: "LEK/index.md"
   - 设计模式: "设计模式/index.md"
   - Linux: "Linux/index.md"
+  - 前端: "前端/index.md"
 
 theme:
   name: "material"
@@ -27,5 +28,5 @@ markdown_extensions:
   - nl2br
   - tables
 
-copyright: "2019-2020"
+copyright: "2019-2021"
 # lang: 'jp'

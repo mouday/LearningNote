@@ -58,3 +58,8 @@
 
 [笔记-ThreadLocal](笔记-ThreadLocal)
 
+[笔记-Maven软件依赖管理](笔记-Maven软件依赖管理)
+
+[Java笔记-JDBC传统数据库访问和SpringData入门](Java笔记-JDBC传统数据库访问和SpringData入门)
+
+[Java笔记-SpringBoot开发常用技术整合](Java笔记-SpringBoot开发常用技术整合)

@@ -61,3 +61,5 @@
 [动画](动画)
 
 [TaleLin](TaleLin)
+
+[JavaScript中的30个疑难杂症](JavaScript中的30个疑难杂症)
