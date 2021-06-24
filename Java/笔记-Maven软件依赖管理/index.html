@@ -1,0 +1,1526 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Maven软件依赖管理 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#maven" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Maven软件依赖管理
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../前端/" title="前端" class="md-nav__link">
+      前端
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    大纲
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_1" class="md-nav__link">
+    Maven创建项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_2" class="md-nav__link">
+    Maven基础操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_3" class="md-nav__link">
+    Maven配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gav" class="md-nav__link">
+    GAV坐标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_4" class="md-nav__link">
+    Maven命令操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_5" class="md-nav__link">
+    Maven生命周期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_6" class="md-nav__link">
+    构建Maven项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archetype" class="md-nav__link">
+    archetype项目骨架加载过慢问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archetype_1" class="md-nav__link">
+    自定义archetype项目骨架解决版本问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_7" class="md-nav__link">
+    Maven依赖范围管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_8" class="md-nav__link">
+    Maven父子项目依赖传递
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_9" class="md-nav__link">
+    Maven项目聚合统一管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_10" class="md-nav__link">
+    Maven插件管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maven_11" class="md-nav__link">
+    Maven私有服务器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    创建私有仓库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    依赖下载和项目发布
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mavenjavase" class="md-nav__link">
+    Maven构建JavaSE项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mavenjavaweb" class="md-nav__link">
+    Maven构建JavaWeb项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    依赖冲突
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    课程总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="maven">Maven软件依赖管理</h1>
+<h2 id="_1">大纲</h2>
+<ol>
+<li>
+<p>快速入门</p>
+<ul>
+<li>环境搭建</li>
+<li>IDEA创建项目</li>
+<li>目录结构分析</li>
+</ul>
+</li>
+<li>
+<p>高手进阶</p>
+<ul>
+<li>repository仓库解析</li>
+<li>pom.xml配置详解</li>
+<li>GAV软件定位坐标</li>
+<li>mvn命令 &amp; 生命周期</li>
+<li>maven项目手工构建</li>
+<li>maven项目自动构建</li>
+</ul>
+</li>
+<li>
+<p>高级应用</p>
+<ul>
+<li>依赖范围解析</li>
+<li>项目继承下的依赖</li>
+<li>项目聚合下的依赖</li>
+<li>项目常用插件配置</li>
+<li>私有服务器管理</li>
+</ul>
+</li>
+<li>
+<p>应用拓展</p>
+<ul>
+<li>基础应用：Java SE项目</li>
+<li>应用升级：Java WEB项目</li>
+<li>应用拓展：SSM项目构建</li>
+<li>应用拓展：SpringBoot项目</li>
+<li>应用拓展：测试项目应用</li>
+</ul>
+</li>
+</ol>
+<h2 id="_2">概述</h2>
+<p>Maven: 一个用于自动化构建项目和管理项目依赖的工具</p>
+<p>环境搭建<br />
+1、 JDK <br />
+Java Development Kit<br />
+JAVA_HOME CLASSPATH PATH</p>
+<div class="codehilite"><pre><span></span>$ java -version
+java version <span class="s2">&quot;1.8.0_251&quot;</span>
+</pre></div>
+
+
+<p>2、 Maven <br />
+MAVEN_HOME version1<br />
+M2_HOME    version2<br />
+PATH       version3</p>
+<p>下载地址<br />
+<a href="https://maven.apache.org/">https://maven.apache.org/</a></p>
+<p>配置环境变量</p>
+<div class="codehilite"><pre><span></span>vim ~/.bash_profile
+
+<span class="c1"># maven</span>
+<span class="nb">export</span> <span class="nv">MAVEN_HOME</span><span class="o">=</span>/Users/Applications/apache-maven-3.6.3
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$MAVEN_HOME</span>/bin
+</pre></div>
+
+
+<p>查看maven版本</p>
+<div class="codehilite"><pre><span></span>$ mvn -version
+Apache Maven <span class="m">3</span>.6.3 <span class="o">(</span>cecedd343002696d0abb50b32b541b8a6ba2883f<span class="o">)</span>
+</pre></div>
+
+
+<p>3、 IDEA</p>
+<h2 id="maven_1">Maven创建项目</h2>
+<p>配置IDEA的Maven路径，选择自定义安装的路径</p>
+<p>1、快速构建web项目<br />
+选择Maven项目 maven-archetype-webapp</p>
+<p>2、管理Maven依赖，分析依赖关系</p>
+<p>搜索依赖地址：<a href="https://mvnrepository.com/">https://mvnrepository.com/</a></p>
+<p>pom.xml添加依赖</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>javax.servlet.jsp-api<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.2.1<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+
+
+<p>插件列表：<a href="https://maven.apache.org/plugins/index.html">https://maven.apache.org/plugins/index.html</a></p>
+<p>pom.xml添加插件</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;plugins&gt;</span>
+    <span class="nt">&lt;pluginManagement&gt;</span>
+        <span class="nt">&lt;build&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+              <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.maven<span class="nt">&lt;/groupId&gt;</span>
+              <span class="nt">&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+              <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/pluginManagement&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+
+
+<p>3、运行项目，检测Maven项目</p>
+<p>（1）Maven</p>
+<p>运行命令</p>
+<div class="codehilite"><pre><span></span>$ mvn tomcat7:run
+</pre></div>
+
+
+<p>可以配置到启动命令</p>
+<div class="codehilite"><pre><span></span><span class="err">选择</span><span class="n">Maven</span> <span class="o">-&gt;</span> <span class="n">Command</span> <span class="n">line添加tomcat7</span><span class="p">:</span><span class="n">run</span>
+</pre></div>
+
+
+<p>（2）添加到Tomcat</p>
+<p>配置启动命令</p>
+<div class="codehilite"><pre><span></span><span class="err">选择</span><span class="n">Tomcat</span> <span class="o">-&gt;</span> <span class="n">Deployment</span> <span class="o">-&gt;</span> <span class="n">Artifact</span>
+</pre></div>
+
+
+<p>4、防火墙影响访问国外仓库：<br />
+[Info] Generating project in Batch mode</p>
+<p>配置阿里云中央仓库 </p>
+<p>https://maven.aliyun.com/mvn/guide</p>
+<div class="codehilite"><pre><span></span>$ vim ~/.m2/settings.xml
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mirrors&gt;</span>
+    <span class="nt">&lt;mirror&gt;</span>
+      <span class="nt">&lt;id&gt;</span>aliyunmaven<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;mirrorOf&gt;</span>*<span class="nt">&lt;/mirrorOf&gt;</span>
+      <span class="nt">&lt;name&gt;</span>阿里云公共仓库<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;url&gt;</span>https://maven.aliyun.com/repository/public<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/mirror&gt;</span>
+<span class="nt">&lt;/mirrors&gt;</span>
+</pre></div>
+
+
+<p>项目结构</p>
+<div class="codehilite"><pre><span></span>.
+├── pom.xml
+├── src               <span class="c1"># source</span>
+│   └── main
+│       ├── java      <span class="c1"># 业务代码</span>
+│       ├── resources <span class="c1"># 资源文件</span>
+│       └── webapp
+│           ├── WEB-INF
+│           │   └── web.xml
+│           └── index.jsp
+└── target            <span class="c1"># 目标文件 </span>
+</pre></div>
+
+
+<p>pom.xml <br />
+project object model 项目对象模型<br />
+package object management 依赖包对象管理器</p>
+<h2 id="maven_2">Maven基础操作</h2>
+<p>1、仓库 Repository</p>
+<p>配置文件默认路径:<code>~/.m2/settings.xml</code></p>
+<ol>
+<li>远程仓库/中央仓库/国内镜像仓库</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;mirror&gt;</span>
+    <span class="nt">&lt;id&gt;</span>alimaven<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
+    <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>https://maven.aliyun.com/repository/public<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/mirror&gt;</span>
+</pre></div>
+
+
+<ol>
+<li>本地仓库</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;localRepository&gt;</span>~/.m2/repository<span class="nt">&lt;/localRepository&gt;</span>
+</pre></div>
+
+
+<ol>
+<li>私有服务器</li>
+</ol>
+<h2 id="maven_3">Maven配置</h2>
+<p>全局配置 settings.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;settings</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span>
+      <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+      <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/SETTINGS/1.0.0</span>
+<span class="s">                          https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 本地仓库配置：默认~/.m2/repository[推荐修改配置] --&gt;</span>
+    <span class="nt">&lt;localRepository&gt;</span>${user.home}/.m2/repository<span class="nt">&lt;/localRepository&gt;</span>
+
+    <span class="c">&lt;!-- 交互方式配置，读取用户输入信息[使用默认即可，很少修改] --&gt;</span>
+    <span class="nt">&lt;interactiveMode&gt;</span>true<span class="nt">&lt;/interactiveMode&gt;</span>
+
+    <span class="c">&lt;!-- 是否启用独立的插件配置文件，一般很少启用[默认即可，很少修改] --&gt;</span>
+    <span class="nt">&lt;usePluginRegistry&gt;</span>false<span class="nt">&lt;/usePluginRegistry&gt;</span>
+
+    <span class="c">&lt;!-- 是否启用离线构建模式，一般很少修改[如果长时间不能联网的情况下可以修改] --&gt;</span>
+    <span class="nt">&lt;offline&gt;</span>false<span class="nt">&lt;/offline&gt;</span>
+
+    <span class="c">&lt;!-- 是否启用插件groupId自动扫描[很少使用，配置插件时建议全信息配置] --&gt;</span>
+    <span class="nt">&lt;pluginGroups&gt;&lt;/pluginGroups&gt;</span>
+
+    <span class="c">&lt;!--配置服务端的一些设置如身份认证信息(eg: 账号、密码) --&gt;</span>
+    <span class="nt">&lt;servers&gt;&lt;/servers&gt;</span>
+
+    <span class="c">&lt;!-- 镜像位置 --&gt;</span>
+    <span class="nt">&lt;mirrors&gt;&lt;/mirrors&gt;</span>
+
+    <span class="c">&lt;!-- 代理 --&gt;</span>
+    <span class="nt">&lt;proxies&gt;&lt;/proxies&gt;</span>
+
+    <span class="nt">&lt;profiles&gt;&lt;/profiles&gt;</span>
+
+    <span class="nt">&lt;activeProfiles&gt;&lt;/activeProfiles&gt;</span>
+
+    <span class="nt">&lt;activation&gt;&lt;/activation&gt;</span>
+
+    <span class="nt">&lt;properties&gt;&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;repositories&gt;&lt;/repositories&gt;</span>
+
+<span class="nt">&lt;/settings&gt;</span>
+</pre></div>
+
+
+<p>jdk1.8_profile.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;profiles&gt;</span>
+    <span class="nt">&lt;profile&gt;</span>
+      <span class="nt">&lt;id&gt;</span>jdk-1.8<span class="nt">&lt;/id&gt;</span>
+
+      <span class="nt">&lt;activation&gt;</span>
+        <span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
+        <span class="nt">&lt;jdk&gt;</span>1.8<span class="nt">&lt;/jdk&gt;</span>
+      <span class="nt">&lt;/activation&gt;</span>
+
+      <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+        <span class="nt">&lt;maven.compiler.compilerVersion&gt;</span>1.8<span class="nt">&lt;/maven.compiler.compilerVersion&gt;</span>
+      <span class="nt">&lt;/properties&gt;</span>
+    <span class="nt">&lt;/profile&gt;</span>
+<span class="nt">&lt;/profiles&gt;</span>
+</pre></div>
+
+
+<p>项目配置 pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> 
+    <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>  
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 </span>
+<span class="s">    http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>  
+
+<span class="c">&lt;!-- 1、项目基本信息配置 --&gt;</span>
+<span class="c">&lt;!-- 2、项目构建环境配置 --&gt;</span>
+<span class="c">&lt;!-- 3、项目仓库管理配置 --&gt;</span>
+<span class="c">&lt;!-- 4、项目依赖管理配置 --&gt;</span>
+<span class="c">&lt;!-- 5、项目报表信息配置 --&gt;</span>
+<span class="c">&lt;!-- 6、项目部分分发配置 --&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
+
+<p>优先级 : </p>
+<div class="codehilite"><pre><span></span><span class="err">项目配置</span><span class="n">pom</span><span class="p">.</span><span class="n">xml</span> <span class="o">&gt;</span> <span class="err">用户配置</span><span class="n">settings</span><span class="p">.</span><span class="n">xmlnote</span> <span class="o">&gt;</span> <span class="err">全局配置</span><span class="n">settings</span><span class="p">.</span><span class="n">xml</span>
+</pre></div>
+
+
+<p>完整配置：<br />
+<a href="https://pengshiyu.blog.csdn.net/article/details/111463059">Maven: settings.xml、pom.xml完整配置</a></p>
+<h2 id="gav">GAV坐标</h2>
+<p>版本号：</p>
+<div class="codehilite"><pre><span></span><span class="err">软件名称</span><span class="p">.</span><span class="err">主版本号</span><span class="p">.</span><span class="err">小版本号</span><span class="p">.</span><span class="err">阶段版本号</span><span class="p">.</span><span class="err">字母版本号</span>
+</pre></div>
+
+
+<p>字母版本号：<br />
+alpha 内测版<br />
+beta  公测版<br />
+rc    候选版<br />
+stable 稳定版<br />
+release/r/ga 发布版<br />
+final 最终版</p>
+<h2 id="maven_4">Maven命令操作</h2>
+<p>1、项目构建命令</p>
+<div class="codehilite"><pre><span></span><span class="n">mvn</span> <span class="c1">--version</span>
+<span class="n">mvn</span> <span class="n">archetype</span><span class="p">:</span><span class="n">generate</span>
+</pre></div>
+
+
+<p>2、项目清理、编译、打包</p>
+<div class="codehilite"><pre><span></span><span class="n">mvn</span> <span class="n">clean</span>
+<span class="n">mvn</span> <span class="n">compile</span>
+<span class="n">mvn</span> <span class="n">package</span>
+</pre></div>
+
+
+<p>3、项目运行、测试、发布</p>
+<div class="codehilite"><pre><span></span><span class="n">mvn</span> <span class="n">tomcat</span><span class="p">:</span><span class="n">run</span>
+<span class="n">mvn</span> <span class="n">test</span>
+<span class="n">mvn</span> <span class="n">site</span>
+<span class="n">mvn</span> <span class="n">dependency</span><span class="p">:</span><span class="n">tree</span>
+<span class="n">mvn</span> <span class="n">install</span>
+<span class="n">mvn</span> <span class="n">deploy</span>
+</pre></div>
+
+
+<h2 id="maven_5">Maven生命周期</h2>
+<p>clean lifecycle 项目构建之前的清理环节<br />
+default lifecycle 项目编译和打包环节<br />
+site lifecycle 项目报告，站点信息，发布环节</p>
+<h2 id="maven_6">构建Maven项目</h2>
+<p>1、手工构建Maven项目</p>
+<p>项目结构</p>
+<div class="codehilite"><pre><span></span>$ tree
+.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── demo
+    │   │           └── Hello.java
+    │   └── resources
+    └── <span class="nb">test</span>
+        ├── java
+        │   └── com
+        │       └── demo
+        └── resources
+</pre></div>
+
+
+<p>pom.xml文件<br />
+https://maven.apache.org/guides/getting-started/index.html</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> 
+  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 </span>
+<span class="s">  http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+  <span class="nt">&lt;groupId&gt;</span>com.demo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>hello<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
+
+<p>Hello.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 清理</span>
+$ mvn clean
+
+<span class="c1"># 编译</span>
+$ mvn compile
+
+<span class="c1"># 运行</span>
+$ mvn exec:java -Dexec.mainClass<span class="o">=</span><span class="s2">&quot;com.demo.Hello&quot;</span>
+</pre></div>
+
+
+<p>2、命令构建Maven项目</p>
+<p>创建命令</p>
+<div class="codehilite"><pre><span></span><span class="c1"># &lt;3.0.5</span>
+mvn archetype:create
+
+<span class="c1"># &gt;3.0.5</span>
+mvn archetype:generate
+</pre></div>
+
+
+<p>参数</p>
+<div class="codehilite"><pre><span></span>-DgroupID<span class="o">=</span><span class="s2">&quot;&quot;</span>
+-DartifactID<span class="o">=</span><span class="s2">&quot;&quot;</span>
+-DpackageName<span class="o">=</span><span class="s2">&quot;&quot;</span>
+-DarchetypeArtifactId<span class="o">=</span><span class="s2">&quot;maven-archetype-quickstart/maven-archetype-webapp&quot;</span>
+-DinteractiveMode<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+
+
+<p>eg:</p>
+<div class="codehilite"><pre><span></span>$ mvn archetype:generate <span class="se">\</span>
+-DgroupId<span class="o">=</span>com.demo <span class="se">\</span>
+-DartifactId<span class="o">=</span>java-demo <span class="se">\</span>
+-DpackageName<span class="o">=</span>com.demo <span class="se">\</span>
+-DarchetypeArtifactId<span class="o">=</span>maven-archetype-quickstart
+</pre></div>
+
+
+<p>3、工具构建Maven项目</p>
+<p>使用 IDEA创建Maven项目</p>
+<h2 id="archetype">archetype项目骨架加载过慢问题</h2>
+<p>拷贝<code>archetype-catalog.xml</code>到目录</p>
+<div class="codehilite"><pre><span></span><span class="o">~/</span><span class="p">.</span><span class="n">m2</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">/</span><span class="n">archetype</span><span class="o">/</span><span class="n">archetype</span><span class="o">-</span><span class="k">catalog</span><span class="o">/</span><span class="mi">3</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span>
+</pre></div>
+
+
+<p>IDEA Build Tools -&gt; Maven Runner设置VM Options:</p>
+<div class="codehilite"><pre><span></span><span class="o">-</span><span class="n">DarchetypeCatalog</span><span class="o">=</span><span class="k">local</span>
+</pre></div>
+
+
+<h2 id="archetype_1">自定义archetype项目骨架解决版本问题</h2>
+<p>windows如果报错需要修改</p>
+<div class="codehilite"><pre><span></span><span class="n">mvn</span><span class="p">.</span><span class="n">cmd</span> <span class="o">-&gt;</span> <span class="n">mvn</span><span class="p">.</span><span class="n">bat</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 构建项目骨架</span>
+$ mvn archetype:create-from-project
+
+<span class="c1"># 安装到本地仓库</span>
+$ mvn clean install
+</pre></div>
+
+
+<h2 id="maven_7">Maven依赖范围管理</h2>
+<div class="codehilite"><pre><span></span><span class="err">软件的依赖：</span>
+  <span class="o">-</span> <span class="k">G</span><span class="p">:</span> <span class="n">groupID</span>
+  <span class="o">-</span> <span class="n">A</span><span class="p">:</span> <span class="n">artifactID</span>  
+  <span class="o">-</span> <span class="n">V</span><span class="p">:</span> <span class="k">Version</span>
+  <span class="o">-</span> <span class="k">Scope</span>
+    <span class="o">-</span> <span class="n">compile</span>  <span class="err">编译、运行、测试、打包（默认）</span>
+    <span class="o">-</span> <span class="n">provided</span> <span class="err">编译、运行</span> <span class="n">eg</span><span class="p">:</span> <span class="n">servlet</span>
+    <span class="o">-</span> <span class="n">runtime</span>  <span class="err">运行、打包</span> <span class="n">eg</span><span class="p">:</span> <span class="n">mysql</span>
+    <span class="o">-</span> <span class="n">test</span>     <span class="err">测试</span>
+    <span class="o">-</span> <span class="k">system</span>   <span class="err">编译、运行</span>
+</pre></div>
+
+
+<h2 id="maven_8">Maven父子项目依赖传递</h2>
+<p>父子项目<br />
+优点：<br />
+1. 合理有效的复用依赖jar包<br />
+2. 子项目互相独立，更加便于敏捷开发和独立管理</p>
+<p>缺点：<br />
+1. 项目之间的系统集成性能较差</p>
+<p>父项目pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
+<span class="s">  http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+  <span class="nt">&lt;groupId&gt;</span>com.demo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-parent<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;name&gt;</span>maven-parent<span class="nt">&lt;/name&gt;</span>
+  <span class="c">&lt;!-- FIXME change it to the project&#39;s website --&gt;</span>
+  <span class="nt">&lt;url&gt;</span>http://www.example.com<span class="nt">&lt;/url&gt;</span>
+
+  <span class="c">&lt;!-- 1、父项目的打包方式 --&gt;</span>
+  <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+  <span class="c">&lt;!-- 2、版本统一管理 --&gt;</span>
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+    <span class="nt">&lt;log4j.version&gt;</span>1.2.17<span class="nt">&lt;/log4j.version&gt;</span>
+    <span class="nt">&lt;junit.version&gt;</span>4.11<span class="nt">&lt;/junit.version&gt;</span>
+    <span class="nt">&lt;spring.version&gt;</span>5.1.9.RELEASE<span class="nt">&lt;/spring.version&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+
+  <span class="c">&lt;!--3、父项目中基本依赖 --&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${spring.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-beans<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${spring.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+
+  <span class="c">&lt;!--4、父项目中统一管理的依赖，依赖容器，子项目中使用时才会引入--&gt;</span>
+  <span class="nt">&lt;dependencyManagement&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+      <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>${log4j.version}<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+  <span class="nt">&lt;/dependencyManagement&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
+
+<p>子项目pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
+<span class="s">  http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+  <span class="c">&lt;!--1、继承关系，继承一个项目 --&gt;</span>
+  <span class="nt">&lt;parent&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.demo<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;relativePath&gt;</span>../maven-parent/pom.xml<span class="nt">&lt;/relativePath&gt;</span>
+  <span class="nt">&lt;/parent&gt;</span>
+
+  <span class="c">&lt;!--2、子项目中，会自动继承父项目的groupId--&gt;</span>
+  <span class="c">&lt;!--&lt;groupId&gt;com.demo&lt;/groupId&gt;--&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-wiki<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;name&gt;</span>maven-wiki<span class="nt">&lt;/name&gt;</span>
+  <span class="c">&lt;!-- FIXME change it to the project&#39;s website --&gt;</span>
+  <span class="nt">&lt;url&gt;</span>http://www.example.com<span class="nt">&lt;/url&gt;</span>
+
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.7<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.7<span class="nt">&lt;/maven.compiler.target&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>4.11<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+  <span class="c">&lt;!--  3、使用父项目中，依赖管理器中统一管理的依赖--&gt;</span>
+  <span class="c">&lt;!--  可以不写版本号，由父项目进行统一管理 --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
+
+<h2 id="maven_9">Maven项目聚合统一管理</h2>
+<p>项目聚合关系：<br />
+项目之间整体性较高，便于系统集成和维护</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;modules&gt;</span>
+    <span class="nt">&lt;module&gt;</span>maven-child1<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;module&gt;</span>maven-child2<span class="nt">&lt;/module&gt;</span>
+<span class="nt">&lt;/modules&gt;</span>
+</pre></div>
+
+
+<h2 id="maven_10">Maven插件管理</h2>
+<p>生命周期插件<br />
+  - resources<br />
+  - source<br />
+  - clean<br />
+  - compile</p>
+<p>常用操作插件<br />
+  - tomcat7<br />
+  - dependency<br />
+  - jar</p>
+<p>Maven插件查找<br />
+https://maven.apache.org/plugins/index.html</p>
+<p>查看依赖插件</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.1.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+
+
+<p>查看依赖</p>
+<div class="codehilite"><pre><span></span>$ mvn dependency:tree
+</pre></div>
+
+
+<p>IDEA中可以右键查看依赖图</p>
+<h2 id="maven_11">Maven私有服务器</h2>
+<ul>
+<li>Apache Archiva</li>
+<li>JFrog Artifactory</li>
+<li>Sonatype Nexus</li>
+</ul>
+<p>下载页面：<br />
+https://www.sonatype.com/nexus/repository-oss/download</p>
+<div class="codehilite"><pre><span></span><span class="n">Products</span><span class="o">-&gt;</span><span class="n">Nexus</span> <span class="n">Repository</span> <span class="n">Manager</span><span class="o">-&gt;</span><span class="n">OSS</span> <span class="n">Edition</span>
+</pre></div>
+
+
+<p>或者：<br />
+https://help.sonatype.com/repomanager3/download</p>
+<p>国外地址无法下载，找到一个方法，使用香港的服务器下载后再下载到本地</p>
+<p>百度网盘下载：<br />
+链接: https://pan.baidu.com/s/1HY3Cwr8KSCm92JByc_BmQg<br />
+提取码: 6jwk</p>
+<p>操作</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 启动</span>
+<span class="nb">cd</span> bin
+$ ./nexus start
+</pre></div>
+
+
+<p>默认端口:<br />
+http://localhost:8081/</p>
+<h2 id="_3">创建私有仓库</h2>
+<p>私有服务器分类</p>
+<ul>
+<li>proxy 代理远程仓库</li>
+<li>group 分组管理</li>
+<li>hosted 发布本地开发项目</li>
+<li>releases 稳定版</li>
+<li>snapshots  快照版</li>
+</ul>
+<h2 id="_4">依赖下载和项目发布</h2>
+<p>依赖查找顺序：</p>
+<div class="codehilite"><pre><span></span><span class="err">本地仓库</span> <span class="o">&lt;</span> <span class="err">私有仓库</span> <span class="o">&lt;</span> <span class="err">中央仓库</span>
+</pre></div>
+
+
+<p>登录之后可以创建新的仓库</p>
+<p>1、从私有仓库通过代理下载依赖 pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!--配置私有仓库地址--&gt;</span>
+<span class="c">&lt;!--从私有仓库下载的包会被缓存--&gt;</span>
+<span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>my-central<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;name&gt;</span>My Central<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>http://localhost:8081/repository/my-central/<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;releases&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+        <span class="nt">&lt;/releases&gt;</span>
+        <span class="nt">&lt;snapshots&gt;</span>
+            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+        <span class="nt">&lt;/snapshots&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+
+
+<p>2、发布项目 pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;groupId&gt;</span>com.demo<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>maven-demo<span class="nt">&lt;/artifactId&gt;</span>
+
+<span class="c">&lt;!-- 快照版 --&gt;</span>
+<span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+<span class="c">&lt;!-- 正式版  --&gt;</span>
+<span class="nt">&lt;version&gt;</span>1.0-RELEASE<span class="nt">&lt;/version&gt;</span>
+
+
+<span class="c">&lt;!--配置发布仓库地址--&gt;</span>
+<span class="nt">&lt;distributionManagement&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>my-release<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;name&gt;</span>My Release<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>http://localhost:8081/repository/my-release/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+
+    <span class="nt">&lt;snapshotRepository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>my-snapshot<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;name&gt;</span>My Snapshot<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>http://localhost:8081/repository/my-snapshot/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/snapshotRepository&gt;</span>
+<span class="nt">&lt;/distributionManagement&gt;</span>
+</pre></div>
+
+
+<p>配置账号密码 <code>~/.m2/settings.xml</code></p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;servers&gt;</span>
+    <span class="nt">&lt;server&gt;</span>
+        <span class="nt">&lt;id&gt;</span>my-snapshot<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;username&gt;</span>admin<span class="nt">&lt;/username&gt;</span>
+        <span class="nt">&lt;password&gt;</span>123456<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+    <span class="nt">&lt;server&gt;</span>
+        <span class="nt">&lt;id&gt;</span>my-release<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;username&gt;</span>admin<span class="nt">&lt;/username&gt;</span>
+        <span class="nt">&lt;password&gt;</span>123456<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+<span class="nt">&lt;/servers&gt;</span>
+</pre></div>
+
+
+<p>发布</p>
+<div class="codehilite"><pre><span></span>$ mvn deploy
+</pre></div>
+
+
+<h2 id="mavenjavase">Maven构建JavaSE项目</h2>
+<p>通过IDEA创建Maven项目</p>
+<p>项目结构</p>
+<div class="codehilite"><pre><span></span>.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── demo
+    │   │           └── HelloWorld.java
+    │   └── resources
+    └── <span class="nb">test</span>
+        └── java
+</pre></div>
+
+
+<p>HelloWorld.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;hello&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>运行方式：</p>
+<ol>
+<li>
+<p>直接运行</p>
+</li>
+<li>
+<p>配置运行参数</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="k">exec</span>:<span class="nv">java</span> <span class="o">-</span><span class="nv">Dexec</span>.<span class="nv">mainClass</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">com.example.HelloWorld</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<h2 id="mavenjavaweb">Maven构建JavaWeb项目</h2>
+<p>项目骨架：maven-archetype-webapp</p>
+<p>手工创建</p>
+<p>项目结构</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span>
+<span class="err">├──</span> <span class="n">pom</span><span class="p">.</span><span class="n">xml</span>
+<span class="err">└──</span> <span class="n">src</span>
+    <span class="err">├──</span> <span class="n">main</span>
+    <span class="err">│</span>   <span class="err">├──</span> <span class="n">java</span>
+    <span class="err">│</span>   <span class="err">│</span>   <span class="err">└──</span> <span class="n">com</span>
+    <span class="err">│</span>   <span class="err">│</span>       <span class="err">└──</span> <span class="n">demo</span>
+    <span class="err">│</span>   <span class="err">│</span>           <span class="err">└──</span> <span class="n">HelloServlet</span><span class="p">.</span><span class="n">java</span>
+    <span class="err">│</span>   <span class="err">├──</span> <span class="n">resources</span>
+    <span class="err">│</span>   <span class="err">└──</span> <span class="n">webapp</span>
+    <span class="err">│</span>       <span class="err">├──</span> <span class="n">WEB</span><span class="o">-</span><span class="n">INF</span>
+    <span class="err">│</span>       <span class="err">│</span>   <span class="err">└──</span> <span class="n">web</span><span class="p">.</span><span class="n">xml</span>
+    <span class="err">│</span>       <span class="err">└──</span> <span class="k">index</span><span class="p">.</span><span class="n">jsp</span>
+    <span class="err">└──</span> <span class="n">test</span>
+        <span class="err">└──</span> <span class="n">java</span>
+</pre></div>
+
+
+<p>pom.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 </span>
+<span class="s">         http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>com.demo<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>java-web-demo<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="c">&lt;!-- 修改打包方式 --&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+            <span class="c">&lt;!--编译和运行时生效--&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="c">&lt;!--命令行启动：$ mvn tomcat7:run--&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.maven<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+
+
+<p>web.xml</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF8&quot;?&gt;</span>
+
+<span class="nt">&lt;web-app</span> <span class="na">xmlns=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://xmlns.jcp.org/xml/ns/javaee</span>
+<span class="s">                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span>
+         <span class="na">version=</span><span class="s">&quot;3.1&quot;</span>
+         <span class="na">metadata-complete=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;welcome-file-list&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>index.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+    <span class="nt">&lt;/welcome-file-list&gt;</span>
+
+<span class="nt">&lt;/web-app&gt;</span>
+</pre></div>
+
+
+<p>index.jsp</p>
+<div class="codehilite"><pre><span></span><span class="err">&lt;</span>%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt;
+
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;zh-CN&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Demo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>我的web项目<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>HelloServlet.java</p>
+<div class="codehilite"><pre><span></span><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.annotation.WebServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 使用 WebServlet 需要配置 web.xml</span>
+<span class="cm"> * version &gt; 3.0</span>
+<span class="cm"> * metadata-complete=false</span>
+<span class="cm"> *</span>
+<span class="cm"> * 参考：https://www.cnblogs.com/iCheny/p/10976735.html</span>
+<span class="cm"> */</span>
+<span class="nd">@WebServlet</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;/hello&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">resp</span><span class="o">.</span><span class="na">getWriter</span><span class="o">().</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello World.&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>项目构建 Project Structure 创建Web 模块</p>
+<p>两种方式启动：</p>
+<p>1、命令行运行</p>
+<div class="codehilite"><pre><span></span>$ mvn tomcat7:run
+</pre></div>
+
+
+<p>2、配置Tomcat</p>
+<p>IDEA的即改即生效都不是太好，开发起来很痛苦啊<br />
+Eclipse 生效很及时</p>
+<p>以Debug模式运行，编译后就生效了</p>
+<h2 id="_5">依赖冲突</h2>
+<p>1、依赖直接冲突</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>commons-beanutils<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>commons-beanutils<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.9.4<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- 优先排除低版本的依赖，一般情况下高版本会兼容低版本 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.poi<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>poi<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.5-FINAL<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;exclusions&gt;</span>
+    <span class="nt">&lt;exclusion&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;/exclusion&gt;</span>
+  <span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>2、依赖传递冲突</p>
+<h2 id="_6">课程总结</h2>
+<ol>
+<li>
+<p>环境搭建，文件结构</p>
+</li>
+<li>
+<p>项目构建，配置梳理</p>
+</li>
+<li>
+<p>仓库，坐标，命令和生命周期</p>
+</li>
+<li>
+<p>项目依赖的范围管理</p>
+</li>
+<li>
+<p>父子项目的传递，聚合项目的管理</p>
+</li>
+<li>
+<p>私有服务器的构建使用</p>
+</li>
+<li>
+<p>增强项目功能的插件</p>
+</li>
+<li>
+<p>不同类型项目的构建</p>
+</li>
+<li>
+<p>解决项目中的依赖冲突</p>
+</li>
+</ol>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2021
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

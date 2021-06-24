@@ -1,0 +1,2253 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>JavaScript中的30个疑难杂症 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#typeof-instanceof" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                JavaScript中的30个疑难杂症
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../php/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../前端/" title="前端" class="md-nav__link">
+      前端
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#typeof-instanceof" class="md-nav__link">
+    typeof 和 instanceof
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    数据的存储形式-堆栈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    深拷贝和浅拷贝
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    数据类型转换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    多运算符和分支结构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    优化for循环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#js" class="md-nav__link">
+    js中常见的内置对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    装箱和拆箱
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    深入理解栈和队列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort列表排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dategetmonth" class="md-nav__link">
+    Date对象中的getMonth()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    开发中的编码和解码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    理解DOM树的加载过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3种事件绑定的异同
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    事件触发、事件捕获与事件冒泡
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    阻止默认行为的两种方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historylocation" class="md-nav__link">
+    使用History和location
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    常见函数的4种类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    变量和函数提升
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    作用域和作用域链
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    执行环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    重载和多态的使用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    闭包
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callapplybind" class="md-nav__link">
+    call、apply、bind的使用场景区分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new" class="md-nav__link">
+    new的执行过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this的使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    理解面向对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    原型和原型链
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    原型相关API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    继承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectdefineproperty" class="md-nav__link">
+    Object.defineProperty
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>JavaScript中的30个疑难杂症</h1>
+                
+                <p>JavaScript中的30个疑难杂症</p>
+<p>目录</p>
+<ol>
+<li>数据类型</li>
+<li>表达式运算符和分支结构</li>
+<li>内置对象</li>
+<li>JS DOM</li>
+<li>JS BOM</li>
+<li>函数对象</li>
+<li>面向对象</li>
+</ol>
+<h2 id="typeof-instanceof">typeof 和 instanceof</h2>
+<p>JS数据类型：</p>
+<ul>
+<li>原始类型（基本类型）Undefined Null Boolean Number String</li>
+<li>引用类型（复杂类型）Object</li>
+</ul>
+<p>1、typeof检测返回对应数据类型</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">// number</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// boolean</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="s2">&quot;hello&quot;</span><span class="p">);</span> <span class="c1">// string</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">undefined</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">null</span><span class="p">);</span> <span class="c1">// object</span>
+<span class="c1">// 计算机typeof 按照机器码后3位判断数据类型</span>
+<span class="c1">// null 00000000 =&gt; object后3位为0</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">[]);</span> <span class="c1">// object</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">{});</span>  <span class="c1">// object</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span> <span class="c1">// object</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{});</span> <span class="c1">// function</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nb">Array</span><span class="p">);</span> <span class="c1">// function</span>
+<span class="c1">// typeof 引用类型 object function</span>
+<span class="c1">// object + call方法 =&gt; function</span>
+</pre></div>
+
+
+<p>字符串示例</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">name1</span> <span class="o">=</span> <span class="s2">&quot;Tom&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name1</span><span class="p">);</span> <span class="c1">// Tom</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">name1</span><span class="p">);</span>  <span class="c1">//string</span>
+
+<span class="kd">var</span> <span class="nx">name2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name2</span><span class="p">);</span>
+<span class="c1">// String {&quot;Tom&quot;}</span>
+<span class="c1">// 0: &quot;T&quot;</span>
+<span class="c1">// 1: &quot;o&quot;</span>
+<span class="c1">// 2: &quot;m&quot;</span>
+<span class="c1">// length: 3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">name2</span><span class="p">);</span> <span class="c1">// object</span>
+</pre></div>
+
+
+<p>总结：</p>
+<p>typeof 少null, 多function</p>
+<p>2、instanceof检测返回bool: true/false</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([]</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({}</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="k">instanceof</span> <span class="nb">Date</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">()</span> <span class="p">{}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">()</span> <span class="k">instanceof</span> <span class="nx">Person</span><span class="p">);</span> <span class="c1">// true</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([]</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">()</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">);</span> <span class="c1">// true</span>
+</pre></div>
+
+
+<p>instanceof 原型链查找</p>
+<div class="codehilite"><pre><span></span><span class="nx">A</span> <span class="k">instanceof</span> <span class="nx">B</span> <span class="o">==</span> <span class="nx">True</span>
+<span class="nx">B</span> <span class="k">instanceof</span> <span class="nx">C</span> <span class="o">==</span> <span class="nx">True</span>
+
+<span class="p">=&gt;</span> <span class="nx">A</span> <span class="k">instanceof</span> <span class="nx">C</span> <span class="o">==</span> <span class="nx">True</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">));</span> <span class="c1">// [object String]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">([]));</span> <span class="c1">// [object Array]</span>
+</pre></div>
+
+
+<p>总结：<br />
+1. typeof 返回值是一个字符串:<br />
+    - number string boolean <br />
+    - function（函数） <br />
+    - object(null，数组，对象) <br />
+    - undefined<br />
+2. instanceof 返回布尔值，判断A 是否为B 的实例对象，检测的是原型</p>
+<h2 id="-">数据的存储形式-堆栈</h2>
+<p>js堆栈</p>
+<ul>
+<li>栈：计算机为原始类型开辟的一块内存空间 string number...</li>
+<li>堆：计算机为引用类型开辟的一块内存空间 object</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">// 栈中存放数值</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;Tom&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="s2">&quot;Jack&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+<span class="c1">// Tom Jack</span>
+
+<span class="c1">// 栈中存放地址值，堆中存放对象</span>
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;value&quot;</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">c</span><span class="p">;</span>
+<span class="nx">d</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="s2">&quot;newValue&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">);</span>
+<span class="c1">// {key: &quot;newValue&quot;}  {key: &quot;newValue&quot;}</span>
+</pre></div>
+
+
+<h2 id="_1">深拷贝和浅拷贝</h2>
+<ul>
+<li>深拷贝：修改复制对象，原始对象不会变化</li>
+<li>浅拷贝：修改复制对象，原始对象也变化</li>
+</ul>
+<p>方式：<br />
+- 遍历赋值<br />
+- Object.create()<br />
+- JSON.parse()和JSON.stringify()</p>
+<p>操作的对象</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span> <span class="s2">&quot;Hello&quot;</span><span class="p">,</span>
+    <span class="nx">b</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">a</span><span class="o">:</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span>
+      <span class="nx">b</span><span class="o">:</span> <span class="mi">111</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">c</span><span class="o">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;Tom&quot;</span><span class="p">],</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>1、浅拷贝</p>
+<p>1-1、遍历赋值</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 浅拷贝</span>
+<span class="kd">function</span> <span class="nx">simpleCopy</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o_</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">o_</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">o</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">o_</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">newObj</span> <span class="o">=</span> <span class="nx">simpleCopy</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">newObj</span><span class="p">.</span><span class="nx">b</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;WORLD&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newObj</span><span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm">obj 和 newObj都变了：</span>
+<span class="cm">b: { &quot;a&quot;: &quot;WORLD&quot;, &quot;b&quot;: 111}}</span>
+<span class="cm">*/</span>
+</pre></div>
+
+
+<p>1-2、Object.create()</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">newObj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">newObj</span><span class="p">.</span><span class="nx">b</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;WORLD&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="c1">// b: {a: &quot;WORLD&quot;, b: 111}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newObj</span><span class="p">);</span>
+<span class="c1">// __proto__:</span>
+<span class="c1">// b: {a: &quot;WORLD&quot;, b: 111}</span>
+</pre></div>
+
+
+<p>2、深拷贝</p>
+<p>2-1、遍历赋值</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">deepCopy</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">deepObject</span><span class="o">=</span><span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">deepObj</span> <span class="o">=</span> <span class="nx">deepObject</span> <span class="o">||</span> <span class="p">{};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;object&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 引用类型 [] {} null</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="kc">null</span><span class="p">){</span>
+          <span class="nx">deepObj</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+          <span class="nx">deepObj</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Array</span> <span class="o">?</span> <span class="p">[]</span><span class="o">:</span> <span class="p">{}</span>
+          <span class="c1">// deepObj[i] = object[i].constructor === Array ? []: Object.create(null);</span>
+          <span class="nx">deepCopy</span><span class="p">(</span><span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">deepObj</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+        <span class="c1">// 简单数据类型</span>
+        <span class="nx">deepObj</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">object</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">deepObj</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">newObj</span> <span class="o">=</span> <span class="nx">deepCopy</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">newObj</span><span class="p">.</span><span class="nx">b</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;WORLD&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="c1">// b: {a: &quot;world&quot;, b: 111}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newObj</span><span class="p">);</span>
+<span class="c1">// b: {a: &quot;WORLD&quot;, b: 111}</span>
+</pre></div>
+
+
+<p>2-2 JSON</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">deepCopy</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">o</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">newObj</span> <span class="o">=</span> <span class="nx">deepCopy</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="nx">newObj</span><span class="p">.</span><span class="nx">b</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="s2">&quot;WORLD&quot;</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="c1">// b: {a: &quot;world&quot;, b: 111}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newObj</span><span class="p">);</span>
+<span class="c1">// b: {a: &quot;WORLD&quot;, b: 111}</span>
+</pre></div>
+
+
+<h2 id="_2">数据类型转换</h2>
+<p>1、 特殊类型的隐式转换 NaN, 0, undefined, null, "" =&gt; false</p>
+<div class="codehilite"><pre><span></span><span class="nb">Boolean</span><span class="p">(</span><span class="kc">NaN</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nb">Boolean</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nb">Boolean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nb">Boolean</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nb">Boolean</span><span class="p">([])</span>  <span class="c1">// true</span>
+
+<span class="nb">Boolean</span><span class="p">({})</span> <span class="c1">// true</span>
+</pre></div>
+
+
+<p>2、 逻辑运算符<code>&amp;&amp;</code> 和 <code>||</code></p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="kc">true</span><span class="p">)</span> <span class="c1">// true</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span><span class="p">)</span> <span class="c1">// false</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// 5</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">||</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">// 5</span>
+</pre></div>
+
+
+<p>运用</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 等价于</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+
+
+<p>3、 == 和 ===</p>
+<p>== 比较值<br />
+=== 比较值 和 类型</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">==</span> <span class="kc">null</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">undefined</span> <span class="o">===</span> <span class="kc">null</span><span class="p">);</span> <span class="c1">// false</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">===</span> <span class="s1">&#39;0&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+</pre></div>
+
+
+<h2 id="_3">多运算符和分支结构</h2>
+<p>1、运算符的优先级</p>
+<div class="codehilite"><pre><span></span><span class="o">+-</span><span class="cm">/* &amp;&amp; || () -= -- ++</span>
+
+<span class="cm">增加括号</span>
+</pre></div>
+
+
+<p>2、舍入误差</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="c1">// 3</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="c1">// 0.30000000000000004</span>
+
+<span class="c1">// 转二进制</span>
+<span class="p">(</span><span class="mf">0.1</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="s2">&quot;0.0001100110011001100110011001100110011001100110011001101&quot;</span>
+</pre></div>
+
+
+<p>舍入误差解决</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 方案一: 舍去后面的位数</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
+<span class="c1">// 0.3</span>
+
+
+<span class="c1">// 方案二</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span> <span class="p">,</span> <span class="nx">num2</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 增大一定倍数，使得两个数进行整数计算</span>
+    <span class="k">return</span> <span class="p">((</span><span class="nx">num1</span> <span class="o">*</span> <span class="nx">n</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">num2</span> <span class="o">*</span> <span class="nx">n</span><span class="p">))</span> <span class="o">/</span> <span class="nx">n</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
+<span class="c1">// 0.3</span>
+</pre></div>
+
+
+<h2 id="for">优化for循环</h2>
+<p>性能优化</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+
+<span class="c1">// 优化后</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>算法优化</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 求和：1 + 2 + 3 + 4 +... + 100</span>
+<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 5050</span>
+
+<span class="c1">// 等差数列公式求和公式 Sn=n(a1+an)/2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(((</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 5050</span>
+</pre></div>
+
+
+<p>例题：找出两个数，和为11，返回下标</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+</pre></div>
+
+
+<p>方式一：</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">loop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="nx">list</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">);</span>
+            <span class="c1">// 1 3, 3 1, 4 5, 5 4</span>
+        <span class="p">}</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;loop&quot;</span><span class="p">,</span> <span class="o">++</span><span class="nx">loop</span><span class="p">);</span>
+        <span class="c1">// loop 36</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>方式二：</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">loop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">11</span> <span class="o">-</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
+        <span class="c1">// 1 3, 3 1, 4 5, 5 4</span>
+    <span class="p">}</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;loop&quot;</span><span class="p">,</span> <span class="o">++</span><span class="nx">loop</span><span class="p">);</span>
+    <span class="c1">// loop 6</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="js">js中常见的内置对象</h2>
+<p>1、三种包装对象：String, Number, Boolean</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 内置对象调用方法</span>
+<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">str_</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="nx">str</span> <span class="o">=</span> <span class="nx">str_</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>
+<span class="nx">str_</span> <span class="o">=</span> <span class="kc">null</span>
+
+<span class="nx">str</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span>
+</pre></div>
+
+
+<p>火狐浏览器可以打印出对象的方法</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Number</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">String</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">)</span>
+</pre></div>
+
+
+<p>2、其他标准内置对象：Array, Date, Function, Object...</p>
+<h2 id="_4">装箱和拆箱</h2>
+<ul>
+<li>装箱：基本数据类型 -&gt; 引用数据类型</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">numObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">num</span><span class="p">)</span> <span class="c1">// number</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">numObj</span><span class="p">)</span> <span class="c1">// object</span>
+</pre></div>
+
+
+<ul>
+<li>拆箱：引用数据类型 -&gt; 基本数据类型</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">numObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numObj</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">())</span> <span class="c1">// 123</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">numObj</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">())</span> <span class="c1">// number</span>
+</pre></div>
+
+
+<p>拆箱操作原理：</p>
+<div class="codehilite"><pre><span></span><span class="nx">内部执行</span>
+
+<span class="nx">toPrimitive</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span>
+<span class="nx">input</span> <span class="nx">传入的值</span>
+<span class="nx">type</span> <span class="nx">值类型</span>
+
+<span class="mf">1.</span> <span class="nx">如果是原始类型的值直接返回</span>
+<span class="mf">2.</span> <span class="nx">如果不是</span><span class="err">，</span><span class="nx">调用</span> <span class="nx">input</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">()</span> <span class="nx">是原始类型就返回</span>
+<span class="mf">3.</span> <span class="nx">如果不是</span><span class="err">，</span><span class="nx">继续调用</span>  <span class="nx">input</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="nx">是原始类型就返回</span>
+<span class="mf">4.</span> <span class="nx">报错</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">valueOf</span><span class="p">()</span>  <span class="err">有原始类型的值返回，没有返回对象本身</span>
+<span class="n">toString</span><span class="p">()</span> <span class="err">对象</span><span class="p">[</span><span class="n">object</span> <span class="n">type</span><span class="p">]</span> <span class="n">type</span><span class="err">：对象类型</span>
+</pre></div>
+
+
+<p>例题1：</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([]</span> <span class="o">+</span> <span class="p">[])</span>
+<span class="o">&lt;</span><span class="nx">empty</span> <span class="nx">string</span><span class="o">&gt;</span>
+
+<span class="c1">// 分析：</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([])</span>
+<span class="nb">Array</span> <span class="p">[]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([].</span><span class="nx">valueOf</span><span class="p">())</span>
+<span class="nb">Array</span> <span class="p">[]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([].</span><span class="nx">toString</span><span class="p">())</span>
+<span class="o">&lt;</span><span class="nx">empty</span> <span class="nx">string</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>例题2：</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([]</span> <span class="o">+</span> <span class="p">{})</span>
+<span class="p">[</span><span class="nx">object</span> <span class="nb">Object</span><span class="p">]</span>
+
+<span class="c1">// 分析：</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({}.</span><span class="nx">valueOf</span><span class="p">())</span>
+<span class="p">{}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({}.</span><span class="nx">toString</span><span class="p">())</span>
+<span class="p">[</span><span class="nx">object</span> <span class="nb">Object</span><span class="p">]</span>
+
+<span class="c1">// 交换位置，{}可能被识别为代码块</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({}</span> <span class="o">+</span> <span class="p">[])</span>
+<span class="p">[</span><span class="nx">object</span> <span class="nb">Object</span><span class="p">]</span> <span class="nx">或</span> <span class="mi">0</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">+</span> <span class="p">[])</span>
+<span class="mi">0</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="mi">0</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">+</span> <span class="p">{})</span>
+<span class="kc">NaN</span>
+</pre></div>
+
+
+<h2 id="_5">深入理解栈和队列</h2>
+<ul>
+<li>栈：  后进先出 LIFO (last in first out)</li>
+<li>
+<p>队列： 先进先出 FIFO (first in  first out)</p>
+</li>
+<li>
+<p>栈和堆：数据存储</p>
+</li>
+<li>栈和队列：数据访问顺序</li>
+</ul>
+<p>js数组 具备了 栈 + 队列</p>
+<p>push<br />
+pop<br />
+unshift<br />
+shift</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="c1">// 队尾入栈</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span> <span class="c1">// [ 1, 2, 3, 4 ]</span>
+
+<span class="kd">var</span> <span class="nx">val1</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span> <span class="c1">// [ 1, 2, 3 ]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val1</span><span class="p">);</span>  <span class="c1">// 4</span>
+
+<span class="c1">// 队首入栈</span>
+<span class="nx">list</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>  <span class="c1">// [0, 1, 2, 3]</span>
+
+<span class="kd">var</span> <span class="nx">val2</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>  <span class="c1">// [1, 2, 3]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val2</span><span class="p">);</span>  <span class="c1">// 0</span>
+</pre></div>
+
+
+<ul>
+<li>结尾出入栈，不影响原有数据位置索引，效率高</li>
+<li>开头出入栈，会影响原有的数据位置索引，效率低</li>
+</ul>
+<h2 id="sort">sort列表排序</h2>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list1</span><span class="p">.</span><span class="nx">sort</span><span class="p">());</span> <span class="c1">// [1, 2, 3, 5, 8]</span>
+
+<span class="c1">// 得到不期望的排序结果</span>
+<span class="kd">var</span> <span class="nx">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">31</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list2</span><span class="p">.</span><span class="nx">sort</span><span class="p">());</span>  <span class="c1">// [15, 23, 3, 31, 9]</span>
+</pre></div>
+
+
+<p>sort:</p>
+<ol>
+<li>默认升序</li>
+<li>按照字符串Unicode码进行排序</li>
+</ol>
+<p>解决</p>
+<p>定义一个比较器函数</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">compare</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list1</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">compare</span><span class="p">));</span> <span class="c1">// [1, 2, 3, 5, 8]</span>
+
+<span class="c1">// 得到期望的排序结果</span>
+<span class="kd">var</span> <span class="nx">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">31</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list2</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">compare</span><span class="p">));</span> <span class="c1">//  [3, 9, 15, 23, 31]</span>
+</pre></div>
+
+
+<h2 id="dategetmonth">Date对象中的getMonth()</h2>
+<div class="codehilite"><pre><span></span><span class="c1">// 2021-03-15 星期一</span>
+<span class="kd">var</span> <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getTime</span><span class="p">());</span> <span class="c1">// 13位时间戳，1970年1月1日至今的毫秒数</span>
+<span class="c1">//   单位是毫秒: 1615820418925</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDate</span><span class="p">());</span> <span class="c1">// 本月第几号：  15</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getDay</span><span class="p">());</span> <span class="c1">//  本周第几天1-7：1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">now</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 月份：3</span>
+</pre></div>
+
+
+<p>客户端的时间可以修改<br />
+严谨的时间需要后端给</p>
+<h2 id="_6">开发中的编码和解码</h2>
+<ul>
+<li>escape/unescape</li>
+<li>encodeURI/decodeURI</li>
+<li>encodeURIComponent/decodeURIComponent</li>
+</ul>
+<p>1、escape/unescape</p>
+<p>处理ASCII码表之外的字符</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.baidu.com?name=张三&amp;age=23&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">escape</span><span class="p">(</span><span class="nx">url</span><span class="p">));</span>
+<span class="c1">//   http%3A//www.baidu.com%3Fname%3D%u5F20%u4E09%26age%3D23</span>
+
+<span class="kd">var</span> <span class="nx">escapeUrl</span> <span class="o">=</span> <span class="s2">&quot;http%3A//www.baidu.com%3Fname%3D%u5F20%u4E09%26age%3D23&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">unescape</span><span class="p">(</span><span class="nx">escapeUrl</span><span class="p">));</span>
+<span class="c1">// http://www.baidu.com?name=张三&amp;age=23</span>
+</pre></div>
+
+
+<p>2、encodeURI/decodeURI（用的较多）</p>
+<p>处理unicode编码</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.baidu.com?name=张三&amp;age=23&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">encodeURI</span><span class="p">(</span><span class="nx">url</span><span class="p">));</span>
+<span class="c1">// http://www.baidu.com?name=%E5%BC%A0%E4%B8%89&amp;age=23</span>
+
+<span class="kd">var</span> <span class="nx">escapeUrl</span> <span class="o">=</span> <span class="s2">&quot;http://www.baidu.com?name=%E5%BC%A0%E4%B8%89&amp;age=23&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">decodeURI</span><span class="p">(</span><span class="nx">escapeUrl</span><span class="p">));</span>
+<span class="c1">// http://www.baidu.com?name=张三&amp;age=23</span>
+</pre></div>
+
+
+<p>3、encodeURIComponent/decodeURIComponent</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.baidu.com?name=张三&amp;age=23&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">url</span><span class="p">));</span>
+<span class="c1">// http%3A%2F%2Fwww.baidu.com%3Fname%3D%E5%BC%A0%E4%B8%89%26age%3D23</span>
+
+<span class="kd">var</span> <span class="nx">escapeUrl</span> <span class="o">=</span> <span class="s2">&quot;http%3A%2F%2Fwww.baidu.com%3Fname%3D%E5%BC%A0%E4%B8%89%26age%3D23&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">escapeUrl</span><span class="p">));</span>
+<span class="c1">// http://www.baidu.com?name=张三&amp;age=23</span>
+</pre></div>
+
+
+<h2 id="dom">理解DOM树的加载过程</h2>
+<p>浏览器发起请求过程</p>
+<div class="codehilite"><pre><span></span><span class="err">浏览器</span><span class="n">URL</span>  <span class="o">-&gt;</span> <span class="n">DNS域名解析</span> <span class="o">-&gt;</span> <span class="n">IP所在服务器发起请求</span>
+</pre></div>
+
+
+<p>浏览器处理响应过程</p>
+<div class="codehilite"><pre><span></span>html：二进制转为html
+
+构建DOM树：
+    Html解析： Token -&gt; Node -&gt; DOM
+        Token词法解析: 根是document对象 <span class="nt">&lt;div&gt;&lt;/div&gt;</span>
+        Node：HTML div Element
+        DOM: DOM和标签是一一对应的关系
+
+解析过程中：
+    link css并行下载
+    script 先执行js，完成后继续构建DOM树
+        底部引入js 
+        头部引入js, 加async,defer
+            async: 异步下载js文件，不影响DOM解析,下载完成后尽快执行js
+            defer：文档渲染完后，DOMContentLoaded时间调用之前，按照顺序执行js
+        windown.onload
+
+构建css树：CSS解析器
+    每个css文件解析为CSSStyleSheet样式表对象，每个对象都包含CSSRule, CSSRule包含选择器和声明对象
+    Token解析-&gt;Node-&gt;CSSOM
+
+构建Render树：渲染树 = DOM树 + CSS树
+
+布局layout和绘制paint: 
+    计算对象之间的大小，确定每个节点在屏幕上的坐标
+    映射浏览器屏幕绘制，使用UI后端层绘制每个节点
+
+    reflow 回流：元素属性发生变化且影响布局时（高、宽、内外边距等）
+        相当于刷新页面
+    repaint 重绘：元素属性发生变化且不影响布局时（颜色、透明度、字体样式等）
+        相当于不刷新页面，动态更新内容
+    重绘不一定引起回流，回流必将引起重绘
+</pre></div>
+
+
+<h2 id="3">3种事件绑定的异同</h2>
+<p>html事件<br />
+dom0事件<br />
+dom2事件</p>
+<ul>
+<li>广义javascript ECMAScript + DOM + BOM  DOM0  DOM1  DOM2</li>
+<li>狭义javascript ECMAScript ES6 ES5 ES3</li>
+</ul>
+<p>事件监听的优点：可以绑定多个事件，常规的事件绑定只执行最后绑定的事件<br />
+事件绑定：相当于存储了函数地址，再绑定一个事件，相当于变量指向了另一个函数地址<br />
+事件监听：相当于订阅发布者，改变了数据，触发了事件，订阅这个事件的函数被执行</p>
+<p>addEventListener函数</p>
+<div class="codehilite"><pre><span></span><span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="kd">function</span><span class="p">,</span> <span class="nx">useCapture</span><span class="p">)</span>
+<span class="nx">removeEventListener</span><span class="p">()</span>
+
+<span class="nx">event</span>        <span class="err">（</span><span class="nx">必需</span><span class="err">）</span><span class="nx">事件名</span>
+<span class="kd">function</span>     <span class="err">（</span><span class="nx">必需</span><span class="err">）</span><span class="nx">事件触发函数</span>
+<span class="nx">useCapture</span>   <span class="err">（</span><span class="nx">可选</span><span class="err">）</span><span class="nx">指定事件在捕获</span><span class="p">(</span><span class="nx">tru</span><span class="p">)</span><span class="nx">或冒泡</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="nx">阶段执行</span>
+
+
+<span class="nx">IE8</span><span class="o">:</span> <span class="nx">element</span><span class="p">.</span><span class="nx">attathEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="kd">function</span><span class="p">)</span>
+
+<span class="nx">event</span>    <span class="err">（</span><span class="nx">必需</span><span class="err">）</span><span class="nx">事件名</span><span class="p">,</span> <span class="nx">需加</span><span class="s1">&#39;on&#39;</span> <span class="nx">eg</span><span class="o">:</span> <span class="nx">onclick</span>
+<span class="kd">function</span> <span class="err">（</span><span class="nx">必需</span><span class="err">）</span><span class="nx">事件触发函数</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;func1()&quot;</span><span class="p">&gt;</span>Html事件<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn0&quot;</span><span class="p">&gt;</span>事件绑定<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;btn2&quot;</span><span class="p">&gt;</span>事件监听<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="kd">function</span> <span class="nx">func1</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;func1&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">func2</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;func2&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">func3</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;func3&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">func4</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;func4&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">func5</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;func5&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// dom0级事件：事件绑定； 只执行func3</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;btn0&quot;</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">func2</span><span class="p">;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;btn0&quot;</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">func3</span><span class="p">;</span>
+
+  <span class="c1">// dom2级事件：事件监听; 两个函数都会执行</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;btn2&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="nx">func4</span><span class="p">);</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;btn2&quot;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="nx">func5</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="_7">事件触发、事件捕获与事件冒泡</h2>
+<p>事件捕获与事件冒泡</p>
+<div class="codehilite"><pre><span></span><span class="err">向下是捕获阶段</span>
+<span class="c1">---------------</span>
+    <span class="o">|</span>    <span class="o">^</span>
+<span class="c1">---------------</span>
+    <span class="n">V</span>    <span class="o">^</span>
+<span class="c1">---------------</span>
+    <span class="n">V</span>    <span class="o">|</span>
+<span class="c1">---------------</span>
+<span class="err">向上是冒泡阶段</span>
+</pre></div>
+
+
+<p>事件对象:</p>
+<p>事件触发时包含了事件发生的元素和属性信息</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">div3</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;div3&quot;</span><span class="p">);</span>
+<span class="nx">div3</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">e</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span> <span class="c1">// IE 8  window.event arguments[0]</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// true: 捕获, false: 冒泡(默认)</span>
+</pre></div>
+
+
+<p>事件的周期</p>
+<div class="codehilite"><pre><span></span><span class="c1">--------------------</span>
+<span class="n">div1</span>                <span class="o">|</span>
+<span class="c1">---------------     |</span>
+<span class="n">div2</span>           <span class="o">|</span>    <span class="o">|</span>
+<span class="c1">--------       |    |</span>
+<span class="n">div3</span>   <span class="o">|</span>       <span class="o">|</span>    <span class="o">|</span>
+<span class="c1">--------       |    |</span>
+<span class="c1">---------------     |</span>
+<span class="c1">--------------------</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">#</span><span class="nn">div1</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">div2</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">div3</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="kc">grey</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;div1&quot;</span><span class="p">&gt;</span>
+    div1
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;div2&quot;</span><span class="p">&gt;</span>
+        div2
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;div3&quot;</span><span class="p">&gt;</span>div3<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// 事件对象：时间触发时包含了事件发生的元素和属性信息</span>
+<span class="kd">var</span> <span class="nx">div3</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;div3&quot;</span><span class="p">);</span>
+<span class="nx">div3</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span>
+    <span class="s2">&quot;click&quot;</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;div3&quot;</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kc">false</span>
+<span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">div2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;div2&quot;</span><span class="p">);</span>
+<span class="nx">div2</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span>
+    <span class="s2">&quot;click&quot;</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;div2&quot;</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kc">false</span>
+<span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">div1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;div1&quot;</span><span class="p">);</span>
+<span class="nx">div1</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span>
+    <span class="s2">&quot;click&quot;</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;div1&quot;</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="kc">false</span>
+<span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm">* 点击div 3</span>
+<span class="cm">* </span>
+<span class="cm">* div3 -&gt; div2 -&gt; div1</span>
+<span class="cm">*/</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>阻止冒泡：</p>
+<div class="codehilite"><pre><span></span><span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">()</span>
+
+<span class="nx">e</span><span class="p">.</span><span class="nx">cancelBubble</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">// IE8</span>
+</pre></div>
+
+
+<p>事件冒泡的应用：事件委托</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demo&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>aaaaaa<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>bbbbbb<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>cccccc<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="c1">// 事件委托</span>
+  <span class="kd">var</span> <span class="nx">demo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">);</span>
+  <span class="nx">demo</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;li&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="kc">false</span> <span class="p">);</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="_8">阻止默认行为的两种方式</h2>
+<ul>
+<li>e.preventDefault()</li>
+<li>return false</li>
+</ul>
+<p>让a标签链接不跳转</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.baidu.com/&quot;</span><span class="p">&gt;</span>百度<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+  <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+  <span class="nx">a</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="c1">// 方式一</span>
+    <span class="c1">// e.preventDefault()</span>
+
+    <span class="c1">// 方式二</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>让form表单不提交</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/post&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;提交&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="kd">var</span> <span class="nx">submit</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">);</span>
+  <span class="nx">submit</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 方式一</span>
+    <span class="c1">// e.preventDefault()</span>
+
+    <span class="c1">// 方式二</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2 id="historylocation">使用History和location</h2>
+<p>1、History</p>
+<p>window.hostory 属性指向History对象</p>
+<p>表示当前窗口的浏览历史</p>
+<p>类似栈的数据结构</p>
+<div class="codehilite"><pre><span></span><span class="nx">History</span><span class="o">:</span>
+  <span class="nx">back</span><span class="p">()</span>
+  <span class="nx">forward</span><span class="p">()</span>
+  <span class="nx">go</span><span class="p">()</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">2</span>
+  <span class="nx">pushState</span><span class="p">()</span>
+  <span class="nx">replaceState</span><span class="p">()</span>
+</pre></div>
+
+
+<p>2、Location</p>
+<p>window.location和document.location</p>
+<div class="codehilite"><pre><span></span><span class="nx">Location</span><span class="o">:</span>
+  <span class="nx">href</span><span class="o">:</span>      <span class="nx">整个URL</span>
+  <span class="nx">protocal</span>   <span class="nx">URL协议</span><span class="err">，</span><span class="nx">包括冒号</span>
+  <span class="nx">host</span>       <span class="nx">主机</span> <span class="nx">包括主机名</span><span class="err">，</span><span class="nx">冒号</span><span class="o">:</span><span class="err">，</span><span class="nx">端口</span>
+  <span class="nx">hostname</span>   <span class="nx">主机名</span><span class="err">，</span><span class="nx">不包括端口</span>
+  <span class="nx">port</span>       <span class="nx">端口号</span>
+  <span class="nx">pathname</span>   <span class="nx">URL的路径部分</span><span class="err">，</span><span class="nx">从根路径</span><span class="o">/</span> <span class="nx">开始</span>
+  <span class="nx">search</span>     <span class="nx">查询字符串</span><span class="err">，</span><span class="nx">问号</span><span class="err">？</span><span class="nx">开始</span>
+  <span class="nx">hash</span>       <span class="nx">片段字符串</span> <span class="nx">从</span><span class="err">#</span><span class="nx">开始</span>
+  <span class="nx">username</span>   <span class="nx">用户名</span>
+  <span class="nx">password</span>   <span class="nx">密码</span>
+  <span class="nx">origin</span>     <span class="nx">URL协议</span><span class="err">，</span><span class="nx">主机名</span><span class="err">，</span><span class="nx">端口号</span>
+</pre></div>
+
+
+<h2 id="4">常见函数的4种类型</h2>
+<ul>
+<li>匿名函数</li>
+<li>回调函数</li>
+<li>递归函数</li>
+<li>构造函数</li>
+</ul>
+<p>1、匿名函数</p>
+<p>定义时候没有任何变量引用的函数</p>
+<p>匿名函数自调：函数只执行一次</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);}</span>
+<span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+
+<span class="c1">// 等价于</span>
+<span class="kd">function</span> <span class="nx">foo</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+
+
+<p>jQuery：</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">jQuery</span><span class="p">;</span>
+  <span class="p">...</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">;</span>
+<span class="p">})(</span><span class="nb">window</span><span class="p">);</span>
+</pre></div>
+
+
+<p>优点：节约内存空间，掉用前和调用后内存中不创建任何函数对象</p>
+<p>2、回调函数callback</p>
+<p>如果一个函数作为对象交给其他函数使用</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+
+<span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+<span class="c1">// [6, 9, 11, 33]</span>
+</pre></div>
+
+
+<p>异步回调</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">getPrice</span><span class="p">(</span><span class="nx">params</span><span class="p">,</span> <span class="nx">callback</span><span class="p">){</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/getPrice&#39;</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="nx">params</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>3、递归函数</p>
+<p>循环调用函数本身</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="mi">2</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">x</span>
+  <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>arguments.callee 严格模式下不支持使用 <code>use strict</code></p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">return</span> <span class="mi">1</span>
+  <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="nx">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>4、构造函数</p>
+<p>构造函数习惯上首字母大写</p>
+<p>调用方式不一样，作用也不一样</p>
+<p>构造函数用来新建实例对象</p>
+<p>Person 既是函数名，也是这个对象的类名</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">(){}</span> <span class="c1">// 构造函数</span>
+
+<span class="k">new</span> <span class="nx">Person</span><span class="p">()</span>
+
+<span class="kd">function</span> <span class="nx">person</span><span class="p">(){}</span> <span class="c1">// 方法</span>
+</pre></div>
+
+
+<h2 id="_9">变量和函数提升</h2>
+<ul>
+<li>js解释执行</li>
+<li>变量和函数提升</li>
+</ul>
+<p>变量声明提前，函数声明提前</p>
+<ul>
+<li>变量声明提前：值停留在本地</li>
+<li>函数声明提前：整个函数体提前</li>
+</ul>
+<p>如果是var赋值声明的函数，变量提前，函数体停留在本地</p>
+<p>1、变量提升</p>
+<p>未声明使用会报错</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// Error: a is not defined</span>
+</pre></div>
+
+
+<p>var会变量提升</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>  <span class="c1">// undefined</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+
+<p>let定义不会提升</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>  <span class="c1">// Error: Cannot access &#39;a&#39; before initialization</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+
+<p>2、函数提升</p>
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">func</span><span class="p">);</span>  <span class="c1">// func(){}</span>
+<span class="kd">function</span> <span class="nx">func</span><span class="p">(){}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span>  <span class="c1">// undefined</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">func</span><span class="p">(){}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">func</span><span class="p">);</span>  <span class="c1">// Error: func is not defined</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">func</span><span class="p">(){}</span>
+</pre></div>
+
+
+<h2 id="_10">作用域和作用域链</h2>
+<ul>
+<li>全局作用域，函数作用域</li>
+<li>
+<p>作用域链</p>
+</li>
+<li>
+<p>作用域scope: 一个变量的可用范围</p>
+</li>
+<li>作用域链scope chain：以当前作用域的scope属性为起点，依次引用每个AO,直到window结束，行成多级引用关系</li>
+</ul>
+<p>js作用域ES5</p>
+<ul>
+<li>全局作用域 window</li>
+<li>函数作用域 function(){}</li>
+</ul>
+<p>js的变量和函数作用域是在定义是决定的，而不是运行时决定<br />
+js的变量作用域在函数体内有效，无块作用域</p>
+<p>作用域示例</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">bb</span> <span class="o">=</span> <span class="s2">&quot;bb&quot;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">b</span><span class="p">()</span>
+  <span class="kd">var</span> <span class="nx">aa</span> <span class="o">=</span> <span class="s2">&quot;aa&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">a</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bb</span><span class="p">);</span>  <span class="c1">// Error: bb is not defined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span>  <span class="c1">// Error: aa is not defined</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">[scope</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
+</pre></div>
+
+
+<p>作用域链</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">cc</span> <span class="o">=</span> <span class="s1">&#39;cc&#39;</span>
+
+<span class="kd">function</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">b</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">bb</span> <span class="o">=</span> <span class="s2">&quot;bb&quot;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span> <span class="c1">// undefined</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cc</span><span class="p">);</span> <span class="c1">// cc</span>
+  <span class="p">}</span>
+  <span class="nx">b</span><span class="p">()</span>
+  <span class="kd">var</span> <span class="nx">aa</span> <span class="o">=</span> <span class="s2">&quot;aa&quot;</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cc</span><span class="p">);</span> <span class="c1">// cc</span>
+<span class="p">}</span>
+
+<span class="nx">a</span><span class="p">()</span>
+</pre></div>
+
+
+<p>面试题</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;n1&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;n2&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;n3&#39;</span><span class="p">}]</span>
+
+<span class="kd">function</span> <span class="nx">bind</span><span class="p">(){</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="nx">buttons</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">bind</span><span class="p">()</span>
+
+<span class="nx">buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">func</span><span class="p">()</span> <span class="c1">// 3</span>
+<span class="nx">buttons</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">func</span><span class="p">()</span> <span class="c1">// 3</span>
+<span class="nx">buttons</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">func</span><span class="p">()</span> <span class="c1">// 3</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">bind</span><span class="p">(){</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="nx">buttons</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// 输出 0 1 2</span>
+</pre></div>
+
+
+<h2 id="_11">执行环境</h2>
+<p>浏览器环境栈：js是一个单线程程序<br />
+执行环境（执行上下文）：EC execution context</p>
+<ul>
+<li>全局执行环境</li>
+<li>
+<p>局部执行环境</p>
+</li>
+<li>
+<p>变量对象：VO variable object 保存全局环境下变量的对象</p>
+</li>
+<li>活动对象：AO activation object  保存函数环境中的变量</li>
+</ul>
+<h2 id="_12">重载和多态的使用场景</h2>
+<p>重载：定义相同名称，不同参数的函数，程序调用时自动识别不同参数的函数<br />
+实现了相同函数名不同的函数调用</p>
+<p>js中没有重载，可以通过arguments实现函数重载</p>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 计算正方形或长方形面积</span>
+<span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">React</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果是1个参数，返回正方形</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// 如果是2个参数，返回长方形</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="si">}</span><span class="sb"> * </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="si">}</span><span class="sb"> = </span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">react1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">React</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">react1</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="c1">// 5 * 5 = 25</span>
+
+<span class="kd">var</span> <span class="nx">react2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">React</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">react2</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<span class="c1">// 3 * 4 = 12</span>
+</pre></div>
+
+
+<p>多态：同一个东西在不同情况下表现不同状态，重写和重载</p>
+<h2 id="_13">闭包</h2>
+<p>闭包的概念Closure：作用域</p>
+<p>引用了自由变量的函数，这个被引用的自由变量将和这个函数一同存在；<br />
+即使已经离开了创造它的环境也不例外。<br />
+所以，闭包是由函数和其他相关的引用环境组合而成，实现信息驻留；<br />
+信息的保存，引用在，空间不销毁</p>
+<p>简单的使用</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">());</span> <span class="c1">// 0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">());</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">());</span> <span class="c1">// 2</span>
+</pre></div>
+
+
+<p>闭包的应用</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;n1&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;n2&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;n3&#39;</span><span class="p">}]</span>
+
+<span class="kd">function</span> <span class="nx">bind</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 定义一个立即执行函数，行成闭包</span>
+    <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">buttons</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+      <span class="p">};</span>
+    <span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">bind</span><span class="p">();</span>
+
+<span class="nx">buttons</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">func</span><span class="p">();</span> <span class="c1">// 0</span>
+<span class="nx">buttons</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">func</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="nx">buttons</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">func</span><span class="p">();</span> <span class="c1">// 2</span>
+</pre></div>
+
+
+<p>闭包缺点：</p>
+<p>闭包导致内存驻留，如果是大量对象的闭包环境需要注意内存消耗</p>
+<p>ES6中使用let定义局部变量也可以实现输出0 1 2</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">bind</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">buttons</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="callapplybind">call、apply、bind的使用场景区分</h2>
+<p>call、apply、bind都是Function对象的方法</p>
+<p>1、apply调用一个函数，可以指定this值</p>
+<div class="codehilite"><pre><span></span><span class="nb">Function</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span>
+
+<span class="nx">obj</span><span class="o">:</span> <span class="nx">这个对象将替代Function类里的this对象</span>
+<span class="nx">args</span><span class="o">:</span> <span class="nx">是一个数组</span>
+</pre></div>
+
+
+<p>2、call</p>
+<div class="codehilite"><pre><span></span><span class="nb">Function</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span>
+<span class="nx">args</span><span class="o">:</span> <span class="nx">单个参数</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">stu1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+  <span class="nx">say</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">age</span><span class="p">,</span> <span class="nx">school</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">school</span><span class="p">);</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">stu2</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">say</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="s1">&#39;清华&#39;</span><span class="p">);</span> <span class="c1">// Tom 18 清华</span>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">say</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">stu2</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;北大&#39;</span><span class="p">);</span> <span class="c1">// Jack 28 北大</span>
+<span class="nx">stu1</span><span class="p">.</span><span class="nx">say</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">stu2</span><span class="p">,</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;北大&#39;</span><span class="p">]);</span> <span class="c1">// Jack 28 北大</span>
+</pre></div>
+
+
+<p>类数组转数组</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span>
+</pre></div>
+
+
+<p>3、bind：</p>
+<p>类似call, 不同之处在于call调用之后立即执行，bind需要一个变量进行接收之后再执行</p>
+<h2 id="new">new的执行过程</h2>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">Person</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Tom</span>
+
+<span class="c1">// 分4步</span>
+<span class="c1">// 1、创建一个新对象obj</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+
+<span class="c1">// 2、把obj的proto指向构造函数的prototype对象，实现继承</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">=</span> <span class="nx">Fn</span><span class="p">.</span><span class="nx">prototype</span><span class="p">;</span>
+
+<span class="c1">// 3、将this指向obj</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+
+<span class="c1">// 4、返回创建的obj,如果该函数没有返回对象，则返回this</span>
+<span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">result</span> <span class="o">===</span> <span class="s1">&#39;object&#39;</span><span class="p">){</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span> <span class="c1">// func = result</span>
+<span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+  <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>  <span class="c1">// func = obj</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="this">this的使用</h2>
+<p>this指向</p>
+<p>指代当前调用的这个对象</p>
+<p>4中绑定(优先级从低到高)：<br />
+- 默认绑定<br />
+- 隐式绑定<br />
+- 显示绑定<br />
+- new绑定</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+  <span class="nx">showName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// this-&gt;person</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Tom</span>
+  <span class="p">},</span>
+  <span class="nx">showAge</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 局部函数</span>
+    <span class="kd">function</span> <span class="nx">_age</span><span class="p">(){</span>
+      <span class="c1">// this-&gt;window</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// undefined</span>
+    <span class="p">}</span>
+    <span class="nx">_age</span><span class="p">();</span>
+    <span class="c1">// this-&gt;person</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// 23</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">showName</span><span class="p">()</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">showAge</span><span class="p">()</span>
+</pre></div>
+
+
+<p>可以先保存this</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</pre></div>
+
+
+<p>改变this指向</p>
+<p>call/apply/bind</p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Tom&#39;</span>
+
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span>
+  <span class="nx">showName</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">showName</span><span class="p">();</span> <span class="c1">// Jack</span>
+
+<span class="c1">// this-&gt;window</span>
+<span class="kd">var</span> <span class="nx">show</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">showName</span><span class="p">;</span>
+<span class="nx">show</span><span class="p">();</span> <span class="c1">// Tom</span>
+
+<span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">showName</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+<span class="nx">fn</span><span class="p">();</span> <span class="c1">// Jack</span>
+</pre></div>
+
+
+<p>实现一个bind方法</p>
+<div class="codehilite"><pre><span></span><span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">bind</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">that</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">// 验证</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Tom&#39;</span>
+
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span>
+  <span class="nx">showName</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">person</span><span class="p">.</span><span class="nx">showName</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+<span class="nx">fn</span><span class="p">();</span> <span class="c1">// Jack</span>
+</pre></div>
+
+
+<h2 id="_14">理解面向对象</h2>
+<p>对象:</p>
+<ul>
+<li>具备私有属性 {name: 'Tom'}</li>
+<li>只要是new出来的都是对象 new Func() =&gt; 实例化</li>
+<li>不同对象可定不相等 </li>
+<li>对象都会有引用机制</li>
+</ul>
+<p>js万物皆对象</p>
+<ol>
+<li>字面量 - 字面显示的内容 Array Date Object</li>
+<li>包装类 - 没有new的函数声明，可以理解为不是对象 String, NUmber</li>
+</ol>
+<p>面向对象：</p>
+<p>把任何的数据和行为抽象成一个形象的对象</p>
+<p>面向对象OOP：继承 封装 多态</p>
+<div class="codehilite"><pre><span></span><span class="n">java</span><span class="o">:</span> <span class="kd">class</span>
+
+<span class="n">js</span><span class="o">:</span> <span class="kd">function </span><span class="nf">Person</span><span class="o">(){};</span> <span class="k">new</span> <span class="kt">Person</span><span class="o">()</span>
+</pre></div>
+
+
+<ul>
+<li>继承：子继承父</li>
+<li>封装：方法function()</li>
+<li>多态： 重载、重写（继承）</li>
+</ul>
+<h2 id="_15">原型和原型链</h2>
+<p>创建对象</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 1、函数对象</span>
+<span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;str&quot;</span><span class="p">,</span> <span class="s2">&quot;console.log(str)&quot;</span><span class="p">);</span>
+<span class="nx">func</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">);</span> <span class="c1">// hi</span>
+
+
+<span class="c1">// 2、普通对象</span>
+<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+  <span class="nx">getName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// Tom</span>
+
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+
+
+<span class="c1">// 3、构造函数创建对象</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// Tom</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// Jack</span>
+</pre></div>
+
+
+<p>原型和原型链</p>
+<ol>
+<li>一句话：万物皆对象，万物皆空null</li>
+<li>两个定义：</li>
+<li>原型：保存所有子对象的公有属性值和方法的父对象</li>
+<li>原型链：由各级子对象的<code>__proto__</code> 属性连续引用行成的结构</li>
+<li>三个属性：<code>__proto__</code>、constructor、prototype</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="c1">// 构造函数实现类</span>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">say</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// 1、当函数创建的时候就会携带prototype属性，指向原型对象</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">money</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;run...&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// constructor</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">);</span> <span class="c1">// true</span>
+
+<span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">);</span>
+
+<span class="c1">// 所有对象都会携带 __proto__</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// true</span>
+</pre></div>
+
+
+<ol>
+<li>挂载在函数内部的方法上，实例化对象内部会复制构造函数的方法</li>
+<li>挂载在原型上的方法，不会复制</li>
+<li>挂载在内部和原型上的方法都是可以通过实例去调用的</li>
+<li>一般来说，如果需要访问构造函数内部的私有变量，我们可以定义再函数内部；<br />
+其他情况可以定义再函数的原型上</li>
+</ol>
+<p>总结</p>
+<ol>
+<li>所有对象都携带<code>obj.__proto__</code></li>
+<li><code>obj.__proto__ === Person.prototype</code></li>
+<li><code>Person.prototype.constructor === Person</code></li>
+</ol>
+<h2 id="api">原型相关API</h2>
+<p>Function和Object关系</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">Person</span><span class="p">(){}</span>
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">()</span>
+
+<span class="p">=&gt;</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">-&gt;</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">-&gt;</span> <span class="nx">Person</span>
+
+<span class="nb">Function</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">-&gt;</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span>
+
+<span class="nx">Person</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">-&gt;</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">-&gt;</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="nb">Function</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">-&gt;</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">-&gt;</span> <span class="kc">null</span>
+
+<span class="nx">翻一下</span><span class="err">：</span>
+<span class="nx">令</span><span class="err">：</span>
+<span class="nx">__class__</span> <span class="o">=</span> <span class="nx">__proto__</span>
+<span class="nx">Person</span><span class="p">[</span><span class="kr">class</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span>
+
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">__class__</span> <span class="o">-&gt;</span> <span class="nx">Person</span><span class="p">[</span><span class="kr">class</span><span class="p">]</span>
+<span class="nx">Person</span><span class="p">[</span><span class="kr">class</span><span class="p">].</span><span class="nx">constructor</span> <span class="o">-&gt;</span>  <span class="nx">Person</span>
+
+<span class="nb">Function</span><span class="p">.</span><span class="nx">__class__</span> <span class="o">-&gt;</span> <span class="nb">Function</span><span class="p">[</span><span class="kr">class</span><span class="p">]</span> <span class="c1">// 特殊</span>
+
+<span class="nx">Person</span><span class="p">.</span><span class="nx">__class__</span> <span class="o">-&gt;</span> <span class="nb">Function</span><span class="p">[</span><span class="kr">class</span><span class="p">]</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">__class__</span> <span class="o">-&gt;</span> <span class="nb">Function</span><span class="p">[</span><span class="kr">class</span><span class="p">]</span>  <span class="c1">// 特殊</span>
+<span class="nb">Function</span><span class="p">[</span><span class="kr">class</span><span class="p">].</span><span class="nx">__class__</span> <span class="o">-&gt;</span> <span class="nb">Object</span><span class="p">[</span><span class="kr">class</span><span class="p">]</span>
+<span class="nb">Object</span><span class="p">[</span><span class="kr">class</span><span class="p">].</span><span class="nx">__class__</span> <span class="o">-&gt;</span> <span class="kc">null</span>
+
+<span class="nx">就是一个实例找类的过程</span><span class="err">，</span><span class="nx">有特殊</span>
+</pre></div>
+
+
+<p>Function对象和Object对象之间的关系</p>
+<ul>
+<li>Function是顶层的构造器，Object是顶层的对象</li>
+<li>顶层有null, Object.prototype, Function.prototype Function</li>
+<li>原型上说：Function继承了Object</li>
+<li>构造器上说：Function构造了Object</li>
+</ul>
+<p>原型相关API判断对象的属性是自有还是私有<br />
+- hasOwnProperty <br />
+- isPropertyOf 判断对象是否在原型链中<br />
+- getPropertyOf 获取原型对象的标准方法</p>
+<h2 id="_16">继承</h2>
+<p>继承的方式</p>
+<p>继承的6种方式<br />
+1. 简单原型链：类式继承<br />
+2. 借用构造函数：缺点=&gt; 父类的原型方法自然不会被子类继承<br />
+3. 组合继承（最常用）：类式继承+构造函数式继承<br />
+4. 寄生组合继承（最佳方式）：寄生式继承+构造函数式继承<br />
+5. 原型式：跟类式继承一样，父对象Book中的值类型的属性被复制，引用类型的属性被共有<br />
+6. 寄生式：通过在一个函数内的过渡对象实现继承并返回新对象的方式</p>
+<p>继承的应用</p>
+<h2 id="objectdefineproperty">Object.defineProperty</h2>
+<p>定义</p>
+<div class="codehilite"><pre><span></span><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">descriptor</span><span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">obj：需要定义属性的对象</span>
+<span class="cm">prop：需要定义的属性</span>
+<span class="cm">descriptor：属性的描述描述符</span>
+<span class="cm">返回值：返回此对象</span>
+<span class="cm">*/</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1">// 数据描述符</span>
+<span class="kd">var</span> <span class="nx">descriptor</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// 能否delete删除，</span>
+  <span class="nx">configurable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="c1">// 是否可写，默认false, 不能被赋值，只读</span>
+  <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="c1">// 是否可枚举，即是否可以for...in访问属性，默认false</span>
+  <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="c1">// 属性值，默认undefined</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+
+  <span class="c1">// 访问器描述符，不能与数据描述符同时使用</span>
+  <span class="c1">// get: 读取，默认undefined</span>
+  <span class="c1">// set: 设置，默认undefined</span>
+<span class="p">}</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nx">descriptor</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例：数据响应式 vue</p>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">defineReactive</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// val，由于闭包的存在，不会被销毁</span>
+  <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">get</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">val</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">set</span><span class="p">(</span><span class="nx">newVal</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">newVal</span> <span class="o">!=</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;set&#39;</span><span class="p">);</span>
+        <span class="nx">val</span> <span class="o">=</span> <span class="nx">newVal</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">defineReactive</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// get  123</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;223&#39;</span> <span class="c1">// set</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>  <span class="c1">// get 223</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2021
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
