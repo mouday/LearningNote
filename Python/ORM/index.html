@@ -342,7 +342,7 @@
       
         <li class="md-nav__item">
   <a href="#meta" class="md-nav__link">
-    元数据Meta
+    元数据 Meta
   </a>
   
 </li>
@@ -362,22 +362,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#querysetapi" class="md-nav__link">
-    返回新的QuerySet的API
+  <a href="#queryset-api" class="md-nav__link">
+    返回新的 QuerySet 的 API
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#querysetapi_1" class="md-nav__link">
-    不返回QuerySet的API
+  <a href="#queryset-api_1" class="md-nav__link">
+    不返回 QuerySet 的 API
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fq" class="md-nav__link">
-    F对象和Q对象
+  <a href="#f-q" class="md-nav__link">
+    F 对象和 Q 对象
   </a>
   
 </li>
@@ -411,7 +411,7 @@
 </pre></div>
 
 
-<p>ORM提高开发效率，降低了执行效率</p>
+<p>ORM 提高开发效率，降低了执行效率</p>
 <p>Flask - Sqlalchemy</p>
 <p>$ python manage.py migrate</p>
 <h2 id="_1">字段类型和参数</h2>
@@ -468,38 +468,38 @@
 应用_模型类名小写<br />
 eg: app_student</p>
 <p>（1）所有字段都有的参数</p>
-<p>db_column="name"  指定数据库字段名<br />
+<p>db_column="name" 指定数据库字段名<br />
 verbose_name="别名"<br />
 help_text="表单说明"</p>
-<p>primary_key=True  设置主键<br />
-unique=True       唯一键<br />
-null=True         数据库允许为空，默认都是不能为null的<br />
-blank=True    前端提交表单允许为空<br />
+<p>primary_key=True 设置主键<br />
+unique=True 唯一键<br />
+null=True 数据库允许为空，默认都是不能为 null 的<br />
+blank=True 前端提交表单允许为空<br />
 db_index=True 建立索引<br />
 editable=False 不允许编辑字段</p>
 <p>（2）个别字段的参数<br />
 CharField<br />
-    max_length=100 最大长度</p>
+max_length=100 最大长度</p>
 <p>DateField、DateTime<br />
-    unique_for_date=True 日期必须唯一<br />
-    unique_for_month=True 月份唯一<br />
-    auto_now=True       自动更新记录时间<br />
-    auto_now_add=True   自动增加记录时间</p>
+unique_for_date=True 日期必须唯一<br />
+unique_for_month=True 月份唯一<br />
+auto_now=True 自动更新记录时间<br />
+auto_now_add=True 自动增加记录时间</p>
 <p>DecimalField<br />
-    max_digits=4   总位数<br />
-    decimal_places=2 小数点数<br />
-    eg: 11.22 16.34</p>
+max_digits=4 总位数<br />
+decimal_places=2 小数点数<br />
+eg: 11.22 16.34</p>
 <p>（3）关系型字段参数<br />
 OneToOneField<br />
-    related_name="one"  父表查字表数据</p>
+related_name="one" 父表查字表数据</p>
 <p>ForeignKey<br />
-    on_delete=""  外键所关联的对象被删除时进行的操作<br />
-        CASCADE： 级联删除。将定义有外键的模型对象同时删除， 默认操作<br />
-        PROTECT： 阻止删除。会报完整性错误。<br />
-        DO_NOTHING：什么也不做<br />
-        SET_NULL：外键设置为 null，前提是 null=True, blank=True。<br />
-        SET_DEFAULT：设置为外键的默认值，前提是设置了default参数。<br />
-        SET()：会调用外面的值，可以是一个函数。一般情况下使用 CASCADE 就可以了。<br />
+on_delete="" 外键所关联的对象被删除时进行的操作<br />
+CASCADE： 级联删除。将定义有外键的模型对象同时删除， 默认操作<br />
+PROTECT： 阻止删除。会报完整性错误。<br />
+DO_NOTHING：什么也不做<br />
+SET_NULL：外键设置为 null，前提是 null=True, blank=True。<br />
+SET_DEFAULT：设置为外键的默认值，前提是设置了 default 参数。<br />
+SET()：会调用外面的值，可以是一个函数。一般情况下使用 CASCADE 就可以了。<br />
 eg:</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">foreign</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
@@ -522,7 +522,7 @@ eg:</p>
 </pre></div>
 
 
-<h2 id="meta">元数据Meta</h2>
+<h2 id="meta">元数据 Meta</h2>
 <p>修改应用名称<br />
 apps.py</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">OrmdemoConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
@@ -531,7 +531,7 @@ apps.py</p>
 </pre></div>
 
 
-<p>修改model元数据</p>
+<p>修改 model 元数据</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">AddressInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;地址&quot;</span><span class="p">)</span>
     <span class="n">note</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;说明&quot;</span><span class="p">)</span>
@@ -643,9 +643,9 @@ apps.py</p>
 
 
 <p>删除某个模型类的完整操作:<br />
-（1）在已创建的app下, 首先删除models.py中需要删除的模型类<br />
-（2）删除该模型类在迁移脚本migrations中的对应文件<br />
-（3）删除该项目在django_migrations中的对应记录<br />
+（1）在已创建的 app 下, 首先删除 models.py 中需要删除的模型类<br />
+（2）删除该模型类在迁移脚本 migrations 中的对应文件<br />
+（3）删除该项目在 django_migrations 中的对应记录<br />
 （4）删除数据库中对应的数据表</p>
 <p>导入数据<br />
 （1）django shell</p>
@@ -658,7 +658,7 @@ apps.py</p>
 </pre></div>
 
 
-<p>（2）脚本导入 </p>
+<p>（2）脚本导入</p>
 <div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -730,14 +730,14 @@ apps.py</p>
 </pre></div>
 
 
-<p>（3）fixtures <br />
-Django serialization -&gt; model保存<br />
-python manage.py dumpdata &gt; data.json  # 导出数据<br />
-python manage.py loaddata data.json    # 导入数据</p>
+<p>（3）fixtures<br />
+Django serialization -&gt; model 保存<br />
+python manage.py dumpdata &gt; data.json # 导出数据<br />
+python manage.py loaddata data.json # 导入数据</p>
 <p>（4）mysqldump<br />
-MySQL数据库导入导出数据</p>
+MySQL 数据库导入导出数据</p>
 <p>(5)PyCharm<br />
-PyCharm自带的导入导出工具</p>
+PyCharm 自带的导入导出工具</p>
 <h2 id="modelapi">ModelAPI</h2>
 <p>1、查询，检索，过滤</p>
 <div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># 返回多个结果</span>
@@ -762,43 +762,43 @@ PyCharm自带的导入导出工具</p>
 </pre></div>
 
 
-<p>4、查看执行的原生SQL</p>
+<p>4、查看执行的原生 SQL</p>
 <div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-nickname&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT `ormdemo_teacher`.`nickname`, </span>
-<span class="sd">FROM `ormdemo_teacher` </span>
+<span class="sd">SELECT `ormdemo_teacher`.`nickname`,</span>
+<span class="sd">FROM `ormdemo_teacher`</span>
 <span class="sd">ORDER BY `ormdemo_teacher`.`nickname` DESC</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 
 
-<h2 id="querysetapi">返回新的QuerySet的API</h2>
+<h2 id="queryset-api">返回新的 QuerySet 的 API</h2>
 <p>读操作大部分都返回</p>
 <p>1、第一类<br />
 all 全部<br />
 filter 过滤<br />
 order_by 排序<br />
-exclude  排除<br />
-reverse  逆序 需要在元数据中设置ordering<br />
+exclude 排除<br />
+reverse 逆序 需要在元数据中设置 ordering<br />
 distinct 去重</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span>
-<span class="c1"># SELECT `ormdemo_student`.`nickname` </span>
-<span class="c1"># FROM `ormdemo_student` </span>
+<span class="c1"># SELECT `ormdemo_student`.`nickname`</span>
+<span class="c1"># FROM `ormdemo_student`</span>
 <span class="c1"># WHERE NOT (`ormdemo_student`.`nickname` = A同学)</span>
 
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">ELECT `ormdemo_student`.`nickname`</span>
-<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">FROM `ormdemo_student`</span>
 <span class="sd">WHERE NOT (`ormdemo_student`.`nickname` = A同学)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 
 
 <p>2、第二类<br />
-extra   别名<br />
-defer   排除一些字段<br />
-only    选择一些字段</p>
+extra 别名<br />
+defer 排除一些字段<br />
+only 选择一些字段</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">extra</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;nickname&quot;</span><span class="p">})</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT (nickname) AS `name`, `ormdemo_student`.`nickname`, `ormdemo_student`.`age`</span>
@@ -813,7 +813,7 @@ only    选择一些字段</p>
 
 
 <p>3、第三类<br />
-values  获取字典形式<br />
+values 获取字典形式<br />
 values_list 获取元组形式</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">)</span>
 <span class="c1"># &lt;QuerySet [{&#39;nickname&#39;: &#39;A同学&#39;, &#39;age&#39;: 54}, {&#39;nickname&#39;: &#39;B同学&#39;, &#39;age&#39;: 36}]&gt;</span>
@@ -827,12 +827,12 @@ values_list 获取元组形式</p>
 
 
 <p>4、第四类<br />
-dates、datatimes根据时间日期获取查询集</p>
+dates、datatimes 根据时间日期获取查询集</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">dates</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">)</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT DISTINCT CAST(DATE_FORMAT(`ormdemo_student`.`created_at`, &#39;%Y-%m-01&#39;) AS DATE) AS `datefield` </span>
-<span class="sd">FROM `ormdemo_student` </span>
-<span class="sd">WHERE `ormdemo_student`.`created_at` IS NOT NULL </span>
+<span class="sd">SELECT DISTINCT CAST(DATE_FORMAT(`ormdemo_student`.`created_at`, &#39;%Y-%m-01&#39;) AS DATE) AS `datefield`</span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">WHERE `ormdemo_student`.`created_at` IS NOT NULL</span>
 <span class="sd">ORDER BY `datefield` ASC</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
@@ -847,25 +847,25 @@ difference 差集 需要数据库支持</p>
 <span class="n">ret1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">ret2</span><span class="p">)</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">(SELECT `ormdemo_student`.`nickname</span>
-<span class="s2">FROM `ormdemo_student` </span>
-<span class="s2">WHERE `ormdemo_student`.`nickname` = &#39;同学A&#39;) </span>
-<span class="s2">UNION </span>
+<span class="s2">FROM `ormdemo_student`</span>
+<span class="s2">WHERE `ormdemo_student`.`nickname` = &#39;同学A&#39;)</span>
+<span class="s2">UNION</span>
 <span class="s2">(SELECT `ormdemo_student`.`nickname`</span>
-<span class="s2">FROM `ormdemo_student` </span>
-<span class="s2">WHERE `ormdemo_student`.`nickname` = &#39;同学B&#39;)  </span>
+<span class="s2">FROM `ormdemo_student`</span>
+<span class="s2">WHERE `ormdemo_student`.`nickname` = &#39;同学B&#39;)</span>
 <span class="s2">LIMIT 2</span>
 </pre></div>
 
 
 <p>6、第六类<br />
-select_related   一对一，多对一查询优化<br />
-prefetch_related  一对多，多对多查询优化</p>
+select_related 一对一，多对一查询优化<br />
+prefetch_related 一对多，多对多查询优化</p>
 <div class="codehilite"><pre><span></span><span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s2">&quot;teacher&quot;</span><span class="p">)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd"> SELECT `ormdemo_course`.`title`,  `ormdemo_teacher`.`nickname`</span>
-<span class="sd"> FROM `ormdemo_course` </span>
+<span class="sd"> FROM `ormdemo_course`</span>
 <span class="sd"> LEFT OUTER JOIN `ormdemo_teacher`</span>
-<span class="sd"> ON (`ormdemo_course`.`teacher_id` = `ormdemo_teacher`.`nickname`)  </span>
+<span class="sd"> ON (`ormdemo_course`.`teacher_id` = `ormdemo_teacher`.`nickname`)</span>
 <span class="sd"> LIMIT 21;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -875,9 +875,9 @@ prefetch_related  一对多，多对多查询优化</p>
 <span class="sd">FROM `ormdemo_student`  LIMIT 21;</span>
 
 <span class="sd">SELECT (`ormdemo_student_course`.`student_id`) AS `_prefetch_related_val_student_id`, `ormdemo_course`.`title`</span>
-<span class="sd">FROM `ormdemo_course` </span>
-<span class="sd">INNER JOIN `ormdemo_student_course` </span>
-<span class="sd">ON (`ormdemo_course`.`title` = `ormdemo_student_course`.`course_id`) </span>
+<span class="sd">FROM `ormdemo_course`</span>
+<span class="sd">INNER JOIN `ormdemo_student_course`</span>
+<span class="sd">ON (`ormdemo_course`.`title` = `ormdemo_student_course`.`course_id`)</span>
 <span class="sd">WHERE `ormdemo_student_course`.`student_id` IN (&#39;A同学&#39;, &#39;B同学&#39;, &#39;C同学&#39;, &#39;D同学&#39;);</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
@@ -887,66 +887,66 @@ prefetch_related  一对多，多对多查询优化</p>
 <div class="codehilite"><pre><span></span><span class="n">Teacher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;Jack&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">course_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_teacher`.`nickname`</span>
-<span class="sd">FROM `ormdemo_teacher` </span>
+<span class="sd">FROM `ormdemo_teacher`</span>
 <span class="sd">WHERE `ormdemo_teacher`.`nickname` = &#39;Jack&#39;</span>
 
 <span class="sd">SELECT `ormdemo_course`.`title`</span>
-<span class="sd">FROM `ormdemo_course` </span>
-<span class="sd">WHERE `ormdemo_course`.`teacher_id` = &#39;Jack&#39;  </span>
+<span class="sd">FROM `ormdemo_course`</span>
+<span class="sd">WHERE `ormdemo_course`.`teacher_id` = &#39;Jack&#39;</span>
 <span class="sd">LIMIT 21;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 
 
 <p>7、第七类<br />
-annotate 聚合计数，求和，平均数，执行原生SQL（分组后的数据进行统计）</p>
+annotate 聚合计数，求和，平均数，执行原生 SQL（分组后的数据进行统计）</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Count</span><span class="p">,</span> <span class="n">Avg</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="n">Sum</span>
 
 <span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;teacher&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">vol</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">))</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT `ormdemo_course`.`teacher_id`, SUM(`ormdemo_course`.`volume`) AS `vol` </span>
-<span class="sd">FROM `ormdemo_course` </span>
-<span class="sd">GROUP BY `ormdemo_course`.`teacher_id` </span>
+<span class="sd">SELECT `ormdemo_course`.`teacher_id`, SUM(`ormdemo_course`.`volume`) AS `vol`</span>
+<span class="sd">FROM `ormdemo_course`</span>
+<span class="sd">GROUP BY `ormdemo_course`.`teacher_id`</span>
 <span class="sd">ORDER BY NULL  LIMIT 21;</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;teacher&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">pri</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">))</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT `ormdemo_course`.`teacher_id`, AVG(`ormdemo_course`.`price`) AS `pri` </span>
-<span class="sd">FROM `ormdemo_course` </span>
-<span class="sd">GROUP BY `ormdemo_course`.`teacher_id` </span>
+<span class="sd">SELECT `ormdemo_course`.`teacher_id`, AVG(`ormdemo_course`.`price`) AS `pri`</span>
+<span class="sd">FROM `ormdemo_course`</span>
+<span class="sd">GROUP BY `ormdemo_course`.`teacher_id`</span>
 <span class="sd">ORDER BY NULL  LIMIT 21;</span>
 <span class="sd"># order by null用途是强制对查询结果禁用排序</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 
 
-<h2 id="querysetapi_1">不返回QuerySet的API</h2>
+<h2 id="queryset-api_1">不返回 QuerySet 的 API</h2>
 <p>写操作都不返回结果集<br />
 1、获取对象<br />
 get, get_or_create, first, last, in_bulk<br />
-latest最近记录, earliest 最早记录 需要设置元数据get_latest_by</p>
+latest 最近记录, earliest 最早记录 需要设置元数据 get_latest_by</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span>  <span class="c1"># 返回多个会报错</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_student`.`nickname`</span>
-<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">FROM `ormdemo_student`</span>
 <span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_student`.`nickname`</span>
-<span class="sd">FROM `ormdemo_student` </span>
-<span class="sd">ORDER BY `ormdemo_student`.`nickname` ASC  </span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">ORDER BY `ormdemo_student`.`nickname` ASC</span>
 <span class="sd">LIMIT 1</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_student`.`nickname`</span>
-<span class="sd">FROM `ormdemo_student` </span>
-<span class="sd">ORDER BY `ormdemo_student`.`nickname` DESC  </span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">ORDER BY `ormdemo_student`.`nickname` DESC</span>
 <span class="sd">LIMIT 1;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -954,23 +954,23 @@ latest最近记录, earliest 最早记录 需要设置元数据get_latest_by</p>
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">in_bulk</span><span class="p">([</span><span class="s2">&quot;A同学&quot;</span><span class="p">])</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_student`.`nickname`</span>
-<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">FROM `ormdemo_student`</span>
 <span class="sd">WHERE `ormdemo_student`.`nickname` IN (&#39;A同学&#39;);</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">latest</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_student`.`nickname</span>
-<span class="sd">FROM `ormdemo_student` </span>
-<span class="sd">ORDER BY `ormdemo_student`.`created_at` DESC  </span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">ORDER BY `ormdemo_student`.`created_at` DESC</span>
 <span class="sd">LIMIT 1;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">earliest</span><span class="p">()</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT `ormdemo_student`.`nickname</span>
-<span class="s2">FROM `ormdemo_student` </span>
-<span class="s2">ORDER BY `ormdemo_student`.`created_at` ASC  </span>
+<span class="s2">FROM `ormdemo_student`</span>
+<span class="s2">ORDER BY `ormdemo_student`.`created_at` ASC</span>
 <span class="s2">LIMIT 1;</span>
 </pre></div>
 
@@ -981,26 +981,26 @@ create, bulk_create, update_or_create</p>
 update, update_or_create</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">UPDATE `ormdemo_student` </span>
-<span class="sd">SET `age` = 13 </span>
-<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;; </span>
+<span class="sd">UPDATE `ormdemo_student`</span>
+<span class="sd">SET `age` = 13</span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 
 
 <p>4、删除对象<br />
-delete 使用filter过滤</p>
+delete 使用 filter 过滤</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;A同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT `ormdemo_student`.`nickname </span>
-<span class="sd">FROM `ormdemo_student` </span>
+<span class="sd">SELECT `ormdemo_student`.`nickname</span>
+<span class="sd">FROM `ormdemo_student`</span>
 <span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;A同学&#39;;</span>
 
 
-<span class="sd">DELETE FROM `ormdemo_student_course` </span>
+<span class="sd">DELETE FROM `ormdemo_student_course`</span>
 <span class="sd">WHERE `ormdemo_student_course`.`student_id` IN (&#39;A同学&#39;);</span>
 
-<span class="sd">DELETE FROM `ormdemo_student` </span>
+<span class="sd">DELETE FROM `ormdemo_student`</span>
 <span class="sd">WHERE `ormdemo_student`.`nickname` IN (&#39;A同学&#39;);</span>
 
 <span class="sd">(13, {&#39;ormdemo.Student_course&#39;: 12, &#39;ormdemo.Student&#39;: 1})</span>
@@ -1013,26 +1013,26 @@ delete 使用filter过滤</p>
 exists, count, aggregate(整个数据表统计)</p>
 <div class="codehilite"><pre><span></span><span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;B同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT (1) AS `a` </span>
-<span class="sd">FROM `ormdemo_student` </span>
-<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;B同学&#39;  </span>
+<span class="sd">SELECT (1) AS `a`</span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;B同学&#39;</span>
 <span class="sd">LIMIT 1</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nickname</span><span class="o">=</span><span class="s2">&quot;B同学&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT COUNT(*) AS `__count` </span>
-<span class="sd">FROM `ormdemo_student` </span>
-<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;B同学&#39;; </span>
+<span class="sd">SELECT COUNT(*) AS `__count`</span>
+<span class="sd">FROM `ormdemo_student`</span>
+<span class="sd">WHERE `ormdemo_student`.`nickname` = &#39;B同学&#39;;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">Course</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Max</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Min</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;volum&quot;</span><span class="p">))</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT </span>
-<span class="sd">MAX(`ormdemo_course`.`price`) AS `price__max`, </span>
-<span class="sd">MIN(`ormdemo_course`.`price`) AS `price__min`, </span>
-<span class="sd">AVG(`ormdemo_course`.`price`) AS `price__avg`, </span>
-<span class="sd">SUM(`ormdemo_course`.`volume`) AS `volume__sum` </span>
+<span class="sd">SELECT</span>
+<span class="sd">MAX(`ormdemo_course`.`price`) AS `price__max`,</span>
+<span class="sd">MIN(`ormdemo_course`.`price`) AS `price__min`,</span>
+<span class="sd">AVG(`ormdemo_course`.`price`) AS `price__avg`,</span>
+<span class="sd">SUM(`ormdemo_course`.`volume`) AS `volume__sum`</span>
 <span class="sd">FROM `ormdemo_course`;</span>
 
 <span class="sd">{&#39;price__max&#39;: 295, &#39;price__min&#39;: 210, &#39;price__avg&#39;: 250.75, &#39;volume__sum&#39;: 60559}</span>
@@ -1042,9 +1042,9 @@ exists, count, aggregate(整个数据表统计)</p>
 
 <p>自定义聚合查询（略）<br />
 group_contact</p>
-<h2 id="fq">F对象和Q对象</h2>
-<p>F对象 操作字段数据<br />
-Q对象 结合AND OR NOT | ~ &amp; 实现复杂查询</p>
+<h2 id="f-q">F 对象和 Q 对象</h2>
+<p>F 对象 操作字段数据<br />
+Q 对象 结合 AND OR NOT | ~ &amp; 实现复杂查询</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">F</span><span class="p">,</span> <span class="n">Q</span>
 <span class="n">Student</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -1055,7 +1055,7 @@ Q对象 结合AND OR NOT | ~ &amp; 实现复杂查询</p>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">SELECT `ormdemo_student`.`nickname`</span>
 <span class="sd">FROM `ormdemo_student`</span>
-<span class="sd">WHERE (`ormdemo_student`.`age` &gt;= 1 AND `ormdemo_student`.`age` &lt;= 10) </span>
+<span class="sd">WHERE (`ormdemo_student`.`age` &gt;= 1 AND `ormdemo_student`.`age` &lt;= 10)</span>
 <span class="sd">LIMIT 21;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>

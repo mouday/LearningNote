@@ -1,0 +1,1227 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>ThinkPHP6.0 - 学习笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#thinkphp60" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="学习笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              学习笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                ThinkPHP6.0
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="学习笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    学习笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Java/" title="Java" class="md-nav__link">
+      Java
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ElasticSearch/" title="ElasticSearch" class="md-nav__link">
+      ElasticSearch
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../JavaScript/" title="JavaScript" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../人工智能/" title="人工智能" class="md-nav__link">
+      人工智能
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../LEK/" title="LEK" class="md-nav__link">
+      LEK
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../设计模式/" title="设计模式" class="md-nav__link">
+      设计模式
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../前端/" title="前端" class="md-nav__link">
+      前端
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、环境要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、创建项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    控制器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特殊控制器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    数据库配置和Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    链式查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    新增数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    修改数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    删除数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    查询方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    时间查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    聚合、原生、子查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    链式查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    高级查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    快捷查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    事务和获取器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    数据集和代码提示
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="thinkphp60">ThinkPHP6.0</h1>
+<p>【ThinkPHP6.x / PHP框架】【十天精品课堂系列】83P<br />
+https://www.bilibili.com/video/BV12E411y7u8</p>
+<p>文档《ThinkPHP6.0完全开发手册》<br />
+https://www.kancloud.cn/manual/thinkphp6_0/1037479</p>
+<p>课程讲义SQL下载：<br />
+链接：https://pan.baidu.com/s/16a6yM-IoGTR7QoAlq9zyZw <br />
+提取码：7y9t</p>
+<p>李炎恢tp6教程文档<br />
+https://www.wodecun.com/blog/8137.html</p>
+<h2 id="1">1、环境要求</h2>
+<p>1、PHP &gt;= 7.1</p>
+<p>2、Composer</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 安装 </span>
+curl -sS https://getcomposer.org/installer <span class="p">|</span> php
+mv composer.phar /usr/local/bin/composer
+
+<span class="c1"># 国内镜像（阿里云）</span>
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+</pre></div>
+
+
+<h2 id="2">2、创建项目</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># 创建项目 tp为项目文件夹名</span>
+composer create-project topthink/think tp
+
+<span class="c1"># 开发环境运行[端口号]</span>
+php think run <span class="o">[</span>-p <span class="m">80</span><span class="o">]</span>
+</pre></div>
+
+
+<h2 id="_1">配置</h2>
+<div class="codehilite"><pre><span></span><span class="x">// 读取环境变量 .env配置</span>
+<span class="x">use think\facade\Env;</span>
+
+<span class="x">Env::get(&#39;database.hostname&#39;);</span>
+
+
+<span class="x">// 读取配置</span>
+<span class="x">use think\facade\Config;</span>
+
+<span class="x">Config::get(&#39;database.connections.mysql.hostname&#39;);</span>
+</pre></div>
+
+
+<h2 id="url">URL</h2>
+<p>单应用模式</p>
+<div class="codehilite"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">serverName</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">php</span><span class="o">/</span><span class="err">控制器</span><span class="o">/</span><span class="err">操作</span><span class="p">[</span><span class="o">/</span><span class="err">参数名</span><span class="o">/</span><span class="err">参数值</span><span class="p">...]</span>
+</pre></div>
+
+
+<p>多应用模式</p>
+<div class="codehilite"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">serverName</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">php</span><span class="o">/</span><span class="err">应用</span><span class="o">/</span><span class="err">控制器</span><span class="o">/</span><span class="err">操作</span><span class="p">[</span><span class="o">/</span><span class="err">参数名</span><span class="o">/</span><span class="err">参数值</span><span class="p">...]</span>
+</pre></div>
+
+
+<p>兼容模式</p>
+<div class="codehilite"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">serverName</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">php</span><span class="o">?</span><span class="n">s</span><span class="o">=/</span><span class="err">控制器</span><span class="o">/</span><span class="err">操作</span><span class="p">[</span><span class="o">/</span><span class="err">参数名</span><span class="o">/</span><span class="err">参数值</span><span class="p">...]</span>
+</pre></div>
+
+
+<h2 id="_2">控制器</h2>
+<p>启动控制器后缀</p>
+<p>config/route.php</p>
+<div class="codehilite"><pre><span></span><span class="x">// 是否使用控制器后缀</span>
+<span class="x">&#39;controller_suffix&#39;     =&gt; true,</span>
+</pre></div>
+
+
+<p>中断测试, 使用助手函数</p>
+<div class="codehilite"><pre><span></span><span class="x">halt()</span>
+</pre></div>
+
+
+<p>控制器数据返回</p>
+<div class="codehilite"><pre><span></span><span class="x">// 字符串</span>
+<span class="x">return &#39;hello world&#39;;</span>
+
+
+<span class="x">// json</span>
+<span class="x">return json([&#39;name&#39; =&gt; &#39;Tom&#39;]);</span>
+
+
+<span class="x">// 渲染模板</span>
+<span class="x">return view(&#39;test/index&#39;, [&#39;name&#39; =&gt; &#39;Tom&#39;]);</span>
+</pre></div>
+
+
+<h2 id="_3">特殊控制器</h2>
+<p>1、 基础控制器   BaseController 提供了$app $request<br />
+2、 空控制器    ErrorController 控制器不存在会调用<br />
+3、 多级控制器  /user.blog -&gt; controller/user/BlogController.php</p>
+<h2 id="model">数据库配置和Model</h2>
+<p>数据库配置文件 config/database.php</p>
+<p>Model定义</p>
+<div class="codehilite"><pre><span></span><span class="x">use think\Model;</span>
+
+
+<span class="x">class ArticleModel extends Model</span>
+<span class="x">{</span>
+<span class="x">    // 真实的表名</span>
+<span class="x">    protected $name = &#39;tb_article&#39;;</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<h2 id="_4">数据查询</h2>
+<div class="codehilite"><pre><span></span><span class="x">use think\facade\Db;</span>
+
+<span class="x">// 查询一条数据</span>
+<span class="x">$result = Db::table(&#39;tb_user&#39;)-&gt;where(&#39;id&#39;, &#39;=&#39;, 1)-&gt;find();</span>
+
+<span class="x">// 获取最后一条查询语句</span>
+<span class="x">$sql = Db::getLastSql();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `id` = 1 LIMIT 1</span>
+</pre></div>
+
+
+<p>1、单条数据查询</p>
+<div class="codehilite"><pre><span></span><span class="err">查询方法</span>          <span class="err">数据不存在的返回值</span>
+
+<span class="n">find</span><span class="p">()</span>        <span class="o">-&gt;</span> <span class="k">null</span>
+<span class="n">findOrFail</span><span class="p">()</span>  <span class="o">-&gt;</span> <span class="err">抛出异常</span>
+<span class="n">findOrEmpty</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="err">返回空数组</span> <span class="nb">array</span><span class="p">()</span>
+</pre></div>
+
+
+<p>2、数据集查询</p>
+<div class="codehilite"><pre><span></span><span class="err">查询方法</span>          <span class="err">数据不存在的返回值</span>
+
+<span class="k">select</span><span class="p">()</span>        <span class="o">-&gt;</span> <span class="err">返回空数组</span> <span class="nb">array</span><span class="p">()</span>
+<span class="n">selectOrFail</span><span class="p">()</span>  <span class="o">-&gt;</span> <span class="err">抛出异常</span>
+</pre></div>
+
+
+<p>数据集可以转为数组 <code>toArray()</code></p>
+<div class="codehilite"><pre><span></span><span class="x">// 需要传入完整表名</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+
+<span class="x">// 需要省略表前缀</span>
+<span class="x">Db::name(&#39;user&#39;)</span>
+
+<span class="x">// 返回指定的值</span>
+<span class="x">value(&#39;username&#39;)</span>
+
+<span class="x">// 返回键值对 [key =&gt; value]</span>
+<span class="x">column(&#39;value&#39;, &#39;key&#39;)</span>
+
+<span class="x">// 分批读取数据</span>
+<span class="x">chunk()</span>
+
+<span class="x">// 游标查询，每次读取一条数据</span>
+<span class="x">cursor()</span>
+</pre></div>
+
+
+<h2 id="_5">链式查询</h2>
+<div class="codehilite"><pre><span></span><span class="x">// query对象可进行多次查询</span>
+<span class="x">$query = Db::table(&#39;tb_user&#39;);</span>
+
+<span class="x">$query-&gt;where(&#39;id&#39;, &#39;=&#39;, 1)-&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `id` = 1</span>
+
+<span class="x">// 继续使用同一个查询对象，会保留上一次的查询条件</span>
+<span class="x">$query-&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `id` = 1</span>
+
+<span class="x">// 查询之前清空where条件</span>
+<span class="x">$query-&gt;removeOption(&#39;where&#39;)-&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user`</span>
+</pre></div>
+
+
+<h2 id="_6">新增数据</h2>
+<p>新增一条数据</p>
+<div class="codehilite"><pre><span></span><span class="x">// 1、插入数据 返回插入成功数量</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;insert($data);</span>
+
+
+<span class="x">// 2、抛弃不存在的数据</span>
+<span class="x">$data = [</span>
+<span class="x">    &#39;name&#39;=&gt;  &#39;Jack&#39;, // 不存在name字段</span>
+<span class="x">    &#39;username&#39;=&gt;  &#39;Jack&#39;,</span>
+<span class="x">];</span>
+
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;strict(false)-&gt;insert($data);</span>
+<span class="x">// INSERT INTO `tb_user` SET `username` = &#39;Jack&#39;</span>
+
+
+<span class="x">// 3、replace into</span>
+<span class="x">$data = [</span>
+<span class="x">    &#39;username&#39; =&gt;  &#39;Tom&#39;,</span>
+<span class="x">];</span>
+
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;replace()-&gt;insert($data);</span>
+<span class="x">// REPLACE INTO `tb_user` SET `username` = &#39;Tom&#39;</span>
+
+
+<span class="x">// 4、插入数据后返回自增ID</span>
+<span class="x">$data = [</span>
+<span class="x">    &#39;username&#39;=&gt;  &#39;Jack&#39;,</span>
+<span class="x">];</span>
+
+<span class="x">$result = Db::table(&#39;tb_user&#39;)-&gt;insertGetId($data);</span>
+</pre></div>
+
+
+<p>批量新增</p>
+<div class="codehilite"><pre><span></span><span class="x">$data = [</span>
+<span class="x">    [&#39;foo&#39; =&gt; &#39;bar&#39;, &#39;bar&#39; =&gt; &#39;foo&#39;],</span>
+<span class="x">    [&#39;foo&#39; =&gt; &#39;bar1&#39;, &#39;bar&#39; =&gt; &#39;foo1&#39;],</span>
+<span class="x">    [&#39;foo&#39; =&gt; &#39;bar2&#39;, &#39;bar&#39; =&gt; &#39;foo2&#39;]</span>
+<span class="x">];</span>
+
+<span class="x">Db::name(&#39;user&#39;)-&gt;insertAll($data);</span>
+
+<span class="x">// replace</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;replace()-&gt;insertAll($data);</span>
+
+<span class="x">// 分批插入</span>
+<span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;limit(100)</span>
+<span class="x">    -&gt;insertAll($data);</span>
+</pre></div>
+
+
+<p>save新增，自动判断新增还是更新</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;save([&#39;id&#39; =&gt; 1, &#39;name&#39; =&gt; &#39;thinkphp&#39;]);</span>
+</pre></div>
+
+
+<h2 id="_7">修改数据</h2>
+<div class="codehilite"><pre><span></span><span class="x">// update</span>
+<span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, 1)</span>
+<span class="x">    -&gt;update([&#39;name&#39; =&gt; &#39;thinkphp&#39;]);</span>
+<span class="x">// UPDATE `think_user`  SET `name`=&#39;thinkphp&#39;  WHERE  `id` = 1</span>
+
+
+<span class="x">// save</span>
+<span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;save([&#39;id&#39; =&gt; 1, &#39;name&#39; =&gt; &#39;thinkphp&#39;]);</span>
+<span class="x">// UPDATE `think_user`  SET `name`=&#39;thinkphp&#39;  WHERE  `id` = 1</span>
+
+
+<span class="x">// 使用SQL函数</span>
+<span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;,1)</span>
+<span class="x">    -&gt;exp(&#39;name&#39;,&#39;UPPER(name)&#39;)</span>
+<span class="x">    -&gt;update();</span>
+<span class="x">// UPDATE `think_user`  SET `name` = UPPER(name)  WHERE  `id` = 1</span>
+
+
+<span class="x">// 自增/自减</span>
+<span class="x">Db::table(&#39;think_user&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, 1)</span>
+<span class="x">    -&gt;inc(&#39;score&#39;)</span>
+<span class="x">    -&gt;update();</span>
+<span class="x">// UPDATE `think_user`  SET `score` = `score` + 1  WHERE  `id` = 1 </span>
+
+
+<span class="x">// raw方法</span>
+<span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;, 1)</span>
+<span class="x">    -&gt;update([</span>
+<span class="x">        &#39;name&#39;      =&gt;  Db::raw(&#39;UPPER(name)&#39;),</span>
+<span class="x">        &#39;score&#39;     =&gt;  Db::raw(&#39;score-3&#39;),</span>
+<span class="x">        &#39;read_time&#39; =&gt;  Db::raw(&#39;read_time+1&#39;)</span>
+<span class="x">    ]);</span>
+</pre></div>
+
+
+<h2 id="_8">删除数据</h2>
+<div class="codehilite"><pre><span></span><span class="x">// 根据主键删除</span>
+<span class="x">Db::table(&#39;think_user&#39;)-&gt;delete(1);</span>
+<span class="x">// DELETE FROM `think_user` WHERE  `id` = 1 </span>
+
+<span class="x">Db::table(&#39;think_user&#39;)-&gt;delete([1,2,3]);</span>
+<span class="x">// DELETE FROM `think_user` WHERE  `id` IN (1,2,3) </span>
+
+
+<span class="x">// 条件删除</span>
+<span class="x">Db::table(&#39;think_user&#39;)-&gt;where(&#39;id&#39;,1)-&gt;delete();</span>
+<span class="x">// DELETE FROM `think_user` WHERE  `id` = 1 </span>
+
+<span class="x">Db::table(&#39;think_user&#39;)-&gt;where(&#39;id&#39;,&#39;&lt;&#39;,10)-&gt;delete();</span>
+<span class="x">// DELETE FROM `think_user` WHERE  `id` &lt; 10</span>
+
+<span class="x">// 删除所有数据</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;delete(true);</span>
+<span class="x">// DELETE FROM `think_user`</span>
+</pre></div>
+
+
+<h2 id="_9">查询方式</h2>
+<p>比较查询</p>
+<div class="codehilite"><pre><span></span><span class="x">where(&#39;字段名&#39;,&#39;查询表达式&#39;,&#39;查询条件&#39;);</span>
+</pre></div>
+
+
+<p>区间查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// Like</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereLike(&#39;name&#39;,&#39;thinkphp%&#39;)-&gt;select();</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereNotLike(&#39;name&#39;,&#39;thinkphp%&#39;)-&gt;select();</span>
+
+<span class="x">// Between</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereBetween(&#39;id&#39;,&#39;1,8&#39;)-&gt;select();</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereNotBetween(&#39;id&#39;,&#39;1,8&#39;)-&gt;select();</span>
+
+<span class="x">// Null</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereNull(&#39;name&#39;)-&gt;select();</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereNotNull(&#39;name&#39;)-&gt;select();</span>
+
+<span class="x">// In</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereIn(&#39;id&#39;,&#39;1,5,8&#39;)-&gt;select();</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereNotIn(&#39;id&#39;,&#39;1,5,8&#39;)-&gt;select();</span>
+</pre></div>
+
+
+<p>自定义查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// Exp</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;whereExp(&#39;id&#39;, &#39;IN (1,3,8) &#39;)-&gt;select();</span>
+</pre></div>
+
+
+<h2 id="_10">时间查询</h2>
+<p>传统查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// 大于某个时间</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;where(&#39;create_time&#39;, &#39;&gt;=&#39;, &#39;1970-10-1&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `create_time` &gt;= &#39;1970-10-1&#39;</span>
+</pre></div>
+
+
+<p>快捷查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// 大于某个时间</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereTime(&#39;create_time&#39;, &#39;&gt;=&#39;, &#39;1970-10-1&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `create_time` &gt;= &#39;1970-10-01 00:00:00&#39;</span>
+
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereBetweenTime(&#39;create_time&#39;, &#39;2017-01-01&#39;, &#39;2017-06-30&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE `create_time` BETWEEN &#39;2017-01-01 00:00:00&#39; AND &#39;2017-06-30 00:00:00&#39;</span>
+</pre></div>
+
+
+<p>固定查询</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereYear(&#39;create_time&#39;, &#39;last year&#39;)</span>
+<span class="x">    -&gt;select();   </span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE `create_time` BETWEEN &#39;2020-01-01 00:00:00&#39; AND &#39;2020-12-31 23:59:59&#39;</span>
+
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereMonth(&#39;create_time&#39;, &#39;last month&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `create_time`</span>
+<span class="x">// BETWEEN &#39;2021-05-01 00:00:00&#39; AND &#39;2021-05-31&#39;</span>
+
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereWeek(&#39;create_time&#39;, &#39;last week&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE `create_time` BETWEEN &#39;2021-05-31 00:00:00&#39; AND &#39;2021-06-06 23:59:59&#39;</span>
+
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereDay(&#39;create_time&#39;, &#39;yesterday&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE `create_time` BETWEEN &#39;2021-06-12 00:00:00&#39; AND &#39;2021-06-12 23:59:59&#39;</span>
+</pre></div>
+
+
+<p>其他查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// 查询两个小时内的博客</span>
+<span class="x">Db::name(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereTime(&#39;create_time&#39;,&#39;-2 hours&#39;)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `create_time` &gt;= &#39;2021-06-13 14:23:25&#39;</span>
+
+<span class="x">// 查询有效期内的活动</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereTime(&#39;start_time&#39;, &#39;&lt;=&#39;, time())</span>
+<span class="x">    -&gt;whereTime(&#39;end_time&#39;, &#39;&gt;=&#39;, time())</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE `start_time` &lt;= &#39;2021-06-13 16:18:43&#39; AND `end_time` &gt;= &#39;1623572323&#39; </span>
+</pre></div>
+
+
+<h2 id="_11">聚合、原生、子查询</h2>
+<p>聚合查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// 统计数量</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;count();</span>
+<span class="x">// SELECT COUNT(*) AS think_count FROM `tb_user`</span>
+
+<span class="x">// 获取最大值</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;max(&#39;id&#39;);</span>
+<span class="x">// SELECT MAX(`id`) AS think_max FROM `tb_user`</span>
+
+<span class="x">// 获取最小值</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;min(&#39;id&#39;);</span>
+<span class="x">// SELECT MIN(`id`) AS think_min FROM `tb_user`</span>
+
+<span class="x">// 获取平均值</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;avg(&#39;id&#39;);</span>
+<span class="x">// SELECT AVG(`id`) AS think_avg FROM `tb_user`</span>
+
+<span class="x">// 获取总分</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;sum(&#39;id&#39;);</span>
+<span class="x">// SELECT SUM(`id`) AS think_sum FROM `tb_user`</span>
+</pre></div>
+
+
+<p>SQL构建</p>
+<div class="codehilite"><pre><span></span><span class="x">// 直接返回SQL而不是执行查询</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;fetchSql()-&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user`</span>
+
+<span class="x">// 返回SQL，可以带括号</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;buildSql();</span>
+<span class="x">( SELECT * FROM `tb_user` )</span>
+</pre></div>
+
+
+<p>子查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// 手动拼接</span>
+<span class="x">$subQuery = Db::table(&#39;tb_user&#39;)-&gt;where(&#39;id&#39;, &#39;&gt;&#39;, 5)-&gt;buildSql();</span>
+<span class="x">$sql = Db::table(&#39;tb_user&#39;)-&gt;where(&#39;id&#39;, &#39;exp&#39;, &#39;IN&#39; . $subQuery)-&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE ( `id` IN( SELECT `id` FROM `tb_user` WHERE `id` &gt; 5 ) )</span>
+
+
+<span class="x">// 使用闭包</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;where(&#39;id&#39;, &#39;in&#39;, function ($query){</span>
+<span class="x">    $query-&gt;table(&#39;tb_user&#39;)-&gt;field(&#39;id&#39;)-&gt;where(&#39;id&#39;, &#39;&gt;&#39;, 5);</span>
+<span class="x">})-&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE `id` IN (SELECT `id` FROM `tb_user` WHERE `id` &gt; 5)</span>
+</pre></div>
+
+
+<p>原生查询</p>
+<div class="codehilite"><pre><span></span><span class="x">// 查询</span>
+<span class="x">Db::query(&#39;select * from tb_user&#39;);</span>
+
+<span class="x">// 写入</span>
+<span class="x">Db::execute(&#39;insert into tb_user (name, age) values (&quot;Tom&quot;, 23)&#39;);</span>
+</pre></div>
+
+
+<h2 id="_12">链式查询</h2>
+<p>where 查询操作</p>
+<p>参数支持的变量类型: 字符串、数组、闭包</p>
+<div class="codehilite"><pre><span></span><span class="x">// 表达式查询(推荐)</span>
+<span class="x">Db::table(&#39;think_user&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&#39;,&#39;&gt;&#39;,1)</span>
+<span class="x">    -&gt;where(&#39;name&#39;,&#39;thinkphp&#39;)</span>
+<span class="x">    -&gt;select(); </span>
+
+<span class="x">// 数组条件</span>
+<span class="x">Db::table(&#39;think_user&#39;)-&gt;where([</span>
+<span class="x">    &#39;name&#39;  =&gt;  &#39;thinkphp&#39;,</span>
+<span class="x">    &#39;status&#39;=&gt;  1</span>
+<span class="x">])-&gt;select(); </span>
+
+<span class="x">// 字符串条件</span>
+<span class="x">Db::table(&#39;think_user&#39;)</span>
+<span class="x">    -&gt;whereRaw(&#39;type=1 AND status=1&#39;)</span>
+<span class="x">    -&gt;select(); </span>
+
+<span class="x">// 变量预处理</span>
+<span class="x">Db::table(&#39;think_user&#39;)</span>
+<span class="x">    -&gt;whereRaw(&quot;id=:id and username=:name&quot;, [&#39;id&#39; =&gt; 1 , &#39;name&#39; =&gt; &#39;thinkphp&#39;])</span>
+<span class="x">    -&gt;select();</span>
+</pre></div>
+
+
+<p>field</p>
+<div class="codehilite"><pre><span></span><span class="x">// 指定查询字段</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;field(&#39;id,title,content&#39;)-&gt;select();</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;field([&#39;id&#39;,&#39;title&#39;,&#39;content&#39;])-&gt;select();</span>
+
+<span class="x">// 设置别名</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;field(&#39;id,nickname as name&#39;)-&gt;select();</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;field([&#39;id&#39;,&#39;nickname&#39;=&gt;&#39;name&#39;])-&gt;select();</span>
+
+<span class="x">// 使用函数</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;fieldRaw(&#39;id,SUM(score)&#39;)-&gt;select();</span>
+
+<span class="x">// 获取所有字段，两者等价</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;field(&#39;*&#39;)-&gt;select();</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;select();</span>
+
+<span class="x">// 字段排除</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;withoutField(&#39;user_id,content&#39;)-&gt;select();</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;withoutField([&#39;user_id&#39;,&#39;content&#39;])-&gt;select();</span>
+
+<span class="x">// 字段合法性检测</span>
+<span class="x">Db::table(&#39;user&#39;)-&gt;field(&#39;title,email,content&#39;)-&gt;insert($data);</span>
+</pre></div>
+
+
+<p>alias 设置数据表别名</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::table(&#39;think_user&#39;)</span>
+<span class="x">    -&gt;alias(&#39;a&#39;)</span>
+<span class="x">    -&gt;select();</span>
+</pre></div>
+
+
+<p>limit</p>
+<div class="codehilite"><pre><span></span><span class="x">// limit</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;limit(5)-&gt;select();</span>
+
+<span class="x">// offset limit</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;limit(1, 5)-&gt;select();</span>
+</pre></div>
+
+
+<p>page 分页</p>
+<div class="codehilite"><pre><span></span><span class="x">// page, limit</span>
+<span class="x">Db::name(&#39;user&#39;)-&gt;page(1, 5)-&gt;select();</span>
+</pre></div>
+
+
+<p>order</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::name(&#39;user&#39;)-&gt;order(&#39;id&#39;, &#39;desc&#39;)-&gt;select();</span>
+
+<span class="x">Db::name(&#39;user&#39;)-&gt;order([&#39;create_time&#39;=&gt;&#39;desc&#39;, &#39;price&#39;=&gt;&#39;asc&#39;])-&gt;select();</span>
+
+<span class="x">Db::name(&#39;user&#39;)-&gt;orderRaw(&#39;FIELD(username,&quot;Tom&quot;) DESC&#39;)-&gt;select();</span>
+</pre></div>
+
+
+<p>group</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;fieldRaw(&#39;gender, SUM(price)&#39;)</span>
+<span class="x">    -&gt;group(&#39;gender&#39;)</span>
+<span class="x">    -&gt;select();</span>
+</pre></div>
+
+
+<p>having</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::name(&#39;user&#39;)</span>
+<span class="x">    -&gt;fieldRaw(&#39;gender, SUM(price)&#39;)</span>
+<span class="x">    -&gt;group(&#39;gender&#39;)</span>
+<span class="x">    -&gt;having(&#39;SUM(price)&gt;600&#39;)</span>
+<span class="x">    -&gt;select();</span>
+</pre></div>
+
+
+<h2 id="_13">高级查询</h2>
+<div class="codehilite"><pre><span></span><span class="x">// |OR &amp;AND</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;where(&#39;username|nick_name&#39;, &#39;like&#39;, &#39;%高%&#39;)</span>
+<span class="x">    -&gt;where(&#39;id&amp;age&#39;, &#39;&gt;&#39;, 12)</span>
+<span class="x">    -&gt;select();</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE ( `username` LIKE &#39;%高%&#39; OR `nick_name` LIKE &#39;%高%&#39; ) </span>
+<span class="x">// AND ( `id` &gt; 12 AND `age` &gt; &#39;12&#39; )</span>
+
+
+<span class="x">// 关联数组原样查询条件</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;where([</span>
+<span class="x">        [&#39;username&#39;, &#39;like&#39;, &#39;%王%&#39;],</span>
+<span class="x">        [&#39;age&#39;, &#39;exp&#39;, Db::raw(&#39;&gt;18&#39;)],</span>
+<span class="x">    ])</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE `username` LIKE &#39;%王%&#39; AND ( `age` &gt;18 )</span>
+
+
+<span class="x">// 条件优先级，增加一个中括号</span>
+<span class="x">$data = [</span>
+<span class="x">    [&#39;username&#39;, &#39;like&#39;, &#39;%王%&#39;],</span>
+<span class="x">    [&#39;age&#39;, &#39;exp&#39;, Db::raw(&#39;&gt;18&#39;)],</span>
+<span class="x">];</span>
+
+<span class="x">$sql = Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;where([$data])</span>
+<span class="x">    -&gt;where(&#39;id&#39;, &#39;&gt;&#39;, 1)</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE ( `username` LIKE &#39;%王%&#39; AND ( `age` &gt;18 ) ) </span>
+<span class="x">// AND `id` &gt; 10</span>
+
+
+<span class="x">// 多组条件查询</span>
+<span class="x">$data1 = [</span>
+<span class="x">    [&#39;username&#39;, &#39;like&#39;, &#39;%王%&#39;],</span>
+<span class="x">    [&#39;age&#39;, &#39;exp&#39;, Db::raw(&#39;&gt;18&#39;)],</span>
+<span class="x">];</span>
+
+<span class="x">$data2 = [</span>
+<span class="x">    [&#39;username&#39;, &#39;like&#39;, &#39;%孙%&#39;],</span>
+<span class="x">    [&#39;age&#39;, &#39;&gt;&#39;, 18],</span>
+<span class="x">];</span>
+
+<span class="x">$sql = Db::table(&#39;tb_user&#39;)-&gt;whereOr([$data1, $data2])</span>
+<span class="x">// SELECT * FROM `tb_user` </span>
+<span class="x">// WHERE ( `username` LIKE &#39;%王%&#39; AND ( `age` &gt;18 ) ) </span>
+<span class="x">// OR ( `username` LIKE &#39;%孙%&#39; AND `age` &gt; &#39;18&#39; )</span>
+
+
+<span class="x">// 闭包查询</span>
+<span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;where(function ($query){</span>
+<span class="x">        $query-&gt;where(&#39;id&#39;, &#39;&gt;&#39;, 1);</span>
+<span class="x">    })</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE ( `id` &gt; 1 )</span>
+
+
+<span class="x">// 原样sql查询条件和参数绑定</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;whereRaw(&#39;id &gt; ?&#39;, [12])</span>
+<span class="x">Db::table(&#39;tb_user&#39;)-&gt;whereRaw(&#39;id &gt; :id&#39;, [&#39;id&#39; =&gt; 12])</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE ( id &gt; &#39;12&#39; )</span>
+</pre></div>
+
+
+<h2 id="_14">快捷查询</h2>
+<div class="codehilite"><pre><span></span><span class="x">Db::table(&#39;tb_user&#39;)</span>
+<span class="x">    -&gt;whereColumn(&#39;create_time&#39;, &#39;&gt;&#39;, &#39;update_time&#39;)</span>
+<span class="x">// SELECT * FROM `tb_user` WHERE ( `create_time` &gt; `update_time` )</span>
+</pre></div>
+
+
+<h2 id="_15">事务和获取器</h2>
+<p>事务</p>
+<div class="codehilite"><pre><span></span><span class="x">// 自动处理，出错自动回滚；</span>
+<span class="x">Db::transaction(function () {</span>
+<span class="x">    Db::name(&#39;user&#39;)-&gt;where(&#39;id&#39;, 19)-&gt;save([&#39;price&#39;=&gt;Db::raw(&#39;price - 3&#39;)]);</span>
+<span class="x">    Db::name(&#39;user1&#39;)-&gt;where(&#39;id&#39;, 20)-&gt;save([&#39;price&#39;=&gt;Db::raw(&#39;price + 3&#39;)]);</span>
+<span class="x">});</span>
+
+
+<span class="x">// 手动处理</span>
+<span class="x">//启动事务</span>
+<span class="x">Db::startTrans();</span>
+<span class="x">try {</span>
+<span class="x">    Db::name(&#39;user&#39;)-&gt;where(&#39;id&#39;, 19)-&gt;save([&#39;price&#39;=&gt;Db::raw(&#39;price - 3&#39;)]);</span>
+<span class="x">    Db::name(&#39;user1&#39;)-&gt;where(&#39;id&#39;, 20)-&gt;save([&#39;price&#39;=&gt;Db::raw(&#39;price + 3&#39;)]);</span>
+<span class="x">    //提交事务</span>
+<span class="x">    Db::commit();</span>
+<span class="x">} catch (\Exception $e) {</span>
+<span class="x">    echo &#39;执行 SQL 失败！&#39;;</span>
+<span class="x">    //回滚</span>
+<span class="x">    Db::rollback();</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>获取器</p>
+<div class="codehilite"><pre><span></span><span class="x">Db::name(&#39;user&#39;)-&gt;withAttr(&#39;email&#39;, function ($value, $data) {</span>
+<span class="x">    return strtoupper($value);</span>
+<span class="x">})-&gt;select();</span>
+</pre></div>
+
+
+<h2 id="_16">数据集和代码提示</h2>
+<p>1、TP6.0 编辑器没有代码提示问题解决</p>
+<p>将TP5.1的代码注释复制过来即可</p>
+<div class="codehilite"><pre><span></span><span class="n">TP5</span><span class="p">.</span><span class="mi">1</span> <span class="n">think</span><span class="err">\</span><span class="n">Db</span>
+<span class="n">TP6</span><span class="p">.</span><span class="mi">0</span> <span class="n">think</span><span class="err">\</span><span class="n">facade</span><span class="err">\</span><span class="n">Db</span>
+</pre></div>
+
+
+<p>2、数据集Collection对象</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            2019-2021
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/mouday" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
