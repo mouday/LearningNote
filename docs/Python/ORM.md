@@ -1,7 +1,9 @@
-## ORM 
+## ORM
+
 Object-Relational Mapping
 
 对应关系
+
 ```
 ORM   DB
 类    数据表
@@ -9,14 +11,16 @@ ORM   DB
 属性  字段
 ```
 
-ORM提高开发效率，降低了执行效率
+ORM 提高开发效率，降低了执行效率
 
 Flask - Sqlalchemy
 
 $ python manage.py migrate
 
 ## 字段类型和参数
+
 1、字段类型
+
 ```
 # 自增长 默认int
 
@@ -67,50 +71,51 @@ GenericIPAddress = models.GenericIPAddressField()
 
 3、字段类型参数
 默认表名
-应用_模型类名小写
+应用\_模型类名小写
 eg: app_student
 
 （1）所有字段都有的参数
 
-db_column="name"  指定数据库字段名
+db_column="name" 指定数据库字段名
 verbose_name="别名"
 help_text="表单说明"
 
-primary_key=True  设置主键
-unique=True       唯一键
-null=True         数据库允许为空，默认都是不能为null的
-blank=True    前端提交表单允许为空
+primary_key=True 设置主键
+unique=True 唯一键
+null=True 数据库允许为空，默认都是不能为 null 的
+blank=True 前端提交表单允许为空
 db_index=True 建立索引
 editable=False 不允许编辑字段
 
 （2）个别字段的参数
 CharField
-    max_length=100 最大长度
+max_length=100 最大长度
 
 DateField、DateTime
-    unique_for_date=True 日期必须唯一
-    unique_for_month=True 月份唯一
-    auto_now=True       自动更新记录时间
-    auto_now_add=True   自动增加记录时间
+unique_for_date=True 日期必须唯一
+unique_for_month=True 月份唯一
+auto_now=True 自动更新记录时间
+auto_now_add=True 自动增加记录时间
 
 DecimalField
-    max_digits=4   总位数
-    decimal_places=2 小数点数
-    eg: 11.22 16.34
+max_digits=4 总位数
+decimal_places=2 小数点数
+eg: 11.22 16.34
 
 （3）关系型字段参数
 OneToOneField
-    related_name="one"  父表查字表数据
+related_name="one" 父表查字表数据
 
 ForeignKey
-    on_delete=""  外键所关联的对象被删除时进行的操作
-        CASCADE： 级联删除。将定义有外键的模型对象同时删除， 默认操作
-        PROTECT： 阻止删除。会报完整性错误。
-        DO_NOTHING：什么也不做
-        SET_NULL：外键设置为 null，前提是 null=True, blank=True。
-        SET_DEFAULT：设置为外键的默认值，前提是设置了default参数。
-        SET()：会调用外面的值，可以是一个函数。一般情况下使用 CASCADE 就可以了。
+on_delete="" 外键所关联的对象被删除时进行的操作
+CASCADE： 级联删除。将定义有外键的模型对象同时删除， 默认操作
+PROTECT： 阻止删除。会报完整性错误。
+DO_NOTHING：什么也不做
+SET_NULL：外键设置为 null，前提是 null=True, blank=True。
+SET_DEFAULT：设置为外键的默认值，前提是设置了 default 参数。
+SET()：会调用外面的值，可以是一个函数。一般情况下使用 CASCADE 就可以了。
 eg:
+
 ```python
 
 class B(models.Model):
@@ -126,6 +131,7 @@ class B(models.Model):
 4、自关联
 
 示例：地址 省-市-县 级联
+
 ```python
 
 class AddressInfo(models.Model):
@@ -136,9 +142,11 @@ class AddressInfo(models.Model):
         return self.address
 ```
 
-## 元数据Meta
+## 元数据 Meta
+
 修改应用名称
 apps.py
+
 ```python
 class OrmdemoConfig(AppConfig):
     name = 'ormdemo'
@@ -146,7 +154,8 @@ class OrmdemoConfig(AppConfig):
 
 ```
 
-修改model元数据
+修改 model 元数据
+
 ```python
 
 class AddressInfo(models.Model):
@@ -171,6 +180,7 @@ class AddressInfo(models.Model):
 ```
 
 ## 模型类开发实例
+
 ```python
 
 """
@@ -254,24 +264,24 @@ class TeacherAssistant(models.Model):
 
 ```
 
-
 生成数据表
+
 ```
 python manage.py makemigrations   # 生成迁移文件
 python manage.py migrate          # 执行迁移文件
 ```
 
 删除某个模型类的完整操作:
-（1）在已创建的app下, 首先删除models.py中需要删除的模型类
-（2）删除该模型类在迁移脚本migrations中的对应文件
-（3）删除该项目在django_migrations中的对应记录
+（1）在已创建的 app 下, 首先删除 models.py 中需要删除的模型类
+（2）删除该模型类在迁移脚本 migrations 中的对应文件
+（3）删除该项目在 django_migrations 中的对应记录
 （4）删除数据库中对应的数据表
-
 
 导入数据
 （1）django shell
 
 $ python manage.py shell
+
 ```
 from app.models import Mode
 
@@ -280,7 +290,8 @@ model.name = "name"
 model.save()
 ```
 
-（2）脚本导入 
+（2）脚本导入
+
 ```python
 # -*- coding: utf-8 -*-
 import os
@@ -302,7 +313,7 @@ from ormdemo.models import Teacher, Course, Student, TeacherAssistant
 def import_data():
     # 讲师数据 create
     Teacher.objects.create(nickname="Jack", introduction="Python工程师", fans=666)
-    
+
     # 课程数据 bulk_create
     data = [
         Course(title=f"Python系列教程{i}",
@@ -331,7 +342,7 @@ def import_data():
     # 正向添加
     # 销量大于等于1000的课程
     Student.objects.get(nickname="A同学").course.add(*Course.objects.filter(volume__gte=1000))
-    
+
     # 反向添加
     # 学习时间大于等于500小时的同学
     Course.objects.get(title="Python系列教程1").student_set.add(*Student.objects.filter(
@@ -353,21 +364,21 @@ if __name__ == '__main__':
 
 ```
 
-（3）fixtures 
-Django serialization -> model保存
-python manage.py dumpdata > data.json  # 导出数据
-python manage.py loaddata data.json    # 导入数据
-
+（3）fixtures
+Django serialization -> model 保存
+python manage.py dumpdata > data.json # 导出数据
+python manage.py loaddata data.json # 导入数据
 
 （4）mysqldump
-MySQL数据库导入导出数据
+MySQL 数据库导入导出数据
 
 (5)PyCharm
-PyCharm自带的导入导出工具
-
+PyCharm 自带的导入导出工具
 
 ## ModelAPI
+
 1、查询，检索，过滤
+
 ```python
 Teacher.objects.all()  # 返回多个结果
 Teacher.objects.get(id=1)  返回一条结果
@@ -375,6 +386,7 @@ Teacher.objects.filter(fans__gte=500) # 返回多个结果
 ```
 
 2、数据匹配大小写敏感
+
 ```python
 # 双下划线开头`__`
 Teacher.objects.filter(fans__in=[500, 600])
@@ -383,51 +395,57 @@ Teacher.objects.filter(fans__in=[500, 600])
 Teacher.objects.filter(nickname__icontains="A")
 
 ```
+
 3、结果切片、排序、链式查询
+
 ```python
 Teacher.objects.all()[:1]
 Teacher.objects.all().order_by("-age")  # 负号表示降序
 Teacher.objects.filter(fans__gte=500).order_by("nickname")  # 查询集可以继续使用排序
 ```
 
-4、查看执行的原生SQL
+4、查看执行的原生 SQL
+
 ```python
 Teacher.objects.all().order_by("-nickname").query
 """
-SELECT `ormdemo_teacher`.`nickname`, 
-FROM `ormdemo_teacher` 
+SELECT `ormdemo_teacher`.`nickname`,
+FROM `ormdemo_teacher`
 ORDER BY `ormdemo_teacher`.`nickname` DESC
 """
 ```
 
-## 返回新的QuerySet的API
+## 返回新的 QuerySet 的 API
+
 读操作大部分都返回
 
 1、第一类
 all 全部
 filter 过滤
 order_by 排序
-exclude  排除
-reverse  逆序 需要在元数据中设置ordering
+exclude 排除
+reverse 逆序 需要在元数据中设置 ordering
 distinct 去重
+
 ```python
 Student.objects.all().exclude(nickname="A同学")
-# SELECT `ormdemo_student`.`nickname` 
-# FROM `ormdemo_student` 
+# SELECT `ormdemo_student`.`nickname`
+# FROM `ormdemo_student`
 # WHERE NOT (`ormdemo_student`.`nickname` = A同学)
 
 Student.objects.all().exclude(nickname="A同学").reverse()
 """
 ELECT `ormdemo_student`.`nickname`
-FROM `ormdemo_student` 
+FROM `ormdemo_student`
 WHERE NOT (`ormdemo_student`.`nickname` = A同学)
 """
 ```
 
 2、第二类
-extra   别名
-defer   排除一些字段
-only    选择一些字段
+extra 别名
+defer 排除一些字段
+only 选择一些字段
+
 ```python
 Student.objects.all().extra(select={"name": "nickname"})
 """
@@ -442,8 +460,9 @@ SELECT `ormdemo_student`.`nickname`, `ormdemo_student`.`age` FROM `ormdemo_stude
 ```
 
 3、第三类
-values  获取字典形式
+values 获取字典形式
 values_list 获取元组形式
+
 ```python
 Student.objects.values("nickname", "age")
 # <QuerySet [{'nickname': 'A同学', 'age': 54}, {'nickname': 'B同学', 'age': 36}]>
@@ -456,13 +475,14 @@ Student.objects.values_list("nickname", flat=True) # 单个字段返回列表
 ```
 
 4、第四类
-dates、datatimes根据时间日期获取查询集
+dates、datatimes 根据时间日期获取查询集
+
 ```python
 Student.objects.dates("created_at", "month")
 """
-SELECT DISTINCT CAST(DATE_FORMAT(`ormdemo_student`.`created_at`, '%Y-%m-01') AS DATE) AS `datefield` 
-FROM `ormdemo_student` 
-WHERE `ormdemo_student`.`created_at` IS NOT NULL 
+SELECT DISTINCT CAST(DATE_FORMAT(`ormdemo_student`.`created_at`, '%Y-%m-01') AS DATE) AS `datefield`
+FROM `ormdemo_student`
+WHERE `ormdemo_student`.`created_at` IS NOT NULL
 ORDER BY `datefield` ASC
 """
 
@@ -479,25 +499,26 @@ ret2 = Student.objects.filter(nickname="同学B")
 ret1.union(ret2)
 """
 (SELECT `ormdemo_student`.`nickname
-FROM `ormdemo_student` 
-WHERE `ormdemo_student`.`nickname` = '同学A') 
-UNION 
+FROM `ormdemo_student`
+WHERE `ormdemo_student`.`nickname` = '同学A')
+UNION
 (SELECT `ormdemo_student`.`nickname`
-FROM `ormdemo_student` 
-WHERE `ormdemo_student`.`nickname` = '同学B')  
+FROM `ormdemo_student`
+WHERE `ormdemo_student`.`nickname` = '同学B')
 LIMIT 2
 ```
 
 6、第六类
-select_related   一对一，多对一查询优化
-prefetch_related  一对多，多对多查询优化
+select_related 一对一，多对一查询优化
+prefetch_related 一对多，多对多查询优化
+
 ```python
 Course.objects.all().select_related("teacher")
 """
  SELECT `ormdemo_course`.`title`,  `ormdemo_teacher`.`nickname`
- FROM `ormdemo_course` 
+ FROM `ormdemo_course`
  LEFT OUTER JOIN `ormdemo_teacher`
- ON (`ormdemo_course`.`teacher_id` = `ormdemo_teacher`.`nickname`)  
+ ON (`ormdemo_course`.`teacher_id` = `ormdemo_teacher`.`nickname`)
  LIMIT 21;
 """
 
@@ -507,80 +528,83 @@ SELECT `ormdemo_student`.`nickname`
 FROM `ormdemo_student`  LIMIT 21;
 
 SELECT (`ormdemo_student_course`.`student_id`) AS `_prefetch_related_val_student_id`, `ormdemo_course`.`title`
-FROM `ormdemo_course` 
-INNER JOIN `ormdemo_student_course` 
-ON (`ormdemo_course`.`title` = `ormdemo_student_course`.`course_id`) 
+FROM `ormdemo_course`
+INNER JOIN `ormdemo_student_course`
+ON (`ormdemo_course`.`title` = `ormdemo_student_course`.`course_id`)
 WHERE `ormdemo_student_course`.`student_id` IN ('A同学', 'B同学', 'C同学', 'D同学');
 """
 
 ```
 
 反向查询
+
 ```python
 Teacher.objects.get(nickname="Jack").course_set.all()
 """
 SELECT `ormdemo_teacher`.`nickname`
-FROM `ormdemo_teacher` 
+FROM `ormdemo_teacher`
 WHERE `ormdemo_teacher`.`nickname` = 'Jack'
 
 SELECT `ormdemo_course`.`title`
-FROM `ormdemo_course` 
-WHERE `ormdemo_course`.`teacher_id` = 'Jack'  
+FROM `ormdemo_course`
+WHERE `ormdemo_course`.`teacher_id` = 'Jack'
 LIMIT 21;
 """
 ```
+
 7、第七类
-annotate 聚合计数，求和，平均数，执行原生SQL（分组后的数据进行统计）
+annotate 聚合计数，求和，平均数，执行原生 SQL（分组后的数据进行统计）
 
 ```python
 from django.db.models import Count, Avg, Max, Min, Sum
 
 Course.objects.values("teacher").annotate(vol=Sum("volume"))
 """
-SELECT `ormdemo_course`.`teacher_id`, SUM(`ormdemo_course`.`volume`) AS `vol` 
-FROM `ormdemo_course` 
-GROUP BY `ormdemo_course`.`teacher_id` 
+SELECT `ormdemo_course`.`teacher_id`, SUM(`ormdemo_course`.`volume`) AS `vol`
+FROM `ormdemo_course`
+GROUP BY `ormdemo_course`.`teacher_id`
 ORDER BY NULL  LIMIT 21;
 
 """
 
 Course.objects.values("teacher").annotate(pri=Avg("price"))
 """
-SELECT `ormdemo_course`.`teacher_id`, AVG(`ormdemo_course`.`price`) AS `pri` 
-FROM `ormdemo_course` 
-GROUP BY `ormdemo_course`.`teacher_id` 
+SELECT `ormdemo_course`.`teacher_id`, AVG(`ormdemo_course`.`price`) AS `pri`
+FROM `ormdemo_course`
+GROUP BY `ormdemo_course`.`teacher_id`
 ORDER BY NULL  LIMIT 21;
 # order by null用途是强制对查询结果禁用排序
 """
-``` 
+```
 
-## 不返回QuerySet的API
+## 不返回 QuerySet 的 API
+
 写操作都不返回结果集
 1、获取对象
 get, get_or_create, first, last, in_bulk
-latest最近记录, earliest 最早记录 需要设置元数据get_latest_by
+latest 最近记录, earliest 最早记录 需要设置元数据 get_latest_by
 
 ```python
 Student.objects.get(nickname="A同学")  # 返回多个会报错
 """
 SELECT `ormdemo_student`.`nickname`
-FROM `ormdemo_student` 
+FROM `ormdemo_student`
 WHERE `ormdemo_student`.`nickname` = 'A同学'
 """
 
 Student.objects.first()
 """
 SELECT `ormdemo_student`.`nickname`
-FROM `ormdemo_student` 
-ORDER BY `ormdemo_student`.`nickname` ASC  
+FROM `ormdemo_student`
+ORDER BY `ormdemo_student`.`nickname` ASC
 LIMIT 1
 """
 
 Student.objects.last()
 """
 SELECT `ormdemo_student`.`nickname`
-FROM `ormdemo_student` 
-ORDER BY `ormdemo_student`.`nickname` DESC  
+FROM `ormdemo_student`
+ORDER BY `ormdemo_student`.`nickname` DESC
 LIMIT 1;
 """
 
@@ -588,23 +612,23 @@ LIMIT 1;
 Student.objects.in_bulk(["A同学"])
 """
 SELECT `ormdemo_student`.`nickname`
-FROM `ormdemo_student` 
+FROM `ormdemo_student`
 WHERE `ormdemo_student`.`nickname` IN ('A同学');
 """
 
 Student.objects.latest()
 """
 SELECT `ormdemo_student`.`nickname
-FROM `ormdemo_student` 
-ORDER BY `ormdemo_student`.`created_at` DESC  
+FROM `ormdemo_student`
+ORDER BY `ormdemo_student`.`created_at` DESC
 LIMIT 1;
 """
 
 Student.objects.earliest()
 """
 SELECT `ormdemo_student`.`nickname
-FROM `ormdemo_student` 
-ORDER BY `ormdemo_student`.`created_at` ASC  
+FROM `ormdemo_student`
+ORDER BY `ormdemo_student`.`created_at` ASC
 LIMIT 1;
 
 ```
@@ -614,29 +638,32 @@ create, bulk_create, update_or_create
 
 3、更新对象
 update, update_or_create
+
 ```python
 Student.objects.filter(nickname="A同学").update(age=13)
 """
-UPDATE `ormdemo_student` 
-SET `age` = 13 
-WHERE `ormdemo_student`.`nickname` = 'A同学'; 
+UPDATE `ormdemo_student`
+SET `age` = 13
+WHERE `ormdemo_student`.`nickname` = 'A同学';
 """
 
 ```
+
 4、删除对象
-delete 使用filter过滤
+delete 使用 filter 过滤
+
 ```python
 Student.objects.filter(nickname="A同学").delete()
 """
-SELECT `ormdemo_student`.`nickname 
-FROM `ormdemo_student` 
+SELECT `ormdemo_student`.`nickname
+FROM `ormdemo_student`
 WHERE `ormdemo_student`.`nickname` = 'A同学';
 
 
-DELETE FROM `ormdemo_student_course` 
+DELETE FROM `ormdemo_student_course`
 WHERE `ormdemo_student_course`.`student_id` IN ('A同学');
 
-DELETE FROM `ormdemo_student` 
+DELETE FROM `ormdemo_student`
 WHERE `ormdemo_student`.`nickname` IN ('A同学');
 
 (13, {'ormdemo.Student_course': 12, 'ormdemo.Student': 1})
@@ -646,29 +673,30 @@ WHERE `ormdemo_student`.`nickname` IN ('A同学');
 
 5、其他操作
 exists, count, aggregate(整个数据表统计)
+
 ```python
 Student.objects.filter(nickname="B同学").exists()
 """
-SELECT (1) AS `a` 
-FROM `ormdemo_student` 
-WHERE `ormdemo_student`.`nickname` = 'B同学'  
+SELECT (1) AS `a`
+FROM `ormdemo_student`
+WHERE `ormdemo_student`.`nickname` = 'B同学'
 LIMIT 1
 """
 
 Student.objects.filter(nickname="B同学").count()
 """
-SELECT COUNT(*) AS `__count` 
-FROM `ormdemo_student` 
-WHERE `ormdemo_student`.`nickname` = 'B同学'; 
+SELECT COUNT(*) AS `__count`
+FROM `ormdemo_student`
+WHERE `ormdemo_student`.`nickname` = 'B同学';
 """
 
 Course.objects.aggregate(Max("price"), Min("price"), Avg("price"), Sum("volum"))
 """
-SELECT 
-MAX(`ormdemo_course`.`price`) AS `price__max`, 
-MIN(`ormdemo_course`.`price`) AS `price__min`, 
-AVG(`ormdemo_course`.`price`) AS `price__avg`, 
-SUM(`ormdemo_course`.`volume`) AS `volume__sum` 
+SELECT
+MAX(`ormdemo_course`.`price`) AS `price__max`,
+MIN(`ormdemo_course`.`price`) AS `price__min`,
+AVG(`ormdemo_course`.`price`) AS `price__avg`,
+SUM(`ormdemo_course`.`volume`) AS `volume__sum`
 FROM `ormdemo_course`;
 
 {'price__max': 295, 'price__min': 210, 'price__avg': 250.75, 'volume__sum': 60559}
@@ -678,10 +706,11 @@ FROM `ormdemo_course`;
 自定义聚合查询（略）
 group_contact
 
+## F 对象和 Q 对象
 
-## F对象和Q对象
-F对象 操作字段数据
-Q对象 结合AND OR NOT | ~ & 实现复杂查询
+F 对象 操作字段数据
+Q 对象 结合 AND OR NOT | ~ & 实现复杂查询
+
 ```python
 from django.db.models import F, Q
 Student.objects.update(age=F("age") + 3)
@@ -693,33 +722,8 @@ Student.objects.filter(Q(age__gte=1) & Q(age__lte=10))
 """
 SELECT `ormdemo_student`.`nickname`
 FROM `ormdemo_student`
-WHERE (`ormdemo_student`.`age` >= 1 AND `ormdemo_student`.`age` <= 10) 
+WHERE (`ormdemo_student`.`age` >= 1 AND `ormdemo_student`.`age` <= 10)
 LIMIT 21;
 """
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
