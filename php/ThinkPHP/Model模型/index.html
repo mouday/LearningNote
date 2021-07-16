@@ -546,7 +546,7 @@
 </pre></div>
 
 
-<p>数据集Collection</p>
+<p>数据集 Collection</p>
 <div class="codehilite"><pre><span></span><span class="x">hidden   隐藏字段</span>
 <span class="x">visible  只显示字段</span>
 <span class="x">append   添加获取器字段</span>
@@ -577,6 +577,229 @@
 
 <span class="x">// 动态设置 仅针对模型的更新方法</span>
 <span class="x">$user-&gt;readonly([&#39;name&#39;,&#39;email&#39;])-&gt;save();</span>
+</pre></div>
+
+
+<p>类型转换</p>
+<div class="codehilite"><pre><span></span><span class="x">class User extends Model</span>
+<span class="x">{</span>
+<span class="x">    protected $type = [</span>
+<span class="x">        &#39;status&#39;    =&gt;  &#39;bool&#39;,</span>
+<span class="x">        &#39;score&#39;     =&gt;  &#39;float&#39;,</span>
+<span class="x">        &#39;birthday&#39;  =&gt;  &#39;datetime&#39;,</span>
+<span class="x">        &#39;info&#39;      =&gt;  &#39;array&#39;,</span>
+<span class="x">    ];</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>废弃字段</p>
+<div class="codehilite"><pre><span></span><span class="x">class User extends Model</span>
+<span class="x">{</span>
+<span class="x">    protected $disuse = [ &#39;status&#39;, &#39;type&#39; ];</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>json 类型字段</p>
+<div class="codehilite"><pre><span></span><span class="x">class User extends Model</span>
+<span class="x">{</span>
+<span class="x">    // 设置json类型字段</span>
+<span class="x">    protected $json = [&#39;tags&#39;];</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>软删除</p>
+<div class="codehilite"><pre><span></span><span class="x">use think\model\concern\SoftDelete;</span>
+
+<span class="x">class User extends Model</span>
+<span class="x">{</span>
+<span class="x">    use SoftDelete;</span>
+
+<span class="x">    // 默认字段</span>
+<span class="x">    protected $deleteTime = &#39;delete_time&#39;;</span>
+
+<span class="x">    // 定义软删除字段的默认值</span>
+<span class="x">    protected $defaultSoftDelete = 0;</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">// 软删除</span>
+<span class="x">User::destroy(1);</span>
+<span class="x">// 真实删除</span>
+<span class="x">User::destroy(1, true);</span>
+
+<span class="x">$user = User::find(1);</span>
+<span class="x">// 软删除</span>
+<span class="x">$user-&gt;delete();</span>
+<span class="x">// 真实删除</span>
+<span class="x">$user-&gt;force()-&gt;delete();</span>
+
+<span class="x">// 不包含软删除的数据</span>
+<span class="x">User::find();</span>
+<span class="x">User::select();</span>
+
+<span class="x">// 包含软删除的数据</span>
+<span class="x">User::withTrashed()-&gt;find();</span>
+<span class="x">User::withTrashed()-&gt;select();</span>
+
+<span class="x">// 仅需要查询软删除的数据</span>
+<span class="x">User::onlyTrashed()-&gt;find();</span>
+<span class="x">User::onlyTrashed()-&gt;select();</span>
+
+<span class="x">// 恢复被软删除的数据</span>
+<span class="x">$user = User::onlyTrashed()-&gt;find(1);</span>
+<span class="x">$user-&gt;restore();</span>
+
+<span class="x">// 真实删除：先还原、再删除</span>
+</pre></div>
+
+
+<p>模型和数据库事件</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+<th>事件方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>after_read</td>
+<td>查询后</td>
+<td>onAfterRead</td>
+</tr>
+<tr>
+<td>before_insert</td>
+<td>新增前</td>
+<td>onBeforeInsert</td>
+</tr>
+<tr>
+<td>after_insert</td>
+<td>新增后</td>
+<td>onAfterInsert</td>
+</tr>
+<tr>
+<td>before_update</td>
+<td>更新前</td>
+<td>onBeforeUpdate</td>
+</tr>
+<tr>
+<td>after_update</td>
+<td>更新后</td>
+<td>onAfterUpdate</td>
+</tr>
+<tr>
+<td>before_write</td>
+<td>写入前</td>
+<td>onBeforeWrite</td>
+</tr>
+<tr>
+<td>after_write</td>
+<td>写入后</td>
+<td>onAfterWrite</td>
+</tr>
+<tr>
+<td>before_delete</td>
+<td>删除前</td>
+<td>onBeforeDelete</td>
+</tr>
+<tr>
+<td>after_delete</td>
+<td>删除后</td>
+<td>onAfterDelete</td>
+</tr>
+<tr>
+<td>before_restore</td>
+<td>恢复前</td>
+<td>onBeforeRestore</td>
+</tr>
+<tr>
+<td>after_restore</td>
+<td>恢复后</td>
+<td>onAfterRestore</td>
+</tr>
+</tbody>
+</table>
+<p>关联模型</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关联关系</th>
+<th>相对的关联关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一对一</td>
+<td>hasOne</td>
+<td>belongsTo</td>
+</tr>
+<tr>
+<td>一对多</td>
+<td>hasMany</td>
+<td>belongsTo</td>
+</tr>
+<tr>
+<td>多对多</td>
+<td>belongsToMany</td>
+<td>belongsToMany</td>
+</tr>
+<tr>
+<td>远程一对多</td>
+<td>hasManyThrough</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>多态一对一</td>
+<td>morphOne</td>
+<td>morphTo</td>
+</tr>
+<tr>
+<td>多态一对多</td>
+<td>morphMany</td>
+<td>morphTo</td>
+</tr>
+</tbody>
+</table>
+<p>表结构</p>
+<div class="codehilite"><pre><span></span><span class="err">主表</span>
+<span class="k">user</span> <span class="n">id</span> <span class="n">name</span> 
+
+<span class="err">副表</span>
+<span class="n">profile</span> <span class="n">id</span> <span class="n">age</span> <span class="n">sex</span> <span class="n">user_id</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">class UserModel extends Model</span>
+<span class="x">{</span>
+<span class="x">    public function profile()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;hasOne(ProfileModel::class);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+
+<span class="x">class ProfileModel extends Model</span>
+<span class="x">{</span>
+<span class="x">    public function user()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;belongsTo(UserModel::class);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>关联预载入</p>
+<div class="codehilite"><pre><span></span><span class="x">UserModel::with([&#39;profile&#39;])-&gt;select([1, 2, 3]);</span>
+</pre></div>
+
+
+<p>关联统计</p>
+<div class="codehilite"><pre><span></span><span class="x">UserModel::withCount(&#39;cards&#39;)-&gt;select([1,2,3]);</span>
 </pre></div>
                 
                   
