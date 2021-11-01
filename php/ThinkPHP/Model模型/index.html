@@ -801,6 +801,202 @@
 <p>关联统计</p>
 <div class="codehilite"><pre><span></span><span class="x">UserModel::withCount(&#39;cards&#39;)-&gt;select([1,2,3]);</span>
 </pre></div>
+
+
+<p>多对多关联</p>
+<p>表结构</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">tb_user</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">name</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>  <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">create_time</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">update_time</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">tb_role</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">name</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">create_time</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">update_time</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">tb_access</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">user_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">role_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">create_time</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">update_time</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
+  <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="o">`</span><span class="n">uk_user_id_role_id</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">role_id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>模型类</p>
+<div class="codehilite"><pre><span></span><span class="x">/**</span>
+<span class="x"> * 用户表</span>
+<span class="x"> *</span>
+<span class="x"> * @mixin \think\Model</span>
+<span class="x"> */</span>
+<span class="x">class UserModel extends Model</span>
+<span class="x">{</span>
+<span class="x">    protected $table = &#39;tb_user&#39;;</span>
+
+<span class="x">    public function roles()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;belongsToMany(RoleModel::class, AccessModel::class, &#39;role_id&#39;, &#39;user_id&#39;);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+
+
+
+<span class="x">/**</span>
+<span class="x"> * 角色表</span>
+<span class="x"> *</span>
+<span class="x"> * @mixin \think\Model</span>
+<span class="x"> */</span>
+<span class="x">class RoleModel extends Model</span>
+<span class="x">{</span>
+<span class="x">    //</span>
+<span class="x">    protected $table = &#39;tb_role&#39;;</span>
+
+<span class="x">    public function users()</span>
+<span class="x">    {</span>
+<span class="x">        return $this-&gt;belongsToMany(UserModel::class, AccessModel::class);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+
+<span class="x">use think\model\Pivot;</span>
+
+<span class="x">/**</span>
+<span class="x"> * 权限中间表</span>
+<span class="x"> *</span>
+<span class="x"> * @mixin \think\Model</span>
+<span class="x"> */</span>
+<span class="x">class AccessModel extends Pivot</span>
+<span class="x">{</span>
+<span class="x">    //</span>
+<span class="x">    protected $table = &#39;tb_access&#39;;</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>查询示例</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">app\admin\controller</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">app\BaseController</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">app\model\UserModel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+
+    <span class="c1">// 查询列表数据</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUserList</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">UserModel</span><span class="o">::</span><span class="na">with</span><span class="p">([</span><span class="s1">&#39;roles&#39;</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">select</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 查询一条数据</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getUserById</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$user_id</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">UserModel</span><span class="o">::</span><span class="na">with</span><span class="p">([</span><span class="s1">&#39;roles&#39;</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//添加关联</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">addUserRole</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$user_id</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">);</span>
+        <span class="nv">$role_id</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">);</span>
+
+        <span class="nv">$user</span>   <span class="o">=</span> <span class="nx">UserModel</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">roles</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">([</span><span class="nv">$role_id</span><span class="p">,</span> <span class="nv">$role_id</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">//移除关联</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">removeUserRole</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$user_id</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">);</span>
+        <span class="nv">$role_id</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">);</span>
+
+        <span class="nv">$user</span>   <span class="o">=</span> <span class="nx">UserModel</span><span class="o">::</span><span class="na">find</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">roles</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">detach</span><span class="p">([</span><span class="nv">$role_id</span><span class="p">,</span> <span class="mi">2</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>路由</p>
+<div class="codehilite"><pre><span></span><span class="err">路由配置</span> <span class="n">config</span><span class="o">/</span><span class="n">route</span><span class="p">.</span><span class="n">php</span>
+<span class="err">路由定义</span> <span class="n">route</span><span class="o">/</span><span class="n">app</span><span class="p">.</span><span class="n">php</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">// 定义路径参数</span>
+<span class="x">Route::get(&#39;test/:name&#39;, &#39;Index/test&#39;);</span>
+<span class="x">Route::get(&#39;test/&lt;name&gt;&#39;, &#39;Index/test&#39;);</span>
+<span class="x">// /index/test/Tom</span>
+
+<span class="x">// 定义别名</span>
+<span class="x">Route::get(&#39;hello&#39;, &#39;Index/hello&#39;)-&gt;name(&#39;hello&#39;);</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="x">// /index/index/test?name=Tom</span>
+<span class="x">public function test($name)</span>
+<span class="x">{</span>
+<span class="x">    return $name;</span>
+<span class="x">}</span>
+
+<span class="x">public function hello()</span>
+<span class="x">{</span>
+<span class="x">    // return url(&#39;hello&#39;);</span>
+<span class="x">    // /index/Index/hello.html</span>
+
+<span class="x">    return url(&#39;Index/test&#39;, [&#39;name&#39;=&gt; &#39;Tom&#39;]);</span>
+<span class="x">    // /index/test/Tom.html</span>
+
+<span class="x">}</span>
+</pre></div>
+
+
+<p>多级控制器访问</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">app\index\controller\v1</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">BlogController</span>
+<span class="p">{</span>
+    <span class="c1">//多级控制器 /index/v1.blog/index</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;v1.Blog&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 静态方法 /index/v1.blog/detail</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">detail</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;v1.static.detail&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>跨域请求</p>
+<div class="codehilite"><pre><span></span><span class="x">Route::get(&#39;new/:id&#39;, &#39;News/read&#39;)</span>
+<span class="x">    -&gt;allowCrossDomain();</span>
+</pre></div>
+
+
+<p>p40<br />
+https://www.bilibili.com/video/BV12E411y7u8?p=40&amp;spm_id_from=pageDriver</p>
                 
                   
                 
