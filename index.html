@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        class MiniVue {
+            constructor(options) {
+                // 挂载点
+                this.$el = document.querySelector(options.el);
+                // 模板
+                this.$template = options.template;
+                // 数据
+                this.$data = options.data;
+
+                this._initApp()
+            }
+
+            // 初始化工作
+            _initApp() {
+                this._updateView();
+                this._initProxyData();
+            }
+
+            // 劫持代理data
+            _initProxyData() {
+                // 将data劫持代理到this上
+                let that = this;
+                for (let key in this.$data) {
+                    Object.defineProperty(this, key, {
+                        get() {
+                            // 获取数据之前做些事情
+                            return that.$data[key];
+                        },
+                        set(val) {
+                            that.$data[key] = val;
+                            // 设置数据之后将视图更新
+                            that._updateView();
+                        }
+                    })
+                }
+
+
+            }
+
+            // 模板渲染
+            _renderTemplate() {
+                let template = this.$template;
+
+                for (let key in this.$data) {
+                    template = template.replace(`{{${key}}}`, this.$data[key])
+                }
+
+                return template;
+            }
+
+            // 设置视图显示
+            _updateView() {
+                this.$el.innerHTML = this._renderTemplate();
+            }
+        }
+
+        // 实例化
+        var app = new MiniVue({
+            el: '#app',
+            template: '<h1>{{name}}</h1> <h2>{{age}}</h2>',
+            data: {
+                name: 'Tom',
+                age: 23,
+            },
+
+        })
+    </script>
+</body>
+
+</html>

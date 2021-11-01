@@ -328,3 +328,203 @@ UserModel::with(['profile'])->select([1, 2, 3]);
 ```php
 UserModel::withCount('cards')->select([1,2,3]);
 ```
+
+多对多关联
+
+表结构
+
+```sql
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50)  NOT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `tb_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+)
+
+CREATE TABLE `tb_access` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_user_id_role_id` (`user_id`,`role_id`)
+)
+```
+
+模型类
+
+```php
+/**
+ * 用户表
+ *
+ * @mixin \think\Model
+ */
+class UserModel extends Model
+{
+    protected $table = 'tb_user';
+
+    public function roles()
+    {
+        return $this->belongsToMany(RoleModel::class, AccessModel::class, 'role_id', 'user_id');
+    }
+}
+
+
+
+/**
+ * 角色表
+ *
+ * @mixin \think\Model
+ */
+class RoleModel extends Model
+{
+    //
+    protected $table = 'tb_role';
+
+    public function users()
+    {
+        return $this->belongsToMany(UserModel::class, AccessModel::class);
+    }
+}
+
+use think\model\Pivot;
+
+/**
+ * 权限中间表
+ *
+ * @mixin \think\Model
+ */
+class AccessModel extends Pivot
+{
+    //
+    protected $table = 'tb_access';
+}
+```
+
+查询示例
+```php
+<?php
+
+namespace app\admin\controller;
+
+use app\BaseController;
+use app\model\UserModel;
+
+class UserController extends BaseController
+{
+
+    // 查询列表数据
+    public function getUserList()
+    {
+        return UserModel::with(['roles'])->select();
+    }
+
+    // 查询一条数据
+    public function getUserById()
+    {
+        $user_id = input('id');
+        return UserModel::with(['roles'])->find($user_id);
+    }
+
+    //添加关联
+    public function addUserRole()
+    {
+        $user_id = input('user_id');
+        $role_id = input('role_id');
+
+        $user   = UserModel::find($user_id);
+        $result = $user->roles()->attach([$role_id, $role_id]);
+
+        return $result;
+    }
+
+    //移除关联
+    public function removeUserRole()
+    {
+        $user_id = input('user_id');
+        $role_id = input('role_id');
+
+        $user   = UserModel::find($user_id);
+        $result = $user->roles()->detach([$role_id, 2]);
+
+        return $result;
+    }
+    
+}
+
+```
+
+路由
+```
+路由配置 config/route.php
+路由定义 route/app.php
+```
+
+```php
+// 定义路径参数
+Route::get('test/:name', 'Index/test');
+Route::get('test/<name>', 'Index/test');
+// /index/test/Tom
+
+// 定义别名
+Route::get('hello', 'Index/hello')->name('hello');
+
+```
+
+```php
+// /index/index/test?name=Tom
+public function test($name)
+{
+    return $name;
+}
+
+public function hello()
+{
+    // return url('hello');
+    // /index/Index/hello.html
+
+    return url('Index/test', ['name'=> 'Tom']);
+    // /index/test/Tom.html
+
+}
+```
+
+多级控制器访问
+
+```php
+<?php
+namespace app\index\controller\v1;
+
+class BlogController
+{
+    //多级控制器 /index/v1.blog/index
+    public function index()
+    {
+        return 'v1.Blog';
+    }
+
+    // 静态方法 /index/v1.blog/detail
+    public static function detail()
+    {
+        return 'v1.static.detail';
+    }
+}
+```
+
+跨域请求
+```php
+Route::get('new/:id', 'News/read')
+    ->allowCrossDomain();
+```
+p40
+https://www.bilibili.com/video/BV12E411y7u8?p=40&spm_id_from=pageDriver
