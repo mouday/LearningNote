@@ -388,6 +388,10 @@
                 
                 
                 <h1 id="-">微信小程序学习笔记-实战</h1>
+<p>学习视频：</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV12K411A7A2">尚硅谷 2021 版微信小程序开发（零基础小程序开发入门到精通）</a></li>
+</ul>
 <h2 id="_1">技术选型</h2>
 <p>小程序第三方框架</p>
 <ul>
@@ -399,12 +403,14 @@
 <li>原生框架 mina</li>
 </ul>
 <h2 id="_2">目录结构</h2>
-<p>styles 公共样式<br />
-components 组件<br />
-lib 第三方库<br />
-utils 工具库<br />
-request 接口请求</p>
-<p>使用图标 iconfont</p>
+<div class="codehilite"><pre><span></span><span class="n">styles</span> <span class="err">公共样式</span>
+<span class="n">components</span> <span class="err">组件</span>
+<span class="n">lib</span> <span class="err">第三方库</span>
+<span class="n">utils</span> <span class="err">工具库</span>
+<span class="n">request</span> <span class="err">接口请求</span>
+</pre></div>
+
+
 <p>网络请求</p>
 <div class="codehilite"><pre><span></span><span class="nx">wx</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -425,6 +431,50 @@ request 接口请求</p>
 <li>开发环境可以勾选【不校验合法域名】</li>
 <li>生产环境需要配置【服务器域名】</li>
 </ol>
+<p>请求函数封装</p>
+<p>request.js</p>
+<div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm">封装请求函数</span>
+<span class="cm">返回一个Promise对象</span>
+<span class="cm">ref: https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html</span>
+<span class="cm">*/</span>
+
+<span class="c1">// 同时发送请求的数量</span>
+<span class="kd">let</span> <span class="nx">requestCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">request</span><span class="p">({</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">method</span> <span class="o">=</span> <span class="s1">&#39;GET&#39;</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">wx</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="nx">url</span><span class="p">,</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="nx">method</span><span class="p">,</span>
+
+      <span class="c1">// 请求成功</span>
+      <span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+        <span class="nx">resolve</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">},</span>
+
+      <span class="c1">// 请求失败</span>
+      <span class="nx">fail</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+      <span class="p">},</span>
+
+      <span class="c1">// 请求结束</span>
+      <span class="nx">complete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">requestCount</span><span class="o">--</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">requestCount</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// 停止当前页面下拉刷新</span>
+          <span class="nx">wx</span><span class="p">.</span><span class="nx">stopPullDownRefresh</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <p>默认宽高：</p>
 <div class="codehilite"><pre><span></span><span class="n">swiper</span> <span class="mi">100</span><span class="o">%</span> <span class="o">*</span> <span class="mi">150</span><span class="n">px</span>
 <span class="n">image</span>  <span class="mi">320</span><span class="n">px</span> <span class="o">*</span> <span class="mi">240</span><span class="n">px</span>
