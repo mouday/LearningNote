@@ -1,5 +1,7 @@
 # LearningNote
 
+> 已迁移至：https://mouday.github.io/coding-tree/
+
 在线阅读：
 
 [https://www.pengshiyu.com/LearningNote/](https://www.pengshiyu.com/LearningNote/)
